@@ -1,27 +1,250 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f947b6e2-80d7-4a8c-ab24-2b0393148dc5" name="UML" linkedPackageId="0fc8e22d-fba0-4420-a882-2105d36d9bfc" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="5cac0ed9-f424-4c90-bd34-638e1d55e2a2">
-      <profileInstance Id="86848cd1-c3f3-492b-8411-be2df299b23f" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="0dea12de-c9cd-4d6b-b935-76e50c1f13c7">
-      <profileInstance Id="582225b6-6f03-43b7-b8ba-aa8e7811d460" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
-      <class Id="599c0a37-89c6-415d-b899-79cde890c93a" name="MooiePlaceHolderNaam" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="599c0a37-89c6-415d-b899-79cde890c93a" name="Mario" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1" />
+        <suppliersInternal>
+          <dependency Id="46caa025-5e2f-4fee-bf89-98e9d711034e" name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker Id="c27cb31e-565b-4eee-b4d4-38fc2c252ce7" LastKnownName="Coin" />
+            <elementDefinition Id="0ce8b275-9053-47e8-819d-34a6fba9bdc7" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="c0511826-de03-4d75-a79a-e16793bfccf6" name="_coins" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="cdfd8229-76d4-4c43-aea0-3a5b4c5160a7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="5d8dec81-a5f0-4984-a69f-d58ea8c9910f" LastKnownName="int" />
+            </type_NamedElement>
+            <defaultValue>
+              <literalString Id="7b3f2e29-d00e-40fe-adae-ef74f2b92306" name="DefaultValue" value="0">
+                <elementDefinition Id="839be722-e11c-491e-a51f-fbca0bf5f76f" />
+              </literalString>
+            </defaultValue>
+          </property>
+          <property Id="53068f2d-3f12-48d3-b621-1d5097364433" name="_lives" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="edc9f696-88d0-41cb-86e7-68c08e22d092" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="eac60fbb-ef04-4507-8e0f-408d2897b528" LastKnownName="int" />
+            </type_NamedElement>
+            <defaultValue>
+              <literalString Id="47abc294-be79-4805-9c8f-c028272717af" name="DefaultValue" value="3">
+                <elementDefinition Id="8676e569-2716-4c4b-9144-84a0715b6e8a" />
+              </literalString>
+            </defaultValue>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="3c24daca-8f1d-4e4a-9bde-4adf3b131141" name="LoseLife" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="bf158c3c-a600-46ba-af1d-148a75e0b0dc" />
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c7c37c56-ad96-48f9-8589-7c0e9c04dc75" name="Floor" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="17dceef8-01ca-471a-855d-0c82e3cea98c" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a04a5e89-10ec-41f1-9451-a9fe423ab970" name="Solid" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="366009bd-eccf-4170-82d9-7be44f0e5996" />
+        <generalsInternal>
+          <generalization Id="98ab3f65-843b-48c8-8ae8-9e065962d2b6" isSubstitutable="false">
+            <classMoniker Id="c7c37c56-ad96-48f9-8589-7c0e9c04dc75" LastKnownName="Floor" />
+            <elementDefinition Id="3e8357a2-84e1-4203-bec2-1ae7d1db3474" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="baf18d56-37ed-4cfc-87fb-c88c85b339f5" name="Tangible" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="16ea22da-b917-41a3-b12c-5b51e560f303" />
+        <generalsInternal>
+          <generalization Id="972d7016-36da-4c47-9323-47080745d1df" isSubstitutable="false">
+            <classMoniker Id="599c0a37-89c6-415d-b899-79cde890c93a" LastKnownName="Mario" />
+            <elementDefinition Id="4161f1ba-61f5-4c4b-8e99-c86ded03e244" />
+          </generalization>
+          <generalization Id="a93c258a-5c8f-4c76-8864-acdac740fd3d" isSubstitutable="false">
+            <classMoniker Id="a04a5e89-10ec-41f1-9451-a9fe423ab970" LastKnownName="Solid" />
+            <elementDefinition Id="c97f13cb-e5ef-418b-bbce-32cce0eb90c8" />
+          </generalization>
+          <generalization Id="01c5eceb-1be7-46a6-baaa-d560b508a437" isSubstitutable="false">
+            <classMoniker Id="c27cb31e-565b-4eee-b4d4-38fc2c252ce7" LastKnownName="Coin" />
+            <elementDefinition Id="c7422bb0-5ef4-494d-b764-ac3bf75fcb82" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="83677282-689b-4e55-aefd-4723b2e7ba1e" name="_hitbox" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9b63a0f3-a62a-4370-8e4b-83e0d7c5ac44" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fe1ab7ac-031b-418b-b2ef-b8ddaab672e3" LastKnownName="Rectangle" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="fe1ab7ac-031b-418b-b2ef-b8ddaab672e3" name="Rectangle" isAbstract="false" isLeaf="false" cachedFullName="Rectangle">
+        <elementDefinition Id="29267a66-896f-4556-9171-fa6ee15073ff" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c27cb31e-565b-4eee-b4d4-38fc2c252ce7" name="Coin" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="eda2eb09-a087-4fe1-bf14-ff1a5ca4f0ad" />
+        <ownedAttributesInternal>
+          <property Id="2a3a2e5f-e086-461b-8122-38ef0a63edef" name="_value" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c29c2011-fa3e-430b-a6b4-fb7fb4b23394" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="397b0eca-22ec-4bdd-8465-aa6a367006b1" LastKnownName="int" />
+            </type_NamedElement>
+            <defaultValue>
+              <literalString Id="5725de96-f73d-4ad4-8455-fee3a930f99c" name="DefaultValue" value="1">
+                <elementDefinition Id="1c18d84a-2358-4e30-8856-6b82d6359a8e" />
+              </literalString>
+            </defaultValue>
+          </property>
+          <property Id="9d62ba01-4ca0-403b-91d2-e2b4a3271f17" name="_moveable" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c9e7e07a-27ee-43cb-8d63-41e4284e0c39" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="4f7cc3c0-9f65-4c15-afa1-2dd63c2eac69" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="370cc0d6-f262-43e2-ab0c-7f56f4cbc34a" name="AddCoin" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8f7cd575-3775-4b11-be52-ca6b35dab506" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5f33140f-d6d5-49af-bf4c-f0bd72ac65ef" name="mario" direction="In">
+                  <elementDefinition Id="e584efe7-83b3-4d6b-81cb-93be922ab94f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="89c1486f-ca79-4b52-8f70-e06bf796efc8" LastKnownName="Mario" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="397b0eca-22ec-4bdd-8465-aa6a367006b1" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="ad2fe2b8-ab76-499a-b087-f5c841910742" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="89c1486f-ca79-4b52-8f70-e06bf796efc8" name="Mario" isAbstract="false" isLeaf="false" cachedFullName="UML::Mario">
+        <elementDefinition Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="5d8dec81-a5f0-4984-a69f-d58ea8c9910f" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="ad2fe2b8-ab76-499a-b087-f5c841910742" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="eac60fbb-ef04-4507-8e0f-408d2897b528" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="ad2fe2b8-ab76-499a-b087-f5c841910742" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="00eb4638-112a-4feb-8179-916a4a8e67bc" name="Moveable" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6f66b35f-29d5-4765-8af4-49341ee11257" />
+        <generalsInternal>
+          <generalization Id="7118dffe-555f-4def-9b64-462638b7e56c" isSubstitutable="false">
+            <classMoniker Id="599c0a37-89c6-415d-b899-79cde890c93a" LastKnownName="Mario" />
+            <elementDefinition Id="84b59a23-82be-4fb6-aad8-2b3fe88b790a" />
+          </generalization>
+          <generalization Id="644b4fb4-fe47-40e5-9656-9141b130bc6e" isSubstitutable="false">
+            <classMoniker Id="c27cb31e-565b-4eee-b4d4-38fc2c252ce7" LastKnownName="Coin" />
+            <elementDefinition Id="753202e4-7fdc-4361-9449-c9b639e8c95e" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="1a2acae9-7ca0-47b4-8ab9-64b1fb8c4a7a" name="_velocityX" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="be02c6b5-078f-4a09-8d85-91f650c54f13" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0f908073-f0f1-4f71-86bb-35218c860c8d" LastKnownName="int" />
+            </type_NamedElement>
+            <defaultValue>
+              <literalString Id="7e0de28a-0775-450a-be41-78de3f6d959f" name="DefaultValue" value="0">
+                <elementDefinition Id="00d956af-8944-467c-a385-c0ae094525e5" />
+              </literalString>
+            </defaultValue>
+          </property>
+          <property Id="51300c63-adae-415f-abfa-39003d46c787" name="_velocityY" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b0f74d76-b569-4c50-9adc-bface791da22" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c568bcb2-249b-41e6-a178-8f2c252c08cb" LastKnownName="int" />
+            </type_NamedElement>
+            <defaultValue>
+              <literalString Id="ae7a87ad-4485-4230-9d42-645532e9c002" name="DefaultValue" value="0">
+                <elementDefinition Id="d9f849e2-3d79-4b59-b48c-6c4ba4e4b5b4" />
+              </literalString>
+            </defaultValue>
+          </property>
+          <property Id="900216d4-392e-4bc1-baee-87ed3c2f1989" name="_jumpVelocity" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a6717a80-7424-45df-b4f9-426b168b00c3" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="5f789715-c705-4705-8ed7-ab09a78a82f3" LastKnownName="int" />
+            </type_NamedElement>
+            <defaultValue>
+              <literalString Id="60fcce21-319d-487a-a849-8900ee6272ee" name="DefaultValue">
+                <elementDefinition Id="d3886c72-fbd2-479f-99d2-fba59df564a4" />
+              </literalString>
+            </defaultValue>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="a310c17a-aa63-4702-b14f-3cdd7ca884f7" name="MoveLeft" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="032f91d9-5e8d-45a5-85ec-777191a552ec" />
+          </operation>
+          <operation Id="e25ca867-0c41-42a2-a72b-46506d49b2d3" name="MoveRight" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7659b264-9343-4397-a923-3a789f6f0711" />
+          </operation>
+          <operation Id="eb4b4624-9c64-40f7-808c-a24979af9a14" name="Jump" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="862f24ca-7a67-4863-bd9d-39a9ced10259" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="4f7cc3c0-9f65-4c15-afa1-2dd63c2eac69" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="da19a574-7200-4633-a86b-ca222801f18b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c568bcb2-249b-41e6-a178-8f2c252c08cb" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="ad2fe2b8-ab76-499a-b087-f5c841910742" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="0f908073-f0f1-4f71-86bb-35218c860c8d" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="ad2fe2b8-ab76-499a-b087-f5c841910742" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="5f789715-c705-4705-8ed7-ab09a78a82f3" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="ad2fe2b8-ab76-499a-b087-f5c841910742" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="0fc8e22d-fba0-4420-a882-2105d36d9bfc" name="UML">
     <elementDefinition Id="632bc26b-8b0a-4b9f-a81a-0e6e990a1f6a" />
+    <profileInstances>
+      <packageHasProfileInstances Id="5cac0ed9-f424-4c90-bd34-638e1d55e2a2">
+        <profileInstance Id="86848cd1-c3f3-492b-8411-be2df299b23f" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="0dea12de-c9cd-4d6b-b935-76e50c1f13c7">
+        <profileInstance Id="582225b6-6f03-43b7-b8ba-aa8e7811d460" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

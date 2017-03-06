@@ -21,10 +21,386 @@
     <packageHasNamedElement>
       <class
         Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
-        name="MooiePlaceHolderNaam"
+        name="Mario"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="0ce8b275-9053-47e8-819d-34a6fba9bdc7"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="eda2eb09-a087-4fe1-bf14-ff1a5ca4f0ad"
+              LastKnownName="Coin"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="cdfd8229-76d4-4c43-aea0-3a5b4c5160a7"
+            name="_coins"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+                LastKnownName="int"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+            <defaultValue>
+              <literalString
+                Id="839be722-e11c-491e-a51f-fbca0bf5f76f"
+                name="DefaultValue"
+                value="0" />
+            </defaultValue>
+          </property>
+          <property
+            Id="edc9f696-88d0-41cb-86e7-68c08e22d092"
+            name="_lives"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+                LastKnownName="int"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+            <defaultValue>
+              <literalString
+                Id="8676e569-2716-4c4b-9144-84a0715b6e8a"
+                name="DefaultValue"
+                value="3" />
+            </defaultValue>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="bf158c3c-a600-46ba-af1d-148a75e0b0dc"
+            name="LoseLife"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+        name="int" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="17dceef8-01ca-471a-855d-0c82e3cea98c"
+        name="Floor"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="29267a66-896f-4556-9171-fa6ee15073ff"
+        name="Rectangle" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="366009bd-eccf-4170-82d9-7be44f0e5996"
+        name="Solid"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="3e8357a2-84e1-4203-bec2-1ae7d1db3474"
+            isSubstitutable="false">
+            <classMoniker
+              Id="17dceef8-01ca-471a-855d-0c82e3cea98c"
+              LastKnownName="Floor"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="16ea22da-b917-41a3-b12c-5b51e560f303"
+        name="Tangible"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="4161f1ba-61f5-4c4b-8e99-c86ded03e244"
+            isSubstitutable="false">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+          <generalization
+            Id="c97f13cb-e5ef-418b-bbce-32cce0eb90c8"
+            isSubstitutable="false">
+            <classMoniker
+              Id="366009bd-eccf-4170-82d9-7be44f0e5996"
+              LastKnownName="Solid"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+          <generalization
+            Id="c7422bb0-5ef4-494d-b764-ac3bf75fcb82"
+            isSubstitutable="false">
+            <classMoniker
+              Id="eda2eb09-a087-4fe1-bf14-ff1a5ca4f0ad"
+              LastKnownName="Coin"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="9b63a0f3-a62a-4370-8e4b-83e0d7c5ac44"
+            name="_hitbox"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="29267a66-896f-4556-9171-fa6ee15073ff"
+                LastKnownName="Rectangle"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="eda2eb09-a087-4fe1-bf14-ff1a5ca4f0ad"
+        name="Coin"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="c29c2011-fa3e-430b-a6b4-fb7fb4b23394"
+            name="_value"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+                LastKnownName="int"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+            <defaultValue>
+              <literalString
+                Id="1c18d84a-2358-4e30-8856-6b82d6359a8e"
+                name="DefaultValue"
+                value="1" />
+            </defaultValue>
+          </property>
+          <property
+            Id="c9e7e07a-27ee-43cb-8d63-41e4284e0c39"
+            name="_moveable"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="da19a574-7200-4633-a86b-ca222801f18b"
+                LastKnownName="bool"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="8f7cd575-3775-4b11-be52-ca6b35dab506"
+            name="AddCoin"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e584efe7-83b3-4d6b-81cb-93be922ab94f"
+                  name="mario"
+                  direction="In">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+                      LastKnownName="Mario"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6f66b35f-29d5-4765-8af4-49341ee11257"
+        name="Moveable"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="84b59a23-82be-4fb6-aad8-2b3fe88b790a"
+            isSubstitutable="false">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+          <generalization
+            Id="753202e4-7fdc-4361-9449-c9b639e8c95e"
+            isSubstitutable="false">
+            <classMoniker
+              Id="eda2eb09-a087-4fe1-bf14-ff1a5ca4f0ad"
+              LastKnownName="Coin"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="be02c6b5-078f-4a09-8d85-91f650c54f13"
+            name="_velocityX"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+                LastKnownName="int"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+            <defaultValue>
+              <literalString
+                Id="00d956af-8944-467c-a385-c0ae094525e5"
+                name="DefaultValue"
+                value="0" />
+            </defaultValue>
+          </property>
+          <property
+            Id="b0f74d76-b569-4c50-9adc-bface791da22"
+            name="_velocityY"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+                LastKnownName="int"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+            <defaultValue>
+              <literalString
+                Id="d9f849e2-3d79-4b59-b48c-6c4ba4e4b5b4"
+                name="DefaultValue"
+                value="0" />
+            </defaultValue>
+          </property>
+          <property
+            Id="a6717a80-7424-45df-b4f9-426b168b00c3"
+            name="_jumpVelocity"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+                LastKnownName="int"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+            <defaultValue>
+              <literalString
+                Id="d3886c72-fbd2-479f-99d2-fba59df564a4"
+                name="DefaultValue" />
+            </defaultValue>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="032f91d9-5e8d-45a5-85ec-777191a552ec"
+            name="MoveLeft"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="7659b264-9343-4397-a923-3a789f6f0711"
+            name="MoveRight"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="862f24ca-7a67-4863-bd9d-39a9ced10259"
+            name="Jump"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="da19a574-7200-4633-a86b-ca222801f18b"
+        name="bool" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
