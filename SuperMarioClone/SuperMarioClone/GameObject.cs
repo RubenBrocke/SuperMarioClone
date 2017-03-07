@@ -7,21 +7,17 @@ using Microsoft.Xna.Framework.Graphics;
 
 public abstract class GameObject
 {
-    protected int X
-	{
-		get;
-		set;
-	}
+    protected int X { get; set; }
 
-    protected int Y
-	{
-		get;
-		set;
-	}
+    protected int Y { get; set; }
 
-    public GameObject()
+    protected Texture2D sprite { get; set; }
+
+    protected Level level { get; set; }
+
+    public GameObject() : base()
     {
-
+        
     }
 
 }

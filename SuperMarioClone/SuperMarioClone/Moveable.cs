@@ -7,40 +7,28 @@ using Microsoft.Xna.Framework.Graphics;
 
 public abstract class Moveable : GameObject
 {
-	protected int velocityX
-	{
-		get;
-		set;
-	}
+	protected int velocityX { get; set; }
 
-    protected int velocityY
-	{
-		get;
-		set;
-	}
+    protected int velocityY { get; set; }
 
-    protected int jumpVelocity
-	{
-		get;
-		set;
-	}
+    protected int jumpVelocity { get; set; }
 
     public Moveable() : base()
     {
 
     }
 
-	public virtual void MoveLeft()
+	public void MoveLeft()
 	{
         X += velocityX;
 	}
 
-	public virtual void MoveRight()
+	public void MoveRight()
 	{
         X += velocityX;
 	}
 
-	public virtual void Jump()
+	public void Jump()
 	{
         Y -= jumpVelocity;
 	}

@@ -7,17 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 public abstract class Tangible : Moveable
 {
-	protected Rectangle hitbox
-	{
-		get;
-		set;
-	}
-
-    protected Texture2D sprite
-    {
-        get;
-        set;
-    }
+	protected Rectangle hitbox { get; set; }
 
     public Tangible() : base()
     {

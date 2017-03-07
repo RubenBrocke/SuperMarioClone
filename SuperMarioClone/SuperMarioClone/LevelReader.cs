@@ -29,7 +29,7 @@ public class LevelReader
                     y = Int32.Parse(arguments[2]);
                     width = Int32.Parse(arguments[3]);
                     height = Int32.Parse(arguments[4]);
-                    level.AddTangible(new Floor(x, y, width, height));
+                    level.AddGameObject(new Floor(x, y, width, height));
                 }
                 catch
                 {

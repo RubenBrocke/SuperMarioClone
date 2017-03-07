@@ -488,6 +488,46 @@
               LastKnownLocation="UML.uml" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="f561c9a7-13ed-432a-93be-35207bab7212"
+            name="_width"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+                LastKnownName="int"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="054886bc-d813-498b-aec4-c86cd4c017ab"
+            name="_height"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+                LastKnownName="int"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -620,8 +660,8 @@
         <ownedAttributesInternal>
           <property
             Id="9b63a0f3-a62a-4370-8e4b-83e0d7c5ac44"
-            name="_hitbox"
-            visibility="Private"
+            name="hitbox"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -691,82 +731,6 @@
               <undefinedTypeMoniker
                 Id="29267a66-896f-4556-9171-fa6ee15073ff"
                 LastKnownName="Rectangle"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="3b33c8f2-820e-4683-80a3-163043d43c94"
-            name="_sprite"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="8332e966-eaf6-436d-be37-ba29bdcc9b12"
-                name="property"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="d3569ea6-c023-487d-b5af-b20961d19dbe">
-                    <propertyInstance
-                      Id="1d09b817-29c2-4b4f-8fcf-fb56c85f2524"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="c5ded0a6-48d4-447b-a1f5-0c7f27d9d7d1">
-                    <propertyInstance
-                      Id="5f805438-cc23-437c-b64e-c8ed28a51c2c"
-                      name="Get"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="43efb5cf-8c9b-4497-b5e4-8f191030403e">
-                    <propertyInstance
-                      Id="731ecbf0-18d2-4853-9b8b-550f0b5baee8"
-                      name="HasBody"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="27f1550e-447b-4f9a-82b5-3fb9cdb2efce">
-                    <propertyInstance
-                      Id="0f5af120-bef1-4596-b33a-400adfef8e29"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="d6ecf992-0baa-450b-ae1f-b8f9d286600c">
-                    <propertyInstance
-                      Id="7b159a98-b681-4df6-99b3-7fb426f63b76"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="ca7f60be-f692-4a8d-b52e-9c63bb41809a">
-                    <propertyInstance
-                      Id="36e5828b-177e-4815-b9e1-798c5ed9653d"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="bd64b032-6049-49de-99ee-e0b75d589b38">
-                    <propertyInstance
-                      Id="951b4037-e8dd-4342-9e01-93534a812edb"
-                      name="Set"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="0af45d80-eb62-47e1-93fd-58158bfac693"
-                LastKnownName="Texture2D"
                 LastKnownLocation="UML.uml" />
             </type_NamedElement>
           </property>
@@ -1145,8 +1109,8 @@
         <ownedAttributesInternal>
           <property
             Id="be02c6b5-078f-4a09-8d85-91f650c54f13"
-            name="_velocityX"
-            visibility="Private"
+            name="velocityX"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1227,8 +1191,8 @@
           </property>
           <property
             Id="b0f74d76-b569-4c50-9adc-bface791da22"
-            name="_velocityY"
-            visibility="Private"
+            name="velocityY"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1308,8 +1272,8 @@
           </property>
           <property
             Id="a6717a80-7424-45df-b4f9-426b168b00c3"
-            name="_jumpVelocity"
-            visibility="Private"
+            name="jumpVelocity"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1670,12 +1634,12 @@
             Id="a52ebd25-6f2b-49f7-b085-f3d3178e746e"
             isDerived="false"
             sourceEndRoleName="Level"
-            targetEndRoleName="Tangible"
+            targetEndRoleName="GameObject"
             isLeaf="false"
             isAbstract="false">
             <classMoniker
-              Id="16ea22da-b917-41a3-b12c-5b51e560f303"
-              LastKnownName="Tangible"
+              Id="7385f8e2-9e2a-497f-81d2-6229e5e1c00d"
+              LastKnownName="GameObject"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -1694,7 +1658,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="91cd858f-e423-4033-9f0a-4a949c2fbfb9"
-                  name="Tangible"
+                  name="GameObject"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -1722,7 +1686,7 @@
         <ownedAttributesInternal>
           <property
             Id="f2283c41-ca89-45be-803e-9923721b2b72"
-            name="_tangibles"
+            name="_gameObjects"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
@@ -1865,6 +1829,12 @@
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="0af45d80-eb62-47e1-93fd-58158bfac693"
+                LastKnownName="Texture2D"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
@@ -1943,7 +1913,7 @@
           </operation>
           <operation
             Id="7e0f8034-7c23-4d05-a636-196e2a6f941e"
-            name="AddTangible"
+            name="AddGameObject"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -2003,7 +1973,8 @@
               <operationHasOwnedParameters>
                 <parameter
                   Id="61aada4a-254f-454d-802a-5771a8de5f1a"
-                  direction="Return">
+                  direction="Return"
+                  isUnique="false">
                   <type_NamedElement>
                     <undefinedTypeMoniker
                       Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
@@ -2300,8 +2271,8 @@
         <ownedAttributesInternal>
           <property
             Id="ee4594e4-eb82-41cb-bba2-b8827ef24af3"
-            name="_X"
-            visibility="Private"
+            name="X"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2366,11 +2337,17 @@
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+                LastKnownName="int"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
           </property>
           <property
             Id="f4b0510d-8f52-42b3-8f94-7d808f8535ae"
-            name="_Y"
-            visibility="Private"
+            name="Y"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -2435,6 +2412,106 @@
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+                LastKnownName="int"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="a1b63bf7-eb00-4e11-91ef-c479f6acd77c"
+            name="sprite"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1571004c-2f61-477a-a7cb-60dad613f42e"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0c6fdd0c-542d-428a-84f0-e93c16d86a33">
+                    <propertyInstance
+                      Id="412370af-436a-403b-9958-47183d122f36"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8c7f03aa-755f-4045-9101-a57e5995ccca">
+                    <propertyInstance
+                      Id="138fa742-af3d-4874-93df-198b39b70f6a"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="53686296-077a-4a4b-9a39-fa2959513430">
+                    <propertyInstance
+                      Id="f4d69f98-7b50-4f5e-ab7a-e18d517ef7b9"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="68299bb0-09ca-45e7-9ab3-b7fcf00bd535">
+                    <propertyInstance
+                      Id="b1f3f2c5-53c7-4d47-bc91-358b42f95dc1"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="436c58f3-4cc5-449d-a7e9-da0bd4a8e298">
+                    <propertyInstance
+                      Id="430b7ea5-42b7-4ed7-8cd9-132c680ab84e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="84268112-3047-4825-9374-bed134d0ab65">
+                    <propertyInstance
+                      Id="70972512-d4eb-48a3-a415-ebf73e5ea052"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="36f020b7-3b85-42f1-b3e5-9135a05d1e88">
+                    <propertyInstance
+                      Id="4b338a77-6c54-47ad-ae56-c6e8b11b320f"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="0af45d80-eb62-47e1-93fd-58158bfac693"
+                LastKnownName="Texture2D"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b165b335-0a65-4af5-9a83-db79be157183"
+            name="level"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="6165d044-e25f-44b0-827e-86d9cd93960a"
+                LastKnownName="Level"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
           </property>
         </ownedAttributesInternal>
       </class>

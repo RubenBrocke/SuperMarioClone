@@ -7,9 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 public class Mario : Tangible
 {
-	private int _coins{	get; set; }
+	private int _coins { get; set; }
 
-	private int _lives{	get; set; }
+    private int _lives { get; set; }
 
     public Mario() : base()
     {

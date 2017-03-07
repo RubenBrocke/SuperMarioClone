@@ -38,7 +38,6 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Background.cs" />
     <Compile Include="Coin.cs" />
     <Compile Include="Floor.cs" />
     <Compile Include="GameObject.cs" />

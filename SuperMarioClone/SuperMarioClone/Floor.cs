@@ -7,15 +7,16 @@ using Microsoft.Xna.Framework.Graphics;
 
 public class Floor : Solid
 {
-    public Floor(int _x, int _y, int _width, int _height) : base()
+    private int _width { get; set; }
+    private int _height { get; set; }
+
+    public Floor(int _x, int _y, int _w, int _h) : base()
     {
         X = _x;
         Y = _y;
-        Width = _width;
-        Height = _height;
+        _width = _w;
+        _height = _h;
+        hitbox = new Rectangle(X, Y, _width, _height);
     }
-
-    private int Width { get; set; }
-    private int Height { get; set; }
 }
 
