@@ -5,20 +5,23 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-public class Coin : Tangible
+namespace SuperMarioClone
 {
-	private int _value { get; set; }
-
-	private bool _moveable { get; set; }
-
-    public Coin() : base()
+    public class Coin : Tangible
     {
+        private int _value { get; set; }
 
-    }
+        private bool _moveable { get; set; }
 
-	public virtual void AddCoin(Mario mario)
-	{
-        mario.addCoin();
-	}
+        public Coin() : base()
+        {
+
+        }
+
+        public virtual void AddCoin(Mario mario)
+        {
+            mario.addCoin();
+        }
+    } 
 }
 

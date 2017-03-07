@@ -5,11 +5,14 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-public abstract class Solid : Tangible
+namespace SuperMarioClone
 {
-    public Solid() : base()
+    public abstract class Solid : Tangible
     {
+        public Solid() : base()
+        {
 
-    }
+        }
+    } 
 }
 

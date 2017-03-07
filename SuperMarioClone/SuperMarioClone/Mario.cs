@@ -5,7 +5,8 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using 
+using Microsoft.Xna.Framework.Content;
+using SuperMarioClone;
 
 public class Mario : Tangible
 {
@@ -13,8 +14,8 @@ public class Mario : Tangible
 
     private int _lives { get; set; }
 
-    public int x_speed_max = 5;
-    public int y_speed_max = 10;
+    private int x_speed_max = 5;
+    private int y_speed_max = 10;
 
     //----Hitbox----//
     public Rectangle outRect;
@@ -26,7 +27,7 @@ public class Mario : Tangible
     {
         X = _x;
         Y = _y;
-        
+        sprite = ContentLoader.loadTexture("Mario");
 
         hitbox = new Rectangle(X, Y, sprite.Width, sprite.Height);
         _lives = 3;
@@ -96,6 +97,11 @@ public class Mario : Tangible
         //Add speed to position
         Y += (int)velocityY;
         X += (int)velocityX;
+    }
+
+    public void Draw()
+    {
+
     }
 
     public void jump()

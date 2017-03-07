@@ -5,35 +5,38 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-public abstract class Moveable : GameObject
+namespace SuperMarioClone
 {
-	protected float velocityX { get; set; }
-
-    protected float velocityY { get; set; }
-
-    protected float jumpVelocity { get; set; }
-
-    protected float gravity = 0.8f;
-
-    public Moveable() : base()
+    public abstract class Moveable : GameObject
     {
+        protected float velocityX { get; set; }
 
-    }
+        protected float velocityY { get; set; }
 
-	public void MoveLeft()
-	{
-        X += (int)velocityX;
-	}
+        protected float jumpVelocity { get; set; }
 
-	public void MoveRight()
-	{
-        X += (int)velocityX;
-	}
+        protected float gravity = 0.8f;
 
-	public void Jump()
-	{
-        Y -= (int)jumpVelocity;
-	}
+        public Moveable() : base()
+        {
 
+        }
+
+        public void MoveLeft()
+        {
+            X += (int)velocityX;
+        }
+
+        public void MoveRight()
+        {
+            X += (int)velocityX;
+        }
+
+        public void Jump()
+        {
+            Y -= (int)jumpVelocity;
+        }
+
+    } 
 }
 

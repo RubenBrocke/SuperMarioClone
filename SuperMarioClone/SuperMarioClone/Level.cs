@@ -5,22 +5,23 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-public class Level
+namespace SuperMarioClone
 {
-	public List<GameObject> _gameObjects { get; set; }
+    public class Level
+    {
+        public List<GameObject> _gameObjects { get; set; }
 
-    private Texture2D _background { get; set; }
+        private Texture2D _background { get; set; }
 
-	public virtual void AddGameObject(GameObject g)
-	{
-        _gameObjects.Add(g);
+        public virtual void AddGameObject(GameObject g)
+        {
+            _gameObjects.Add(g);
 
-	}
+        }
 
-	public virtual void SetBackground(Texture2D background)
-	{
-        _background = background;
-	}
-
+        public virtual void SetBackground(Texture2D background)
+        {
+            _background = background;
+        }
+    }
 }
-

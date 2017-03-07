@@ -4,30 +4,33 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
-public abstract class GameObject
+namespace SuperMarioClone
 {
-    protected int X { get; set; }
-
-    protected int Y { get; set; }
-
-    protected Texture2D sprite { get; set; }
-
-    protected Level level { get; set; }
-
-    public GameObject() : base()
+    public abstract class GameObject
     {
-        
-    }
+        public int X { get; protected set; }
 
-    public Vector2 GetPosition()
-    {
-        return new Vector2(X, Y);
-    }
+        public int Y { get; protected set; }
 
-    public Texture2D GetSprite()
-    {
-        return sprite;
-    }
+        public SpriteBatch spriteBatch { get; set; }
+
+        public Texture2D sprite { get; protected set; }
+
+        protected Level level { get; set; }
+
+        public GameObject()
+        {
+
+        }
+
+        public void Draw(int _X, int _Y)
+        {
+            spriteBatch.Begin();
+            spriteBatch.Draw(sprite, new Vector2(X, Y));
+            spriteBatch.End();
+        }
+    } 
 }
 

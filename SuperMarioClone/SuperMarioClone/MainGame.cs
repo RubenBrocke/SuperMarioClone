@@ -13,6 +13,7 @@ namespace SuperMarioClone
         SpriteBatch spriteBatch;
         LevelReader _lr;
         Level levelOne;
+        Mario mario;
 
         public MainGame()
         {
@@ -31,6 +32,8 @@ namespace SuperMarioClone
             // TODO: Add your initialization logic here
             _lr = new LevelReader();
             levelOne = _lr.ReadLevel(1);
+            mario = new Mario(0, 0);
+            ContentLoader.setContentManager(Content);
             base.Initialize();
         }
 
@@ -41,7 +44,7 @@ namespace SuperMarioClone
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            spriteBatch = new SpriteBatch(GraphicsDevice);            
             // TODO: use this.Content to load your game content here
         }
 
