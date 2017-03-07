@@ -38,9 +38,18 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Coin.cs" />
+    <Compile Include="Floor.cs" />
+    <Compile Include="GameObject.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="LevelReader.cs" />
     <Compile Include="MainGame.cs" />
+    <Compile Include="Mario.cs" />
+    <Compile Include="Moveable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Solid.cs" />
+    <Compile Include="Tangible.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
