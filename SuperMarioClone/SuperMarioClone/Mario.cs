@@ -21,13 +21,14 @@ public class Mario : Tangible
     public Rectangle outRect;
 
     //---Current Level---//
-    static Level currentLevel;
+    Level currentLevel;
 
-    public Mario(int _x, int _y) : base()
+    public Mario(int _x, int _y, Level current) : base()
     {
         X = _x;
         Y = _y;
         sprite = ContentLoader.loadTexture("Mario");
+        currentLevel = current;
 
         hitbox = new Rectangle(X, Y, sprite.Width, sprite.Height);
         _lives = 3;
@@ -97,11 +98,9 @@ public class Mario : Tangible
         //Add speed to position
         Y += (int)velocityY;
         X += (int)velocityX;
-    }
 
-    public void Draw()
-    {
-
+        //Debug
+        Console.WriteLine(velocityY);
     }
 
     public void jump()

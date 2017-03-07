@@ -14,8 +14,6 @@ namespace SuperMarioClone
 
         public int Y { get; protected set; }
 
-        public SpriteBatch spriteBatch { get; set; }
-
         public Texture2D sprite { get; protected set; }
 
         protected Level level { get; set; }
@@ -25,10 +23,10 @@ namespace SuperMarioClone
 
         }
 
-        public void Draw(int _X, int _Y)
+        public void Draw(SpriteBatch spriteBatch, int _X, int _Y)
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(sprite, new Vector2(X, Y));
+            spriteBatch.Draw(sprite, new Vector2(_X, _Y));
             spriteBatch.End();
         }
     } 

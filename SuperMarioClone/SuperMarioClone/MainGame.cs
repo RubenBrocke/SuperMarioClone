@@ -12,7 +12,7 @@ namespace SuperMarioClone
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         LevelReader _lr;
-        Level levelOne;
+        public Level levelOne;
         Mario mario;
 
         public MainGame()
@@ -29,11 +29,11 @@ namespace SuperMarioClone
         /// </summary>
         protected override void Initialize()
         {
+            ContentLoader.setContentManager(Content);
             // TODO: Add your initialization logic here
             _lr = new LevelReader();
             levelOne = _lr.ReadLevel(1);
-            mario = new Mario(0, 0);
-            ContentLoader.setContentManager(Content);
+            mario = new Mario(0, 0, levelOne);
             base.Initialize();
         }
 
@@ -68,7 +68,7 @@ namespace SuperMarioClone
                 Exit();
 
             // TODO: Add your update logic here
-
+            mario.Update();
             base.Update(gameTime);
         }
 
@@ -79,6 +79,7 @@ namespace SuperMarioClone
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            mario.Draw(spriteBatch, mario.X, mario.Y);
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

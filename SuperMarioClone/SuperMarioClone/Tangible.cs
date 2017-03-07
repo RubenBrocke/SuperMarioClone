@@ -18,7 +18,7 @@ namespace SuperMarioClone
 
         public bool IsColliding(Level lvl, int offsetX, int offsetY, out Rectangle Rect)
         {
-            bool succes = true;
+            bool succes = false;
             Rect = Rectangle.Empty;
             foreach (Tangible Object in lvl._gameObjects)
             {
@@ -35,9 +35,8 @@ namespace SuperMarioClone
                     succes = false;
                 }
             }
-
             return succes;
         }
-    } 
+    }
 }
 

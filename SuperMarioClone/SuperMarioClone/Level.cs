@@ -13,6 +13,11 @@ namespace SuperMarioClone
 
         private Texture2D _background { get; set; }
 
+        public Level()
+        {
+            _gameObjects = new List<GameObject>();
+        }
+
         public virtual void AddGameObject(GameObject g)
         {
             _gameObjects.Add(g);
@@ -22,6 +27,18 @@ namespace SuperMarioClone
         public virtual void SetBackground(Texture2D background)
         {
             _background = background;
+        }
+
+        public void DrawLevel(SpriteBatch spriteBatch)
+        {
+            foreach (GameObject Object in _gameObjects)
+            {
+                if (Object.GetType() == typeof(Floor))
+                {
+                    Floor toDraw = (Floor)Object;
+                    toDraw.Draw(spriteBatch);
+                }
+            }
         }
     }
 }
