@@ -29,13 +29,14 @@ public class Mario : Tangible
         Y = _y;
         sprite = ContentLoader.loadTexture("Mario");
         currentLevel = current;
+        jumpVelocity = 27;
 
         hitbox = new Rectangle(X, Y, sprite.Width, sprite.Height);
         _lives = 3;
         _coins = 0;
     }   
 
-    public void Update()
+    public override void Update()
     {
         //Debug
         Console.WriteLine(velocityY);
@@ -61,10 +62,12 @@ public class Mario : Tangible
         if (state.IsKeyDown(Keys.D))
         {
             velocityX = 4;
+            direction = SpriteEffects.None;
         }
         else if (state.IsKeyDown(Keys.A))
         {
             velocityX = -4;
+            direction = SpriteEffects.FlipHorizontally;
         }
         else if (IsColliding(currentLevel, 0, 1, out outRect))
         {
@@ -78,7 +81,7 @@ public class Mario : Tangible
         //Do collision (to be moved to parent class)
         if (IsColliding(currentLevel, 0, (int)velocityY, out outRect))
         {
-            Y = outRect.Top - hitbox.Height / 2;
+            Y = outRect.Top - hitbox.Height;
             velocityY = 0;
         }
 
@@ -107,7 +110,7 @@ public class Mario : Tangible
     {
         if (IsColliding(currentLevel, 0, 1, out outRect))
         {
-            velocityY = jumpVelocity;
+             velocityY = -jumpVelocity;
         }
     }
 

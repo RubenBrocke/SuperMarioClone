@@ -33,11 +33,24 @@ namespace SuperMarioClone
         {
             foreach (GameObject Object in _gameObjects)
             {
-                if (Object.GetType() == typeof(Floor))
+                /*if (Object.GetType() == typeof(Floor))
                 {
                     Floor toDraw = (Floor)Object;
                     toDraw.Draw(spriteBatch);
                 }
+                else
+                {
+                    Object.Draw(spriteBatch);
+                }*/
+                Object.Draw(spriteBatch);
+            }
+        }
+
+        public void UpdateLevel()
+        {
+            foreach (GameObject Object in _gameObjects)
+            {
+                Object.Update();
             }
         }
     }

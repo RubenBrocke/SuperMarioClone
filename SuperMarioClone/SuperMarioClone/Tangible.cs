@@ -24,7 +24,7 @@ namespace SuperMarioClone
             {
                 Rectangle testRect = new Rectangle(Object.X - offsetX, Object.Y - offsetY, Object.hitbox.Width, Object.hitbox.Height);
 
-                if (testRect.Intersects(hitbox))
+                if (testRect.Intersects(hitbox) && Object != this)
                 {
                     succes = true;
                     Rect = Object.hitbox;

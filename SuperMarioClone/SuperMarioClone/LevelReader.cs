@@ -12,7 +12,7 @@ namespace SuperMarioClone
     {
         public Level ReadLevel(int levelNumber)
         {
-            StreamReader lvlReader = new StreamReader("Level" + levelNumber + ".txt");
+            StreamReader lvlReader = new StreamReader(@"..\..\..\..\Level" + levelNumber + ".txt");
             string line;
             Level level = new Level();
             int x, y, width, height;
@@ -40,7 +40,9 @@ namespace SuperMarioClone
                         new FormatException("Unable to parse number in: level" + levelNumber + " File");
                     }                
                 }
+                
             }
+            level.AddGameObject(new Mario(10, 10, level));
             return level;
         }
 

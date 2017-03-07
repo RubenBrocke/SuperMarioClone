@@ -12,8 +12,7 @@ namespace SuperMarioClone
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         LevelReader _lr;
-        public Level levelOne;
-        Mario mario;
+        Level currentLevel;
 
         public MainGame()
         {
@@ -32,8 +31,7 @@ namespace SuperMarioClone
             ContentLoader.setContentManager(Content);
             // TODO: Add your initialization logic here
             _lr = new LevelReader();
-            levelOne = _lr.ReadLevel(1);
-            mario = new Mario(0, 0, levelOne);
+            currentLevel = _lr.ReadLevel(1);
             base.Initialize();
         }
 
@@ -67,8 +65,8 @@ namespace SuperMarioClone
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            currentLevel.UpdateLevel();
             // TODO: Add your update logic here
-            mario.Update();
             base.Update(gameTime);
         }
 
@@ -79,7 +77,7 @@ namespace SuperMarioClone
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-            mario.Draw(spriteBatch, mario.X, mario.Y);
+            currentLevel.DrawLevel(spriteBatch);
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

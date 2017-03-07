@@ -15,7 +15,7 @@ namespace SuperMarioClone
 
         protected float jumpVelocity { get; set; }
 
-        protected float gravity = 0.8f;
+        protected float gravity = 0.01f; 
 
         public Moveable() : base()
         {

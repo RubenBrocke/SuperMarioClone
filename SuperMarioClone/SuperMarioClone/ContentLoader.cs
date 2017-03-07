@@ -18,9 +18,9 @@ namespace SuperMarioClone
             return contentManager.Load<Texture2D>(fileName);
         }
 
-        public static void setContentManager(ContentManager Cm)
+        public static void setContentManager(ContentManager cm)
         {
-            contentManager = Cm;
+            contentManager = cm;
         }
     }
 }

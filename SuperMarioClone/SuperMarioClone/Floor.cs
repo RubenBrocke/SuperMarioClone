@@ -19,17 +19,17 @@ namespace SuperMarioClone
             _width = _w;
             _height = _h;
             hitbox = new Rectangle(X, Y, _width, _height);
-            sprite = ContentLoader.loadTexture("Ground");
+            sprite = ContentLoader.loadTexture("Thicc");
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            for (int i = X; i < _width / sprite.Width; i++)
+            for (int i = X; i < _width + X; i += sprite.Width)
             {
-                for (int y = 0; y < _height / sprite.Height; y++)
+                for (int y = Y; y < _height + Y; y += sprite.Height)
                 {
-                    spriteBatch.Draw(sprite, new Vector2(X + i, Y + y));
+                    spriteBatch.Draw(sprite, new Vector2(i, y));
                 }
             }
             spriteBatch.End();
