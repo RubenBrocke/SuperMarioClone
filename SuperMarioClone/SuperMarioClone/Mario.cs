@@ -7,17 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 public class Mario : Tangible
 {
-	private int _coins
-	{
-		get;
-		set;
-	}
+	private int _coins{	get; set; }
 
-	private int _lives
-	{
-		get;
-		set;
-	}
+	private int _lives{	get; set; }
 
     public Mario() : base()
     {
@@ -26,8 +18,13 @@ public class Mario : Tangible
 
 	public virtual void LoseLife()
 	{
-		throw new System.NotImplementedException();
+        _lives--;    
 	}
+    
+    public void addCoin()
+    {
+        _coins++;
+    }
 
 }
 

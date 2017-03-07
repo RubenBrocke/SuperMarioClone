@@ -7,31 +7,23 @@ using Microsoft.Xna.Framework.Graphics;
 
 public class Level
 {
-	private List<Tangible> _tangibles
-	{
-		get;
-		set;
-	}
+	protected List<Tangible> _tangibles{ get;	set; }
 
-	private object _background
-	{
-		get;
-		set;
-	}
+    protected Texture2D _background{	get; set; }
 
 	public virtual void IsColliding()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddTangible()
+	public virtual void AddTangible(Tangible T)
 	{
-		throw new System.NotImplementedException();
+        _tangibles.Add(T);
 	}
 
-	public virtual void SetBackground()
+	public virtual void SetBackground(Texture2D background)
 	{
-		throw new System.NotImplementedException();
+        _background = background;
 	}
 
 }

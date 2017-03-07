@@ -7,19 +7,19 @@ using Microsoft.Xna.Framework.Graphics;
 
 public abstract class Moveable : GameObject
 {
-	private int _velocityX
+	protected int velocityX
 	{
 		get;
 		set;
 	}
 
-	private int _velocityY
+    protected int velocityY
 	{
 		get;
 		set;
 	}
 
-	private int _jumpVelocity
+    protected int jumpVelocity
 	{
 		get;
 		set;
@@ -32,17 +32,17 @@ public abstract class Moveable : GameObject
 
 	public virtual void MoveLeft()
 	{
-		throw new System.NotImplementedException();
+        X += velocityX;
 	}
 
 	public virtual void MoveRight()
 	{
-		throw new System.NotImplementedException();
+        X += velocityX;
 	}
 
 	public virtual void Jump()
 	{
-		throw new System.NotImplementedException();
+        Y -= jumpVelocity;
 	}
 
 }

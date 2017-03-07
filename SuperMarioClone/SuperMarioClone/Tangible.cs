@@ -7,13 +7,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 public abstract class Tangible : Moveable
 {
-	private Rectangle _hitbox
+	protected Rectangle hitbox
 	{
 		get;
 		set;
 	}
 
-    private Texture2D _sprite
+    protected Texture2D sprite
     {
         get;
         set;

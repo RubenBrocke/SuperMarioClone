@@ -7,17 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 public class Coin : Tangible
 {
-	private int _value
-	{
-		get;
-		set;
-	}
+	private int _value	{ get; set; }
 
-	private bool _moveable
-	{
-		get;
-		set;
-	}
+	private bool _moveable{ get; set; }
 
     public Coin() : base()
     {
@@ -26,7 +18,7 @@ public class Coin : Tangible
 
 	public virtual void AddCoin(Mario mario)
 	{
-		throw new System.NotImplementedException();
+        mario.addCoin();
 	}
 
 }

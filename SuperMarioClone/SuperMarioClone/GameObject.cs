@@ -7,13 +7,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 public abstract class GameObject
 {
-	private object _X
+    protected int X
 	{
 		get;
 		set;
 	}
 
-	private object _Y
+    protected int Y
 	{
 		get;
 		set;
