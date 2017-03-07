@@ -7,11 +7,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 public abstract class Moveable : GameObject
 {
-	protected int velocityX { get; set; }
+	protected float velocityX { get; set; }
 
-    protected int velocityY { get; set; }
+    protected float velocityY { get; set; }
 
-    protected int jumpVelocity { get; set; }
+    protected float jumpVelocity { get; set; }
+
+    protected float gravity = 0.8f;
 
     public Moveable() : base()
     {
@@ -20,17 +22,17 @@ public abstract class Moveable : GameObject
 
 	public void MoveLeft()
 	{
-        X += velocityX;
+        X += (int)velocityX;
 	}
 
 	public void MoveRight()
 	{
-        X += velocityX;
+        X += (int)velocityX;
 	}
 
 	public void Jump()
 	{
-        Y -= jumpVelocity;
+        Y -= (int)jumpVelocity;
 	}
 
 }
