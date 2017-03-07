@@ -11,6 +11,8 @@ namespace SuperMarioClone
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        LevelReader _lr;
+        Level levelOne;
 
         public MainGame()
         {
@@ -27,7 +29,8 @@ namespace SuperMarioClone
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            _lr = new LevelReader();
+            levelOne = _lr.ReadLevel(1);
             base.Initialize();
         }
 
@@ -39,7 +42,6 @@ namespace SuperMarioClone
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             // TODO: use this.Content to load your game content here
         }
 
@@ -74,7 +76,6 @@ namespace SuperMarioClone
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

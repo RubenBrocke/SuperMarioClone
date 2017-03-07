@@ -20,5 +20,14 @@ public abstract class GameObject
         
     }
 
+    public Vector2 GetPosition()
+    {
+        return new Vector2(X, Y);
+    }
+
+    public Texture2D GetSprite()
+    {
+        return sprite;
+    }
 }
 

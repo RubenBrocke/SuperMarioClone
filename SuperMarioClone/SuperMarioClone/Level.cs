@@ -7,13 +7,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 public class Level
 {
-	public List<GameObject> Tangibles { get; set; }
+	public List<GameObject> _gameObjects { get; set; }
 
     private Texture2D _background { get; set; }
 
 	public virtual void AddGameObject(GameObject g)
 	{
-        Tangibles.Add(g);
+        _gameObjects.Add(g);
 
 	}
 

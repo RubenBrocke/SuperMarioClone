@@ -15,7 +15,8 @@ public class LevelReader
         Level level = new Level();
         int x, y, width, height;
 
-        while((line = lvlReader.ReadLine()) != null)
+
+        /*while((line = lvlReader.ReadLine()) != null)
         {
             //Split line
             string[] arguments = line.Split(',');
@@ -36,7 +37,10 @@ public class LevelReader
                     new FormatException("Unable to parse number in: level" + levelNumber + " File");
                 }                
             }
-        }
+        }*/
+
+        level.AddGameObject(new Mario(10, 10));
+
         return level;
 	}
 

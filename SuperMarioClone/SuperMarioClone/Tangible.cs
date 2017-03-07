@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 public abstract class Tangible : Moveable
 {
-    protected Rectangle hitbox;
+    protected Rectangle hitbox { get; set; }
 
     public Tangible() : base()
     {
@@ -18,7 +18,7 @@ public abstract class Tangible : Moveable
     {
         bool succes = true;
         Rect = Rectangle.Empty;
-        foreach (Tangible Object in lvl.Tangibles)
+        foreach (Tangible Object in lvl._gameObjects)
         {
             Rectangle testRect = new Rectangle(Object.X - offsetX, Object.Y - offsetY, Object.hitbox.Width, Object.hitbox.Height);
 

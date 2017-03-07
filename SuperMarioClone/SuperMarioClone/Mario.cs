@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using 
 
 public class Mario : Tangible
 {
@@ -21,9 +22,13 @@ public class Mario : Tangible
     //---Current Level---//
     static Level currentLevel;
 
-    public Mario() : base()
+    public Mario(int _x, int _y) : base()
     {
-        hitbox = new Rectangle(X, Y, Sprite.Width, Sprite.Height);
+        X = _x;
+        Y = _y;
+        
+
+        hitbox = new Rectangle(X, Y, sprite.Width, sprite.Height);
         _lives = 3;
         _coins = 0;
     }   
@@ -34,8 +39,7 @@ public class Mario : Tangible
         Console.WriteLine(velocityY);
 
         //Update Hitbox
-        hitbox.X = X;
-        hitbox.Y = Y;
+        hitbox = new Rectangle(X, Y, sprite.Width, sprite.Height);
 
         //Add gravity
         if (!IsColliding(currentLevel, 0, 1, out outRect))
