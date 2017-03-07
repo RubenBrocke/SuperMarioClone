@@ -19,6 +19,11 @@ public class Coin : Tangible
 		set;
 	}
 
+    public Coin() : base()
+    {
+
+    }
+
 	public virtual void AddCoin(Mario mario)
 	{
 		throw new System.NotImplementedException();

@@ -25,6 +25,11 @@ public abstract class Moveable : GameObject
 		set;
 	}
 
+    public Moveable() : base()
+    {
+
+    }
+
 	public virtual void MoveLeft()
 	{
 		throw new System.NotImplementedException();

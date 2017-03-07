@@ -18,5 +18,10 @@ public abstract class Tangible : Moveable
         get;
         set;
     }
+
+    public Tangible() : base()
+    {
+
+    }
 }
 

@@ -19,5 +19,10 @@ public abstract class GameObject
 		set;
 	}
 
+    public GameObject()
+    {
+
+    }
+
 }
 

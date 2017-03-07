@@ -7,5 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 public class Floor : Solid
 {
+    public Floor() : base()
+    {
+
+    }
 }
 

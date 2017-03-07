@@ -7,5 +7,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 public abstract class Solid : Tangible
 {
+    public Solid() : base()
+    {
+
+    }
 }
 

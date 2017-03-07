@@ -19,7 +19,6 @@ public class Level
 		set;
 	}
 
-
 	public virtual void IsColliding()
 	{
 		throw new System.NotImplementedException();

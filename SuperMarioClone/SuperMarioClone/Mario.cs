@@ -19,6 +19,11 @@ public class Mario : Tangible
 		set;
 	}
 
+    public Mario() : base()
+    {
+
+    }
+
 	public virtual void LoseLife()
 	{
 		throw new System.NotImplementedException();
