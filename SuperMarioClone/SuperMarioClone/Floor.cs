@@ -21,16 +21,24 @@ namespace SuperMarioClone
             _height = _h;
             currentLevel = lvl;
             hitbox = new Rectangle(X, Y, _width, _height);
-            sprite = cm.Load<Texture2D>("Thicc");
+            sprite = cm.Load<Texture2D>("Ground");
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            for (int i = X; i < _width + X; i += sprite.Width)
+            for (int i = X; i < _width + X; i += 16)
             {
-                for (int y = Y; y < _height + Y; y += sprite.Height)
+                for (int y = Y; y < _height + Y; y += 16)
                 {
-                    spriteBatch.Draw(sprite, new Vector2(i, y));
+                    if(y == Y)
+                    {
+                        spriteBatch.Draw(sprite, new Vector2(i, y), sourceRectangle: new Rectangle(17, 0, 16, 16));
+                    }
+                    else
+                    {
+                        spriteBatch.Draw(sprite, new Vector2(i, y), sourceRectangle: new Rectangle(17, 17, 16, 16));
+                    }
+                    
                 }
             }
         }

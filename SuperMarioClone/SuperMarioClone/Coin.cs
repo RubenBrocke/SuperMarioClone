@@ -14,19 +14,26 @@ namespace SuperMarioClone
 
         private bool _moveable { get; set; }
 
+        private bool _hasBeenPickedUp { get; set; }
+
         public Coin(int _x, int _y, Level lvl, ContentManager cm) : base()
         {
             X = _x;
             Y = _y;
             currentLevel = lvl;
-            sprite = cm.Load<Texture2D>("Coin");
+            _hasBeenPickedUp = false;
+            sprite = cm.Load<Texture2D>("MysteryBlock");
             hitbox = new Rectangle(X, Y, sprite.Width, sprite.Height);
         }
 
         public void AddCoin(Mario mario)
         {
-            mario.addCoin();
-            currentLevel.ToRemoveGameObject(this);
+            if (!_hasBeenPickedUp)
+            {
+                mario.addCoin();
+                currentLevel.ToRemoveGameObject(this);
+                _hasBeenPickedUp = true;
+            }
         }
     } 
 }

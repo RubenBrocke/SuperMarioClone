@@ -18,6 +18,10 @@ namespace SuperMarioClone
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.IsFullScreen = false;
+            graphics.ApplyChanges();
             Content.RootDirectory = "Content";
         }
 
@@ -77,8 +81,8 @@ namespace SuperMarioClone
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            spriteBatch.Begin(transformMatrix: camera.GetMatrix());
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            spriteBatch.Begin(transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
+            GraphicsDevice.Clear(Color.Azure);
             currentLevel.DrawLevel(spriteBatch);
             // TODO: Add your drawing code here
             spriteBatch.End();

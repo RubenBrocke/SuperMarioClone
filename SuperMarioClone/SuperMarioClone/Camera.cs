@@ -28,9 +28,9 @@ namespace SuperMarioClone
 
         public void LookAt(int x, int y)
         {
-            _position = new Vector2(Math.Max(0, x - _viewport.Width / 2), 0);
+            _zoom = 3.6f;
+            _position = new Vector2(Math.Max(-289, x - _viewport.Width / 2), 0);
             _origin = new Vector2(_viewport.Width / 2, _viewport.Height);
-            _zoom = 1f;
         }
 
         public Matrix GetMatrix()

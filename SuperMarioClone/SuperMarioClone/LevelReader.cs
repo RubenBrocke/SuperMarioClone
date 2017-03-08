@@ -37,10 +37,10 @@ namespace SuperMarioClone
                 {
                     try
                     {
-                        x = Int32.Parse(arguments[0]);
-                        y = Int32.Parse(arguments[1]);
-                        width = Int32.Parse(arguments[2]);
-                        height = Int32.Parse(arguments[3]);
+                        x = Int32.Parse(arguments[0]) * 16;
+                        y = Int32.Parse(arguments[1]) * 16;
+                        width = Int32.Parse(arguments[2]) * 16;
+                        height = Int32.Parse(arguments[3]) * 16;
                         level.AddGameObject(new Floor(x, y, width, height, level, cm));
                     }
                     catch
@@ -52,8 +52,8 @@ namespace SuperMarioClone
                 {
                     try
                     {
-                        x = Int32.Parse(arguments[0]);
-                        y = Int32.Parse(arguments[1]);
+                        x = Int32.Parse(arguments[0]) * 16;
+                        y = Int32.Parse(arguments[1]) * 16;
                         level.AddGameObject(new Coin(x, y, level, cm));
                     }
                     catch
@@ -64,6 +64,7 @@ namespace SuperMarioClone
 
             }
             level.AddGameObject(new Mario(10, 10, level, cm));
+            lvlReader.Close();
             return level;
         }
 

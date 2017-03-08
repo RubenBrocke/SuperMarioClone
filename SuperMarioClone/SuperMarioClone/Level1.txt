@@ -1,2 +1,22 @@
-Floor: 0, 300, 800, 50
-Coin: 400, 200
+Floor: 0, 35, 50, 4
+Floor: 50, 0, 4, 50
+Floor: -1, -50, 1, 100
+Coin: 0, 32
+Coin: 1, 32
+Coin: 2, 32
+Coin: 3, 32
+Coin: 4, 32
+Coin: 5, 32
+Coin: 6, 32
+Coin: 7, 32
+Coin: 8, 32
+Coin: 9, 32
+Coin: 10, 32
+Coin: 11, 32
+Coin: 12, 32
+Coin: 13, 32
+Coin: 14, 32
+Coin: 15, 32
+Coin: 16, 32
+Coin: 17, 32
+Coin: 18, 32

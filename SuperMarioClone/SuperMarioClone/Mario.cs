@@ -17,6 +17,8 @@ public class Mario : Tangible
     private int x_speed_max = 5;
     private int y_speed_max = 10;
 
+    private SpriteFont _font;
+
     //----Hitbox----//
     public Rectangle outRect;
 
@@ -24,14 +26,15 @@ public class Mario : Tangible
     {
         X = _x;
         Y = _y;
-        sprite = cm.Load<Texture2D>("Mario");
+        sprite = cm.Load<Texture2D>("Mario_Stationary");
+        _font = cm.Load<SpriteFont>("Font");
         currentLevel = lvl;
-        jumpVelocity = 12.12f;
+        jumpVelocity = 4f;
 
         hitbox = new Rectangle(X, Y, sprite.Width, sprite.Height);
         _lives = 3;
         _coins = 0;
-    }   
+    }
 
     public override void Update()
     {
@@ -86,11 +89,11 @@ public class Mario : Tangible
         {
             if (X > outRect.Right)
             {
-                X = outRect.Right + hitbox.Width / 2;
+                X = outRect.Right;
             }
             else if (X < outRect.Left)
             {
-                X = outRect.Left - hitbox.Width / 2;
+                X = outRect.Left - hitbox.Width;
             }
             velocityX = 0;
         }
@@ -122,6 +125,16 @@ public class Mario : Tangible
     public void addCoin()
     {
         _coins++;
+    }
+
+    public override void Draw(SpriteBatch spriteBatch)
+    {
+        base.Draw(spriteBatch);
+        spriteBatch.End();
+        spriteBatch.Begin();
+        spriteBatch.DrawString(_font, String.Format("{0,4}", _coins), new Vector2(32, 512), Color.Black);
+        spriteBatch.End();
+        spriteBatch.Begin(transformMatrix: MainGame.camera.GetMatrix());
     }
 
 }
