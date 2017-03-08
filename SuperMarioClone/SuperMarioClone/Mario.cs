@@ -72,7 +72,7 @@ public class Mario : Tangible
         }
         if (state.IsKeyDown(Keys.Space))
         {
-            jump();
+            Jump();
         }
 
         //Do collision (to be moved to parent class)
@@ -106,7 +106,7 @@ public class Mario : Tangible
         Console.WriteLine(velocityY);
     }
 
-    public void jump()
+    public void Jump()
     {
         if (IsColliding(currentLevel, 0, 1, out outRect))
         {
