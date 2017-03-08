@@ -38,6 +38,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Camera.cs" />
     <Compile Include="Coin.cs" />
     <Compile Include="ContentLoader.cs" />
     <Compile Include="Floor.cs" />

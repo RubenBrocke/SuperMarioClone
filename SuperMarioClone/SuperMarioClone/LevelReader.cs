@@ -33,14 +33,27 @@ namespace SuperMarioClone
                         y = Int32.Parse(arguments[1]);
                         width = Int32.Parse(arguments[2]);
                         height = Int32.Parse(arguments[3]);
-                        level.AddGameObject(new Floor(x, y, width, height));
+                        level.AddGameObject(new Floor(x, y, width, height, level));
                     }
                     catch
                     {
                         new FormatException("Unable to parse number in: level" + levelNumber + " File");
-                    }                
+                    }
                 }
-                
+                if (line.Substring(0, 5).Equals("Coin:"))
+                {
+                    try
+                    {
+                        x = Int32.Parse(arguments[0]);
+                        y = Int32.Parse(arguments[1]);
+                        level.AddGameObject(new Coin(x, y, level));
+                    }
+                    catch
+                    {
+                        new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                    }
+                }
+
             }
             level.AddGameObject(new Mario(10, 10, level));
             return level;

@@ -13,18 +13,35 @@ namespace SuperMarioClone
 
         private Texture2D _background { get; set; }
 
+        private List<GameObject> toRemove = new List<GameObject>();
+
         public Level()
         {
             _gameObjects = new List<GameObject>();
         }
 
-        public virtual void AddGameObject(GameObject g)
+        public void AddGameObject(GameObject g)
         {
             _gameObjects.Add(g);
-
         }
 
-        public virtual void SetBackground(Texture2D background)
+        public void ToRemoveGameObject(GameObject g)
+        {
+            toRemove.Add(g);
+        }
+
+        public void RemoveGameObjects()
+        {
+            foreach(GameObject o in toRemove)
+            {
+                if (_gameObjects.Contains(o))
+                {
+                    _gameObjects.Remove(o);
+                }
+            }
+        }
+        
+        public void SetBackground(Texture2D background)
         {
             _background = background;
         }
@@ -33,15 +50,6 @@ namespace SuperMarioClone
         {
             foreach (GameObject Object in _gameObjects)
             {
-                /*if (Object.GetType() == typeof(Floor))
-                {
-                    Floor toDraw = (Floor)Object;
-                    toDraw.Draw(spriteBatch);
-                }
-                else
-                {
-                    Object.Draw(spriteBatch);
-                }*/
                 Object.Draw(spriteBatch);
             }
         }
@@ -52,6 +60,7 @@ namespace SuperMarioClone
             {
                 Object.Update();
             }
+            RemoveGameObjects();
         }
     }
 }

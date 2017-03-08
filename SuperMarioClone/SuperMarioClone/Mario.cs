@@ -20,16 +20,13 @@ public class Mario : Tangible
     //----Hitbox----//
     public Rectangle outRect;
 
-    //---Current Level---//
-    Level currentLevel;
-
-    public Mario(int _x, int _y, Level current) : base()
+    public Mario(int _x, int _y, Level lvl) : base()
     {
         X = _x;
         Y = _y;
         sprite = ContentLoader.loadTexture("Mario");
-        currentLevel = current;
-        jumpVelocity = 27;
+        currentLevel = lvl;
+        jumpVelocity = 12.12f;
 
         hitbox = new Rectangle(X, Y, sprite.Width, sprite.Height);
         _lives = 3;
@@ -102,6 +99,9 @@ public class Mario : Tangible
         Y += (int)velocityY;
         X += (int)velocityX;
 
+        //Focus camera on Mario
+        MainGame.camera.LookAt(X, Y);
+        
         //Debug
         Console.WriteLine(velocityY);
     }

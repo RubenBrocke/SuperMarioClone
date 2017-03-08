@@ -13,29 +13,40 @@ namespace SuperMarioClone
 
         public Tangible() : base()
         {
-
+            
         }
 
         public bool IsColliding(Level lvl, int offsetX, int offsetY, out Rectangle Rect)
         {
-            bool succes = false;
+            bool collidesWithSolid = false;
             Rect = Rectangle.Empty;
-            foreach (Tangible Object in lvl._gameObjects)
+            foreach (GameObject o in lvl._gameObjects)
             {
-                Rectangle testRect = new Rectangle(Object.X - offsetX, Object.Y - offsetY, Object.hitbox.Width, Object.hitbox.Height);
+                if(o is Tangible)
+                {
+                    Tangible Object = (Tangible)o;
+                    Rectangle testRect = new Rectangle(Object.X - offsetX, Object.Y - offsetY, Object.hitbox.Width, Object.hitbox.Height);
 
-                if (testRect.Intersects(hitbox) && Object != this)
-                {
-                    succes = true;
-                    Rect = Object.hitbox;
-                    break;
-                }
-                else
-                {
-                    succes = false;
-                }
+                    if (testRect.Intersects(hitbox) && Object != this)
+                    {
+                        if (o is Solid)
+                        {
+                            collidesWithSolid = true;
+                            Rect = Object.hitbox;
+                        }
+
+                        if (this is Mario)
+                        {
+                            if (o is Coin)
+                            {
+                                Coin coin = (Coin)o;
+                                coin.AddCoin((Mario)this);
+                            }
+                        }
+                    } 
+                } 
             }
-            return succes;
+            return collidesWithSolid;
         }
     }
 }

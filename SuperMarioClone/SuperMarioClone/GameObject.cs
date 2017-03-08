@@ -20,6 +20,8 @@ namespace SuperMarioClone
 
         protected SpriteEffects direction { get; set; }
 
+        protected Level currentLevel { get; set; }
+
         public GameObject()
         {
             direction = SpriteEffects.None;
@@ -27,9 +29,7 @@ namespace SuperMarioClone
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();
             spriteBatch.Draw(sprite, new Vector2(X, Y), effects: direction);
-            spriteBatch.End();
         }
 
         public virtual void Update()
