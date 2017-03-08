@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace SuperMarioClone
 {
@@ -12,7 +13,7 @@ namespace SuperMarioClone
         private int _width { get; set; }
         private int _height { get; set; }
 
-        public Floor(int _x, int _y, int _w, int _h, Level lvl) : base()
+        public Floor(int _x, int _y, int _w, int _h, Level lvl, ContentManager cm) : base()
         {
             X = _x;
             Y = _y;
@@ -20,7 +21,7 @@ namespace SuperMarioClone
             _height = _h;
             currentLevel = lvl;
             hitbox = new Rectangle(X, Y, _width, _height);
-            sprite = ContentLoader.loadTexture("Thicc");
+            sprite = cm.Load<Texture2D>("Thicc");
         }
 
         public override void Draw(SpriteBatch spriteBatch)

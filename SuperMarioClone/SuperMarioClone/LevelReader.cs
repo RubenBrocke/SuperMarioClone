@@ -5,11 +5,19 @@ using System.Text;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace SuperMarioClone
 {
     public class LevelReader
     {
+        private ContentManager cm;
+
+        public LevelReader(ContentManager _cm)
+        {
+            cm = _cm;
+        }
+
         public Level ReadLevel(int levelNumber)
         {
             StreamReader lvlReader = new StreamReader(@"..\..\..\..\Level" + levelNumber + ".txt");
@@ -33,7 +41,7 @@ namespace SuperMarioClone
                         y = Int32.Parse(arguments[1]);
                         width = Int32.Parse(arguments[2]);
                         height = Int32.Parse(arguments[3]);
-                        level.AddGameObject(new Floor(x, y, width, height, level));
+                        level.AddGameObject(new Floor(x, y, width, height, level, cm));
                     }
                     catch
                     {
@@ -46,7 +54,7 @@ namespace SuperMarioClone
                     {
                         x = Int32.Parse(arguments[0]);
                         y = Int32.Parse(arguments[1]);
-                        level.AddGameObject(new Coin(x, y, level));
+                        level.AddGameObject(new Coin(x, y, level, cm));
                     }
                     catch
                     {
@@ -55,7 +63,7 @@ namespace SuperMarioClone
                 }
 
             }
-            level.AddGameObject(new Mario(10, 10, level));
+            level.AddGameObject(new Mario(10, 10, level, cm));
             return level;
         }
 

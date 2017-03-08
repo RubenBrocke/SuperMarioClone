@@ -20,11 +20,11 @@ public class Mario : Tangible
     //----Hitbox----//
     public Rectangle outRect;
 
-    public Mario(int _x, int _y, Level lvl) : base()
+    public Mario(int _x, int _y, Level lvl, ContentManager cm) : base()
     {
         X = _x;
         Y = _y;
-        sprite = ContentLoader.loadTexture("Mario");
+        sprite = cm.Load<Texture2D>("Mario");
         currentLevel = lvl;
         jumpVelocity = 12.12f;
 

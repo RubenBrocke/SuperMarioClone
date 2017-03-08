@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace SuperMarioClone
 {
@@ -13,12 +14,12 @@ namespace SuperMarioClone
 
         private bool _moveable { get; set; }
 
-        public Coin(int _x, int _y, Level lvl) : base()
+        public Coin(int _x, int _y, Level lvl, ContentManager cm) : base()
         {
             X = _x;
             Y = _y;
             currentLevel = lvl;
-            sprite = ContentLoader.loadTexture("Coin");
+            sprite = cm.Load<Texture2D>("Coin");
             hitbox = new Rectangle(X, Y, sprite.Width, sprite.Height);
         }
 

@@ -40,7 +40,6 @@
   <ItemGroup>
     <Compile Include="Camera.cs" />
     <Compile Include="Coin.cs" />
-    <Compile Include="ContentLoader.cs" />
     <Compile Include="Floor.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Level.cs" />

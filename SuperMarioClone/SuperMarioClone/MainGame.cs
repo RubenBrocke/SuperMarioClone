@@ -29,10 +29,9 @@ namespace SuperMarioClone
         /// </summary>
         protected override void Initialize()
         {
-            ContentLoader.setContentManager(Content);
             // TODO: Add your initialization logic here
             camera = new Camera(GraphicsDevice.Viewport);
-            _lr = new LevelReader();
+            _lr = new LevelReader(Content);
             currentLevel = _lr.ReadLevel(1);
             base.Initialize();
         }
