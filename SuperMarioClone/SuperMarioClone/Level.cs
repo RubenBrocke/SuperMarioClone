@@ -38,6 +38,7 @@ namespace SuperMarioClone
                 {
                     _gameObjects.Remove(o);
                 }
+                toRemove = new List<GameObject>();
             }
         }
         
