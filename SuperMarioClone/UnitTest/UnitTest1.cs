@@ -1,16 +1,31 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SuperMarioClone;
+using System.Reflection;
 
 namespace UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class CoinTest
     {
-        [TestMethod]
-        public void TestMethod1()
+
+        [TestInitialize]
+
+        static void Init()
         {
-            Mario jeMarioIsEenPlopkoek = new Mario(10, 10, new Level());
+            using (var testGame = new MainGame())
+            {
+                testGame.Run();
+            }
+        }
+        [TestMethod]
+        public void AddCoinTest()
+        {
+            Mario mario = new Mario(10, 10, new Level());
+            Coin coin = new Coin(10, 20, new Level());
+            coin.AddCoin(mario);
+            var _coin= typeof(Mario).GetField("_coins", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(mario);
+            Assert.AreEqual(1, _coin);
         }
     }
 }
