@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SuperMarioClone;
 
 namespace UnitTest
 {
@@ -9,7 +10,7 @@ namespace UnitTest
         [TestMethod]
         public void TestMethod1()
         {
-            
+            Mario jeMarioIsEenPlopkoek = new Mario(10, 10, new Level());
         }
     }
 }
