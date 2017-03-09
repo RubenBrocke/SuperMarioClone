@@ -34,20 +34,20 @@ namespace SuperMarioClone
                     {
                         if (i == X)
                         {
-                            spriteBatch.Draw(sprite, new Vector2(X, Y), sourceRectangle: new Rectangle(0, 48, 16, 16));
+                            spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), sourceRectangle: new Rectangle(0, 48, 16, 16));
                         }
                         else if (i == X + _width - 16)
                         {
-                            spriteBatch.Draw(sprite, new Vector2(X + _width - 16, Y), sourceRectangle: new Rectangle(32, 48, 16, 16));
+                            spriteBatch.Draw(texture: sprite, position: new Vector2(X + _width - 16, Y), sourceRectangle: new Rectangle(32, 48, 16, 16));
                         }
                         else
                         {
-                            spriteBatch.Draw(sprite, new Vector2(i, y), sourceRectangle: new Rectangle(16, 0, 16, 16));
+                            spriteBatch.Draw(texture: sprite, position: new Vector2(i, y), sourceRectangle: new Rectangle(16, 0, 16, 16));
                         }
                     }
                     else
                     {
-                        spriteBatch.Draw(sprite, new Vector2(i, y), sourceRectangle: new Rectangle(16, 16, 16, 16));
+                        spriteBatch.Draw(texture: sprite, position: new Vector2(i, y), sourceRectangle: new Rectangle(16, 16, 16, 16));
                     }
                     
                 }
