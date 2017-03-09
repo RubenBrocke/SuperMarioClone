@@ -125,7 +125,6 @@ public class Mario : Tangible
                 X = outRect.Left - hitbox.Width - _horizontalPadding;
             }
             velocityX = 0;
-            Console.WriteLine("popje");
         }
 
         if (IsColliding(currentLevel, 0, (int)Math.Ceiling(velocityY), out outRect))
@@ -139,7 +138,6 @@ public class Mario : Tangible
                 Y = outRect.Bottom - _verticalPadding;
             }
             velocityY = 0;
-            Console.WriteLine("hoiii");
         }
 
         //Add speed to position
