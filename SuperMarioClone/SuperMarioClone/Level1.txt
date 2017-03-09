@@ -1,6 +1,10 @@
 Floor: 0, 35, 50, 4
 Floor: 50, 0, 4, 50
 Floor: -1, -50, 1, 100
+Floor: 17, 33, 2, 8
+Floor: 19, 32, 2, 8
+Floor: 21, 31, 2, 8
+Floor: 23, 30, 2, 8
 Coin: 0, 32
 Coin: 1, 32
 Coin: 2, 32
@@ -13,10 +17,3 @@ Coin: 8, 32
 Coin: 9, 32
 Coin: 10, 32
 Coin: 11, 32
-Coin: 12, 32
-Coin: 13, 32
-Coin: 14, 32
-Coin: 15, 32
-Coin: 16, 32
-Coin: 17, 32
-Coin: 18, 32

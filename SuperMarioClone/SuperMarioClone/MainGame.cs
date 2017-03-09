@@ -38,6 +38,10 @@ namespace SuperMarioClone
             _lr = new LevelReader(Content);
             currentLevel = _lr.ReadLevel(1);
             base.Initialize();
+
+            Rectangle test1 = new Rectangle(0, 0, 1, 1);
+            Rectangle test2 = new Rectangle(1, 1, 1, 1);
+            System.Console.WriteLine(test1.Intersects(test1)); 
         }
 
         /// <summary>
