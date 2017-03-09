@@ -7,27 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SuperMarioClone.Content
+namespace SuperMarioClone
 {
     class MysteryBlock : Solid
     {
-        private GameObject _mysteryObject { get; set; }
-        public MysteryBlock(int _x, int _y, Level lvl, ContentManager cm, GameObject MysteryObject) : base()
+        private Type _mysteryObject { get; set; }
+        private ContentManager _cm;
+
+        public MysteryBlock(int _x, int _y, Level lvl, ContentManager cm, Type MysteryObject) : base()
         {
             //TODO: add animation later
             _mysteryObject = MysteryObject;
             X = _x;
             Y = _y;
             currentLevel = lvl;
-            sprite = cm.Load<Texture2D>("MysteryBlock");
+            _cm = cm;
+            sprite = _cm.Load<Texture2D>("MysteryBlock");
             hitbox = new Rectangle(X, Y, 16, 16); // TODO: numbers represent pixels, change magic number
         }
 
 
         //TODO: Will eject whatever the mystery block contains
-        public void Eject()
+        public void Eject(Mario mario)
         {
-
+            if (mario.velocityY < 0)
+            {
+                Activator.CreateInstance(_mysteryObject, X, Y - hitbox.Height, currentLevel, _cm);
+            } 
         }
     }
 }

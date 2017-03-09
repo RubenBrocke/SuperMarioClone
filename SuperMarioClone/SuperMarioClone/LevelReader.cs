@@ -62,8 +62,23 @@ namespace SuperMarioClone
                         new FormatException("Unable to parse number in: level" + levelNumber + " File");
                     }
                 }
+                if (line.Substring(0, 8).Equals("Mystery:"))
+                {
+                    Type containObject;
+                    try
+                    {
+                        x = Int32.Parse(arguments[0]) * 16;
+                        y = Int32.Parse(arguments[1]) * 16;
+                        containObject = Type.GetType("SuperMarioClone." + arguments[2]);
+                        level.AddGameObject(new MysteryBlock(x, y, level, cm, containObject));
+                    }
+                    catch
+                    {
+                        new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                    }
+                }
 
-            }
+                }
             level.AddGameObject(new Mario(10, 10, level, cm));
             lvlReader.Close();
             return level;
