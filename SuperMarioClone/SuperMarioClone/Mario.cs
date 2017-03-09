@@ -145,10 +145,7 @@ public class Mario : Tangible
         X += (int)velocityX;
 
         //Focus camera on Mario
-        MainGame.camera.LookAt(X, Y);
-        
-        //Debug
-        Console.WriteLine(velocityX);
+        MainGame.camera.LookAt(X, Y);        
 
         //Set state
         if (velocityX == 0)
@@ -234,7 +231,7 @@ public class Mario : Tangible
                 sourceRect = new Rectangle(0, 0, 16, 22);
                 break;
         }
-        spriteBatch.Draw(sprite, new Vector2(X, Y), effects: direction, sourceRectangle: sourceRect);
+        spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), effects: direction, sourceRectangle: sourceRect);
         spriteBatch.End();
         spriteBatch.Begin();
         spriteBatch.DrawString(_font, String.Format("{0,4}", _coins), new Vector2(32, 512), Color.Black);
