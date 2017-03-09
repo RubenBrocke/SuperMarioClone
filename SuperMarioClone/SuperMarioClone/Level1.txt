@@ -5,15 +5,27 @@ Floor: 17, 33, 2, 8
 Floor: 19, 32, 2, 8
 Floor: 21, 31, 2, 8
 Floor: 23, 30, 2, 8
-Coin: 0, 32
-Coin: 1, 32
-Coin: 2, 32
+Floor: 25, 32, 2, 7
+Floor: 32, 30, 3, 1
+Floor: 37, 31, 4, 1
+Floor: 49, 30, 1, 1
 Coin: 3, 32
 Coin: 4, 32
 Coin: 5, 32
-Coin: 6, 32
-Coin: 7, 32
+Coin: 6, 31
+Coin: 7, 31
 Coin: 8, 32
-Coin: 9, 32
+Coin: 9, 31
 Coin: 10, 32
 Coin: 11, 32
+Coin: 12, 32
+Coin: 20, 30
+Coin: 22, 29
+Coin: 33, 33
+Coin: 34, 33
+Coin: 35, 33
+Coin: 32, 28
+Coin: 33, 28
+Coin: 34, 28
+Coin: 38, 30
+Coin: 39, 30

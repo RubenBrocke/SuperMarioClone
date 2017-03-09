@@ -33,6 +33,7 @@ namespace SuperMarioClone
                 arguments[0] = arguments[0].Split(':')[1];
 
                 //Check for type
+                //Set width, height and position of items
                 if (line.Substring(0, 6).Equals("Floor:"))
                 {
                     try
