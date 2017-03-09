@@ -29,7 +29,7 @@ namespace SuperMarioClone
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, new Vector2(X, Y), effects: direction);
+            spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), effects: direction);
         }
 
         public virtual void Update()
