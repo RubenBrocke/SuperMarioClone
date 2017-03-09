@@ -15,8 +15,9 @@ public class Mario : Tangible
 
     private int _lives { get; set; }
 
-    private int x_speed_max = 3;
-    private int y_speed_max = 10;
+    private float _xSpeedMax = 3.5f;
+    private float _ySpeedMax = 10;
+    private float xAcc = 0.1f;
 
     private SpriteFont _font;
 
@@ -52,7 +53,7 @@ public class Mario : Tangible
         sprite = cm.Load<Texture2D>("MarioSheetRight");
         _font = cm.Load<SpriteFont>("Font");
         currentLevel = lvl;
-        jumpVelocity = 6.5f;
+        jumpVelocity = 7f;
         _state = State.Idle;
         _timer = new Timer(ChangeSpriteIndex);
         _timer.Change(0, 100);
@@ -76,19 +77,19 @@ public class Mario : Tangible
         velocityY += gravity;
 
         //Limit vertical speed
-        if (velocityY > y_speed_max)
+        if (velocityY > _ySpeedMax)
         {
-            velocityY = y_speed_max;
+            velocityY = _ySpeedMax;
         }
 
         //Limit horizontal speed
-        if (velocityX > x_speed_max)
+        if (velocityX > _xSpeedMax)
         {
-            velocityX = x_speed_max;
+            velocityX = _xSpeedMax;
         }
-        else if (velocityX < -x_speed_max)
+        else if (velocityX < -_xSpeedMax)
         {
-            velocityX = -x_speed_max;
+            velocityX = -_xSpeedMax;
         }
 
         //Add movement
@@ -96,17 +97,24 @@ public class Mario : Tangible
 
         if (state.IsKeyDown(Keys.D))
         {
-            velocityX += 0.25f;
+            velocityX += xAcc;
             direction = SpriteEffects.None;
         }
         else if (state.IsKeyDown(Keys.A))
         {
-            velocityX -= 0.25f;
+            velocityX -= xAcc;
             direction = SpriteEffects.FlipHorizontally;
         }
         else if (IsColliding(currentLevel, 0, 1, out outRect))
         {
-            velocityX = 0;
+            if (velocityX > 0)
+            {
+                velocityX -= xAcc;
+            }
+            if (velocityX < 0)
+            {
+                velocityX += xAcc;
+            }
         }
         if (state.IsKeyDown(Keys.Space))
         {
@@ -145,7 +153,10 @@ public class Mario : Tangible
         X += (int)velocityX;
 
         //Focus camera on Mario
-        MainGame.camera.LookAt(X, Y);        
+        MainGame.camera.LookAt(X, Y);
+
+        //Debug
+        Console.WriteLine(velocityX);
 
         //Set state
         if (velocityX == 0)
@@ -156,7 +167,7 @@ public class Mario : Tangible
         {
             _state = State.Walking;
         }
-        if (velocityX > 3 || velocityX < -3)
+        if (velocityX > 3.4 || velocityX < -3.4)
         {
             _state = State.Running;
         }
@@ -174,7 +185,7 @@ public class Mario : Tangible
         }
     }
 
-    public void Jump()
+    public override void Jump()
     {
         if (IsColliding(currentLevel, 0, 1, out outRect))
         {

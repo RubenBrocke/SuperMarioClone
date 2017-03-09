@@ -46,23 +46,6 @@ namespace SuperMarioClone
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            /*switch (_spriteImageIndex)
-            {
-                case 0:
-                    spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), sourceRectangle: new Rectangle(0, 0, 16, 16));
-                    break;
-                case 1:
-                    spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), sourceRectangle: new Rectangle(16, 0, 16, 16));
-                    break;
-                case 2:
-                    spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), sourceRectangle: new Rectangle(32, 0, 16, 16));
-                    break;
-                case 3:
-                    spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), sourceRectangle: new Rectangle(48, 0, 16, 16));
-                    break;
-            }
-            */
-            Console.WriteLine(_spriteImageIndex);
             spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), sourceRectangle: new Rectangle(16 * _spriteImageIndex, 0, 16, 16));
         }
 
