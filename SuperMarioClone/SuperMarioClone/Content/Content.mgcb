@@ -128,3 +128,15 @@
 /processorParam:TextureFormat=Color
 /build:MysteryBlockSheet.png
 
+#begin Oin.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Oin.ogg
+
+#begin Oink1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Oink1.wav
+

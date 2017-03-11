@@ -6,6 +6,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 using System.Threading;
 
 
@@ -17,6 +19,7 @@ namespace SuperMarioClone
 
         private int _lives { get; set; }
 
+        private SoundEffect _jumpSound;
         private float _xSpeedMax = 3.5f;
         private float _ySpeedMax = 10;
         private float _acc = 0.1f;
@@ -54,6 +57,7 @@ namespace SuperMarioClone
         {
             position = new Vector2(_x, _y);
             sprite = cm.Load<Texture2D>("MarioSheetRight");
+            _jumpSound = cm.Load<SoundEffect>("Oink1");
             _font = cm.Load<SpriteFont>("Font");
             currentLevel = lvl;
             jumpVelocity = 6.25f;
@@ -189,6 +193,7 @@ namespace SuperMarioClone
             if (IsColliding(currentLevel, 0, 1, out outRect))
             {
                  velocityY = -jumpVelocity;
+                _jumpSound.Play();
             }
         }
 
