@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Audio;
 using System.Threading;
 
 namespace SuperMarioClone
@@ -16,6 +17,8 @@ namespace SuperMarioClone
         private bool _moveable { get; set; }
 
         private bool _hasBeenPickedUp { get; set; }
+
+        private SoundEffect _coinPickUpSound;
 
         private Timer _timer;
 
@@ -30,6 +33,7 @@ namespace SuperMarioClone
             _timer = new Timer(ChangeSpriteIndex);
             _timer.Change(0, 190);
             sprite = cm.Load<Texture2D>("CoinSheet");
+            _coinPickUpSound = cm.Load<SoundEffect>("Pling");
             hitbox = new Rectangle((int)position.X, (int)position.Y, 12, 16); // fix the magic numbers
         }
 
@@ -40,6 +44,7 @@ namespace SuperMarioClone
                 mario.addCoin();
                 currentLevel.ToRemoveGameObject(this);
                 _hasBeenPickedUp = true;
+                _coinPickUpSound.Play();
             }
         }
 
