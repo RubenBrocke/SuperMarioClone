@@ -42,6 +42,11 @@ namespace SuperMarioClone
                                 Coin coin = (Coin)o;
                                 coin.AddCoin((Mario)this);
                             }
+                            if (o is MysteryBlock)
+                            {
+                                MysteryBlock mysteryBlock = (MysteryBlock)o;
+                                mysteryBlock.Eject((Mario)this, velocityY);
+                            }
                         }
                     } 
                 } 

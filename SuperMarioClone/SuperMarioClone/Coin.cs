@@ -31,7 +31,7 @@ namespace SuperMarioClone
             _timer = new Timer(ChangeSpriteIndex);
             _timer.Change(0, 190);
             sprite = cm.Load<Texture2D>("CoinSheet");
-            hitbox = new Rectangle(X, Y, 12, 16);
+            hitbox = new Rectangle(X, Y, 12, 16); // fix the magic numbers
         }
 
         public void AddCoin(Mario mario)

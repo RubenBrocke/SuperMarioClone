@@ -29,6 +29,7 @@ namespace SuperMarioClone
             while((line = lvlReader.ReadLine()) != null)
             {
                 //Split line
+                line = line.Replace(" ", "");
                 string[] arguments = line.Split(',');
                 arguments[0] = arguments[0].Split(':')[1];
 
@@ -42,7 +43,7 @@ namespace SuperMarioClone
                         y = Int32.Parse(arguments[1]) * 16;
                         width = Int32.Parse(arguments[2]) * 16;
                         height = Int32.Parse(arguments[3]) * 16;
-                        level.AddGameObject(new Floor(x, y, width, height, level, cm));
+                        level.ToAddGameObject(new Floor(x, y, width, height, level, cm));
                     }
                     catch
                     {
@@ -55,7 +56,22 @@ namespace SuperMarioClone
                     {
                         x = Int32.Parse(arguments[0]) * 16;
                         y = Int32.Parse(arguments[1]) * 16;
-                        level.AddGameObject(new Coin(x, y, level, cm));
+                        level.ToAddGameObject(new Coin(x, y, level, cm));
+                    }
+                    catch
+                    {
+                        new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                    }
+                }
+                if (line.Substring(0, 8).Equals("Mystery:"))
+                {
+                    Type containObject;
+                    try
+                    {
+                        x = Int32.Parse(arguments[0]) * 16;
+                        y = Int32.Parse(arguments[1]) * 16;
+                        containObject = Type.GetType("SuperMarioClone." + arguments[2]);
+                        level.ToAddGameObject(new MysteryBlock(x, y, level, cm, containObject));
                     }
                     catch
                     {
@@ -63,8 +79,9 @@ namespace SuperMarioClone
                     }
                 }
 
-            }
-            level.AddGameObject(new Mario(10, 10, level, cm));
+                }
+            level.ToAddGameObject(new Mario(10, 10, level, cm));
+            level.AddGameObjects();
             lvlReader.Close();
             return level;
         }

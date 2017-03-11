@@ -265,7 +265,7 @@ namespace SuperMarioClone
             spriteBatch.Begin();
             spriteBatch.DrawString(_font, String.Format("{0,4}", _coins), new Vector2(768, 0), Color.Black);
             spriteBatch.End();
-            spriteBatch.Begin(transformMatrix: MainGame.camera.GetMatrix());
+            spriteBatch.Begin(transformMatrix: MainGame.camera.GetMatrix(), samplerState: SamplerState.PointClamp);
         }
 
     }
