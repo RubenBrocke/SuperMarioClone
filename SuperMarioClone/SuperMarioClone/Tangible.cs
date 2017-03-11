@@ -25,7 +25,7 @@ namespace SuperMarioClone
                 if(o is Tangible)
                 {
                     Tangible Object = (Tangible)o;
-                    Rectangle testRect = new Rectangle(Object.X - offsetX, Object.Y - offsetY, Object.hitbox.Width, Object.hitbox.Height);
+                    Rectangle testRect = new Rectangle((int)Object.position.X - offsetX, (int)Object.position.Y - offsetY, Object.hitbox.Width, Object.hitbox.Height);
 
                     if (testRect.Intersects(hitbox) && Object != this)
                     {

@@ -23,15 +23,14 @@ namespace SuperMarioClone
 
         public Coin(int _x, int _y, Level lvl, ContentManager cm) : base()
         {
-            X = _x;
-            Y = _y;
+            position = new Vector2(_x, _y);
             currentLevel = lvl;
             _hasBeenPickedUp = false;
             _spriteImageIndex = 0;
             _timer = new Timer(ChangeSpriteIndex);
             _timer.Change(0, 190);
             sprite = cm.Load<Texture2D>("CoinSheet");
-            hitbox = new Rectangle(X, Y, 12, 16); // fix the magic numbers
+            hitbox = new Rectangle((int)position.X, (int)position.Y, 12, 16); // fix the magic numbers
         }
 
         public void AddCoin(Mario mario)
@@ -46,7 +45,7 @@ namespace SuperMarioClone
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), sourceRectangle: new Rectangle(16 * _spriteImageIndex, 0, 16, 16));
+            spriteBatch.Draw(texture: sprite, position: position, sourceRectangle: new Rectangle(16 * _spriteImageIndex, 0, 16, 16));
         }
 
         private void ChangeSpriteIndex(object state)

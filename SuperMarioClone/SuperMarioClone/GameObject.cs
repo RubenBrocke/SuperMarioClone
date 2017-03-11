@@ -10,9 +10,7 @@ namespace SuperMarioClone
 {
     public abstract class GameObject
     {
-        protected int X { get; set; }
-
-        protected int Y { get;  set; }
+        protected Vector2 position { get; set; }
 
         protected Texture2D sprite { get; set; }
 
@@ -27,7 +25,7 @@ namespace SuperMarioClone
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), effects: direction);
+            spriteBatch.Draw(texture: sprite, position: position, effects: direction);
         }
 
         public virtual void Update()

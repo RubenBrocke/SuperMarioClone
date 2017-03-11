@@ -22,12 +22,11 @@ namespace SuperMarioClone
         {
             //TODO: add animation later
             _mysteryObject = MysteryObject;
-            X = _x;
-            Y = _y;
+            position = new Vector2(_x, _y);
             currentLevel = lvl;
             _cm = cm;
             sprite = _cm.Load<Texture2D>("MysteryBlockSheet");
-            hitbox = new Rectangle(X, Y, 16, 16); // TODO: numbers represent pixels, change magic number
+            hitbox = new Rectangle((int)position.X, (int)position.Y, 16, 16); // TODO: numbers represent pixels, change magic number
 
             _timer = new Timer(ChangeSpriteIndex);
             _timer.Change(0, 120);
@@ -37,14 +36,14 @@ namespace SuperMarioClone
         {
             if (vY < 0 && !_hasBeenUsed)
             {
-                currentLevel.ToAddGameObject((GameObject)Activator.CreateInstance(_mysteryObject, X, Y - hitbox.Height, currentLevel, _cm));
+                currentLevel.ToAddGameObject((GameObject)Activator.CreateInstance(_mysteryObject, (int)position.X, (int)position.Y - hitbox.Height, currentLevel, _cm));
                 _hasBeenUsed = true;
             } 
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), sourceRectangle: new Rectangle(16 * _spriteImageIndex, 0, 16, 16));
+            spriteBatch.Draw(texture: sprite, position: position, sourceRectangle: new Rectangle(16 * _spriteImageIndex, 0, 16, 16));
         }
 
         private void ChangeSpriteIndex(object state)

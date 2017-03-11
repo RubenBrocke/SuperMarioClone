@@ -26,10 +26,10 @@ namespace SuperMarioClone
             _origin = new Vector2(this._viewport.Width / 2f, this._viewport.Height / 2f);
         }
 
-        public void LookAt(int x, int y)
+        public void LookAt(Vector2 _pos)
         {
             _zoom = 3.6f;
-            _position = new Vector2(Math.Max(-289, x - _viewport.Width / 2), 0);
+            _position = new Vector2(Math.Max(-289, _pos.X - _viewport.Width / 2), 0);
             _origin = new Vector2(_viewport.Width / 2, _viewport.Height);
         }
 

@@ -24,17 +24,17 @@ namespace SuperMarioClone
 
         public void MoveLeft()
         {
-            X += (int)velocityX;
+            position = new Vector2(position.X - velocityX, position.Y);
         }
 
         public void MoveRight()
         {
-            X += (int)velocityX;
+            position = new Vector2(position.X + velocityX, position.Y);
         }
 
         public virtual void Jump()
         {
-            Y -= (int)jumpVelocity;
+            position = new Vector2(position.X, position.Y - velocityY);
         }
 
     } 

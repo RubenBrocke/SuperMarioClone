@@ -52,17 +52,16 @@ namespace SuperMarioClone
 
         public Mario(int _x, int _y, Level lvl, ContentManager cm) : base()
         {
-            X = _x;
-            Y = _y;
+            position = new Vector2(_x, _y);
             sprite = cm.Load<Texture2D>("MarioSheetRight");
             _font = cm.Load<SpriteFont>("Font");
             currentLevel = lvl;
-            jumpVelocity = 7f;
+            jumpVelocity = 6.25f;
             _state = State.Idle;
             _timer = new Timer(ChangeAnimationState);
             _timer.Change(0, 100);
         
-            hitbox = new Rectangle(X, Y, _hitboxWidth, _hitboxHeight);
+            hitbox = new Rectangle((int)position.X, (int)position.Y, _hitboxWidth, _hitboxHeight);
             _lives = 3;
             _coins = 0;
         }
@@ -70,7 +69,7 @@ namespace SuperMarioClone
         public override void Update()
         {
             //Update Hitbox
-            hitbox = new Rectangle(X + _horizontalPadding, Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
+            hitbox = new Rectangle((int)position.X + _horizontalPadding, (int)position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
 
             //Add gravity
             velocityY += gravity;
@@ -121,41 +120,42 @@ namespace SuperMarioClone
             }
 
             //Do collision (to be moved to parent class)
-            if (IsColliding(currentLevel, (int)velocityX, 0, out outRect))
+            //Horizontal collision
+            if (IsColliding(currentLevel, (int)Math.Ceiling(velocityX), 0, out outRect) || IsColliding(currentLevel, (int)Math.Floor(velocityX), 0, out outRect))
             {
                 if (velocityX < 0)
                 {
-                    X = outRect.Right - _horizontalPadding;
+                    position = new Vector2(outRect.Right - _horizontalPadding, position.Y);
                 }
                 else if (velocityX > 0)
                 {
-                    X = outRect.Left - hitbox.Width - _horizontalPadding;
+                    position = new Vector2(outRect.Left - hitbox.Width - _horizontalPadding, position.Y);
                 }
                 velocityX = 0;
             }
 
-            if (IsColliding(currentLevel, 0, (int)Math.Ceiling(velocityY), out outRect))
+            //Vertical collision
+            if (IsColliding(currentLevel, 0, (int)Math.Ceiling(velocityY), out outRect) || IsColliding(currentLevel, 0, (int)Math.Floor(velocityY), out outRect))
             {
                 if (velocityY > 0)
                 {
-                    Y = outRect.Top - hitbox.Height - _verticalPadding;
+                    position = new Vector2(position.X, outRect.Top - hitbox.Height - _verticalPadding);
                 }
                 else if (velocityY < 0)
                 {
-                    Y = outRect.Bottom - _verticalPadding;
+                    position = new Vector2(position.X, outRect.Bottom - _verticalPadding);
                 }
                 velocityY = 0;
             }
 
             //Add speed to position
-            Y += (int)velocityY;
-            X += (int)velocityX;
+            position = new Vector2(position.X + velocityX, position.Y + velocityY);
 
             //Focus camera on Mario
-            MainGame.camera.LookAt(X, Y);
+            MainGame.camera.LookAt(position);
 
             //Debug
-            Console.WriteLine(velocityX);
+            Console.WriteLine(position.Y);
 
             //Set state
             if (velocityX == 0)
@@ -260,7 +260,7 @@ namespace SuperMarioClone
             }
             sourceRect = new Rectangle(16 * (_animationState * (_isAnimated ? 1 : 0) + _spriteImageIndex), 0, 16, sprite.Height);
 
-            spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), effects: direction, sourceRectangle: sourceRect);
+            spriteBatch.Draw(texture: sprite, position: position, effects: direction, sourceRectangle: sourceRect);
             spriteBatch.End();
             spriteBatch.Begin();
             spriteBatch.DrawString(_font, String.Format("{0,4}", _coins), new Vector2(768, 0), Color.Black);
