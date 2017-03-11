@@ -6,249 +6,268 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
-using SuperMarioClone;
 using System.Threading;
 
-public class Mario : Tangible
+
+namespace SuperMarioClone
 {
-	private int _coins { get; set; }
-
-    private int _lives { get; set; }
-
-    private float _xSpeedMax = 3.5f;
-    private float _ySpeedMax = 10;
-    private float xAcc = 0.1f;
-
-    private SpriteFont _font;
-
-    private int _spriteImageIndex = 0;
-
-    private int _hitboxWidth = 14;
-    private int _hitboxHeight = 20;
-    private int _horizontalPadding = 1;
-    private int _verticalPadding = 2;
-
-    private Timer _timer;
-
-    private enum State
+    public class Mario : Tangible
     {
-        Idle,
-        Walking,
-        Running,
-        Jumping,
-        Falling,
-        FallingStraight
+	    private int _coins { get; set; }
 
-    }
+        private int _lives { get; set; }
 
-    private State _state;
+        private float _xSpeedMax = 3.5f;
+        private float _ySpeedMax = 10;
+        private float _acc = 0.1f;
+        private float _deacc = 0.2f;
 
-    //----Hitbox----//
-    public Rectangle outRect;
+        private SpriteFont _font;
 
-    public Mario(int _x, int _y, Level lvl, ContentManager cm) : base()
-    {
-        X = _x;
-        Y = _y;
-        sprite = cm.Load<Texture2D>("MarioSheetRight");
-        _font = cm.Load<SpriteFont>("Font");
-        currentLevel = lvl;
-        jumpVelocity = 7f;
-        _state = State.Idle;
-        _timer = new Timer(ChangeSpriteIndex);
-        _timer.Change(0, 100);
+        private int _animationState = 0;
+        private int _spriteImageIndex = 0;
+        private bool _isAnimated = false;
+
+        private int _hitboxWidth = 14;
+        private int _hitboxHeight = 20;
+        private int _horizontalPadding = 1;
+        private int _verticalPadding = 2;
+
+        private Timer _timer;
+
+        private enum State
+        {
+            Idle,
+            Walking,
+            Running,
+            Jumping,
+            Falling,
+            FallingStraight
+        }
+
+        private State _state;
+
+        //----Hitbox----//
+        public Rectangle outRect;
+
+        public Mario(int _x, int _y, Level lvl, ContentManager cm) : base()
+        {
+            X = _x;
+            Y = _y;
+            sprite = cm.Load<Texture2D>("MarioSheetRight");
+            _font = cm.Load<SpriteFont>("Font");
+            currentLevel = lvl;
+            jumpVelocity = 7f;
+            _state = State.Idle;
+            _timer = new Timer(ChangeAnimationState);
+            _timer.Change(0, 100);
         
-        hitbox = new Rectangle(X, Y, _hitboxWidth, _hitboxHeight);
-        _lives = 3;
-        _coins = 0;
-    }
-
-    public override void Update()
-    {
-        //Update Hitbox
-        hitbox = new Rectangle(X + _horizontalPadding, Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
-
-        //Add gravity
-        if (!IsColliding(currentLevel, 0, 1, out outRect))
-        {
-            //velocityY += gravity;
-        }
-        
-        velocityY += gravity;
-
-        //Limit vertical speed
-        if (velocityY > _ySpeedMax)
-        {
-            velocityY = _ySpeedMax;
+            hitbox = new Rectangle(X, Y, _hitboxWidth, _hitboxHeight);
+            _lives = 3;
+            _coins = 0;
         }
 
-        //Limit horizontal speed
-        if (velocityX > _xSpeedMax)
+        public override void Update()
         {
-            velocityX = _xSpeedMax;
-        }
-        else if (velocityX < -_xSpeedMax)
-        {
-            velocityX = -_xSpeedMax;
-        }
+            //Update Hitbox
+            hitbox = new Rectangle(X + _horizontalPadding, Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
 
-        //Add movement
-        KeyboardState state = Keyboard.GetState();
+            //Add gravity
+            velocityY += gravity;
 
-        if (state.IsKeyDown(Keys.D))
-        {
-            velocityX += xAcc;
-            direction = SpriteEffects.None;
-        }
-        else if (state.IsKeyDown(Keys.A))
-        {
-            velocityX -= xAcc;
-            direction = SpriteEffects.FlipHorizontally;
-        }
-        else if (IsColliding(currentLevel, 0, 1, out outRect))
-        {
-            if (velocityX > 0)
+            //Limit vertical speed
+            if (velocityY > _ySpeedMax)
             {
-                velocityX -= xAcc;
+                velocityY = _ySpeedMax;
             }
-            if (velocityX < 0)
-            {
-                velocityX += xAcc;
-            }
-        }
-        if (state.IsKeyDown(Keys.Space))
-        {
-            Jump();
-        }
 
-        //Do collision (to be moved to parent class)
-        if (IsColliding(currentLevel, (int)velocityX, 0, out outRect))
-        {
-            if (velocityX < 0)//hitbox.X > outRect.Right
+            //Limit horizontal speed
+            if (velocityX > _xSpeedMax)
             {
-                X = outRect.Right - _horizontalPadding;
+                velocityX = _xSpeedMax;
             }
-            else if (velocityX > 0)//hitbox.X < outRect.Left
+            else if (velocityX < -_xSpeedMax)
             {
-                X = outRect.Left - hitbox.Width - _horizontalPadding;
+                velocityX = -_xSpeedMax;
             }
-            velocityX = 0;
-        }
 
-        if (IsColliding(currentLevel, 0, (int)Math.Ceiling(velocityY), out outRect))
-        {
+            //Add movement
+            KeyboardState state = Keyboard.GetState();
+
+            if (state.IsKeyDown(Keys.D))
+            {
+                velocityX += _acc;
+                direction = SpriteEffects.None;
+            }
+            else if (state.IsKeyDown(Keys.A))
+            {
+                velocityX -= _acc;
+                direction = SpriteEffects.FlipHorizontally;
+            }
+            else if (IsColliding(currentLevel, 0, 1, out outRect))
+            {
+                if (velocityX > 0)
+                {
+                    velocityX = Math.Max(velocityX - _deacc, 0);
+                }
+                else if (velocityX < 0)
+                {
+                    velocityX = Math.Min(velocityX + _deacc, 0);
+                }
+            }
+            if (state.IsKeyDown(Keys.Space))
+            {
+                Jump();
+            }
+
+            //Do collision (to be moved to parent class)
+            if (IsColliding(currentLevel, (int)velocityX, 0, out outRect))
+            {
+                if (velocityX < 0)
+                {
+                    X = outRect.Right - _horizontalPadding;
+                }
+                else if (velocityX > 0)
+                {
+                    X = outRect.Left - hitbox.Width - _horizontalPadding;
+                }
+                velocityX = 0;
+            }
+
+            if (IsColliding(currentLevel, 0, (int)Math.Ceiling(velocityY), out outRect))
+            {
+                if (velocityY > 0)
+                {
+                    Y = outRect.Top - hitbox.Height - _verticalPadding;
+                }
+                else if (velocityY < 0)
+                {
+                    Y = outRect.Bottom - _verticalPadding;
+                }
+                velocityY = 0;
+            }
+
+            //Add speed to position
+            Y += (int)velocityY;
+            X += (int)velocityX;
+
+            //Focus camera on Mario
+            MainGame.camera.LookAt(X, Y);
+
+            //Debug
+            Console.WriteLine(velocityX);
+
+            //Set state
+            if (velocityX == 0)
+            {
+                _state = State.Idle;
+            }
+            if (velocityX != 0)
+            {
+                _state = State.Walking;
+            }
+            if (velocityX > 3.4f || velocityX < -3.4f)
+            {
+                _state = State.Running;
+            }
+            if (velocityY < 0)
+            {
+                _state = State.Jumping;
+            }
             if (velocityY > 0)
             {
-                Y = outRect.Top - hitbox.Height - _verticalPadding;
+                _state = State.Falling;
             }
-            else if (velocityY < 0)
+            if (velocityY > 0 && velocityX < 0.5f && velocityX > -0.5f)
             {
-                Y = outRect.Bottom - _verticalPadding;
+                _state = State.FallingStraight;
             }
-            velocityY = 0;
         }
 
-        //Add speed to position
-        Y += (int)velocityY;
-        X += (int)velocityX;
+        public override void Jump()
+        {
+            if (IsColliding(currentLevel, 0, 1, out outRect))
+            {
+                 velocityY = -jumpVelocity;
+            }
+        }
 
-        //Focus camera on Mario
-        MainGame.camera.LookAt(X, Y);
-
-        //Debug
-        Console.WriteLine(velocityX);
-
-        //Set state
-        if (velocityX == 0)
-        {
-            _state = State.Idle;
-        }
-        if (velocityX != 0)
-        {
-            _state = State.Walking;
-        }
-        if (velocityX > 3.4 || velocityX < -3.4)
-        {
-            _state = State.Running;
-        }
-        if (velocityY < 0)
-        {
-            _state = State.Jumping;
-        }
-        if (velocityY > 0)
-        {
-            _state = State.Falling;
-        }
-        if (velocityY > 0 && velocityX < 0.5f && velocityX > -0.5f)
-        {
-            _state = State.FallingStraight;
-        }
-    }
-
-    public override void Jump()
-    {
-        if (IsColliding(currentLevel, 0, 1, out outRect))
-        {
-             velocityY = -jumpVelocity;
-        }
-    }
-
-    public void LoseLife()
-	{
-        _lives--;    
-	}
+        public void LoseLife()
+	    {
+            _lives--;    
+	    }
     
-    public void addCoin()
-    {
-        _coins++;
-    }
+        public void addCoin()
+        {
+            _coins++;
+        }
 
-    private void ChangeSpriteIndex(object state)
-    {
-        if(_spriteImageIndex == 0)
+        private void ChangeAnimationState(object state)
         {
-            _spriteImageIndex++;
-        }
-        else
-        {
-            _spriteImageIndex = 0;
-        }
-    }
+            if(_animationState < 1)
+            {
+                _animationState++;
+            }
+            else
+            {
+                _animationState = 0;
+            }
 
-    public override void Draw(SpriteBatch spriteBatch)
-    {
-        Rectangle sourceRect;
-        switch (_state)
-        {
-            case State.Idle:
-                sourceRect = new Rectangle(0, 0, 16, 22);
-                break;
-            case State.Walking:
-                sourceRect = new Rectangle(16 * _spriteImageIndex, 0, 16, 22);
-                break;
-            case State.Running:
-                sourceRect = new Rectangle(16 * _spriteImageIndex + 32, 0, 16, 22);
-                break;
-            case State.Jumping:
-                sourceRect = new Rectangle(80, 0, 16, 22);
-                break;
-            case State.Falling:
-                sourceRect = new Rectangle(64, 0, 16, 22);
-                break;
-            case State.FallingStraight:
-                sourceRect = new Rectangle(96, 0, 16, 22);
-                break;
-            default:
-                sourceRect = new Rectangle(0, 0, 16, 22);
-                break;
+            if(_state == State.Running)
+            {
+                _timer.Change(80, 80);
+            }
+            else
+            {
+                _timer.Change(190, 190);
+            }
         }
-        spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), effects: direction, sourceRectangle: sourceRect);
-        spriteBatch.End();
-        spriteBatch.Begin();
-        spriteBatch.DrawString(_font, String.Format("{0,4}", _coins), new Vector2(32, 512), Color.Black);
-        spriteBatch.End();
-        spriteBatch.Begin(transformMatrix: MainGame.camera.GetMatrix());
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            Rectangle sourceRect;
+
+            switch (_state)
+            {
+                case State.Idle:
+                    _spriteImageIndex = 0;
+                    _isAnimated = false;
+                    break;
+                case State.Walking:
+                    _spriteImageIndex = 0;
+                    _isAnimated = true;
+                    break;
+                case State.Running:
+                    _spriteImageIndex = 2;
+                    _isAnimated = true;
+                    break;
+                case State.Jumping:
+                    _spriteImageIndex = 5;
+                    _isAnimated = false;
+                    break;
+                case State.Falling:
+                    _spriteImageIndex = 4;
+                    _isAnimated = false;
+                    break;
+                case State.FallingStraight:
+                    _spriteImageIndex = 6;
+                    _isAnimated = false;
+                    break;
+                default:
+                    _spriteImageIndex = 0;
+                    _isAnimated = false;
+                    break;
+            }
+            sourceRect = new Rectangle(16 * (_animationState * (_isAnimated ? 1 : 0) + _spriteImageIndex), 0, 16, sprite.Height);
+
+            spriteBatch.Draw(texture: sprite, position: new Vector2(X, Y), effects: direction, sourceRectangle: sourceRect);
+            spriteBatch.End();
+            spriteBatch.Begin();
+            spriteBatch.DrawString(_font, String.Format("{0,4}", _coins), new Vector2(768, 0), Color.Black);
+            spriteBatch.End();
+            spriteBatch.Begin(transformMatrix: MainGame.camera.GetMatrix());
+        }
+
     }
 
 }
-
