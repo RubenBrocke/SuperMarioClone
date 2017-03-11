@@ -112,12 +112,10 @@ namespace SuperMarioClone
                 if (velocityX > 0)
                 {
                     velocityX = Math.Max(velocityX - _deacc, 0);
-                    _kgghhssSound.Play();
                 }
                 else if (velocityX < 0)
                 {
                     velocityX = Math.Min(velocityX + _deacc, 0);
-                    _kgghhssSound.Play();
                 }
             }
             if (state.IsKeyDown(Keys.Space))
