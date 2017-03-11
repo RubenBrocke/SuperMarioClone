@@ -28,11 +28,11 @@ namespace SuperMarioClone
 
 
         //TODO: Will eject whatever the mystery block contains
-        public void Eject(Mario mario)
+        public void Eject(Mario mario, float vY)
         {
-            if (mario.velocityY < 0)
+            if (vY < 0)
             {
-                Activator.CreateInstance(_mysteryObject, X, Y - hitbox.Height, currentLevel, _cm);
+                currentLevel.ToAddGameObject((GameObject)Activator.CreateInstance(_mysteryObject, X + 16, Y - hitbox.Height, currentLevel, _cm));
             } 
         }
     }

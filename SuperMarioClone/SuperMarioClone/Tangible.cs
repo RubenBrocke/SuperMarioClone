@@ -45,7 +45,7 @@ namespace SuperMarioClone
                             if (o is MysteryBlock)
                             {
                                 MysteryBlock mysteryBlock = (MysteryBlock)o;
-                                mysteryBlock.Eject((Mario)this);
+                                mysteryBlock.Eject((Mario)this, velocityY);
                             }
                         }
                     } 

@@ -29,4 +29,4 @@ Coin: 33, 28
 Coin: 34, 28
 Coin: 38, 30
 Coin: 39, 30
-Mystery: 2, 32,Coin
+Mystery: 2, 32, Coin
