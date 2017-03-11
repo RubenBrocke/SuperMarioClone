@@ -16,8 +16,6 @@ namespace SuperMarioClone
 
         protected Texture2D sprite { get; set; }
 
-        protected Level level { get; set; }
-
         protected SpriteEffects direction { get; set; }
 
         protected Level currentLevel { get; set; }

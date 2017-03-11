@@ -9,9 +9,9 @@ namespace SuperMarioClone
 {
     public abstract class Moveable : GameObject
     {
-        protected double velocityX { get; set; }
+        protected float velocityX { get; set; }
 
-        protected double velocityY { get; set; }
+        protected float velocityY { get; set; }
 
         protected float jumpVelocity { get; set; }
 
