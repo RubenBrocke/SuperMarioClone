@@ -71,8 +71,8 @@ namespace SuperMarioClone
             {
                 Object.Update();
             }
-            RemoveGameObjects();
             AddGameObjects();
+            RemoveGameObjects();
         }
     }
 }

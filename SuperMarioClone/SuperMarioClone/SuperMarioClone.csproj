@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Camera.cs" />
     <Compile Include="Coin.cs" />
+    <Compile Include="Goomba.cs" />
     <Compile Include="MysteryBlock.cs" />
     <Compile Include="Floor.cs" />
     <Compile Include="GameObject.cs" />
@@ -62,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <Content Include="Level1.txt" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
