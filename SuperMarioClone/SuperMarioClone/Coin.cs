@@ -22,12 +22,16 @@ namespace SuperMarioClone
 
         private Timer _timer;
 
+        private bool _isMysteryCoin;
+
         private int _spriteImageIndex;
 
-        public Coin(int _x, int _y, Level lvl, ContentManager cm) : base()
+        public Coin(int _x, int _y, bool isMystereyCoin, Level lvl, ContentManager cm) : base()
         {
             position = new Vector2(_x, _y);
             currentLevel = lvl;
+            velocityY = -2f;
+            _isMysteryCoin = isMystereyCoin;
             _hasBeenPickedUp = false;
             _spriteImageIndex = 0;
             _timer = new Timer(ChangeSpriteIndex);
@@ -41,10 +45,32 @@ namespace SuperMarioClone
         {
             if (!_hasBeenPickedUp)
             {
+                Timer deathTimer = new Timer(deleteCoin);
+                if (_isMysteryCoin)
+                {
+                    deathTimer.Change(200, 0);
+                }
+                else
+                {
+                    deathTimer.Change(0, 0);
+                }
                 mario.addCoin();
-                currentLevel.ToRemoveGameObject(this);
-                _hasBeenPickedUp = true;
-                _coinPickUpSound.Play();
+                _hasBeenPickedUp = true;                
+            }
+        }
+
+        public void deleteCoin(object state)
+        {
+            currentLevel.ToRemoveGameObject(this);
+            _coinPickUpSound.Play();
+        }
+
+        public override void Update()
+        {
+            if (_isMysteryCoin)
+            {
+                position = new Vector2(position.X, position.Y + velocityY);
+                velocityY += gravity;
             }
         }
 

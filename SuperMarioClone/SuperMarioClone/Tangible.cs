@@ -54,7 +54,7 @@ namespace SuperMarioClone
                             {
                                 Goomba g = (Goomba)this;
                                 Mario m = (Mario)o;
-                                g.CheckCollision(m.velocityX, m.velocityY);
+                                g.CheckCollision(m, m.velocityY);
                             }
                         }
                     } 

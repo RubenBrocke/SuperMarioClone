@@ -56,7 +56,7 @@ namespace SuperMarioClone
                     {
                         x = Int32.Parse(arguments[0]) * 16;
                         y = Int32.Parse(arguments[1]) * 16;
-                        level.ToAddGameObject(new Coin(x, y, level, cm));
+                        level.ToAddGameObject(new Coin(x, y, false, level, cm));
                     }
                     catch
                     {

@@ -36,8 +36,15 @@ namespace SuperMarioClone
         {
             if (vY < 0 && !_hasBeenUsed)
             {
-                currentLevel.ToAddGameObject((GameObject)Activator.CreateInstance(_mysteryObject, (int)position.X, (int)position.Y - hitbox.Height, currentLevel, _cm));
+                GameObject o = (GameObject)Activator.CreateInstance(_mysteryObject, (int)position.X, (int)position.Y - hitbox.Height, true, currentLevel, _cm);
+                currentLevel.ToAddGameObject(o);
                 _hasBeenUsed = true;
+                if (o.GetType() == typeof(Coin))
+                {
+                    object state;
+                    Coin c = (Coin)o;
+                    c.AddCoin(mario);
+                }
             } 
         }
 

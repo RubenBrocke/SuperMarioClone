@@ -99,12 +99,26 @@ namespace SuperMarioClone
 
             if (state.IsKeyDown(Keys.D))
             {
-                velocityX += _acc;
+                if (velocityX < 0)
+                {
+                    velocityX += _acc * 2;
+                }
+                else
+                {
+                    velocityX += _acc;
+                }
                 direction = SpriteEffects.None;
             }
             else if (state.IsKeyDown(Keys.A))
             {
-                velocityX -= _acc;
+                if (velocityX > 0)
+                {
+                    velocityX -= _acc * 2;
+                }
+                else
+                {
+                    velocityX -= _acc;
+                }
                 direction = SpriteEffects.FlipHorizontally;
             }
             else if (IsColliding(currentLevel, 0, 1, out outRect))

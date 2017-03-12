@@ -73,14 +73,14 @@ namespace SuperMarioClone
             position = new Vector2(position.X + velocityX, position.Y + velocityY);
         }  
         
-        public void CheckCollision(float vX, float vY)
+        public void CheckCollision(Mario mario, float vY)
         {
             if (vY > 0)
             {
                 currentLevel.ToRemoveGameObject(this);
             }else
             {
-                //Do damage to mario
+                mario.LoseLife();
             }
         }      
     }
