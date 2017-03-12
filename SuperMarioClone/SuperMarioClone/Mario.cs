@@ -48,7 +48,16 @@ namespace SuperMarioClone
             FallingStraight
         }
 
+        private enum Form
+        {
+            Small,
+            Big,
+            Flower,
+            Tanuki
+        }
+
         private State _state;
+        private Form _form;
 
         //----Hitbox----//
         public Rectangle outRect;
@@ -62,6 +71,7 @@ namespace SuperMarioClone
             currentLevel = lvl;
             jumpVelocity = 6.25f;
             _state = State.Idle;
+            _form = Form.Small;
             _timer = new Timer(ChangeAnimationState);
             _timer.Change(0, 100);
         
@@ -70,10 +80,23 @@ namespace SuperMarioClone
             _coins = 0;
         }
 
+        public void becomeBig()
+        {
+            if (_form == Form.Small)
+            {
+                _form = Form.Big;
+            }
+            else
+            {
+                //Add score to mario in exchange for not being able to become big (he already is)
+            }
+
+        }
+
         public override void Update()
         {
             //Update Hitbox
-            hitbox = new Rectangle((int)position.X + _horizontalPadding, (int)position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
+            hitbox = new Rectangle((int)position.X + _horizontalPadding, (int)position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);            
 
             //Add gravity
             velocityY += gravity;
@@ -285,8 +308,7 @@ namespace SuperMarioClone
             spriteBatch.DrawString(_font, String.Format("{0,4}", _coins), new Vector2(768, 0), Color.Black);
             spriteBatch.End();
             spriteBatch.Begin(transformMatrix: MainGame.camera.GetMatrix(), samplerState: SamplerState.PointClamp);
-        }
-
+        }        
     }
 
 }

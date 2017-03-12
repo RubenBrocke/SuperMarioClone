@@ -91,8 +91,6 @@ namespace SuperMarioClone
                         throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
                     }
                 }
-
-
             }
             level.ToAddGameObject(new Mario(10, 10, level, cm));
             level.AddGameObjects();

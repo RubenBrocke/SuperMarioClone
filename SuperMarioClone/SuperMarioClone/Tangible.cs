@@ -10,6 +10,7 @@ namespace SuperMarioClone
     public abstract class Tangible : Moveable
     {
         protected Rectangle hitbox { get; set; }
+        protected Rectangle outRect;
 
         public Tangible() : base()
         {
@@ -46,6 +47,11 @@ namespace SuperMarioClone
                             {
                                 MysteryBlock mysteryBlock = (MysteryBlock)o;
                                 mysteryBlock.Eject((Mario)this, velocityY);
+                            }
+                            if (o is Mushroom)
+                            {
+                                Mushroom mushroom = (Mushroom)o;
+                                mushroom.collectMushroom((Mario)this);
                             }
                         }
                         if (this is Goomba)
