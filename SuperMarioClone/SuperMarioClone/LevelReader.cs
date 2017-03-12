@@ -47,7 +47,7 @@ namespace SuperMarioClone
                     }
                     catch
                     {
-                        new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                        throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
                     }
                 }
                 if (line.Substring(0, 5).Equals("Coin:"))
@@ -60,7 +60,7 @@ namespace SuperMarioClone
                     }
                     catch
                     {
-                        new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                        throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
                     }
                 }
                 if (line.Substring(0, 8).Equals("Mystery:"))
@@ -75,11 +75,25 @@ namespace SuperMarioClone
                     }
                     catch
                     {
-                        new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                        throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                    }
+                }
+                if (line.Substring(0, 7).Equals("Goomba:"))
+                {
+                    try
+                    {
+                        x = Int32.Parse(arguments[0]) * 16;
+                        y = Int32.Parse(arguments[1]) * 16;
+                        level.ToAddGameObject(new Goomba(x, y, level, cm));
+                    }
+                    catch
+                    {
+                        throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
                     }
                 }
 
-                }
+
+            }
             level.ToAddGameObject(new Mario(10, 10, level, cm));
             level.AddGameObjects();
             lvlReader.Close();

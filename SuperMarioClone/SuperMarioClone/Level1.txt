@@ -29,4 +29,5 @@ Coin: 33, 29
 Coin: 34, 29
 Coin: 38, 31
 Coin: 39, 31
+Goomba: 4, 34
 Mystery: 2, 32, Coin

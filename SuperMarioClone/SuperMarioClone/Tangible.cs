@@ -48,6 +48,15 @@ namespace SuperMarioClone
                                 mysteryBlock.Eject((Mario)this, velocityY);
                             }
                         }
+                        if (this is Goomba)
+                        {
+                            if (o is Mario)
+                            {
+                                Goomba g = (Goomba)this;
+                                Mario m = (Mario)o;
+                                g.CheckCollision(m.velocityX, m.velocityY);
+                            }
+                        }
                     } 
                 } 
             }
