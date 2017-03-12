@@ -48,8 +48,8 @@ namespace SuperMarioClone
                 {
                     _gameObjects.Remove(g);
                 }
-                _toRemove = new List<GameObject>();
             }
+            _toRemove = new List<GameObject>();
         }
         
         public void SetBackground(Texture2D background)
