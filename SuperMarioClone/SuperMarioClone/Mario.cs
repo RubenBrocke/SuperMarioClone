@@ -33,8 +33,6 @@ namespace SuperMarioClone
 
         private int _hitboxWidth = 14;
         private int _hitboxHeight = 20;
-        private int _horizontalPadding = 1;
-        private int _verticalPadding = 2;
 
         private Timer _timer;
 
@@ -94,7 +92,7 @@ namespace SuperMarioClone
         }
 
         public override void Update()
-        {
+        {            
             //Update Hitbox
             hitbox = new Rectangle((int)position.X + _horizontalPadding, (int)position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);            
 
@@ -116,6 +114,8 @@ namespace SuperMarioClone
             {
                 velocityX = -_xSpeedMax;
             }
+
+            CheckCollision();
 
             //Add movement
             KeyboardState state = Keyboard.GetState();
@@ -160,43 +160,13 @@ namespace SuperMarioClone
                 Jump();
             }
 
-            //Do collision (to be moved to parent class)
-            //Horizontal collision
-            if (IsColliding(currentLevel, (int)Math.Ceiling(velocityX), 0, out outRect) || IsColliding(currentLevel, (int)Math.Floor(velocityX), 0, out outRect))
-            {
-                if (velocityX < 0)
-                {
-                    position = new Vector2(outRect.Right - _horizontalPadding, position.Y);
-                }
-                else if (velocityX > 0)
-                {
-                    position = new Vector2(outRect.Left - hitbox.Width - _horizontalPadding, position.Y);
-                }
-                velocityX = 0;
-            }
-
-            //Vertical collision
-            if (IsColliding(currentLevel, 0, (int)Math.Ceiling(velocityY), out outRect) || IsColliding(currentLevel, 0, (int)Math.Floor(velocityY), out outRect))
-            {
-                if (velocityY > 0)
-                {
-                    position = new Vector2(position.X, outRect.Top - hitbox.Height - _verticalPadding);
-                }
-                else if (velocityY < 0)
-                {
-                    position = new Vector2(position.X, outRect.Bottom - _verticalPadding);
-                }
-                velocityY = 0;
-            }
+            
 
             //Add speed to position
             position = new Vector2(position.X + velocityX, position.Y + velocityY);
 
             //Focus camera on Mario
             MainGame.camera.LookAt(position);
-
-            //Debug
-            Console.WriteLine(position.Y);
 
             //Set state
             if (velocityX == 0)

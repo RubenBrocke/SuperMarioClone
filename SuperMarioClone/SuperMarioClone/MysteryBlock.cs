@@ -32,9 +32,9 @@ namespace SuperMarioClone
             _timer.Change(0, 120);
         }
 
-        public void Eject(Mario mario, float vY)
+        public void Eject(Mario mario, float vY, float Y)
         {
-            if (vY < 0 && !_hasBeenUsed)
+            if (vY < 0 && !_hasBeenUsed && Y > hitbox.Bottom)
             {
                 if (_mysteryObject == typeof(Coin))
                 {

@@ -24,6 +24,8 @@ namespace SuperMarioClone
             _walkDirection = "right";
             sprite = cm.Load<Texture2D>("Goomba");
             hitbox = new Rectangle((int)position.X, (int)position.Y, sprite.Width, sprite.Height);
+            _horizontalPadding = 1;
+            _verticalPadding = 0;
         }
 
         public override void Update()
@@ -32,6 +34,20 @@ namespace SuperMarioClone
 
             velocityY += gravity;
 
+            if (CheckCollision())
+            {
+                if (_walkDirection.Equals("right"))
+                {
+                    direction = SpriteEffects.None;
+                    _walkDirection = "left";
+                }
+                else
+                {
+                    direction = SpriteEffects.FlipHorizontally;
+                    _walkDirection = "right";
+                }
+            }
+
             if (_walkDirection.Equals("left"))
             {
                 velocityX = -2;
@@ -39,41 +55,12 @@ namespace SuperMarioClone
             if (_walkDirection.Equals("right"))
             {
                 velocityX = 2;
-            }
+            }           
 
-            if (IsColliding(currentLevel, (int)Math.Ceiling(velocityX), 0, out outRect) || IsColliding(currentLevel, (int)Math.Floor(velocityX), 0, out outRect))
-            {
-                if (velocityX < 0)
-                {
-                    position = new Vector2(outRect.Right, position.Y);
-                    _walkDirection = "right";
-                    direction = SpriteEffects.FlipHorizontally;
-                }
-                else if (velocityX > 0)
-                {
-                    position = new Vector2(outRect.Left - hitbox.Width, position.Y);
-                    _walkDirection = "left";
-                    direction = SpriteEffects.None;
-                }
-                velocityX = 0;
-            }
-
-            if (IsColliding(currentLevel, 0, (int)Math.Ceiling(velocityY), out outRect) || IsColliding(currentLevel, 0, (int)Math.Floor(velocityY), out outRect))
-            {
-                if (velocityY > 0)
-                {
-                    position = new Vector2(position.X, outRect.Top - hitbox.Height);
-                }
-                else if (velocityY < 0)
-                {
-                    position = new Vector2(position.X, outRect.Bottom);
-                }
-                velocityY = 0;
-            }
             position = new Vector2(position.X + velocityX, position.Y + velocityY);
         }  
         
-        public void CheckCollision(Mario mario, float vY)
+        public void CheckDeath(Mario mario, float vY)
         {
             if (vY > 0)
             {
@@ -82,6 +69,6 @@ namespace SuperMarioClone
             {
                 mario.LoseLife();
             }
-        }      
+        }
     }
 }
