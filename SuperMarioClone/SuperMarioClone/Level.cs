@@ -63,11 +63,24 @@ namespace SuperMarioClone
             _background = background;
         }
 
-        public void DrawLevel(SpriteBatch spriteBatch)
+        public void DrawLevel(SpriteBatch spriteBatch, Viewport viewPort)
         {
-            foreach (GameObject Object in _gameObjects)
+            foreach (GameObject o in _gameObjects)
             {
-                Object.Draw(spriteBatch);
+                if (o is Tangible)
+                {
+                    Tangible t = (Tangible)o;
+                    if (t.hitbox.Intersects(viewPort.Bounds))
+                    {
+                        o.Draw(spriteBatch);
+                    }
+                    
+                }
+                else
+                {
+                    o.Draw(spriteBatch);
+                }
+               
             }
         }
 

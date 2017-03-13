@@ -82,7 +82,7 @@ namespace SuperMarioClone
         {
             spriteBatch.Begin(transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
             GraphicsDevice.Clear(Color.Azure);
-            currentLevel.DrawLevel(spriteBatch);
+            currentLevel.DrawLevel(spriteBatch, GraphicsDevice.Viewport);
             // TODO: Add your drawing code here
             spriteBatch.End();
             base.Draw(gameTime);

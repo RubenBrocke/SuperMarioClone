@@ -9,7 +9,7 @@ namespace SuperMarioClone
 {
     public abstract class Tangible : Moveable
     {
-        protected Rectangle hitbox { get; set; }
+        public Rectangle hitbox { get; set; }
         protected Tangible collObject;
         protected int _horizontalPadding = 0;
         protected int _verticalPadding = 0;
