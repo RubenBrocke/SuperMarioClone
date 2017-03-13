@@ -17,12 +17,12 @@ namespace SuperMarioClone
             _inputTexture = inputTexture;
         }
 
-        public void SetTexture(Texture2D inputTexture)
+        public void setTexture(Texture2D inputTexture)
         {
             _inputTexture = inputTexture;
         }
 
-        public Texture2D[] GetTextures(int x, int y, int width, int height, int collumnAmount, int rowAmount)
+        public Texture2D[] getTextures(int x, int y, int width, int height, int collumnAmount, int rowAmount)
         {
             Texture2D[] returnArray = new Texture2D[collumnAmount * rowAmount];
             Rectangle sourceRect = Rectangle.Empty;

@@ -76,7 +76,7 @@ namespace SuperMarioClone
 
             _horizontalPadding = 1;
             _verticalPadding = 2;
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitboxWidth, _hitboxHeight);
+            hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitboxWidth, _hitboxHeight);
             _lives = 3;
             _coins = 0;
         }
@@ -97,7 +97,7 @@ namespace SuperMarioClone
         public override void Update()
         {            
             //Update Hitbox
-            Hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);            
+            hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);            
 
             //Add gravity
             velocityY += gravity;

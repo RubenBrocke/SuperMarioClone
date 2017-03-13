@@ -19,9 +19,9 @@ namespace SuperMarioClone
         public override void Draw(SpriteBatch spriteBatch)
         {
             Rectangle sourceRect = new Rectangle(16, 16, 16, 16);
-            for (int x = (int)Position.X; x < Width + (int)Position.X; x += 16)
+            for (int x = (int)Position.X; x < _width + (int)Position.X; x += 16)
             {
-                for (int y = (int)Position.Y; y < Height + (int)Position.Y; y += 16)
+                for (int y = (int)Position.Y; y < _height + (int)Position.Y; y += 16)
                 {
                     if (y == (int)Position.Y)
                     {
@@ -29,7 +29,7 @@ namespace SuperMarioClone
                         {
                             sourceRect = new Rectangle(0, 48, 16, 16);
                         }
-                        else if (x == (int)Position.X + Width - 16)
+                        else if (x == (int)Position.X + _width - 16)
                         {
                             sourceRect = new Rectangle(32, 48, 16, 16);
                         }
@@ -38,13 +38,13 @@ namespace SuperMarioClone
                             sourceRect = new Rectangle(16, 48, 16, 16);
                         }
                     }
-                    else if (y == (int)Position.Y + Height - 16)
+                    else if (y == (int)Position.Y + _height - 16)
                     {
                         if (x == (int)Position.X)
                         {
                             sourceRect = new Rectangle(0, 80, 16, 16);
                         }
-                        else if (x == (int)Position.X + Width - 16)
+                        else if (x == (int)Position.X + _width - 16)
                         {
                             sourceRect = new Rectangle(32, 80, 16, 16);
                         }
@@ -57,7 +57,7 @@ namespace SuperMarioClone
                     {
                         sourceRect = new Rectangle(0, 64, 16, 16);
                     }
-                    else if (x == (int)Position.X + Width - 16)
+                    else if (x == (int)Position.X + _width - 16)
                     {
                         sourceRect = new Rectangle(32, 64, 16, 16);
                     }

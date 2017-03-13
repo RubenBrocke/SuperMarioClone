@@ -37,14 +37,14 @@ namespace SuperMarioClone
             _timer.Change(0, 190);
             Sprite = cm.Load<Texture2D>("CoinSheet");
             _coinPickUpSound = cm.Load<SoundEffect>("Pling");
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, 12, 16); // fix the magic numbers
+            hitbox = new Rectangle((int)Position.X, (int)Position.Y, 12, 16); // fix the magic numbers
         }
 
         public void AddCoin(Mario mario)
         {
             if (!HasBeenPickedUp)
             {
-                Timer deathTimer = new Timer(DeleteCoin);
+                Timer deathTimer = new Timer(deleteCoin);
                 if (IsMysteryCoin)
                 {
                     deathTimer.Change(200, 0);
@@ -58,7 +58,7 @@ namespace SuperMarioClone
             }
         }
 
-        public void DeleteCoin(object state)
+        public void deleteCoin(object state)
         {
             _coinPickUpSound.Play();
             CurrentLevel.ToRemoveGameObject(this);

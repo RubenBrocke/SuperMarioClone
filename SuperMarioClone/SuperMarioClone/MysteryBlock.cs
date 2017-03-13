@@ -26,7 +26,7 @@ namespace SuperMarioClone
             CurrentLevel = lvl;
             _cm = cm;
             Sprite = _cm.Load<Texture2D>("MysteryBlockSheet");
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, 16, 16); // TODO: numbers represent pixels, change magic number
+            hitbox = new Rectangle((int)Position.X, (int)Position.Y, 16, 16); // TODO: numbers represent pixels, change magic number
 
             _timer = new Timer(ChangeSpriteIndex);
             _timer.Change(0, 120);
@@ -34,17 +34,17 @@ namespace SuperMarioClone
 
         public void Eject(Mario mario, float vY, float Y)
         {
-            if (vY < 0 && !_hasBeenUsed && Y > Hitbox.Bottom)
+            if (vY < 0 && !_hasBeenUsed && Y > hitbox.Bottom)
             {
                 if (_mysteryObject == typeof(Coin))
                 {
-                    Coin c = (Coin)Activator.CreateInstance(_mysteryObject, (int)Position.X, (int)Position.Y - Hitbox.Height, true, CurrentLevel, _cm);                    
+                    Coin c = (Coin)Activator.CreateInstance(_mysteryObject, (int)Position.X, (int)Position.Y - hitbox.Height, true, CurrentLevel, _cm);                    
                     c.AddCoin(mario);
                     CurrentLevel.ToAddGameObject(c);
                 }
                 if (_mysteryObject == typeof(Mushroom))
                 {
-                    Mushroom m = (Mushroom)Activator.CreateInstance(_mysteryObject, (int)Position.X, (int)Position.Y - Hitbox.Height, CurrentLevel, _cm);
+                    Mushroom m = (Mushroom)Activator.CreateInstance(_mysteryObject, (int)Position.X, (int)Position.Y - hitbox.Height, CurrentLevel, _cm);
                     CurrentLevel.ToAddGameObject(m);
                 }
                 if (_mysteryObject == typeof(LevelReader))
