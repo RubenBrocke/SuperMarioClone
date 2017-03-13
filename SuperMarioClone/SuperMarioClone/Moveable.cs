@@ -9,11 +9,11 @@ namespace SuperMarioClone
 {
     public abstract class Moveable : GameObject
     {
-        protected float velocityX { get; set; }
+        protected float VelocityX { get; set; }
 
-        protected float velocityY { get; set; }
+        protected float VelocityY { get; set; }
 
-        protected float jumpVelocity { get; set; }
+        protected float JumpVelocity { get; set; }
 
         protected float gravity = 0.3f; 
 
@@ -24,17 +24,17 @@ namespace SuperMarioClone
 
         public void MoveLeft()
         {
-            Position = new Vector2(Position.X - velocityX, Position.Y);
+            Position = new Vector2(Position.X - VelocityX, Position.Y);
         }
 
         public void MoveRight()
         {
-            Position = new Vector2(Position.X + velocityX, Position.Y);
+            Position = new Vector2(Position.X + VelocityX, Position.Y);
         }
 
         public virtual void Jump()
         {
-            Position = new Vector2(Position.X, Position.Y - velocityY);
+            Position = new Vector2(Position.X, Position.Y - VelocityY);
         }
 
     } 

@@ -12,7 +12,7 @@ namespace SuperMarioClone
 {
     class MysteryBlock : Solid
     {
-        private Type _mysteryObject { get; set; }
+        private Type MysteryObject { get; set; }
         private ContentManager _cm;
         private bool _hasBeenUsed = false;
         private int _spriteImageIndex = 0;
@@ -21,7 +21,7 @@ namespace SuperMarioClone
         public MysteryBlock(int _x, int _y, Level lvl, ContentManager cm, Type MysteryObject) : base()
         {
             //TODO: add animation later
-            _mysteryObject = MysteryObject;
+            this.MysteryObject = MysteryObject;
             Position = new Vector2(_x, _y);
             CurrentLevel = lvl;
             _cm = cm;
@@ -36,20 +36,20 @@ namespace SuperMarioClone
         {
             if (vY < 0 && !_hasBeenUsed && Y > Hitbox.Bottom)
             {
-                if (_mysteryObject == typeof(Coin))
+                if (MysteryObject == typeof(Coin))
                 {
-                    Coin c = (Coin)Activator.CreateInstance(_mysteryObject, (int)Position.X, (int)Position.Y - Hitbox.Height, true, CurrentLevel, _cm);                    
+                    Coin c = (Coin)Activator.CreateInstance(MysteryObject, (int)Position.X, (int)Position.Y - Hitbox.Height, true, CurrentLevel, _cm);                    
                     c.AddCoin(mario);
                     CurrentLevel.ToAddGameObject(c);
                 }
-                if (_mysteryObject == typeof(Mushroom))
+                if (MysteryObject == typeof(Mushroom))
                 {
-                    Mushroom m = (Mushroom)Activator.CreateInstance(_mysteryObject, (int)Position.X, (int)Position.Y - Hitbox.Height, CurrentLevel, _cm);
+                    Mushroom m = (Mushroom)Activator.CreateInstance(MysteryObject, (int)Position.X, (int)Position.Y - Hitbox.Height, CurrentLevel, _cm);
                     CurrentLevel.ToAddGameObject(m);
                 }
-                if (_mysteryObject == typeof(LevelReader))
+                if (MysteryObject == typeof(LevelReader))
                 {
-                    LevelReader _lr = (LevelReader)Activator.CreateInstance(_mysteryObject, _cm);
+                    LevelReader _lr = (LevelReader)Activator.CreateInstance(MysteryObject, _cm);
                     MainGame.currentLevel = _lr.ReadLevel(1);
                 }
                 _hasBeenUsed = true;

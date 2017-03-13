@@ -48,12 +48,12 @@ namespace SuperMarioClone
                             if (o is MysteryBlock)
                             {
                                 MysteryBlock mysteryBlock = (MysteryBlock)o;
-                                mysteryBlock.Eject((Mario)this, this.velocityY, this.Position.Y);
+                                mysteryBlock.Eject((Mario)this, this.VelocityY, this.Position.Y);
                             }
                             if (o is Mushroom)
                             {
                                 Mushroom mushroom = (Mushroom)o;
-                                mushroom.collectMushroom((Mario)this);
+                                mushroom.CollectMushroom((Mario)this);
                             }
                         }
                         if (this is Goomba)
@@ -62,7 +62,7 @@ namespace SuperMarioClone
                             {
                                 Goomba g = (Goomba)this;
                                 Mario m = (Mario)o;
-                                g.CheckDeath(m, m.velocityY);
+                                g.CheckDeath(m, m.VelocityY);
                             }
                         }
                     } 
@@ -75,44 +75,44 @@ namespace SuperMarioClone
         {
             bool result = false;
             //Horizontal collision
-            if (IsColliding(CurrentLevel, (int)Math.Ceiling(velocityX), 0, out collObject) || IsColliding(CurrentLevel, (int)Math.Floor(velocityX), 0, out collObject))
+            if (IsColliding(CurrentLevel, (int)Math.Ceiling(VelocityX), 0, out collObject) || IsColliding(CurrentLevel, (int)Math.Floor(VelocityX), 0, out collObject))
             {
                 if (!(collObject is TransFloor))
                 {
-                    if (velocityX < 0)
+                    if (VelocityX < 0)
                     {
                         Position = new Vector2(collObject.Hitbox.Right - _horizontalPadding, Position.Y);
                     }
-                    else if (velocityX > 0)
+                    else if (VelocityX > 0)
                     {
                         Position = new Vector2(collObject.Hitbox.Left - Hitbox.Width - _horizontalPadding, Position.Y);
                     }
-                    velocityX = 0;
+                    VelocityX = 0;
                     result = true; 
                 }
             }
 
             //Vertical collision
-            if (IsColliding(CurrentLevel, 0, (int)Math.Ceiling(velocityY), out collObject) || IsColliding(CurrentLevel, 0, (int)Math.Floor(velocityY), out collObject))
+            if (IsColliding(CurrentLevel, 0, (int)Math.Ceiling(VelocityY), out collObject) || IsColliding(CurrentLevel, 0, (int)Math.Floor(VelocityY), out collObject))
             {
                 if (!(collObject is TransFloor))
                 {
-                    if (velocityY > 0)
+                    if (VelocityY > 0)
                     {
                         Position = new Vector2(Position.X, collObject.Hitbox.Top - Hitbox.Height - _verticalPadding);
                     }
-                    else if (velocityY < 0)
+                    else if (VelocityY < 0)
                     {
                         Position = new Vector2(Position.X, collObject.Hitbox.Bottom - _verticalPadding);
                     }
-                    velocityY = 0; 
+                    VelocityY = 0; 
                 }
                 else
                 {
-                    if (velocityY > 0)
+                    if (VelocityY > 0)
                     {
                         Position = new Vector2(Position.X, collObject.Hitbox.Top - Hitbox.Height - _verticalPadding);
-                        velocityY = 0;
+                        VelocityY = 0;
                     }
                 }
             }

@@ -19,7 +19,7 @@ namespace SuperMarioClone
         {
             Position = new Vector2(_x, _y);
             CurrentLevel = lvl;
-            velocityX = 2f;
+            VelocityX = 2f;
             _walkDirection = "right";
             Sprite = cm.Load<Texture2D>("Goomba");
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
@@ -31,7 +31,7 @@ namespace SuperMarioClone
         {
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
 
-            velocityY += gravity;
+            VelocityY += gravity;
 
             if (CheckCollision())
             {
@@ -49,14 +49,14 @@ namespace SuperMarioClone
 
             if (_walkDirection.Equals("left"))
             {
-                velocityX = -2;
+                VelocityX = -2;
             }
             if (_walkDirection.Equals("right"))
             {
-                velocityX = 2;
+                VelocityX = 2;
             }           
 
-            Position = new Vector2(Position.X + velocityX, Position.Y + velocityY);
+            Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
         }  
         
         public void CheckDeath(Mario mario, float vY)

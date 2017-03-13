@@ -29,7 +29,7 @@ namespace SuperMarioClone
         {
             Position = new Vector2(_x, _y);
             CurrentLevel = lvl;
-            velocityY = -2f;
+            VelocityY = -2f;
             IsMysteryCoin = isMystereyCoin;
             HasBeenPickedUp = false;
             _spriteImageIndex = 0;
@@ -68,8 +68,8 @@ namespace SuperMarioClone
         {
             if (IsMysteryCoin)
             {
-                Position = new Vector2(Position.X, Position.Y + velocityY);
-                velocityY += gravity;
+                Position = new Vector2(Position.X, Position.Y + VelocityY);
+                VelocityY += gravity;
             }
         }
 

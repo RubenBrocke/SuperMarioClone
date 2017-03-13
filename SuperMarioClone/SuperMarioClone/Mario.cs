@@ -15,9 +15,9 @@ namespace SuperMarioClone
 {
     public class Mario : Tangible
     {
-	    private int _coins { get; set; }
+	    private int Coins { get; set; }
 
-        private int _lives { get; set; }
+        private int Lives { get; set; }
 
         private bool _jumpWasPressed = false;
         private SoundEffect _jumpSound;
@@ -68,7 +68,7 @@ namespace SuperMarioClone
             _jumpSound = cm.Load<SoundEffect>("Oink1");
             _font = cm.Load<SpriteFont>("Font");
             CurrentLevel = lvl;
-            jumpVelocity = 6.25f;
+            JumpVelocity = 6.25f;
             _state = State.Idle;
             _form = Form.Small;
             _timer = new Timer(ChangeAnimationState);
@@ -77,8 +77,8 @@ namespace SuperMarioClone
             _horizontalPadding = 1;
             _verticalPadding = 2;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitboxWidth, _hitboxHeight);
-            _lives = 3;
-            _coins = 0;
+            Lives = 3;
+            Coins = 0;
         }
 
         public void becomeBig()
@@ -100,22 +100,22 @@ namespace SuperMarioClone
             Hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);            
 
             //Add gravity
-            velocityY += gravity;
+            VelocityY += gravity;
 
             //Limit vertical speed
-            if (velocityY > _ySpeedMax)
+            if (VelocityY > _ySpeedMax)
             {
-                velocityY = _ySpeedMax;
+                VelocityY = _ySpeedMax;
             }
 
             //Limit horizontal speed
-            if (velocityX > _xSpeedMax)
+            if (VelocityX > _xSpeedMax)
             {
-                velocityX = _xSpeedMax;
+                VelocityX = _xSpeedMax;
             }
-            else if (velocityX < -_xSpeedMax)
+            else if (VelocityX < -_xSpeedMax)
             {
-                velocityX = -_xSpeedMax;
+                VelocityX = -_xSpeedMax;
             }
 
             //Add movement
@@ -123,37 +123,37 @@ namespace SuperMarioClone
 
             if (state.IsKeyDown(Keys.D))
             {
-                if (velocityX < 0)
+                if (VelocityX < 0)
                 {
-                    velocityX += _acc * 2;
+                    VelocityX += _acc * 2;
                 }
                 else
                 {
-                    velocityX += _acc;
+                    VelocityX += _acc;
                 }
                 Direction = SpriteEffects.None;
             }
             else if (state.IsKeyDown(Keys.A))
             {
-                if (velocityX > 0)
+                if (VelocityX > 0)
                 {
-                    velocityX -= _acc * 2;
+                    VelocityX -= _acc * 2;
                 }
                 else
                 {
-                    velocityX -= _acc;
+                    VelocityX -= _acc;
                 }
                 Direction = SpriteEffects.FlipHorizontally;
             }
             else if (IsColliding(CurrentLevel, 0, 1, out collObject))
             {
-                if (velocityX > 0)
+                if (VelocityX > 0)
                 {
-                    velocityX = Math.Max(velocityX - _deacc, 0);
+                    VelocityX = Math.Max(VelocityX - _deacc, 0);
                 }
-                else if (velocityX < 0)
+                else if (VelocityX < 0)
                 {
-                    velocityX = Math.Min(velocityX + _deacc, 0);
+                    VelocityX = Math.Min(VelocityX + _deacc, 0);
                 }
             }
             if (state.IsKeyDown(Keys.Space))
@@ -168,39 +168,39 @@ namespace SuperMarioClone
             CheckCollision();
 
             //Add speed to position
-            Position = new Vector2(Position.X + velocityX, Position.Y + velocityY);
+            Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
 
             //Focus camera on Mario
             MainGame.camera.LookAt(Position);
 
             //Prevents pogosticking
-            if(velocityY == 0)
+            if(VelocityY == 0)
             {
                 _jumpWasPressed = false;
             }
 
             //Set state
-            if (velocityX == 0)
+            if (VelocityX == 0)
             {
                 _state = State.Idle;
             }
-            if (velocityX != 0)
+            if (VelocityX != 0)
             {
                 _state = State.Walking;
             }
-            if (velocityX > 3.4f || velocityX < -3.4f)
+            if (VelocityX > 3.4f || VelocityX < -3.4f)
             {
                 _state = State.Running;
             }
-            if (velocityY < 0)
+            if (VelocityY < 0)
             {
                 _state = State.Jumping;
             }
-            if (velocityY > 0)
+            if (VelocityY > 0)
             {
                 _state = State.Falling;
             }
-            if (velocityY > 0 && velocityX < 0.5f && velocityX > -0.5f)
+            if (VelocityY > 0 && VelocityX < 0.5f && VelocityX > -0.5f)
             {
                 _state = State.FallingStraight;
             }
@@ -210,19 +210,19 @@ namespace SuperMarioClone
         {
             if (IsColliding(CurrentLevel, 0, 1, out collObject))
             {
-                 velocityY = -jumpVelocity;
+                 VelocityY = -JumpVelocity;
                 _jumpSound.Play();
             }
         }
 
         public void LoseLife()
 	    {
-            _lives--;    
+            Lives--;    
 	    }
     
         public void addCoin()
         {
-            _coins++;
+            Coins++;
         }
 
         private void ChangeAnimationState(object state)
@@ -286,8 +286,8 @@ namespace SuperMarioClone
             spriteBatch.Draw(texture: Sprite, position: Position, effects: Direction, sourceRectangle: sourceRect);
             spriteBatch.End();
             spriteBatch.Begin();
-            spriteBatch.DrawString(_font, String.Format("{0,4}", _coins), new Vector2(768, 0), Color.Black);
-            spriteBatch.DrawString(_font, String.Format("{0,4}", _lives), new Vector2(704, 0), Color.Black);
+            spriteBatch.DrawString(_font, String.Format("{0,4}", Coins), new Vector2(768, 0), Color.Black);
+            spriteBatch.DrawString(_font, String.Format("{0,4}", Lives), new Vector2(704, 0), Color.Black);
             spriteBatch.End();
             spriteBatch.Begin(transformMatrix: MainGame.camera.GetMatrix(), samplerState: SamplerState.PointClamp);
         }        
