@@ -28,7 +28,7 @@ namespace SuperMarioClone
                 if(o is Tangible)
                 {
                     Tangible tangibleObject = (Tangible)o;
-                    Rectangle testRect = new Rectangle((int)tangibleObject.position.X - offsetX, (int)tangibleObject.position.Y - offsetY, tangibleObject.hitbox.Width, tangibleObject.hitbox.Height);
+                    Rectangle testRect = new Rectangle((int)tangibleObject.Position.X - offsetX, (int)tangibleObject.Position.Y - offsetY, tangibleObject.hitbox.Width, tangibleObject.hitbox.Height);
 
                     if (testRect.Intersects(hitbox) && tangibleObject != this)
                     {
@@ -48,7 +48,7 @@ namespace SuperMarioClone
                             if (o is MysteryBlock)
                             {
                                 MysteryBlock mysteryBlock = (MysteryBlock)o;
-                                mysteryBlock.Eject((Mario)this, this.velocityY, this.position.Y);
+                                mysteryBlock.Eject((Mario)this, this.velocityY, this.Position.Y);
                             }
                             if (o is Mushroom)
                             {
@@ -75,17 +75,17 @@ namespace SuperMarioClone
         {
             bool result = false;
             //Horizontal collision
-            if (IsColliding(currentLevel, (int)Math.Ceiling(velocityX), 0, out collObject) || IsColliding(currentLevel, (int)Math.Floor(velocityX), 0, out collObject))
+            if (IsColliding(CurrentLevel, (int)Math.Ceiling(velocityX), 0, out collObject) || IsColliding(CurrentLevel, (int)Math.Floor(velocityX), 0, out collObject))
             {
                 if (!(collObject is TransFloor))
                 {
                     if (velocityX < 0)
                     {
-                        position = new Vector2(collObject.hitbox.Right - _horizontalPadding, position.Y);
+                        Position = new Vector2(collObject.hitbox.Right - _horizontalPadding, Position.Y);
                     }
                     else if (velocityX > 0)
                     {
-                        position = new Vector2(collObject.hitbox.Left - hitbox.Width - _horizontalPadding, position.Y);
+                        Position = new Vector2(collObject.hitbox.Left - hitbox.Width - _horizontalPadding, Position.Y);
                     }
                     velocityX = 0;
                     result = true; 
@@ -93,17 +93,17 @@ namespace SuperMarioClone
             }
 
             //Vertical collision
-            if (IsColliding(currentLevel, 0, (int)Math.Ceiling(velocityY), out collObject) || IsColliding(currentLevel, 0, (int)Math.Floor(velocityY), out collObject))
+            if (IsColliding(CurrentLevel, 0, (int)Math.Ceiling(velocityY), out collObject) || IsColliding(CurrentLevel, 0, (int)Math.Floor(velocityY), out collObject))
             {
                 if (!(collObject is TransFloor))
                 {
                     if (velocityY > 0)
                     {
-                        position = new Vector2(position.X, collObject.hitbox.Top - hitbox.Height - _verticalPadding);
+                        Position = new Vector2(Position.X, collObject.hitbox.Top - hitbox.Height - _verticalPadding);
                     }
                     else if (velocityY < 0)
                     {
-                        position = new Vector2(position.X, collObject.hitbox.Bottom - _verticalPadding);
+                        Position = new Vector2(Position.X, collObject.hitbox.Bottom - _verticalPadding);
                     }
                     velocityY = 0; 
                 }
@@ -111,7 +111,7 @@ namespace SuperMarioClone
                 {
                     if (velocityY > 0)
                     {
-                        position = new Vector2(position.X, collObject.hitbox.Top - hitbox.Height - _verticalPadding);
+                        Position = new Vector2(Position.X, collObject.hitbox.Top - hitbox.Height - _verticalPadding);
                         velocityY = 0;
                     }
                 }

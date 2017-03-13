@@ -10,22 +10,22 @@ namespace SuperMarioClone
 {
     public abstract class GameObject
     {
-        protected Vector2 position { get; set; }
+        protected Vector2 Position { get; set; }
 
-        protected Texture2D sprite { get; set; }
+        protected Texture2D Sprite { get; set; }
 
-        protected SpriteEffects direction { get; set; }
+        protected SpriteEffects Direction { get; set; }
 
-        protected Level currentLevel { get; set; }
+        protected Level CurrentLevel { get; set; }
 
         public GameObject()
         {
-            direction = SpriteEffects.None;
+            Direction = SpriteEffects.None;
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture: sprite, position: position, effects: direction);
+            spriteBatch.Draw(texture: Sprite, position: Position, effects: Direction);
         }
 
         public virtual void Update()

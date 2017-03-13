@@ -22,11 +22,11 @@ namespace SuperMarioClone
         {
             //TODO: add animation later
             _mysteryObject = MysteryObject;
-            position = new Vector2(_x, _y);
-            currentLevel = lvl;
+            Position = new Vector2(_x, _y);
+            CurrentLevel = lvl;
             _cm = cm;
-            sprite = _cm.Load<Texture2D>("MysteryBlockSheet");
-            hitbox = new Rectangle((int)position.X, (int)position.Y, 16, 16); // TODO: numbers represent pixels, change magic number
+            Sprite = _cm.Load<Texture2D>("MysteryBlockSheet");
+            hitbox = new Rectangle((int)Position.X, (int)Position.Y, 16, 16); // TODO: numbers represent pixels, change magic number
 
             _timer = new Timer(ChangeSpriteIndex);
             _timer.Change(0, 120);
@@ -38,14 +38,14 @@ namespace SuperMarioClone
             {
                 if (_mysteryObject == typeof(Coin))
                 {
-                    Coin c = (Coin)Activator.CreateInstance(_mysteryObject, (int)position.X, (int)position.Y - hitbox.Height, true, currentLevel, _cm);                    
+                    Coin c = (Coin)Activator.CreateInstance(_mysteryObject, (int)Position.X, (int)Position.Y - hitbox.Height, true, CurrentLevel, _cm);                    
                     c.AddCoin(mario);
-                    currentLevel.ToAddGameObject(c);
+                    CurrentLevel.ToAddGameObject(c);
                 }
                 if (_mysteryObject == typeof(Mushroom))
                 {
-                    Mushroom m = (Mushroom)Activator.CreateInstance(_mysteryObject, (int)position.X, (int)position.Y - hitbox.Height, currentLevel, _cm);
-                    currentLevel.ToAddGameObject(m);
+                    Mushroom m = (Mushroom)Activator.CreateInstance(_mysteryObject, (int)Position.X, (int)Position.Y - hitbox.Height, CurrentLevel, _cm);
+                    CurrentLevel.ToAddGameObject(m);
                 }
                 if (_mysteryObject == typeof(LevelReader))
                 {
@@ -58,7 +58,7 @@ namespace SuperMarioClone
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture: sprite, position: position, sourceRectangle: new Rectangle(16 * _spriteImageIndex, 0, 16, 16));
+            spriteBatch.Draw(texture: Sprite, position: Position, sourceRectangle: new Rectangle(16 * _spriteImageIndex, 0, 16, 16));
         }
 
         private void ChangeSpriteIndex(object state)

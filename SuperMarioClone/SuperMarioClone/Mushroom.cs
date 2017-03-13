@@ -22,14 +22,14 @@ namespace SuperMarioClone
 
         public Mushroom(int _x, int _y, Level lvl, ContentManager cm) : base()
         {
-            position = new Vector2(_x, _y);
-            currentLevel = lvl;
+            Position = new Vector2(_x, _y);
+            CurrentLevel = lvl;
             velocityY = 1f;
             _hasBeenPickedUp = false;
             _walkDirection = "right";
-            sprite = cm.Load<Texture2D>("Mushroom");
+            Sprite = cm.Load<Texture2D>("Mushroom");
             _coinPickUpSound = cm.Load<SoundEffect>("Pling");
-            hitbox = new Rectangle((int)position.X, (int)position.Y, sprite.Width, sprite.Height); // fix the magic numbers
+            hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height); // fix the magic numbers
         }
 
         public void collectMushroom(Mario mario)
@@ -38,14 +38,14 @@ namespace SuperMarioClone
             {
                 mario.becomeBig();
                 _hasBeenPickedUp = true;
-                currentLevel.ToRemoveGameObject(this);
+                CurrentLevel.ToRemoveGameObject(this);
                 _coinPickUpSound.Play();
             }
         }
 
         public override void Update()
         {
-            hitbox = new Rectangle((int)position.X, (int)position.Y, hitbox.Width, hitbox.Height);
+            hitbox = new Rectangle((int)Position.X, (int)Position.Y, hitbox.Width, hitbox.Height);
 
             velocityY += gravity;
 
@@ -53,12 +53,12 @@ namespace SuperMarioClone
             {
                 if (_walkDirection.Equals("right"))
                 {
-                    direction = SpriteEffects.None;
+                    Direction = SpriteEffects.None;
                     _walkDirection = "left";
                 }
                 else
                 {
-                    direction = SpriteEffects.FlipHorizontally;
+                    Direction = SpriteEffects.FlipHorizontally;
                     _walkDirection = "right";
                 }
             }
@@ -72,7 +72,7 @@ namespace SuperMarioClone
                 velocityX = _speed;
             }
 
-            position = new Vector2(position.X + velocityX, position.Y + velocityY);
+            Position = new Vector2(Position.X + velocityX, Position.Y + velocityY);
         }   
     }
 }

@@ -63,11 +63,11 @@ namespace SuperMarioClone
 
         public Mario(int _x, int _y, Level lvl, ContentManager cm) : base()
         {
-            position = new Vector2(_x, _y);
-            sprite = cm.Load<Texture2D>("MarioSheetRight");
+            Position = new Vector2(_x, _y);
+            Sprite = cm.Load<Texture2D>("MarioSheetRight");
             _jumpSound = cm.Load<SoundEffect>("Oink1");
             _font = cm.Load<SpriteFont>("Font");
-            currentLevel = lvl;
+            CurrentLevel = lvl;
             jumpVelocity = 6.25f;
             _state = State.Idle;
             _form = Form.Small;
@@ -76,7 +76,7 @@ namespace SuperMarioClone
 
             _horizontalPadding = 1;
             _verticalPadding = 2;
-            hitbox = new Rectangle((int)position.X, (int)position.Y, _hitboxWidth, _hitboxHeight);
+            hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitboxWidth, _hitboxHeight);
             _lives = 3;
             _coins = 0;
         }
@@ -97,7 +97,7 @@ namespace SuperMarioClone
         public override void Update()
         {            
             //Update Hitbox
-            hitbox = new Rectangle((int)position.X + _horizontalPadding, (int)position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);            
+            hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);            
 
             //Add gravity
             velocityY += gravity;
@@ -131,7 +131,7 @@ namespace SuperMarioClone
                 {
                     velocityX += _acc;
                 }
-                direction = SpriteEffects.None;
+                Direction = SpriteEffects.None;
             }
             else if (state.IsKeyDown(Keys.A))
             {
@@ -143,9 +143,9 @@ namespace SuperMarioClone
                 {
                     velocityX -= _acc;
                 }
-                direction = SpriteEffects.FlipHorizontally;
+                Direction = SpriteEffects.FlipHorizontally;
             }
-            else if (IsColliding(currentLevel, 0, 1, out collObject))
+            else if (IsColliding(CurrentLevel, 0, 1, out collObject))
             {
                 if (velocityX > 0)
                 {
@@ -168,10 +168,10 @@ namespace SuperMarioClone
             CheckCollision();
 
             //Add speed to position
-            position = new Vector2(position.X + velocityX, position.Y + velocityY);
+            Position = new Vector2(Position.X + velocityX, Position.Y + velocityY);
 
             //Focus camera on Mario
-            MainGame.camera.LookAt(position);
+            MainGame.camera.LookAt(Position);
 
             //Prevents pogosticking
             if(velocityY == 0)
@@ -208,7 +208,7 @@ namespace SuperMarioClone
 
         public override void Jump()
         {
-            if (IsColliding(currentLevel, 0, 1, out collObject))
+            if (IsColliding(CurrentLevel, 0, 1, out collObject))
             {
                  velocityY = -jumpVelocity;
                 _jumpSound.Play();
@@ -281,9 +281,9 @@ namespace SuperMarioClone
                     _isAnimated = false;
                     break;
             }
-            sourceRect = new Rectangle(16 * (_animationState * (_isAnimated ? 1 : 0) + _spriteImageIndex), 0, 16, sprite.Height);
+            sourceRect = new Rectangle(16 * (_animationState * (_isAnimated ? 1 : 0) + _spriteImageIndex), 0, 16, Sprite.Height);
 
-            spriteBatch.Draw(texture: sprite, position: position, effects: direction, sourceRectangle: sourceRect);
+            spriteBatch.Draw(texture: Sprite, position: Position, effects: Direction, sourceRectangle: sourceRect);
             spriteBatch.End();
             spriteBatch.Begin();
             spriteBatch.DrawString(_font, String.Format("{0,4}", _coins), new Vector2(768, 0), Color.Black);

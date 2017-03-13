@@ -23,11 +23,14 @@ namespace SuperMarioClone
 
         public void AddGameObjects()
         {
-            foreach (GameObject g in _toAdd)
+            lock (_toAdd)
             {
-                _gameObjects.Add(g);
+                foreach (GameObject g in _toAdd.ToList())
+                {
+                    _gameObjects.Add(g);
+                }
             }
-            _toAdd = new List<GameObject>();
+            _toAdd.Clear();
         }
 
         public void ToAddGameObject(GameObject g)
@@ -42,14 +45,17 @@ namespace SuperMarioClone
 
         public void RemoveGameObjects()
         {
-            foreach(GameObject g in _toRemove)
+            lock (_toRemove)
             {
-                if (_gameObjects.Contains(g))
+                foreach (GameObject g in _toRemove)
                 {
-                    _gameObjects.Remove(g);
+                    if (_gameObjects.Contains(g))
+                    {
+                        _gameObjects.Remove(g);
+                    }
                 }
             }
-            _toRemove = new List<GameObject>();
+            _toRemove.Clear();
         }
         
         public void SetBackground(Texture2D background)
