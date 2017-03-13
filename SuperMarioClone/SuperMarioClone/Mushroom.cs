@@ -29,7 +29,7 @@ namespace SuperMarioClone
             _walkDirection = "right";
             Sprite = cm.Load<Texture2D>("Mushroom");
             _coinPickUpSound = cm.Load<SoundEffect>("Pling");
-            hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height); // fix the magic numbers
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height); // fix the magic numbers
         }
 
         public void collectMushroom(Mario mario)
@@ -45,7 +45,7 @@ namespace SuperMarioClone
 
         public override void Update()
         {
-            hitbox = new Rectangle((int)Position.X, (int)Position.Y, hitbox.Width, hitbox.Height);
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
 
             velocityY += gravity;
 

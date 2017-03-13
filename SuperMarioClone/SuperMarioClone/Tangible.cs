@@ -9,7 +9,7 @@ namespace SuperMarioClone
 {
     public abstract class Tangible : Moveable
     {
-        public Rectangle hitbox { get; set; }
+        public Rectangle Hitbox { get; set; }
         protected Tangible collObject;
         protected int _horizontalPadding = 0;
         protected int _verticalPadding = 0;
@@ -23,14 +23,14 @@ namespace SuperMarioClone
         {
             bool collidesWithSolid = false;
             collObject = null;
-            foreach (GameObject o in lvl._gameObjects)
+            foreach (GameObject o in lvl.GameObjects)
             {
                 if(o is Tangible)
                 {
                     Tangible tangibleObject = (Tangible)o;
-                    Rectangle testRect = new Rectangle((int)tangibleObject.Position.X - offsetX, (int)tangibleObject.Position.Y - offsetY, tangibleObject.hitbox.Width, tangibleObject.hitbox.Height);
+                    Rectangle testRect = new Rectangle((int)tangibleObject.Position.X - offsetX, (int)tangibleObject.Position.Y - offsetY, tangibleObject.Hitbox.Width, tangibleObject.Hitbox.Height);
 
-                    if (testRect.Intersects(hitbox) && tangibleObject != this)
+                    if (testRect.Intersects(Hitbox) && tangibleObject != this)
                     {
                         if (o is Solid)
                         {
@@ -81,11 +81,11 @@ namespace SuperMarioClone
                 {
                     if (velocityX < 0)
                     {
-                        Position = new Vector2(collObject.hitbox.Right - _horizontalPadding, Position.Y);
+                        Position = new Vector2(collObject.Hitbox.Right - _horizontalPadding, Position.Y);
                     }
                     else if (velocityX > 0)
                     {
-                        Position = new Vector2(collObject.hitbox.Left - hitbox.Width - _horizontalPadding, Position.Y);
+                        Position = new Vector2(collObject.Hitbox.Left - Hitbox.Width - _horizontalPadding, Position.Y);
                     }
                     velocityX = 0;
                     result = true; 
@@ -99,11 +99,11 @@ namespace SuperMarioClone
                 {
                     if (velocityY > 0)
                     {
-                        Position = new Vector2(Position.X, collObject.hitbox.Top - hitbox.Height - _verticalPadding);
+                        Position = new Vector2(Position.X, collObject.Hitbox.Top - Hitbox.Height - _verticalPadding);
                     }
                     else if (velocityY < 0)
                     {
-                        Position = new Vector2(Position.X, collObject.hitbox.Bottom - _verticalPadding);
+                        Position = new Vector2(Position.X, collObject.Hitbox.Bottom - _verticalPadding);
                     }
                     velocityY = 0; 
                 }
@@ -111,7 +111,7 @@ namespace SuperMarioClone
                 {
                     if (velocityY > 0)
                     {
-                        Position = new Vector2(Position.X, collObject.hitbox.Top - hitbox.Height - _verticalPadding);
+                        Position = new Vector2(Position.X, collObject.Hitbox.Top - Hitbox.Height - _verticalPadding);
                         velocityY = 0;
                     }
                 }

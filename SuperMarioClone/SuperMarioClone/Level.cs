@@ -9,16 +9,16 @@ namespace SuperMarioClone
 {
     public class Level
     {
-        public List<GameObject> _gameObjects { get; set; }
+        public List<GameObject> GameObjects { get; set; }
 
-        private Texture2D _background { get; set; }
+        private Texture2D Background { get; set; }
 
         private List<GameObject> _toRemove = new List<GameObject>();
         private List<GameObject> _toAdd = new List<GameObject>();
 
         public Level()
         {
-            _gameObjects = new List<GameObject>();
+            GameObjects = new List<GameObject>();
         }
 
         public void AddGameObjects()
@@ -27,7 +27,7 @@ namespace SuperMarioClone
             {
                 foreach (GameObject g in _toAdd.ToList())
                 {
-                    _gameObjects.Add(g);
+                    GameObjects.Add(g);
                 }
             }
             _toAdd.Clear();
@@ -49,9 +49,9 @@ namespace SuperMarioClone
             {
                 foreach (GameObject g in _toRemove)
                 {
-                    if (_gameObjects.Contains(g))
+                    if (GameObjects.Contains(g))
                     {
-                        _gameObjects.Remove(g);
+                        GameObjects.Remove(g);
                     }
                 }
             }
@@ -60,17 +60,17 @@ namespace SuperMarioClone
         
         public void SetBackground(Texture2D background)
         {
-            _background = background;
+            Background = background;
         }
 
         public void DrawLevel(SpriteBatch spriteBatch, Viewport viewPort)
         {
-            foreach (GameObject o in _gameObjects)
+            foreach (GameObject o in GameObjects)
             {
                 if (o is Tangible)
                 {
                     Tangible t = (Tangible)o;
-                    if (t.hitbox.Intersects(viewPort.Bounds))
+                    if (t.Hitbox.Intersects(viewPort.Bounds))
                     {
                         o.Draw(spriteBatch);
                     }
@@ -86,7 +86,7 @@ namespace SuperMarioClone
 
         public void UpdateLevel()
         {
-            foreach (GameObject Object in _gameObjects)
+            foreach (GameObject Object in GameObjects)
             {
                 Object.Update();
             }

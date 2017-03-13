@@ -22,14 +22,14 @@ namespace SuperMarioClone
             velocityX = 2f;
             _walkDirection = "right";
             Sprite = cm.Load<Texture2D>("Goomba");
-            hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
             _horizontalPadding = 1;
             _verticalPadding = 0;
         }
 
         public override void Update()
         {
-            hitbox = new Rectangle((int)Position.X, (int)Position.Y, hitbox.Width, hitbox.Height);
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
 
             velocityY += gravity;
 
