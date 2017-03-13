@@ -1,7 +1,7 @@
+TransFloor: 21, 34, 2, 2
 Floor: 0, 36, 200, 4
 Floor: 50, 0, 4, 50
 Floor: -1, -50, 1, 100
-Floor: 21, 34, 2, 2
 Floor: 32, 31, 3, 1
 Floor: 37, 32, 4, 1
 Floor: 49, 31, 1, 1

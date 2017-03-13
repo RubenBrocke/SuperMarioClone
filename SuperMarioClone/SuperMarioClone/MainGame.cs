@@ -12,7 +12,7 @@ namespace SuperMarioClone
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         LevelReader _lr;
-        Level currentLevel;
+        public static Level currentLevel;
         public static Camera camera;
 
         public MainGame()
@@ -36,7 +36,7 @@ namespace SuperMarioClone
             // TODO: Add your initialization logic here
             camera = new Camera(GraphicsDevice.Viewport);
             _lr = new LevelReader(Content);
-            currentLevel = _lr.ReadLevel(1);
+            currentLevel = _lr.ReadLevel(0);
             base.Initialize();
         }
 

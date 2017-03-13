@@ -18,6 +18,7 @@ namespace SuperMarioClone
         private SoundEffect _coinPickUpSound;
 
         private string _walkDirection;
+        private float _speed = 1.5f;
 
         public Mushroom(int _x, int _y, Level lvl, ContentManager cm) : base()
         {
@@ -28,7 +29,7 @@ namespace SuperMarioClone
             _walkDirection = "right";
             sprite = cm.Load<Texture2D>("Mushroom");
             _coinPickUpSound = cm.Load<SoundEffect>("Pling");
-            hitbox = new Rectangle((int)position.X, (int)position.Y, 12, 16); // fix the magic numbers
+            hitbox = new Rectangle((int)position.X, (int)position.Y, sprite.Width, sprite.Height); // fix the magic numbers
         }
 
         public void collectMushroom(Mario mario)
@@ -64,11 +65,11 @@ namespace SuperMarioClone
 
             if (_walkDirection.Equals("left"))
             {
-                velocityX = -2;
+                velocityX = -_speed;
             }
             if (_walkDirection.Equals("right"))
             {
-                velocityX = 2;
+                velocityX = _speed;
             }
 
             position = new Vector2(position.X + velocityX, position.Y + velocityY);

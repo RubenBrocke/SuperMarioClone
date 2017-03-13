@@ -19,6 +19,7 @@ namespace SuperMarioClone
 
         private int _lives { get; set; }
 
+        private bool _jumpWasPressed = false;
         private SoundEffect _jumpSound;
         private float _xSpeedMax = 3.5f;
         private float _ySpeedMax = 10;
@@ -72,7 +73,9 @@ namespace SuperMarioClone
             _form = Form.Small;
             _timer = new Timer(ChangeAnimationState);
             _timer.Change(0, 100);
-        
+
+            _horizontalPadding = 1;
+            _verticalPadding = 2;
             hitbox = new Rectangle((int)position.X, (int)position.Y, _hitboxWidth, _hitboxHeight);
             _lives = 3;
             _coins = 0;
@@ -115,8 +118,6 @@ namespace SuperMarioClone
                 velocityX = -_xSpeedMax;
             }
 
-            CheckCollision();
-
             //Add movement
             KeyboardState state = Keyboard.GetState();
 
@@ -144,7 +145,7 @@ namespace SuperMarioClone
                 }
                 direction = SpriteEffects.FlipHorizontally;
             }
-            else if (IsColliding(currentLevel, 0, 1, out outRect))
+            else if (IsColliding(currentLevel, 0, 1, out collObject))
             {
                 if (velocityX > 0)
                 {
@@ -157,16 +158,26 @@ namespace SuperMarioClone
             }
             if (state.IsKeyDown(Keys.Space))
             {
-                Jump();
+                if (!_jumpWasPressed)
+                {
+                    Jump();
+                }
+                _jumpWasPressed = true;
             }
 
-            
+            CheckCollision();
 
             //Add speed to position
             position = new Vector2(position.X + velocityX, position.Y + velocityY);
 
             //Focus camera on Mario
             MainGame.camera.LookAt(position);
+
+            //Prevents pogosticking
+            if(velocityY == 0)
+            {
+                _jumpWasPressed = false;
+            }
 
             //Set state
             if (velocityX == 0)
@@ -197,7 +208,7 @@ namespace SuperMarioClone
 
         public override void Jump()
         {
-            if (IsColliding(currentLevel, 0, 1, out outRect))
+            if (IsColliding(currentLevel, 0, 1, out collObject))
             {
                  velocityY = -jumpVelocity;
                 _jumpSound.Play();
@@ -276,6 +287,7 @@ namespace SuperMarioClone
             spriteBatch.End();
             spriteBatch.Begin();
             spriteBatch.DrawString(_font, String.Format("{0,4}", _coins), new Vector2(768, 0), Color.Black);
+            spriteBatch.DrawString(_font, String.Format("{0,4}", _lives), new Vector2(704, 0), Color.Black);
             spriteBatch.End();
             spriteBatch.Begin(transformMatrix: MainGame.camera.GetMatrix(), samplerState: SamplerState.PointClamp);
         }        

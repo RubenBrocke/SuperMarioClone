@@ -35,7 +35,7 @@ namespace SuperMarioClone
 
                 //Check for type
                 //Set width, height and position of items
-                if (line.Substring(0, 6).Equals("Floor:"))
+                if (line.Contains("Floor:"))
                 {
                     try
                     {
@@ -50,7 +50,22 @@ namespace SuperMarioClone
                         throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
                     }
                 }
-                if (line.Substring(0, 5).Equals("Coin:"))
+                if (line.Contains("TransFloor:"))
+                {
+                    try
+                    {
+                        x = Int32.Parse(arguments[0]) * 16;
+                        y = Int32.Parse(arguments[1]) * 16;
+                        width = Int32.Parse(arguments[2]) * 16;
+                        height = Int32.Parse(arguments[3]) * 16;
+                        level.ToAddGameObject(new TransFloor(x, y, width, height, level, cm));
+                    }
+                    catch
+                    {
+                        throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                    }
+                }
+                if (line.Contains("Coin:"))
                 {
                     try
                     {
@@ -63,7 +78,7 @@ namespace SuperMarioClone
                         throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
                     }
                 }
-                if (line.Substring(0, 8).Equals("Mystery:"))
+                if (line.Contains("Mystery:"))
                 {
                     Type containObject;
                     try
@@ -78,7 +93,7 @@ namespace SuperMarioClone
                         throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
                     }
                 }
-                if (line.Substring(0, 7).Equals("Goomba:"))
+                if (line.Contains("Goomba:"))
                 {
                     try
                     {
