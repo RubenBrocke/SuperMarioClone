@@ -20,7 +20,6 @@ namespace SuperMarioClone
 
         public MysteryBlock(int _x, int _y, Level lvl, ContentManager cm, Type MysteryObject) : base()
         {
-            //TODO: add animation later
             this.MysteryObject = MysteryObject;
             Position = new Vector2(_x, _y);
             CurrentLevel = lvl;

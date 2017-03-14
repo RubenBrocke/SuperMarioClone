@@ -50,6 +50,11 @@ namespace SuperMarioClone
                                 MysteryBlock mysteryBlock = (MysteryBlock)o;
                                 mysteryBlock.Eject((Mario)this, this.VelocityY, this.Position.Y);
                             }
+                            if (o is CoinBlock)
+                            {
+                                CoinBlock coinBlock = (CoinBlock)o;
+                                coinBlock.Eject((Mario)this, this.VelocityY, this.Position.Y);
+                            }
                             if (o is Mushroom)
                             {
                                 Mushroom mushroom = (Mushroom)o;

@@ -31,6 +31,10 @@ namespace SuperMarioClone
 
             while((line = lvlReader.ReadLine()) != null)
             {
+                if (string.IsNullOrWhiteSpace(line))
+                {
+                    break;
+                }
                 //Split line
                 line = line.Replace(" ", "");
                 string[] arguments = line.Split(',');
@@ -90,6 +94,21 @@ namespace SuperMarioClone
                         y = Int32.Parse(arguments[1]) * 16;
                         containObject = Type.GetType("SuperMarioClone." + arguments[2]);
                         level.ToAddGameObject(new MysteryBlock(x, y, level, cm, containObject));
+                    }
+                    catch
+                    {
+                        throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                    }
+                }
+                if (line.Contains("CoinBlock:"))
+                {
+                    int containAmount;
+                    try
+                    {
+                        x = Int32.Parse(arguments[0]) * 16;
+                        y = Int32.Parse(arguments[1]) * 16;
+                        containAmount = Int32.Parse(arguments[2]) - 1;
+                        level.ToAddGameObject(new CoinBlock(x, y, level, cm, containAmount));
                     }
                     catch
                     {

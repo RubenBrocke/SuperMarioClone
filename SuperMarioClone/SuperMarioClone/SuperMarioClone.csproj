@@ -41,6 +41,7 @@
     <Compile Include="Animator.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="Coin.cs" />
+    <Compile Include="CoinBlock.cs" />
     <Compile Include="Goomba.cs" />
     <Compile Include="Mushroom.cs" />
     <Compile Include="MysteryBlock.cs" />
