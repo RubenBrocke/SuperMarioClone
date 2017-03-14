@@ -109,7 +109,7 @@ namespace SuperMarioClone
                 }
                 else
                 {
-                    if (VelocityY > 0)
+                    if (VelocityY >= 0 && Position.Y < collObject.Hitbox.Top - Hitbox.Height)
                     {
                         Position = new Vector2(Position.X, collObject.Hitbox.Top - Hitbox.Height - _verticalPadding);
                         VelocityY = 0;
