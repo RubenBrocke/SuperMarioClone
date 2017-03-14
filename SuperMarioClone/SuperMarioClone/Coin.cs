@@ -23,6 +23,8 @@ namespace SuperMarioClone
 
         private Timer _timer;
 
+        private Animator animator;
+
         private int _spriteImageIndex;
 
         public Coin(int _x, int _y, bool isMystereyCoin, Level lvl, ContentManager cm) : base()
@@ -35,7 +37,9 @@ namespace SuperMarioClone
             _spriteImageIndex = 0;
             _timer = new Timer(ChangeSpriteIndex);
             _timer.Change(0, 190);
-            Sprite = cm.Load<Texture2D>("CoinSheet");
+            animator = new Animator(cm.Load<Texture2D>("CoinSheet"), 180);
+            animator.GetTextures(0, 0, 16, 16, 4, 1);
+            Sprite = animator.GetCurrentTexture();
             _coinPickUpSound = cm.Load<SoundEffect>("Pling");
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, 12, 16); // fix the magic numbers
         }
@@ -71,11 +75,13 @@ namespace SuperMarioClone
                 Position = new Vector2(Position.X, Position.Y + VelocityY);
                 VelocityY += gravity;
             }
+            Sprite = animator.GetCurrentTexture();
         }
+
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture: Sprite, position: Position, sourceRectangle: new Rectangle(16 * _spriteImageIndex, 0, 16, 16));
+            spriteBatch.Draw(texture: Sprite, position: Position);
         }
 
         private void ChangeSpriteIndex(object state)
