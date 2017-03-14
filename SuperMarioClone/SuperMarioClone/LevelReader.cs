@@ -23,7 +23,10 @@ namespace SuperMarioClone
             StreamReader lvlReader = new StreamReader(@"..\..\..\..\Level" + levelNumber + ".txt");
             string line;
             Level level = new Level();
-            int x, y, width, height; //elk een eigen regel
+            int x;
+            int y;
+            int width;
+            int height; 
 
 
             while((line = lvlReader.ReadLine()) != null)

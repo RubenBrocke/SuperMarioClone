@@ -1742,6 +1742,24 @@
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <elementDefinition Id="6fcf084d-33f3-42d2-95bc-6786749ab669" />
+        <targetEnds>
+          <association Id="5871a0fb-a4e5-47aa-96d1-d4f1d49a8d2e" isDerived="false" sourceEndRoleName="LevelReader" targetEndRoleName="Level" isLeaf="false" isAbstract="false">
+            <classMoniker Id="d2942536-27c9-4f0c-9241-90d37ad35aba" LastKnownName="Level" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ab80c895-2f92-4e8c-a28d-36c7a84d27f0" name="LevelReader" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="31fc79bc-c511-4e1d-9699-113767527685" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8f67f1d3-ad29-4db2-82ba-9c400dcf9d4b" name="Level" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="df1c2fd4-f1e1-4af1-bd93-7da924f92dc9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="05ae8a96-f97d-45d5-be4a-dfc39139cf8c" />
+          </association>
+        </targetEnds>
         <ownedOperationsInternal>
           <operation Id="f625a76b-eaf2-409c-90af-4f59e3bc55a2" name="ReadLevel" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <appliedStereotypesInternal>
