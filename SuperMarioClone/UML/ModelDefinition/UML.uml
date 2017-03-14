@@ -348,252 +348,6 @@
             </defaultValue>
           </property>
           <property
-            Id="efcfc160-43ed-4c73-8f82-2aadb9bdaaac"
-            name="_jumpWasPressed"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <primitiveTypeMoniker
-                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
-                LastKnownName="Boolean"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="1cb2320e-e423-4b6e-8781-cf8156265cbe"
-            name="_jumpSound"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="d06e30d3-bbff-4b0a-98fc-6772796bcd39"
-                LastKnownName="SoundEffect"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="bbacbbac-50b3-4ba7-b8a0-08d64dfba3b7"
-            name="_xSpeedMax"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="51ed33ed-4a6a-4e6d-a4a5-97c72e676abd"
-                LastKnownName="float"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="33bbf829-b761-4ed6-a962-ce6b1350aa6b"
-            name="_ySpeedMax"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="51ed33ed-4a6a-4e6d-a4a5-97c72e676abd"
-                LastKnownName="float"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="c232480f-e192-4ee2-ad36-771efec82de9"
-            name="_acc"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="51ed33ed-4a6a-4e6d-a4a5-97c72e676abd"
-                LastKnownName="float"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="43f4dbe4-a02c-441f-85be-ca751efc111d"
-            name="_deacc"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="51ed33ed-4a6a-4e6d-a4a5-97c72e676abd"
-                LastKnownName="float"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="bd704f18-1674-43e0-8c7a-795b8129f663"
-            name="_font"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="0601ab92-ad56-437e-8289-dc12d9ab836f"
-                LastKnownName="SpriteFont"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="179e8153-b503-407f-8fd1-e4469d7d5333"
-            name="_animationState"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
-                LastKnownName="int"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="b3dbc40d-651c-4f3a-afaf-2885815c0e4c"
-            name="_spriteImageIndex"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
-                LastKnownName="int"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="4a02105f-80b1-4e8d-b1b3-8872e580fd09"
-            name="_isAnimated"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <primitiveTypeMoniker
-                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
-                LastKnownName="Boolean"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="1c69a863-1458-4b8c-90d4-eb59517d9d90"
-            name="_hitboxWidth"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
-                LastKnownName="int"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="c8c9cfa9-dc23-4d59-a456-98c8ed461a96"
-            name="_hitboxHeight"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
-                LastKnownName="int"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="f4dfd016-863d-4bf1-85c1-daeba4469ac0"
-            name="_timer"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="516f62cf-fc14-4227-9b35-d4993665686b"
-                LastKnownName="Timer"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="6e21d439-6a93-4f06-bdb1-8bd4f5133acb"
             name="State"
             visibility="Private"
@@ -628,61 +382,6 @@
               <undefinedTypeMoniker
                 Id="529fda91-8911-49fc-9ba8-d20252345644"
                 LastKnownName="Enum"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="7715c4f8-bda2-4c17-b6ed-7730040a8f4d"
-            name="_form"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="e9fcc1a4-6cf8-4f8d-919d-06f47a993b54"
-                LastKnownName="Form"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="aa44bce8-1e72-4b80-ab0f-02c22e692052"
-            name="_state"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="9da4e74c-e21b-4b98-a04a-d8783b5b2497"
-                LastKnownName="State"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="9d6556d4-3b7e-46dd-873a-95779f9c1622"
-            name="outRect"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="29267a66-896f-4556-9171-fa6ee15073ff"
-                LastKnownName="Rectangle"
                 LastKnownLocation="UML.uml" />
             </type_NamedElement>
           </property>
@@ -856,15 +555,6 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation
-            Id="fa29d3f6-9db6-411e-927e-23f56d9cabd9"
-            name="ChangeAnimationState : void"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
           <operation
             Id="887b1466-d832-4ec7-b2d3-8c8c84536927"
             name="Draw"
@@ -1228,63 +918,6 @@
                 LastKnownLocation="UML.uml" />
             </type_NamedElement>
           </property>
-          <property
-            Id="de6affe2-d254-47ae-8626-793d106fc04b"
-            name="collObject"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="16ea22da-b917-41a3-b12c-5b51e560f303"
-                LastKnownName="Tangible"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="3f5b9090-7da1-42dc-9ec3-6236f4d29aa7"
-            name="_horizontalPadding"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
-                LastKnownName="int"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="d4364b17-34f2-4d58-a54c-330e533c75e9"
-            name="_verticalPadding"
-            visibility="Protected"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
-                LastKnownName="int"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -1609,63 +1242,6 @@
                 LastKnownLocation="UML.uml" />
             </type_NamedElement>
           </property>
-          <property
-            Id="aebd056f-e48c-4491-833e-15f745e85ae4"
-            name="_coinPickUpSound"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="d06e30d3-bbff-4b0a-98fc-6772796bcd39"
-                LastKnownName="SoundEffect"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="cfc23455-d4e9-49c7-b660-846b70c15653"
-            name="_timer"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="516f62cf-fc14-4227-9b35-d4993665686b"
-                LastKnownName="Timer"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="ddaff307-6da1-4b28-bb16-9ee8738c0223"
-            name="_spriteImageIndex"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
-                LastKnownName="int"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -1802,31 +1378,6 @@
               <operationHasOwnedParameters>
                 <parameter
                   Id="27213741-a387-4b7d-80b6-9ccf281b8893"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
-                      LastKnownName="void"
-                      LastKnownLocation="UML.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
-            Id="45819547-61d6-4e0c-bef4-ec604bab0288"
-            name="ChangeSpriteIndex"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="4f8e3fc3-f7a5-4a76-acd2-ae5dbf4a8067"
                   direction="Return"
                   isUnique="false">
                   <type_NamedElement>
@@ -2650,42 +2201,6 @@
                 LastKnownLocation="UML.uml" />
             </type_NamedElement>
           </property>
-          <property
-            Id="cef74281-d2e9-4c15-b284-b1210edf2d2c"
-            name="_toAdd"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="ff672c34-8b4d-4837-9390-c09f1feb9a9b"
-                LastKnownName="List&lt;GameObject&gt;"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="bbfb9c8b-e9a9-4091-ac0d-50ec07ab5438"
-            name="_toRemove"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="ff672c34-8b4d-4837-9390-c09f1feb9a9b"
-                LastKnownName="List&lt;GameObject&gt;"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -3004,27 +2519,6 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="bf3476e2-0bbe-4554-b457-a9772d3fa611"
-            name="cm"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="fec84e01-0e0f-4186-8478-658e30e9cb4c"
-                LastKnownName="ContentManager"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="867abd24-ff18-4aba-8b5c-11b489594e13"
@@ -3470,20 +2964,6 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
-        <ownedAttributesInternal>
-          <property
-            Id="ab799c8a-0c09-48eb-ad59-a89b25db4b24"
-            name="_inputTexture"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="96379e24-2347-4306-a80e-a91d1b3fe6d1"
@@ -3549,25 +3029,6 @@
         isLeaf="false"
         isActiveClass="false">
         <ownedAttributesInternal>
-          <property
-            Id="3aaf9d6b-3806-4cca-91bf-c1c7bb1df406"
-            name="_viewport"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="0f886649-ed8d-4a1d-a63c-d01262192eaa"
-                LastKnownName="VieuwPort"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
           <property
             Id="99fe6124-3a6c-4421-b9b3-1f1ad231d6d8"
             name="Position"
@@ -3739,25 +3200,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
-        <ownedAttributesInternal>
-          <property
-            Id="0d8a4bd6-9b19-4624-ad81-72f9f01d66b5"
-            name="_walkdirection"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="5fa8b05f-63fc-4fe8-8d36-dec4172fbddb"
-                LastKnownName="string"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
+        <generalsInternal>
+          <generalization
+            Id="80c9f84a-15ae-4f25-a66f-b51719cf3834"
+            isSubstitutable="false">
+            <classMoniker
+              Id="16ea22da-b917-41a3-b12c-5b51e560f303"
+              LastKnownName="Tangible"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedOperationsInternal>
           <operation
             Id="44d4894b-2e05-48a3-8654-ff0240d25cf3"
@@ -3939,6 +3391,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="ceac0dae-f98a-4212-8a22-0b543db64e10"
+            isSubstitutable="false">
+            <classMoniker
+              Id="16ea22da-b917-41a3-b12c-5b51e560f303"
+              LastKnownName="Tangible"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="4d135aed-af5d-46ea-97e6-5ef2fcfb44dc"
@@ -3956,63 +3418,6 @@
               <primitiveTypeMoniker
                 Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
                 LastKnownName="Boolean"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="0b763ba6-4451-4ef1-b988-72153380214c"
-            name="_coinPickUpSound"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="d06e30d3-bbff-4b0a-98fc-6772796bcd39"
-                LastKnownName="SoundEffect"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="b424e94e-e430-4aef-9b2d-171028dcf252"
-            name="_walkDirection"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="5fa8b05f-63fc-4fe8-8d36-dec4172fbddb"
-                LastKnownName="string"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="bcdd096c-496d-4298-8bf1-596188a40885"
-            name="_speed"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="51ed33ed-4a6a-4e6d-a4a5-97c72e676abd"
-                LastKnownName="float"
                 LastKnownLocation="UML.uml" />
             </type_NamedElement>
           </property>
@@ -4082,6 +3487,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="0033775a-f412-477e-a788-bc69840f962f"
+            isSubstitutable="false">
+            <classMoniker
+              Id="366009bd-eccf-4170-82d9-7be44f0e5996"
+              LastKnownName="Solid"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="15cc980e-865c-4eb7-b656-a7c4dfa0c1df"
@@ -4099,82 +3514,6 @@
               <undefinedTypeMoniker
                 Id="99898c0f-6cd8-4fc0-a777-46bb6e968c5e"
                 LastKnownName="Type"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="5e95f33a-a8db-411a-ae10-e78c2c24a15b"
-            name="_cm"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="fec84e01-0e0f-4186-8478-658e30e9cb4c"
-                LastKnownName="ContentManager"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="0522a478-3bb1-43a9-9035-f1c3d6c4b5c8"
-            name="_hasBeenUsed"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <primitiveTypeMoniker
-                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
-                LastKnownName="Boolean"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="b6cae950-f96d-46fd-af9b-6574902f325c"
-            name="_spriteImageIndex"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
-                LastKnownName="int"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="68da0ca7-c110-42f1-8d32-15cb27506f93"
-            name="_timer"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="516f62cf-fc14-4227-9b35-d4993665686b"
-                LastKnownName="Timer"
                 LastKnownLocation="UML.uml" />
             </type_NamedElement>
           </property>
@@ -4268,6 +3607,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="378914b4-211c-45f6-bbd6-f42f90662596"
+            isSubstitutable="false">
+            <classMoniker
+              Id="17dceef8-01ca-471a-855d-0c82e3cea98c"
+              LastKnownName="Floor"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedOperationsInternal>
           <operation
             Id="e236eb88-0629-48b2-9ac1-350541850204"

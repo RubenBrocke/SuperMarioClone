@@ -15,9 +15,15 @@ namespace SuperMarioClone
 {
     public class Mario : Tangible
     {
-	    private int Coins { get; set; }
+        public int Coins { get; private set; }
 
-        private int Lives { get; set; }
+        public int Lives { get; private set; }
+
+        public state State { get; private set; }
+        public form Form { get; private set; }
+
+
+
 
         private bool _jumpWasPressed = false;
         private SoundEffect _jumpSound;
@@ -37,7 +43,7 @@ namespace SuperMarioClone
 
         private Timer _timer;
 
-        private enum State
+        public enum state
         {
             Idle,
             Walking,
@@ -47,7 +53,7 @@ namespace SuperMarioClone
             FallingStraight
         }
 
-        private enum Form
+        public enum form
         {
             Small,
             Big,
@@ -55,8 +61,7 @@ namespace SuperMarioClone
             Tanuki
         }
 
-        private State _state;
-        private Form _form;
+        
 
         //----Hitbox----//
         public Rectangle outRect;
@@ -69,8 +74,8 @@ namespace SuperMarioClone
             _font = cm.Load<SpriteFont>("Font");
             CurrentLevel = lvl;
             JumpVelocity = 6.25f;
-            _state = State.Idle;
-            _form = Form.Small;
+            State = state.Idle;
+            Form = form.Small;
             _timer = new Timer(ChangeAnimationState);
             _timer.Change(0, 100);
 
@@ -83,9 +88,9 @@ namespace SuperMarioClone
 
         public void becomeBig()
         {
-            if (_form == Form.Small)
+            if (Form == form.Small)
             {
-                _form = Form.Big;
+                Form = form.Big;
             }
             else
             {
@@ -182,27 +187,27 @@ namespace SuperMarioClone
             //Set state
             if (VelocityX == 0)
             {
-                _state = State.Idle;
+                State = Mario.state.Idle;
             }
             if (VelocityX != 0)
             {
-                _state = State.Walking;
+                State = Mario.state.Walking;
             }
             if (VelocityX > 3.4f || VelocityX < -3.4f)
             {
-                _state = State.Running;
+                State = Mario.state.Running;
             }
             if (VelocityY < 0)
             {
-                _state = State.Jumping;
+                State = Mario.state.Jumping;
             }
             if (VelocityY > 0)
             {
-                _state = State.Falling;
+                State = Mario.state.Falling;
             }
             if (VelocityY > 0 && VelocityX < 0.5f && VelocityX > -0.5f)
             {
-                _state = State.FallingStraight;
+                State = Mario.state.FallingStraight;
             }
         }
 
@@ -236,7 +241,7 @@ namespace SuperMarioClone
                 _animationState = 0;
             }
 
-            if(_state == State.Running)
+            if(State == Mario.state.Running)
             {
                 _timer.Change(80, 80);
             }
@@ -250,29 +255,29 @@ namespace SuperMarioClone
         {
             Rectangle sourceRect;
 
-            switch (_state)
+            switch (State)
             {
-                case State.Idle:
+                case state.Idle:
                     _spriteImageIndex = 0;
                     _isAnimated = false;
                     break;
-                case State.Walking:
+                case state.Walking:
                     _spriteImageIndex = 0;
                     _isAnimated = true;
                     break;
-                case State.Running:
+                case state.Running:
                     _spriteImageIndex = 2;
                     _isAnimated = true;
                     break;
-                case State.Jumping:
+                case state.Jumping:
                     _spriteImageIndex = 5;
                     _isAnimated = false;
                     break;
-                case State.Falling:
+                case state.Falling:
                     _spriteImageIndex = 4;
                     _isAnimated = false;
                     break;
-                case State.FallingStraight:
+                case state.FallingStraight:
                     _spriteImageIndex = 6;
                     _isAnimated = false;
                     break;
