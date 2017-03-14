@@ -26,87 +26,91 @@ namespace SuperMarioClone
             int x;
             int y;
             int width;
-            int height; 
+            int height;
 
 
-            while((line = lvlReader.ReadLine()) != null)
+            while ((line = lvlReader.ReadLine()) != null)
             {
-                //Split line
-                line = line.Replace(" ", "");
-                string[] arguments = line.Split(',');
-                arguments[0] = arguments[0].Split(':')[1];
+                if (!string.IsNullOrWhiteSpace(line) && line.Contains(":") && line.Contains(","))
+                {
+                    //Split line
 
-                //Check for type
-                //Set width, height and position of items
-                if (line.Contains("Floor:"))
-                {
-                    try
+                    line = line.Replace(" ", "");
+                    string[] arguments = line.Split(',');
+                    arguments[0] = arguments[0].Split(':')[1];
+
+                    //Check for type
+                    //Set width, height and position of items
+                    if (line.Contains("Floor:"))
                     {
-                        x = Int32.Parse(arguments[0]) * 16;
-                        y = Int32.Parse(arguments[1]) * 16;
-                        width = Int32.Parse(arguments[2]) * 16;
-                        height = Int32.Parse(arguments[3]) * 16;
-                        level.ToAddGameObject(new Floor(x, y, width, height, level, cm));
+                        try
+                        {
+                            x = Int32.Parse(arguments[0]) * 16;
+                            y = Int32.Parse(arguments[1]) * 16;
+                            width = Int32.Parse(arguments[2]) * 16;
+                            height = Int32.Parse(arguments[3]) * 16;
+                            level.ToAddGameObject(new Floor(x, y, width, height, level, cm));
+                        }
+                        catch
+                        {
+                            throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                        }
                     }
-                    catch
+                    if (line.Contains("TransFloor:"))
                     {
-                        throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                        try
+                        {
+                            x = Int32.Parse(arguments[0]) * 16;
+                            y = Int32.Parse(arguments[1]) * 16;
+                            width = Int32.Parse(arguments[2]) * 16;
+                            height = Int32.Parse(arguments[3]) * 16;
+                            level.ToAddGameObject(new TransFloor(x, y, width, height, level, cm));
+                        }
+                        catch
+                        {
+                            throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                        }
                     }
-                }
-                if (line.Contains("TransFloor:"))
-                {
-                    try
+                    if (line.Contains("Coin:"))
                     {
-                        x = Int32.Parse(arguments[0]) * 16;
-                        y = Int32.Parse(arguments[1]) * 16;
-                        width = Int32.Parse(arguments[2]) * 16;
-                        height = Int32.Parse(arguments[3]) * 16;
-                        level.ToAddGameObject(new TransFloor(x, y, width, height, level, cm));
+                        try
+                        {
+                            x = Int32.Parse(arguments[0]) * 16;
+                            y = Int32.Parse(arguments[1]) * 16;
+                            level.ToAddGameObject(new Coin(x, y, false, level, cm));
+                        }
+                        catch
+                        {
+                            throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                        }
                     }
-                    catch
+                    if (line.Contains("Mystery:"))
                     {
-                        throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                        Type containObject;
+                        try
+                        {
+                            x = Int32.Parse(arguments[0]) * 16;
+                            y = Int32.Parse(arguments[1]) * 16;
+                            containObject = Type.GetType("SuperMarioClone." + arguments[2]);
+                            level.ToAddGameObject(new MysteryBlock(x, y, level, cm, containObject));
+                        }
+                        catch
+                        {
+                            throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                        }
                     }
-                }
-                if (line.Contains("Coin:"))
-                {
-                    try
+                    if (line.Contains("Goomba:"))
                     {
-                        x = Int32.Parse(arguments[0]) * 16;
-                        y = Int32.Parse(arguments[1]) * 16;
-                        level.ToAddGameObject(new Coin(x, y, false, level, cm));
-                    }
-                    catch
-                    {
-                        throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
-                    }
-                }
-                if (line.Contains("Mystery:"))
-                {
-                    Type containObject;
-                    try
-                    {
-                        x = Int32.Parse(arguments[0]) * 16;
-                        y = Int32.Parse(arguments[1]) * 16;
-                        containObject = Type.GetType("SuperMarioClone." + arguments[2]);
-                        level.ToAddGameObject(new MysteryBlock(x, y, level, cm, containObject));
-                    }
-                    catch
-                    {
-                        throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
-                    }
-                }
-                if (line.Contains("Goomba:"))
-                {
-                    try
-                    {
-                        x = Int32.Parse(arguments[0]) * 16;
-                        y = Int32.Parse(arguments[1]) * 16;
-                        level.ToAddGameObject(new Goomba(x, y, level, cm));
-                    }
-                    catch
-                    {
-                        throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                        try
+                        {
+                            x = Int32.Parse(arguments[0]) * 16;
+                            y = Int32.Parse(arguments[1]) * 16;
+                            level.ToAddGameObject(new Goomba(x, y, level, cm));
+                        }
+                        catch
+                        {
+                            throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                        }
                     }
                 }
             }

@@ -21,8 +21,6 @@ namespace SuperMarioClone
 
         private SoundEffect _coinPickUpSound;
 
-        private Timer _timer;
-
         private Animator animator;
 
         private int _spriteImageIndex;
@@ -35,8 +33,6 @@ namespace SuperMarioClone
             IsMysteryCoin = isMystereyCoin;
             HasBeenPickedUp = false;
             _spriteImageIndex = 0;
-            _timer = new Timer(ChangeSpriteIndex);
-            _timer.Change(0, 190);
             animator = new Animator(cm.Load<Texture2D>("CoinSheet"), 180);
             animator.GetTextures(0, 0, 16, 16, 4, 1);
             Sprite = animator.GetCurrentTexture();
@@ -82,18 +78,6 @@ namespace SuperMarioClone
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture: Sprite, position: Position);
-        }
-
-        private void ChangeSpriteIndex(object state)
-        {
-            if ( _spriteImageIndex < 3)
-            {
-                _spriteImageIndex++;
-            }
-            else
-            {
-                _spriteImageIndex = 0;
-            }
         }
     } 
 }
