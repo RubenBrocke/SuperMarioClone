@@ -13,11 +13,11 @@ namespace SuperMarioClone
         protected int Width { get; set; }
         protected int Height { get; set; }
 
-        public Floor(float _x, float _y, int _w, int _h, Level lvl, ContentManager cm) : base()
+        public Floor(float x, float y, int w, int h, Level lvl, ContentManager cm) : base()
         {
-            Position = new Vector2(_x, _y);
-            Width = _w;
-            Height = _h;
+            Position = new Vector2(x, y);
+            Width = w;
+            Height = h;
             CurrentLevel = lvl;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
             Sprite = cm.Load<Texture2D>("GroundSheet");

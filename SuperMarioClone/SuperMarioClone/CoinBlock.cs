@@ -17,10 +17,10 @@ namespace SuperMarioClone
         private bool _hasBeenUsed = false;
         private int _spriteImageIndex = 0;
 
-        public CoinBlock(int _x, int _y, Level lvl, ContentManager cm, int containAmount) : base()
+        public CoinBlock(int x, int y, Level lvl, ContentManager cm, int containAmount) : base()
         {
             ContainAmount = containAmount;
-            Position = new Vector2(_x, _y);
+            Position = new Vector2(x, y);
             CurrentLevel = lvl;
             _cm = cm;
             Sprite = _cm.Load<Texture2D>("CoinBlockSheet");

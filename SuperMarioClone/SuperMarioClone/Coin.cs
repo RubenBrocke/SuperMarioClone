@@ -25,9 +25,9 @@ namespace SuperMarioClone
 
         private int _spriteImageIndex;
 
-        public Coin(int _x, int _y, bool isMystereyCoin, Level lvl, ContentManager cm) : base()
+        public Coin(int x, int y, bool isMystereyCoin, Level lvl, ContentManager cm) : base()
         {
-            Position = new Vector2(_x, _y);
+            Position = new Vector2(x, y);
             CurrentLevel = lvl;
             VelocityY = -2f;
             IsMysteryCoin = isMystereyCoin;

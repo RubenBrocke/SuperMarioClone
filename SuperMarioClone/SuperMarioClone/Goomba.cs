@@ -15,9 +15,9 @@ namespace SuperMarioClone
 
         private string _walkDirection;
 
-        public Goomba(int _x, int _y, Level lvl, ContentManager cm)
+        public Goomba(int x, int y, Level lvl, ContentManager cm)
         {
-            Position = new Vector2(_x, _y);
+            Position = new Vector2(x, y);
             CurrentLevel = lvl;
             VelocityX = 2f;
             _walkDirection = "right";

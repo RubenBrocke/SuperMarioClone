@@ -16,9 +16,9 @@ namespace SuperMarioClone
         private float Zoom { get; set; }
         private Vector2 Origin { get; set; }
 
-        public Camera(Viewport _viewport)
+        public Camera(Viewport viewport)
         {
-            this._viewport = _viewport;
+            this._viewport = viewport;
 
             Position = Vector2.Zero;
             Rotation = 0;

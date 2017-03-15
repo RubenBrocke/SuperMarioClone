@@ -11,7 +11,7 @@ namespace SuperMarioClone
 {
     class TransFloor : Floor
     {
-        public TransFloor(float _x, float _y, int _w, int _h, Level lvl, ContentManager cm) : base(_x, _y, _w, _h, lvl, cm)
+        public TransFloor(float x, float y, int w, int h, Level lvl, ContentManager cm) : base(x, y, w, h, lvl, cm)
         {
 
         }

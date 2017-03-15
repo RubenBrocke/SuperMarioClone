@@ -20,9 +20,9 @@ namespace SuperMarioClone
         private string _walkDirection;
         private float _speed = 1.5f;
 
-        public Mushroom(int _x, int _y, Level lvl, ContentManager cm) : base()
+        public Mushroom(int x, int y, Level lvl, ContentManager cm) : base()
         {
-            Position = new Vector2(_x, _y);
+            Position = new Vector2(x, y);
             CurrentLevel = lvl;
             VelocityY = 1f;
             HasBeenPickedUp = false;

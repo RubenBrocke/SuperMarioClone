@@ -18,10 +18,10 @@ namespace SuperMarioClone
         private int _spriteImageIndex = 0;
         private Timer _timer;
 
-        public MysteryBlock(int _x, int _y, Level lvl, ContentManager cm, Type MysteryObject) : base()
+        public MysteryBlock(int x, int y, Level lvl, ContentManager cm, Type MysteryObject) : base()
         {
             this.MysteryObject = MysteryObject;
-            Position = new Vector2(_x, _y);
+            Position = new Vector2(x, y);
             CurrentLevel = lvl;
             _cm = cm;
             Sprite = _cm.Load<Texture2D>("MysteryBlockSheet");

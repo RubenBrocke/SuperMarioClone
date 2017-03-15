@@ -66,9 +66,9 @@ namespace SuperMarioClone
         //----Hitbox----//
         public Rectangle outRect;
 
-        public Mario(int _x, int _y, Level lvl, ContentManager cm) : base()
+        public Mario(int x, int y, Level lvl, ContentManager cm) : base()
         {
-            Position = new Vector2(_x, _y);
+            Position = new Vector2(x, y);
             Sprite = cm.Load<Texture2D>("MarioSheetRight");
             _jumpSound = cm.Load<SoundEffect>("Oink1");
             _font = cm.Load<SpriteFont>("Font");

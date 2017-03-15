@@ -11,11 +11,11 @@ namespace SuperMarioClone
 {
     public class LevelReader
     {
-        private ContentManager cm;
+        private ContentManager _cm;
 
-        public LevelReader(ContentManager _cm)
+        public LevelReader(ContentManager cm)
         {
-            cm = _cm;
+            _cm = cm;
         }
 
         public Level ReadLevel(int levelNumber)
@@ -51,7 +51,7 @@ namespace SuperMarioClone
                             y = Int32.Parse(arguments[1]) * 16;
                             width = Int32.Parse(arguments[2]) * 16;
                             height = Int32.Parse(arguments[3]) * 16;
-                            level.ToAddGameObject(new Floor(x, y, width, height, level, cm));
+                            level.ToAddGameObject(new Floor(x, y, width, height, level, _cm));
                         }
                         catch
                         {
@@ -66,7 +66,7 @@ namespace SuperMarioClone
                             y = Int32.Parse(arguments[1]) * 16;
                             width = Int32.Parse(arguments[2]) * 16;
                             height = Int32.Parse(arguments[3]) * 16;
-                            level.ToAddGameObject(new TransFloor(x, y, width, height, level, cm));
+                            level.ToAddGameObject(new TransFloor(x, y, width, height, level, _cm));
                         }
                         catch
                         {
@@ -79,7 +79,7 @@ namespace SuperMarioClone
                         {
                             x = Int32.Parse(arguments[0]) * 16;
                             y = Int32.Parse(arguments[1]) * 16;
-                            level.ToAddGameObject(new Coin(x, y, false, level, cm));
+                            level.ToAddGameObject(new Coin(x, y, false, level, _cm));
                         }
                         catch
                         {
@@ -95,7 +95,7 @@ namespace SuperMarioClone
                             x = Int32.Parse(arguments[0]) * 16;
                             y = Int32.Parse(arguments[1]) * 16;
                             containAmount = Int32.Parse(arguments[2]) - 1;
-                            level.ToAddGameObject(new CoinBlock(x, y, level, cm, containAmount));
+                            level.ToAddGameObject(new CoinBlock(x, y, level, _cm, containAmount));
                         }
                         catch
                         {
@@ -110,7 +110,7 @@ namespace SuperMarioClone
                             x = Int32.Parse(arguments[0]) * 16;
                             y = Int32.Parse(arguments[1]) * 16;
                             containObject = Type.GetType("SuperMarioClone." + arguments[2]);
-                            level.ToAddGameObject(new MysteryBlock(x, y, level, cm, containObject));
+                            level.ToAddGameObject(new MysteryBlock(x, y, level, _cm, containObject));
                         }
                         catch
                         {
@@ -123,7 +123,7 @@ namespace SuperMarioClone
                         {
                             x = Int32.Parse(arguments[0]) * 16;
                             y = Int32.Parse(arguments[1]) * 16;
-                            level.ToAddGameObject(new Goomba(x, y, level, cm));
+                            level.ToAddGameObject(new Goomba(x, y, level, _cm));
                         }
                         catch
                         {
@@ -132,7 +132,7 @@ namespace SuperMarioClone
                     }
                 }
             }
-            level.ToAddGameObject(new Mario(10, 10, level, cm));
+            level.ToAddGameObject(new Mario(10, 10, level, _cm));
             level.AddGameObjects();
             lvlReader.Close();
             return level;
