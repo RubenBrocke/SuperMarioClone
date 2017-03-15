@@ -30,23 +30,10 @@ namespace SuperMarioClone
 
 
             while ((line = lvlReader.ReadLine()) != null)
-            {
-<<<<<<< HEAD
-                if (string.IsNullOrWhiteSpace(line))
-                {
-                    break;
-                }
-                //Split line
-                line = line.Replace(" ", "");
-                string[] arguments = line.Split(',');
-                arguments[0] = arguments[0].Split(':')[1];
-
+            { 
                 //Check for type
                 //Set width, height and position of items
-                if (line.Contains("Floor:"))
-=======
                 if (!string.IsNullOrWhiteSpace(line) && line.Contains(":") && line.Contains(","))
->>>>>>> origin/master
                 {
                     //Split line
 
@@ -99,29 +86,23 @@ namespace SuperMarioClone
                             throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
                         }
                     }
-<<<<<<< HEAD
-                }
-                if (line.Contains("CoinBlock:"))
-                {
-                    int containAmount;
-                    try
+                
+                    if (line.Contains("CoinBlock:"))
                     {
-                        x = Int32.Parse(arguments[0]) * 16;
-                        y = Int32.Parse(arguments[1]) * 16;
-                        containAmount = Int32.Parse(arguments[2]) - 1;
-                        level.ToAddGameObject(new CoinBlock(x, y, level, cm, containAmount));
+                        int containAmount;
+                        try
+                        {
+                            x = Int32.Parse(arguments[0]) * 16;
+                            y = Int32.Parse(arguments[1]) * 16;
+                            containAmount = Int32.Parse(arguments[2]) - 1;
+                            level.ToAddGameObject(new CoinBlock(x, y, level, cm, containAmount));
+                        }
+                        catch
+                        {
+                            throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                        }
                     }
-                    catch
-                    {
-                        throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
-                    }
-                }
-                if (line.Contains("Goomba:"))
-                {
-                    try
-=======
                     if (line.Contains("Mystery:"))
->>>>>>> origin/master
                     {
                         Type containObject;
                         try
