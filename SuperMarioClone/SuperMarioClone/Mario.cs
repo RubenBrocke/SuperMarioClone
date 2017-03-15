@@ -16,14 +16,9 @@ namespace SuperMarioClone
     public class Mario : Tangible
     {
         public int Coins { get; private set; }
-
         public int Lives { get; private set; }
-
         public state State { get; private set; }
         public form Form { get; private set; }
-
-
-
 
         private bool _jumpWasPressed = false;
         private SoundEffect _jumpSound;
@@ -61,11 +56,6 @@ namespace SuperMarioClone
             Tanuki
         }
 
-        
-
-        //----Hitbox----//
-        public Rectangle outRect;
-
         public Mario(int x, int y, Level lvl, ContentManager cm) : base()
         {
             Position = new Vector2(x, y);
@@ -86,7 +76,7 @@ namespace SuperMarioClone
             Coins = 0;
         }
 
-        public void becomeBig()
+        public void BecomeBig()
         {
             if (Form == form.Small)
             {
@@ -159,7 +149,7 @@ namespace SuperMarioClone
                 else if (VelocityX < 0)
                 {
                     VelocityX = Math.Min(VelocityX + _deacc, 0);
-                }
+                } 
             }
             if (state.IsKeyDown(Keys.Space))
             {
@@ -225,7 +215,7 @@ namespace SuperMarioClone
             Lives--;    
 	    }
     
-        public void addCoin()
+        public void AddCoin()
         {
             Coins++;
         }

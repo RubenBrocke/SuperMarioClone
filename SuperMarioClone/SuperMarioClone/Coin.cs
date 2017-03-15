@@ -53,7 +53,7 @@ namespace SuperMarioClone
                 {
                     deathTimer.Change(0, 0);
                 }
-                mario.addCoin();
+                mario.AddCoin();
                 HasBeenPickedUp = true;                
             }
         }

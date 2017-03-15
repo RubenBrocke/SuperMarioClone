@@ -45,14 +45,11 @@ namespace SuperMarioClone
 
         public void RemoveGameObjects()
         {
-            lock (_toRemove)
+            foreach (GameObject g in _toRemove)
             {
-                foreach (GameObject g in _toRemove)
+                if (GameObjects.Contains(g))
                 {
-                    if (GameObjects.Contains(g))
-                    {
-                        GameObjects.Remove(g);
-                    }
+                    GameObjects.Remove(g);
                 }
             }
             _toRemove.Clear();

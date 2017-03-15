@@ -8,5 +8,5 @@ Coin: 0, 33
 Coin: 0, 33
 Coin: 0, 33
 Coin: 0, 33
-Coin: 0, 33
+CoinBlock: 1, 33, 2000
 Mystery: 4, 31, LevelReader

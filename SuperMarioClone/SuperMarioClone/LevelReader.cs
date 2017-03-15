@@ -28,7 +28,6 @@ namespace SuperMarioClone
             int width;
             int height;
 
-
             while ((line = lvlReader.ReadLine()) != null)
             { 
                 //Check for type

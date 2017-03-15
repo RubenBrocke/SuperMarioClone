@@ -36,7 +36,7 @@ namespace SuperMarioClone
         {
             if (!HasBeenPickedUp)
             {
-                mario.becomeBig();
+                mario.BecomeBig();
                 HasBeenPickedUp = true;
                 CurrentLevel.ToRemoveGameObject(this);
                 _coinPickUpSound.Play();
