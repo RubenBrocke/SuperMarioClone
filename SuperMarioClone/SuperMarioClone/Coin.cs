@@ -10,33 +10,34 @@ using System.Threading;
 
 namespace SuperMarioClone
 {
-    public class Coin : Tangible
+    public class Coin : Tangible, IMovable
     {
         private int Value { get; set; }
-
         private bool Moveable { get; set; }
-
         private bool HasBeenPickedUp { get; set; }
         private bool IsMysteryCoin { get; set; }
 
+        public float VelocityX { get; protected set; }
+        public float VelocityY { get; private set; }
+        public float JumpVelocity { get; private set; }
+        public float Gravity { get; private set; }
+
         private SoundEffect _coinPickUpSound;
 
-        private Animator animator;
+        private Animator _animator;
 
-        private int _spriteImageIndex;
-
-        public Coin(int x, int y, bool isMystereyCoin, Level lvl, ContentManager cm) : base()
+        public Coin(int x, int y, bool isMystereyCoin, Level lvl, ContentManager contentManager) : base()
         {
+            Gravity = 0.3f;
             Position = new Vector2(x, y);
             CurrentLevel = lvl;
             VelocityY = -2f;
             IsMysteryCoin = isMystereyCoin;
             HasBeenPickedUp = false;
-            _spriteImageIndex = 0;
-            animator = new Animator(cm.Load<Texture2D>("CoinSheet"), 180);
-            animator.GetTextures(0, 0, 16, 16, 4, 1);
-            Sprite = animator.GetCurrentTexture();
-            _coinPickUpSound = cm.Load<SoundEffect>("Pling");
+            _animator = new Animator(contentManager.Load<Texture2D>("CoinSheet"), 180);
+            _animator.GetTextures(0, 0, 16, 16, 4, 1);
+            Sprite = _animator.GetCurrentTexture();
+            _coinPickUpSound = contentManager.Load<SoundEffect>("Pling");
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, 12, 16); // fix the magic numbers
         }
 
@@ -69,15 +70,9 @@ namespace SuperMarioClone
             if (IsMysteryCoin)
             {
                 Position = new Vector2(Position.X, Position.Y + VelocityY);
-                VelocityY += gravity;
+                VelocityY += Gravity;
             }
-            Sprite = animator.GetCurrentTexture();
-        }
-
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(texture: Sprite, position: Position);
+            Sprite = _animator.GetCurrentTexture();
         }
     } 
 }

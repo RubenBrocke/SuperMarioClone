@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMarioClone
 {
-    public abstract class Tangible : Moveable
+    public abstract class Tangible : GameObject
     {
         public Rectangle Hitbox { get; set; }
         protected Tangible collObject;
@@ -40,6 +40,7 @@ namespace SuperMarioClone
 
                         if (this is Mario)
                         {
+                            Mario m = (Mario)this;
                             if (o is Coin)
                             {
                                 Coin coin = (Coin)o;
@@ -48,12 +49,12 @@ namespace SuperMarioClone
                             if (o is MysteryBlock)
                             {
                                 MysteryBlock mysteryBlock = (MysteryBlock)o;
-                                mysteryBlock.Eject((Mario)this, this.VelocityY, this.Position.Y);
+                                mysteryBlock.Eject(m, m.VelocityY, m.Position.Y);
                             }
                             if (o is CoinBlock)
                             {
                                 CoinBlock coinBlock = (CoinBlock)o;
-                                coinBlock.Eject((Mario)this, this.VelocityY, this.Position.Y);
+                                coinBlock.Eject(m, m.VelocityY, m.Position.Y);
                             }
                             if (o is Mushroom)
                             {
@@ -76,48 +77,50 @@ namespace SuperMarioClone
             return collidesWithSolid;
         }
 
-        public virtual bool CheckCollision()
+        public bool CheckCollision(IMovable movableObject, out float velocityX, out float velocityY)
         {
             bool result = false;
+            velocityX = movableObject.VelocityX;
+            velocityY = movableObject.VelocityY;
             //Horizontal collision
-            if (IsColliding(CurrentLevel, (int)Math.Ceiling(VelocityX), 0, out collObject) || IsColliding(CurrentLevel, (int)Math.Floor(VelocityX), 0, out collObject))
+            if (IsColliding(CurrentLevel, (int)Math.Ceiling(velocityX), 0, out collObject) || IsColliding(CurrentLevel, (int)Math.Floor(velocityX), 0, out collObject))
             {
                 if (!(collObject is TransFloor))
                 {
-                    if (VelocityX < 0)
+                    if (velocityX < 0)
                     {
                         Position = new Vector2(collObject.Hitbox.Right - _horizontalPadding, Position.Y);
                     }
-                    else if (VelocityX > 0)
+                    else if (velocityX > 0)
                     {
                         Position = new Vector2(collObject.Hitbox.Left - Hitbox.Width - _horizontalPadding, Position.Y);
                     }
-                    VelocityX = 0;
+                    velocityX = 0;
                     result = true; 
                 }
             }
 
             //Vertical collision
-            if (IsColliding(CurrentLevel, 0, (int)Math.Ceiling(VelocityY), out collObject) || IsColliding(CurrentLevel, 0, (int)Math.Floor(VelocityY), out collObject))
+            if (IsColliding(CurrentLevel, 0, (int)Math.Ceiling(velocityY), out collObject) || IsColliding(CurrentLevel, 0, (int)Math.Floor(velocityY), out collObject))
             {
                 if (!(collObject is TransFloor))
                 {
-                    if (VelocityY > 0)
+                    if (velocityY > 0)
                     {
                         Position = new Vector2(Position.X, collObject.Hitbox.Top - Hitbox.Height - _verticalPadding);
                     }
-                    else if (VelocityY < 0)
+                    else if (velocityY < 0)
                     {
                         Position = new Vector2(Position.X, collObject.Hitbox.Bottom - _verticalPadding);
                     }
-                    VelocityY = 0; 
+                    velocityY = 0; 
                 }
                 else
                 {
-                    if (VelocityY >= 0 && Position.Y < collObject.Hitbox.Top - Hitbox.Height)
+                    if (velocityY >= 0 && Position.Y < collObject.Hitbox.Top - Hitbox.Height)
                     {
                         Position = new Vector2(Position.X, collObject.Hitbox.Top - Hitbox.Height - _verticalPadding);
-                        VelocityY = 0;
+                        velocityY = 0;
                     }
                 }
             }

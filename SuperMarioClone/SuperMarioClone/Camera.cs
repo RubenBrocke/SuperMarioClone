@@ -22,13 +22,12 @@ namespace SuperMarioClone
 
             Position = Vector2.Zero;
             Rotation = 0;
-            Zoom = 1;
+            Zoom = 3.6f;
             Origin = new Vector2(this._viewport.Width / 2f, this._viewport.Height / 2f);
         }
 
         public void LookAt(Vector2 _pos)
         {
-            Zoom = 3.6f;
             Position = new Vector2(Math.Max(-289, _pos.X - _viewport.Width / 2), 0);
             Origin = new Vector2(_viewport.Width / 2, _viewport.Height);
         }
@@ -41,6 +40,11 @@ namespace SuperMarioClone
                 Matrix.CreateRotationZ(Rotation) *
                 Matrix.CreateScale(Zoom, Zoom, 1) *
                 Matrix.CreateTranslation(new Vector3(Origin, 0.0f));
+        }
+
+        public Rectangle GetBounds()
+        {
+            return new Rectangle((int)Position.X + 289, (int)Position.Y + 434, (int)(_viewport.Width / Zoom), (int)(_viewport.Height / Zoom));
         }
     }
 }

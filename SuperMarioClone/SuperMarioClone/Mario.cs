@@ -13,12 +13,17 @@ using System.Threading;
 
 namespace SuperMarioClone
 {
-    public class Mario : Tangible
+    public class Mario : Tangible, IMovable
     {
         public int Coins { get; private set; }
         public int Lives { get; private set; }
         public state State { get; private set; }
         public form Form { get; private set; }
+
+        public float VelocityX { get; protected set; }
+        public float VelocityY { get; private set; }
+        public float JumpVelocity { get; private set; }
+        public float Gravity { get; private set; }
 
         private bool _jumpWasPressed = false;
         private SoundEffect _jumpSound;
@@ -56,19 +61,19 @@ namespace SuperMarioClone
             Tanuki
         }
 
-        public Mario(int x, int y, Level lvl, ContentManager cm) : base()
+        public Mario(int x, int y, Level lvl, ContentManager contentManager) : base()
         {
             Position = new Vector2(x, y);
-            Sprite = cm.Load<Texture2D>("MarioSheetRight");
-            _jumpSound = cm.Load<SoundEffect>("Oink1");
-            _font = cm.Load<SpriteFont>("Font");
+            Sprite = contentManager.Load<Texture2D>("MarioSheetRight");
+            _jumpSound = contentManager.Load<SoundEffect>("Oink1");
+            _font = contentManager.Load<SpriteFont>("Font");
             CurrentLevel = lvl;
             JumpVelocity = 6.25f;
             State = state.Idle;
             Form = form.Small;
             _timer = new Timer(ChangeAnimationState);
             _timer.Change(0, 100);
-
+            Gravity = 0.3f;
             _horizontalPadding = 1;
             _verticalPadding = 2;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitboxWidth, _hitboxHeight);
@@ -90,12 +95,12 @@ namespace SuperMarioClone
         }
 
         public override void Update()
-        {            
+        {
             //Update Hitbox
-            Hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);            
+            Hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
 
             //Add gravity
-            VelocityY += gravity;
+            VelocityY += Gravity;
 
             //Limit vertical speed
             if (VelocityY > _ySpeedMax)
@@ -149,7 +154,7 @@ namespace SuperMarioClone
                 else if (VelocityX < 0)
                 {
                     VelocityX = Math.Min(VelocityX + _deacc, 0);
-                } 
+                }
             }
             if (state.IsKeyDown(Keys.Space))
             {
@@ -160,7 +165,11 @@ namespace SuperMarioClone
                 _jumpWasPressed = true;
             }
 
-            CheckCollision();
+            float vX;
+            float vY;
+            CheckCollision(this, out vX, out vY);
+            VelocityX = vX;
+            VelocityY = vY;
 
             //Add speed to position
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
@@ -169,7 +178,7 @@ namespace SuperMarioClone
             MainGame.camera.LookAt(Position);
 
             //Prevents pogosticking
-            if(VelocityY == 0)
+            if (VelocityY == 0)
             {
                 _jumpWasPressed = false;
             }
@@ -201,20 +210,20 @@ namespace SuperMarioClone
             }
         }
 
-        public override void Jump()
+        public void Jump()
         {
             if (IsColliding(CurrentLevel, 0, 1, out collObject))
             {
-                 VelocityY = -JumpVelocity;
+                VelocityY = -JumpVelocity;
                 _jumpSound.Play();
             }
         }
 
         public void LoseLife()
-	    {
-            Lives--;    
-	    }
-    
+        {
+            Lives--;
+        }
+
         public void AddCoin()
         {
             Coins++;
@@ -222,7 +231,7 @@ namespace SuperMarioClone
 
         private void ChangeAnimationState(object state)
         {
-            if(_animationState < 1)
+            if (_animationState < 1)
             {
                 _animationState++;
             }
@@ -231,7 +240,7 @@ namespace SuperMarioClone
                 _animationState = 0;
             }
 
-            if(State == Mario.state.Running)
+            if (State == Mario.state.Running)
             {
                 _timer.Change(80, 80);
             }
@@ -285,7 +294,6 @@ namespace SuperMarioClone
             spriteBatch.DrawString(_font, String.Format("{0,4}", Lives), new Vector2(704, 0), Color.Black);
             spriteBatch.End();
             spriteBatch.Begin(transformMatrix: MainGame.camera.GetMatrix(), samplerState: SamplerState.PointClamp);
-        }        
+        }
     }
-
 }

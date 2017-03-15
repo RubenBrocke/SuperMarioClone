@@ -11,9 +11,14 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace SuperMarioClone
 {
-    class Mushroom : Tangible
+    class Mushroom : Tangible, IMovable
     {
         private bool HasBeenPickedUp { get; set; }
+
+        public float VelocityX { get; protected set; }
+        public float VelocityY { get; private set; }
+        public float JumpVelocity { get; private set; }
+        public float Gravity { get; private set; }
 
         private SoundEffect _coinPickUpSound;
 
@@ -22,6 +27,7 @@ namespace SuperMarioClone
 
         public Mushroom(int x, int y, Level lvl, ContentManager cm) : base()
         {
+            Gravity = 0.3f;
             Position = new Vector2(x, y);
             CurrentLevel = lvl;
             VelocityY = 1f;
@@ -47,9 +53,12 @@ namespace SuperMarioClone
         {
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
 
-            VelocityY += gravity;
+            VelocityY += Gravity;
 
-            if (CheckCollision())
+            float vX;
+            float vY;
+            
+            if (CheckCollision(this, out vX, out vY))
             {
                 if (_walkDirection.Equals("right"))
                 {
@@ -62,6 +71,9 @@ namespace SuperMarioClone
                     _walkDirection = "right";
                 }
             }
+
+            VelocityX = vX;
+            VelocityY = vY;
 
             if (_walkDirection.Equals("left"))
             {

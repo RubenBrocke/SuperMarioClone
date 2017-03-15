@@ -43,6 +43,7 @@
     <Compile Include="Coin.cs" />
     <Compile Include="CoinBlock.cs" />
     <Compile Include="Goomba.cs" />
+    <Compile Include="IMovable.cs" />
     <Compile Include="Mushroom.cs" />
     <Compile Include="MysteryBlock.cs" />
     <Compile Include="Floor.cs" />
@@ -51,7 +52,6 @@
     <Compile Include="LevelReader.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Mario.cs" />
-    <Compile Include="Moveable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Solid.cs" />

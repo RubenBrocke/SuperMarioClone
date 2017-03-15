@@ -841,6 +841,14 @@
               LastKnownName="Moveable"
               LastKnownLocation="UML.uml" />
           </generalization>
+          <generalization
+            Id="c5e02adb-606d-42b8-9dd2-6a6cff17288a"
+            isSubstitutable="false">
+            <classMoniker
+              Id="7385f8e2-9e2a-497f-81d2-6229e5e1c00d"
+              LastKnownName="GameObject"
+              LastKnownLocation="UML.uml" />
+          </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
           <property
@@ -1699,7 +1707,7 @@
           </property>
           <property
             Id="525f2819-2f00-4726-86d0-23efa81c9a40"
-            name="gravity"
+            name="Gravity"
             visibility="Protected"
             isLeaf="false"
             isStatic="false"
@@ -3685,6 +3693,126 @@
           </operation>
         </ownedOperationsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="6a4d6081-7827-49a0-af2e-0427c12f0d2f"
+        name="IMovable"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="8216f659-6a0a-4798-9eec-cf1e1194d452">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="cccacacf-6a59-40af-be96-77b06eaddc4e">
+            <classMoniker
+              Id="eda2eb09-a087-4fe1-bf14-ff1a5ca4f0ad"
+              LastKnownName="Coin"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="6e0e4305-200c-4d43-87cd-b83e4088631d">
+            <classMoniker
+              Id="246cebd9-a73e-43c0-84a2-1d192789f408"
+              LastKnownName="Mushroom"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="ba4cb7b5-15a7-4a9d-83fd-c7aeedf36209">
+            <classMoniker
+              Id="19e41ae4-3437-4c97-8792-c725dfebdaa9"
+              LastKnownName="Goomba"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributes>
+          <property
+            Id="f98fc674-8a99-42e0-a7df-be44768b0666"
+            name="Gravity"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="51ed33ed-4a6a-4e6d-a4a5-97c72e676abd"
+                LastKnownName="float"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f79f7031-2a33-4002-9634-d0f2a92e12ac"
+            name="VelocityX"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="51ed33ed-4a6a-4e6d-a4a5-97c72e676abd"
+                LastKnownName="float"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0e4c60c0-6b3f-4bbe-b8c7-a9ec81b600ad"
+            name="VelocityY"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="51ed33ed-4a6a-4e6d-a4a5-97c72e676abd"
+                LastKnownName="float"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f13167f3-2194-4a9a-ae7c-a8b5c235b079"
+            name="JumpVelocity"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="51ed33ed-4a6a-4e6d-a4a5-97c72e676abd"
+                LastKnownName="float"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5e7c895d-61aa-4d50-9595-381a0c607ae8"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

@@ -10,18 +10,24 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMarioClone
 {
-    class Goomba : Tangible
+    class Goomba : Tangible, IMovable
     {
+        public float VelocityX { get; protected set; }
+        public float VelocityY { get; private set; }
+        public float JumpVelocity { get; private set; }
+        public float Gravity { get; private set; }
 
         private string _walkDirection;
+        private float _speed = 2f;
 
-        public Goomba(int x, int y, Level lvl, ContentManager cm)
+        public Goomba(int x, int y, Level lvl, ContentManager contentManager)
         {
+            Gravity = 0.3f;
             Position = new Vector2(x, y);
             CurrentLevel = lvl;
             VelocityX = 2f;
             _walkDirection = "right";
-            Sprite = cm.Load<Texture2D>("Goomba");
+            Sprite = contentManager.Load<Texture2D>("Goomba");
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
             _horizontalPadding = 1;
             _verticalPadding = 0;
@@ -31,9 +37,11 @@ namespace SuperMarioClone
         {
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
 
-            VelocityY += gravity;
-
-            if (CheckCollision())
+            VelocityY += Gravity;
+            float vX;
+            float vY;
+            
+            if (CheckCollision(this, out vX, out vY))
             {
                 if (_walkDirection.Equals("right"))
                 {
@@ -47,13 +55,16 @@ namespace SuperMarioClone
                 }
             }
 
+            VelocityX = vX;
+            VelocityY = vY;
+
             if (_walkDirection.Equals("left"))
             {
-                VelocityX = -2;
+                VelocityX = -_speed;
             }
             if (_walkDirection.Equals("right"))
             {
-                VelocityX = 2;
+                VelocityX = _speed;
             }           
 
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);

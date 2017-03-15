@@ -67,7 +67,7 @@ namespace SuperMarioClone
                 if (o is Tangible)
                 {
                     Tangible t = (Tangible)o;
-                    if (t.Hitbox.Intersects(viewPort.Bounds))
+                    if (t.Hitbox.Intersects(MainGame.camera.GetBounds()))
                     {
                         o.Draw(spriteBatch);
                     }
