@@ -36,6 +36,7 @@ namespace SuperMarioClone
                 CurrentLevel.ToAddGameObject(c);
                 if (ContainAmount-- == 0)
                 {
+                    _spriteImageIndex = 1;
                     _hasBeenUsed = true;
                 }
             }
@@ -44,14 +45,6 @@ namespace SuperMarioClone
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture: Sprite, position: Position, sourceRectangle: new Rectangle(16 * _spriteImageIndex, 0, 16, 16));
-        }
-
-        private void ChangeSpriteIndex(object state)
-        {
-            if (_hasBeenUsed)
-            {
-                _spriteImageIndex = 2;
-            }
         }
     }
 }
