@@ -34,8 +34,9 @@ Coin: 39, 31
 
 //Goomba's
 Goomba: 18, 34
-Mystery: 18, 31, Coin
 
-//MysteryBlocks
+//Blocks
+CloudBlock: 16, 32
 Mystery: 30, 31, Mushroom
+Mystery: 18, 31, Coin
 CoinBlock: 17, 31, 3

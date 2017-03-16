@@ -89,7 +89,7 @@ namespace SuperMarioClone
             //Horizontal collision
             if (IsColliding(CurrentLevel, (int)Math.Ceiling(velocityX), 0, out collObject) || IsColliding(CurrentLevel, (int)Math.Floor(velocityX), 0, out collObject))
             {
-                if (!(collObject is TransFloor))
+                if (!(collObject is TransFloor || collObject is CloudBlock))
                 {
                     if (velocityX < 0)
                     {
@@ -107,7 +107,7 @@ namespace SuperMarioClone
             //Vertical collision
             if (IsColliding(CurrentLevel, 0, (int)Math.Ceiling(velocityY), out collObject) || IsColliding(CurrentLevel, 0, (int)Math.Floor(velocityY), out collObject))
             {
-                if (!(collObject is TransFloor))
+                if (!(collObject is TransFloor || collObject is CloudBlock))
                 {
                     if (velocityY > 0)
                     {

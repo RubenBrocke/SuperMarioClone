@@ -22,10 +22,5 @@ namespace SuperMarioClone
             _cm = cm;
             Sprite = _cm.Load<Texture2D>("CloudBlock");
         }
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(texture: Sprite, position: Position, sourceRectangle: new Rectangle(16, 0, 16, 16));
-        }
     }
 }

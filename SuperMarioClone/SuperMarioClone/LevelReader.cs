@@ -72,6 +72,19 @@ namespace SuperMarioClone
                             throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
                         }
                     }
+                    if (line.Contains("CloudBlock:"))
+                    {
+                        try
+                        {
+                            x = Int32.Parse(arguments[0]) * 16;
+                            y = Int32.Parse(arguments[1]) * 16;
+                            level.ToAddGameObject(new CloudBlock(x, y, level, _cm));
+                        }
+                        catch
+                        {
+                            throw new FormatException("Unable to parse number in: level" + levelNumber + " File");
+                        }
+                    }
                     if (line.Contains("Coin:"))
                     {
                         try
