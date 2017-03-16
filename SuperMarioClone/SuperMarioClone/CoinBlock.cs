@@ -10,20 +10,20 @@ using System.Threading;
 
 namespace SuperMarioClone
 {
-    class CoinBlock : Solid
+    class CoinBlock : Tangible, ISolid
     {
         private int ContainAmount { get; set; }
-        private ContentManager _cm;
+        private ContentManager _contentManager;
         private bool _hasBeenUsed = false;
         private int _spriteImageIndex = 0;
 
-        public CoinBlock(int x, int y, Level lvl, ContentManager cm, int containAmount) : base()
+        public CoinBlock(int x, int y, int containAmount, Level level, ContentManager contentManager) : base()
         {
             ContainAmount = containAmount;
             Position = new Vector2(x, y);
-            CurrentLevel = lvl;
-            _cm = cm;
-            Sprite = _cm.Load<Texture2D>("CoinBlockSheet");
+            CurrentLevel = level;
+            _contentManager = contentManager;
+            Sprite = _contentManager.Load<Texture2D>("CoinBlockSheet");
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, 16, 16); // TODO: numbers represent pixels, change magic number
         }
 
@@ -31,7 +31,8 @@ namespace SuperMarioClone
         {
             if (vY < 0 && !_hasBeenUsed && Y > Hitbox.Bottom)
             {
-                Coin c = (Coin)Activator.CreateInstance(typeof(Coin), (int)Position.X, (int)Position.Y - Hitbox.Height, true, CurrentLevel, _cm);
+                Coin c = (Coin)Activator.CreateInstance(typeof(Coin), (int)Position.X, (int)Position.Y - Hitbox.Height, CurrentLevel, _contentManager);
+                c.IsMysteryCoin = true;
                 c.AddCoin(mario);
                 CurrentLevel.ToAddGameObject(c);
                 if (ContainAmount-- == 0)

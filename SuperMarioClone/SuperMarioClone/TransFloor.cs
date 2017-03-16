@@ -9,11 +9,19 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMarioClone
 {
-    class TransFloor : Floor
+    class TransFloor : Tangible, ISolid
     {
-        public TransFloor(float x, float y, int w, int h, Level lvl, ContentManager cm) : base(x, y, w, h, lvl, cm)
-        {
+        protected int Width { get; set; }
+        protected int Height { get; set; }
 
+        public TransFloor(int x, int y, int w, int h, Level level, ContentManager contentManager) : base()
+        {
+            Position = new Vector2(x, y);
+            Width = w;
+            Height = h;
+            CurrentLevel = level;
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
+            Sprite = contentManager.Load<Texture2D>("GroundSheet");
         }
 
         public override void Draw(SpriteBatch spriteBatch)

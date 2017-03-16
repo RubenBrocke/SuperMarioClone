@@ -20,11 +20,11 @@ namespace SuperMarioClone
         private string _walkDirection;
         private float _speed = 2f;
 
-        public Goomba(int x, int y, Level lvl, ContentManager contentManager)
+        public Goomba(int x, int y, Level level, ContentManager contentManager)
         {
             Gravity = 0.3f;
             Position = new Vector2(x, y);
-            CurrentLevel = lvl;
+            CurrentLevel = level;
             VelocityX = 2f;
             _walkDirection = "right";
             Sprite = contentManager.Load<Texture2D>("Goomba");

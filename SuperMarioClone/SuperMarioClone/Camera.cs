@@ -28,7 +28,7 @@ namespace SuperMarioClone
 
         public void LookAt(Vector2 _pos)
         {
-            Position = new Vector2(Math.Max(-289, _pos.X - _viewport.Width / 2), 0);
+            Position = new Vector2(Math.Max(-289, _pos.X - _viewport.Width / 2), 0); //Y = _pos.Y - 534 to follow player sort of
             Origin = new Vector2(_viewport.Width / 2, _viewport.Height);
         }
 

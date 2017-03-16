@@ -61,13 +61,13 @@ namespace SuperMarioClone
             Tanuki
         }
 
-        public Mario(int x, int y, Level lvl, ContentManager contentManager) : base()
+        public Mario(int x, int y, Level level, ContentManager contentManager) : base()
         {
             Position = new Vector2(x, y);
             Sprite = contentManager.Load<Texture2D>("MarioSheetRight");
             _jumpSound = contentManager.Load<SoundEffect>("Oink1");
             _font = contentManager.Load<SpriteFont>("Font");
-            CurrentLevel = lvl;
+            CurrentLevel = level;
             JumpVelocity = 6.25f;
             State = state.Idle;
             Form = form.Small;
@@ -147,13 +147,16 @@ namespace SuperMarioClone
             }
             else if (IsColliding(CurrentLevel, 0, 1, out collObject))
             {
-                if (VelocityX > 0)
+                if (!(collObject is TransFloor) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
                 {
-                    VelocityX = Math.Max(VelocityX - _deacc, 0);
-                }
-                else if (VelocityX < 0)
-                {
-                    VelocityX = Math.Min(VelocityX + _deacc, 0);
+                    if (VelocityX > 0)
+                    {
+                        VelocityX = Math.Max(VelocityX - _deacc, 0);
+                    }
+                    else if (VelocityX < 0)
+                    {
+                        VelocityX = Math.Min(VelocityX + _deacc, 0);
+                    } 
                 }
             }
             if (state.IsKeyDown(Keys.Space))

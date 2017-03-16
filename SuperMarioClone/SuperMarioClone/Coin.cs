@@ -12,10 +12,10 @@ namespace SuperMarioClone
 {
     public class Coin : Tangible, IMovable
     {
-        private int Value { get; set; }
-        private bool Moveable { get; set; }
-        private bool HasBeenPickedUp { get; set; }
-        private bool IsMysteryCoin { get; set; }
+        public int Value { get; set; }
+        public bool Moveable { get; set; }
+        public bool HasBeenPickedUp { get; set; }
+        public bool IsMysteryCoin { get; set; }
 
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }
@@ -26,13 +26,13 @@ namespace SuperMarioClone
 
         private Animator _animator;
 
-        public Coin(int x, int y, bool isMystereyCoin, Level lvl, ContentManager contentManager) : base()
+        public Coin(int x, int y, Level level, ContentManager contentManager) : base()
         {
             Gravity = 0.3f;
             Position = new Vector2(x, y);
-            CurrentLevel = lvl;
+            CurrentLevel = level;
             VelocityY = -2f;
-            IsMysteryCoin = isMystereyCoin;
+            IsMysteryCoin = false;
             HasBeenPickedUp = false;
             _animator = new Animator(contentManager.Load<Texture2D>("CoinSheet"), 180);
             _animator.GetTextures(0, 0, 16, 16, 4, 1);

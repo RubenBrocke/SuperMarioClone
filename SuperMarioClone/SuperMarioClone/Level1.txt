@@ -32,10 +32,10 @@ Coin: 34, 29
 Coin: 38, 31
 Coin: 39, 31
 
-//Goomba's
+//Goombas
 Goomba: 18, 34
-Mystery: 18, 31, Coin
+MysteryBlock: 18, 31, Coin
 
 //MysteryBlocks
-Mystery: 30, 31, Mushroom
+MysteryBlock: 30, 31, Mushroom
 CoinBlock: 17, 31, 3

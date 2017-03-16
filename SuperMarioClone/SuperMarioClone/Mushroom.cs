@@ -25,16 +25,16 @@ namespace SuperMarioClone
         private string _walkDirection;
         private float _speed = 1.5f;
 
-        public Mushroom(int x, int y, Level lvl, ContentManager cm) : base()
+        public Mushroom(int x, int y, Level level, ContentManager contentManager) : base()
         {
             Gravity = 0.3f;
             Position = new Vector2(x, y);
-            CurrentLevel = lvl;
+            CurrentLevel = level;
             VelocityY = 1f;
             HasBeenPickedUp = false;
             _walkDirection = "right";
-            Sprite = cm.Load<Texture2D>("Mushroom");
-            _coinPickUpSound = cm.Load<SoundEffect>("Pling");
+            Sprite = contentManager.Load<Texture2D>("Mushroom");
+            _coinPickUpSound = contentManager.Load<SoundEffect>("Pling");
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height); // fix the magic numbers
         }
 
