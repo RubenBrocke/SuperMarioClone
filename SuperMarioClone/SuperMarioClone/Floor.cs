@@ -25,7 +25,7 @@ namespace SuperMarioClone
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRect = new Rectangle(16, 16, 16, 16);
+            Rectangle sourceRect = new Rectangle(16, 16, 16, 16); //properties aanpassen ipv new Rectangle
             for (int x = (int)Position.X; x < Width + (int)Position.X; x += 16)
             {
                 for (int y = (int)Position.Y; y < Height + (int)Position.Y; y += 16)

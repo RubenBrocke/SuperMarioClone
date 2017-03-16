@@ -1,18 +1,4 @@
 Floor: 0, 36, 200, 4
 Floor: 50, 0, 4, 50
 Floor: -1, -50, 1, 100
-Coin: 0, 33
-Coin: 0, 32
-Coin: 0, 31
-Coin: 0, 30
-Coin: 0, 29
-Coin: 0, 28
-Coin: 0, 27
-Coin: 0, 26
-Coin: 0, 25
-Coin: 0, 24
-Coin: 0, 23
-Coin: 0, 22
-Coin: 0, 21
-CoinBlock: 1, 33, 2000
 Mystery: 4, 31, LevelReader
