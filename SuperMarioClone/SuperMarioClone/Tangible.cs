@@ -51,6 +51,10 @@ namespace SuperMarioClone
                                 MysteryBlock mysteryBlock = (MysteryBlock)o;
                                 mysteryBlock.Eject(m, m.VelocityY, m.Position.Y);
                             }
+                            if (o is CloudBlock)
+                            {
+                                CloudBlock cloudBlock = (CloudBlock)o;
+                            }
                             if (o is CoinBlock)
                             {
                                 CoinBlock coinBlock = (CoinBlock)o;

@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Animator.cs" />
     <Compile Include="Camera.cs" />
+    <Compile Include="CloudBlock.cs" />
     <Compile Include="Coin.cs" />
     <Compile Include="CoinBlock.cs" />
     <Compile Include="Goomba.cs" />
