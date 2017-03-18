@@ -34,9 +34,7 @@ namespace SuperMarioClone
 
         private SpriteFont _font;
 
-        private int _animationState = 0;
-        private int _spriteImageIndex = 0;
-        private bool _isAnimated = false;
+        private Animator _animator;
 
         private int _hitboxWidth = 14;
         private int _hitboxHeight = 20;
@@ -64,15 +62,13 @@ namespace SuperMarioClone
         public Mario(int x, int y, Level level, ContentManager contentManager) : base()
         {
             Position = new Vector2(x, y);
-            Sprite = contentManager.Load<Texture2D>("MarioSheetRight");
             _jumpSound = contentManager.Load<SoundEffect>("Oink1");
             _font = contentManager.Load<SpriteFont>("Font");
+            _animator = new Animator(contentManager.Load<Texture2D>("MarioSheetRight"));
             CurrentLevel = level;
             JumpVelocity = 6.25f;
             State = state.Idle;
             Form = form.Small;
-            _timer = new Timer(ChangeAnimationState);
-            _timer.Change(0, 100);
             Gravity = 0.3f;
             _horizontalPadding = 1;
             _verticalPadding = 2;
@@ -211,6 +207,7 @@ namespace SuperMarioClone
             {
                 State = Mario.state.FallingStraight;
             }
+            UpdateSprite();
         }
 
         public void Jump()
@@ -232,65 +229,45 @@ namespace SuperMarioClone
             Coins++;
         }
 
-        private void ChangeAnimationState(object state)
+        private void UpdateSprite()
         {
-            if (_animationState < 1)
+            switch (State)
             {
-                _animationState++;
+                case state.Idle:
+                    _animator.setAnimationSpeed(0);
+                    _animator.GetTextures(0, 0, 16, 22, 1, 1);
+                    break;
+                case state.Walking:
+                    _animator.setAnimationSpeed(190);
+                    _animator.GetTextures(0, 0, 16, 22, 2, 1);
+                    break;
+                case state.Running:
+                    _animator.setAnimationSpeed(80);
+                    _animator.GetTextures(32, 0, 16, 22, 2, 1);
+                    break;
+                case state.Jumping:
+                    _animator.setAnimationSpeed(0);
+                    _animator.GetTextures(80, 0, 16, 22, 1, 1);
+                    break;
+                case state.Falling:
+                    _animator.setAnimationSpeed(0);
+                    _animator.GetTextures(64, 0, 16, 22, 1, 1);
+                    break;
+                case state.FallingStraight:
+                    _animator.setAnimationSpeed(0);
+                    _animator.GetTextures(96, 0, 16, 22, 1, 1);
+                    break;
+                default:
+                    _animator.setAnimationSpeed(0);
+                    _animator.GetTextures(0, 0, 16, 22, 1, 1);
+                    break;
             }
-            else
-            {
-                _animationState = 0;
-            }
-
-            if (State == Mario.state.Running)
-            {
-                _timer.Change(80, 80);
-            }
-            else
-            {
-                _timer.Change(190, 190);
-            }
+            Sprite = _animator.GetCurrentTexture();
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRect;
-
-            switch (State)
-            {
-                case state.Idle:
-                    _spriteImageIndex = 0;
-                    _isAnimated = false;
-                    break;
-                case state.Walking:
-                    _spriteImageIndex = 0;
-                    _isAnimated = true;
-                    break;
-                case state.Running:
-                    _spriteImageIndex = 2;
-                    _isAnimated = true;
-                    break;
-                case state.Jumping:
-                    _spriteImageIndex = 5;
-                    _isAnimated = false;
-                    break;
-                case state.Falling:
-                    _spriteImageIndex = 4;
-                    _isAnimated = false;
-                    break;
-                case state.FallingStraight:
-                    _spriteImageIndex = 6;
-                    _isAnimated = false;
-                    break;
-                default:
-                    _spriteImageIndex = 0;
-                    _isAnimated = false;
-                    break;
-            }
-            sourceRect = new Rectangle(16 * (_animationState * (_isAnimated ? 1 : 0) + _spriteImageIndex), 0, 16, Sprite.Height);
-
-            spriteBatch.Draw(texture: Sprite, position: Position, effects: Direction, sourceRectangle: sourceRect);
+            base.Draw(spriteBatch);
             spriteBatch.End();
             spriteBatch.Begin();
             spriteBatch.DrawString(_font, String.Format("{0,4}", Coins), new Vector2(768, 0), Color.Black);

@@ -44,22 +44,26 @@ namespace SuperMarioClone
         public void GetTextures(int x, int y, int width, int height, int collumnAmount, int rowAmount)
         {
             Texture2D[] returnArray = new Texture2D[collumnAmount * rowAmount];
-            Texture2D Part = new Texture2D(_inputTexture.GraphicsDevice, width, height);            
+            Texture2D part = new Texture2D(_inputTexture.GraphicsDevice, width, height);            
             Rectangle sourceRect = Rectangle.Empty;
             Color[] data = new Color[width * height];
             for (int i = 0; i < rowAmount; i++)
             {
                 for (int j = 0; j < collumnAmount; j++)
                 {
-                    Part = new Texture2D(_inputTexture.GraphicsDevice, width, height);
+                    part = new Texture2D(_inputTexture.GraphicsDevice, width, height);
                     sourceRect = new Rectangle(j * width + x, i * height + y, width, height);
                     _inputTexture.GetData(0, sourceRect, data, 0, data.Length);
-                    Part.SetData(data);
-                    Part.Tag = i + j;
-                    returnArray[i + j] = Part;
+                    part.SetData(data);
+                    part.Tag = i + j;
+                    returnArray[i + j] = part;
                 }
             }
             TextureArray = returnArray;
+            if (collumnAmount * rowAmount < _imageCounter)
+            {
+                _imageCounter = 0;
+            }
         }
 
         public Texture2D GetCurrentTexture()
@@ -84,8 +88,18 @@ namespace SuperMarioClone
 
         public void setAnimationSpeed(int speed)
         {
-            AnimationSpeed = speed;
-            _imageTimer.Change(0, AnimationSpeed);
+            if (speed == 0)
+            {
+                AnimationSpeed = speed;
+                _imageTimer.Change(Timeout.Infinite, Timeout.Infinite);
+                _imageCounter = 0;
+            }
+            else if(AnimationSpeed != speed)
+            {
+                AnimationSpeed = speed;
+                _imageTimer.Change(AnimationSpeed, AnimationSpeed);
+                _imageCounter = 0;
+            }
         }
     }
 }
