@@ -14,8 +14,8 @@ namespace SuperMarioClone
     {
         private int ContainAmount { get; set; }
         private ContentManager _contentManager;
+        private Animator _animator;
         private bool _hasBeenUsed = false;
-        private int _spriteImageIndex = 0;
 
         public CoinBlock(int x, int y, int containAmount, Level level, ContentManager contentManager) : base()
         {
@@ -23,7 +23,9 @@ namespace SuperMarioClone
             Position = new Vector2(x, y);
             CurrentLevel = level;
             _contentManager = contentManager;
-            Sprite = _contentManager.Load<Texture2D>("CoinBlockSheet");
+            _animator = new Animator(_contentManager.Load<Texture2D>("CoinBlockSheet"), 0);
+            _animator.GetTextures(0, 0, 16, 16, 1, 1);
+            Sprite = _animator.GetCurrentTexture();
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, 16, 16); // TODO: numbers represent pixels, change magic number
         }
 
@@ -37,15 +39,11 @@ namespace SuperMarioClone
                 CurrentLevel.ToAddGameObject(c);
                 if (ContainAmount-- == 0)
                 {
-                    _spriteImageIndex = 1;
+                    _animator.GetTextures(16, 0, 16, 16, 1, 1);
+                    Sprite = _animator.GetCurrentTexture();
                     _hasBeenUsed = true;
                 }
             }
-        }
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(texture: Sprite, position: Position, sourceRectangle: new Rectangle(16 * _spriteImageIndex, 0, 16, 16));
         }
     }
 }
