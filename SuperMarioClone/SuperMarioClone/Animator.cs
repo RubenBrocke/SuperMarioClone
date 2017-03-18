@@ -86,7 +86,7 @@ namespace SuperMarioClone
             }
         }
 
-        public void setAnimationSpeed(int speed)
+        public void SetAnimationSpeed(int speed)
         {
             if (speed == 0)
             {

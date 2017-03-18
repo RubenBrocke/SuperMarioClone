@@ -14,9 +14,8 @@ namespace SuperMarioClone
     {
         private Type MysteryObject { get; set; }
         private ContentManager _contentManager;
+        private Animator _animator;
         private bool _hasBeenUsed = false;
-        private int _spriteImageIndex = 0;
-        private Timer _timer;
 
         public MysteryBlock(int x, int y, Type MysteryObject, Level level, ContentManager contentManager) : base()
         {
@@ -24,11 +23,10 @@ namespace SuperMarioClone
             Position = new Vector2(x, y);
             CurrentLevel = level;
             _contentManager = contentManager;
-            Sprite = _contentManager.Load<Texture2D>("MysteryBlockSheet");
+            _animator = new Animator(_contentManager.Load<Texture2D>("MysteryBlockSheet"), 120);
+            _animator.GetTextures(0, 0, 16, 16, 4, 1);
+            Sprite = _animator.GetCurrentTexture();
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, 16, 16); // TODO: numbers represent pixels, change magic number
-
-            _timer = new Timer(ChangeSpriteIndex);
-            _timer.Change(0, 120);
         }
 
         public void Eject(Mario mario, float vY, float Y)
@@ -53,28 +51,14 @@ namespace SuperMarioClone
                     MainGame.currentLevel = _lr.ReadLevel(1);
                 }
                 _hasBeenUsed = true;
+                _animator.GetTextures(64, 0, 16, 16, 1, 1);
+                _animator.SetAnimationSpeed(0);
             } 
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Update()
         {
-            spriteBatch.Draw(texture: Sprite, position: Position, sourceRectangle: new Rectangle(16 * _spriteImageIndex, 0, 16, 16));
-        }
-
-        private void ChangeSpriteIndex(object state)
-        {
-            if (_spriteImageIndex < 3)
-            {
-                _spriteImageIndex++;
-            }
-            else
-            {
-                _spriteImageIndex = 0;
-            }
-            if (_hasBeenUsed)
-            {
-                _spriteImageIndex = 4;
-            }
+            Sprite = _animator.GetCurrentTexture();
         }
     }
 }

@@ -39,8 +39,6 @@ namespace SuperMarioClone
         private int _hitboxWidth = 14;
         private int _hitboxHeight = 20;
 
-        private Timer _timer;
-
         public enum state
         {
             Idle,
@@ -234,31 +232,31 @@ namespace SuperMarioClone
             switch (State)
             {
                 case state.Idle:
-                    _animator.setAnimationSpeed(0);
+                    _animator.SetAnimationSpeed(0);
                     _animator.GetTextures(0, 0, 16, 22, 1, 1);
                     break;
                 case state.Walking:
-                    _animator.setAnimationSpeed(190);
+                    _animator.SetAnimationSpeed(190);
                     _animator.GetTextures(0, 0, 16, 22, 2, 1);
                     break;
                 case state.Running:
-                    _animator.setAnimationSpeed(80);
+                    _animator.SetAnimationSpeed(80);
                     _animator.GetTextures(32, 0, 16, 22, 2, 1);
                     break;
                 case state.Jumping:
-                    _animator.setAnimationSpeed(0);
+                    _animator.SetAnimationSpeed(0);
                     _animator.GetTextures(80, 0, 16, 22, 1, 1);
                     break;
                 case state.Falling:
-                    _animator.setAnimationSpeed(0);
+                    _animator.SetAnimationSpeed(0);
                     _animator.GetTextures(64, 0, 16, 22, 1, 1);
                     break;
                 case state.FallingStraight:
-                    _animator.setAnimationSpeed(0);
+                    _animator.SetAnimationSpeed(0);
                     _animator.GetTextures(96, 0, 16, 22, 1, 1);
                     break;
                 default:
-                    _animator.setAnimationSpeed(0);
+                    _animator.SetAnimationSpeed(0);
                     _animator.GetTextures(0, 0, 16, 22, 1, 1);
                     break;
             }
