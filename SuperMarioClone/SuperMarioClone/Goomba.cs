@@ -17,17 +17,18 @@ namespace SuperMarioClone
         public float JumpVelocity { get; private set; }
         public float Gravity { get; private set; }
 
-        private string _walkDirection;
+        private Animator _animator;
         private float _speed = 2f;
 
         public Goomba(int x, int y, Level level, ContentManager contentManager)
         {
+            _animator = new Animator(contentManager.Load<Texture2D>("GoombaSheet"), 110);
+            _animator.GetTextures(0, 0, 16, 16, 2, 1);
+            Sprite = _animator.GetCurrentTexture();
             Gravity = 0.3f;
             Position = new Vector2(x, y);
             CurrentLevel = level;
             VelocityX = 2f;
-            _walkDirection = "right";
-            Sprite = contentManager.Load<Texture2D>("Goomba");
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
             _horizontalPadding = 1;
             _verticalPadding = 0;
@@ -43,31 +44,21 @@ namespace SuperMarioClone
             
             if (CheckCollision(this, out vX, out vY))
             {
-                if (_walkDirection.Equals("right"))
+                if (VelocityX > 0)
                 {
                     Direction = SpriteEffects.None;
-                    _walkDirection = "left";
+                    VelocityX = -_speed;
                 }
                 else
                 {
                     Direction = SpriteEffects.FlipHorizontally;
-                    _walkDirection = "right";
+                    VelocityX = _speed;
                 }
             }
-
-            VelocityX = vX;
             VelocityY = vY;
 
-            if (_walkDirection.Equals("left"))
-            {
-                VelocityX = -_speed;
-            }
-            if (_walkDirection.Equals("right"))
-            {
-                VelocityX = _speed;
-            }           
-
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
+            Sprite = _animator.GetCurrentTexture();
         }  
         
         public void CheckDeath(Mario mario, float vY)
