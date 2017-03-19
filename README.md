@@ -1,7 +1,7 @@
 # SuperMarioClone
 
 TODO:
--	Mario en de vijanden moeten animeren (spritesheets) PARTLY FINISHED
+-	Mario en de vijanden moeten animeren (spritesheets) FINISHED
 -	Collision detection mag op bounding rectangles gebeuren (hoeft dus niet pixel perfect te zijn) FINISHED
 -	Je moet muntjes kunnen oppakken (score bijhouden) FINISHED
 -	Je begint met drie levens, als die op zijn is het “game over”
