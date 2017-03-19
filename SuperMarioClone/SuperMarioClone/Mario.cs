@@ -17,8 +17,8 @@ namespace SuperMarioClone
     {
         public int Coins { get; private set; }
         public int Lives { get; private set; }
-        public state State { get; private set; }
-        public form Form { get; private set; }
+        public State CurrentState { get; private set; }
+        public Form CurrentForm { get; private set; }
 
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }
@@ -39,7 +39,7 @@ namespace SuperMarioClone
         private int _hitboxWidth = 14;
         private int _hitboxHeight = 20;
 
-        public enum state
+        public enum State
         {
             Idle,
             Walking,
@@ -49,7 +49,7 @@ namespace SuperMarioClone
             FallingStraight
         }
 
-        public enum form
+        public enum Form
         {
             Small,
             Big,
@@ -57,7 +57,7 @@ namespace SuperMarioClone
             Tanuki
         }
 
-        public Mario(int x, int y, Level level, ContentManager contentManager) : base()
+        public Mario(int x, int y, Level level, ContentManager contentManager, int lives = 3, int coins = 0) : base()
         {
             Position = new Vector2(x, y);
             _jumpSound = contentManager.Load<SoundEffect>("Oink1");
@@ -65,21 +65,21 @@ namespace SuperMarioClone
             _animator = new Animator(contentManager.Load<Texture2D>("MarioSheetRight"));
             CurrentLevel = level;
             JumpVelocity = 6.25f;
-            State = state.Idle;
-            Form = form.Small;
+            CurrentState = State.Idle;
+            CurrentForm = Form.Small;
             Gravity = 0.3f;
             _horizontalPadding = 1;
             _verticalPadding = 2;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitboxWidth, _hitboxHeight);
-            Lives = 3;
-            Coins = 0;
+            Lives = lives;
+            Coins = coins;
         }
 
         public void BecomeBig()
         {
-            if (Form == form.Small)
+            if (CurrentForm == Form.Small)
             {
-                Form = form.Big;
+                CurrentForm = Form.Big;
             }
             else
             {
@@ -183,27 +183,27 @@ namespace SuperMarioClone
             //Set state
             if (VelocityX == 0)
             {
-                State = Mario.state.Idle;
+                CurrentState = Mario.State.Idle;
             }
             if (VelocityX != 0)
             {
-                State = Mario.state.Walking;
+                CurrentState = Mario.State.Walking;
             }
             if (VelocityX > 3.4f || VelocityX < -3.4f)
             {
-                State = Mario.state.Running;
+                CurrentState = Mario.State.Running;
             }
             if (VelocityY < 0)
             {
-                State = Mario.state.Jumping;
+                CurrentState = Mario.State.Jumping;
             }
             if (VelocityY > 0)
             {
-                State = Mario.state.Falling;
+                CurrentState = Mario.State.Falling;
             }
             if (VelocityY > 0 && VelocityX < 0.5f && VelocityX > -0.5f)
             {
-                State = Mario.state.FallingStraight;
+                CurrentState = Mario.State.FallingStraight;
             }
             UpdateSprite();
         }
@@ -229,29 +229,29 @@ namespace SuperMarioClone
 
         private void UpdateSprite()
         {
-            switch (State)
+            switch (CurrentState)
             {
-                case state.Idle:
+                case State.Idle:
                     _animator.SetAnimationSpeed(0);
                     _animator.GetTextures(0, 0, 16, 22, 1, 1);
                     break;
-                case state.Walking:
+                case State.Walking:
                     _animator.SetAnimationSpeed(190);
                     _animator.GetTextures(0, 0, 16, 22, 2, 1);
                     break;
-                case state.Running:
+                case State.Running:
                     _animator.SetAnimationSpeed(80);
                     _animator.GetTextures(32, 0, 16, 22, 2, 1);
                     break;
-                case state.Jumping:
+                case State.Jumping:
                     _animator.SetAnimationSpeed(0);
                     _animator.GetTextures(80, 0, 16, 22, 1, 1);
                     break;
-                case state.Falling:
+                case State.Falling:
                     _animator.SetAnimationSpeed(0);
                     _animator.GetTextures(64, 0, 16, 22, 1, 1);
                     break;
-                case state.FallingStraight:
+                case State.FallingStraight:
                     _animator.SetAnimationSpeed(0);
                     _animator.GetTextures(96, 0, 16, 22, 1, 1);
                     break;
