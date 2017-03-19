@@ -28,7 +28,7 @@ namespace SuperMarioClone
 
         public void LookAt(Vector2 _pos)
         {
-            Position = new Vector2(Math.Max(-289, _pos.X - _viewport.Width / 2), 0); //Y = _pos.Y - 534 to follow player sort of
+            Position = new Vector2(Math.Max(-289, _pos.X - _viewport.Width / 2), -100); //Y = _pos.Y - 534 to follow player sort of
             Origin = new Vector2(_viewport.Width / 2, _viewport.Height);
         }
 
@@ -44,7 +44,7 @@ namespace SuperMarioClone
 
         public Rectangle GetBounds()
         {
-            return new Rectangle((int)Position.X + 289, (int)Position.Y + 434, (int)(_viewport.Width / Zoom), (int)(_viewport.Height / Zoom));
+            return new Rectangle((int)Position.X + 289, (int)Position.Y + 484, (int)(_viewport.Width / Zoom), (int)(_viewport.Height / Zoom));
         }
     }
 }
