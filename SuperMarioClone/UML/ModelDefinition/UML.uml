@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="632bc26b-8b0a-4b9f-a81a-0e6e990a1f6a"
   name="UML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -163,12 +163,27 @@
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <suppliersInternal>
+          <interfaceRealization
+            Id="20c8f06d-be96-4ceb-a106-de480a8ff977">
+            <interfaceMoniker
+              Id="6a4d6081-7827-49a0-af2e-0427c12f0d2f"
+              LastKnownName="IMovable"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
           <dependency
             Id="0ce8b275-9053-47e8-819d-34a6fba9bdc7"
             name="&lt;&lt;parameter&gt;&gt;">
             <classMoniker
               Id="eda2eb09-a087-4fe1-bf14-ff1a5ca4f0ad"
               LastKnownName="Coin"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="2bbcd8db-2281-417a-a6b8-84ccc7292975"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="246cebd9-a73e-43c0-84a2-1d192789f408"
+              LastKnownName="Mushroom"
               LastKnownLocation="UML.uml" />
           </dependency>
         </suppliersInternal>
@@ -633,6 +648,15 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="97f657f2-661e-4038-ba81-e677b8fa22a3">
+            <interfaceMoniker
+              Id="4390203b-2e93-43dc-95d4-a735baa04150"
+              LastKnownName="ISolid"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="b4c6432e-e22e-430d-80e0-bdf0801960ed"
@@ -1064,6 +1088,15 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="5c34f394-1e71-4ac3-93cb-9a93a5a4569b">
+            <interfaceMoniker
+              Id="6a4d6081-7827-49a0-af2e-0427c12f0d2f"
+              LastKnownName="IMovable"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="20e9c5c3-56f0-4e67-b5fb-b54c0f62c442"
@@ -3272,6 +3305,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="4f3b9c10-9e1f-4854-9c3a-8b7b5aef3909">
+            <interfaceMoniker
+              Id="6a4d6081-7827-49a0-af2e-0427c12f0d2f"
+              LastKnownName="IMovable"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="80c9f84a-15ae-4f25-a66f-b51719cf3834"
@@ -3463,6 +3505,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="405bb84b-918f-4a30-abab-a1ad1d2c6974">
+            <interfaceMoniker
+              Id="6a4d6081-7827-49a0-af2e-0427c12f0d2f"
+              LastKnownName="IMovable"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="ceac0dae-f98a-4212-8a22-0b543db64e10"
@@ -3556,6 +3607,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="4a484f30-1656-4247-8755-94aa90fe0976">
+            <interfaceMoniker
+              Id="4390203b-2e93-43dc-95d4-a735baa04150"
+              LastKnownName="ISolid"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="0033775a-f412-477e-a788-bc69840f962f"
@@ -3658,6 +3718,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="cf3c08f5-1fd8-4b74-83c9-4a31fbada889">
+            <interfaceMoniker
+              Id="4390203b-2e93-43dc-95d4-a735baa04150"
+              LastKnownName="ISolid"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="a050a14e-a1e8-4ae6-944f-6c3d079a1eec"
@@ -3740,36 +3809,6 @@
         name="IMovable"
         isAbstract="false"
         isLeaf="false">
-        <suppliersInternal>
-          <dependency
-            Id="8216f659-6a0a-4798-9eec-cf1e1194d452">
-            <classMoniker
-              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
-              LastKnownName="Mario"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="cccacacf-6a59-40af-be96-77b06eaddc4e">
-            <classMoniker
-              Id="eda2eb09-a087-4fe1-bf14-ff1a5ca4f0ad"
-              LastKnownName="Coin"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="6e0e4305-200c-4d43-87cd-b83e4088631d">
-            <classMoniker
-              Id="246cebd9-a73e-43c0-84a2-1d192789f408"
-              LastKnownName="Mushroom"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="ba4cb7b5-15a7-4a9d-83fd-c7aeedf36209">
-            <classMoniker
-              Id="19e41ae4-3437-4c97-8792-c725dfebdaa9"
-              LastKnownName="Goomba"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-        </suppliersInternal>
         <ownedAttributes>
           <property
             Id="f98fc674-8a99-42e0-a7df-be44768b0666"
@@ -3864,38 +3903,7 @@
         Id="4390203b-2e93-43dc-95d4-a735baa04150"
         name="ISolid"
         isAbstract="false"
-        isLeaf="false">
-        <suppliersInternal>
-          <dependency
-            Id="1a1aced2-b117-498b-99a5-589392663470">
-            <classMoniker
-              Id="17dceef8-01ca-471a-855d-0c82e3cea98c"
-              LastKnownName="Floor"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="b62dc044-5f3f-4eff-bc1d-1903d03a78b8">
-            <classMoniker
-              Id="7ec7851e-b6f5-4913-a53a-a8576a5100e2"
-              LastKnownName="MysteryBlock"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="3d37c50d-3269-4a10-a7b8-41810910a140">
-            <classMoniker
-              Id="6b991256-72e4-4b47-b0f2-a22897e96c3f"
-              LastKnownName="TransFloor"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="43c381f8-b55b-471f-bde2-db2b8f0e311c">
-            <classMoniker
-              Id="d0ba2653-751b-4621-b2f1-4871c54b2af4"
-              LastKnownName="CoinBlock"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-        </suppliersInternal>
-      </Interface>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -3904,6 +3912,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="7bea361e-d43d-4201-a895-82f0096e79d4">
+            <interfaceMoniker
+              Id="4390203b-2e93-43dc-95d4-a735baa04150"
+              LastKnownName="ISolid"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="0de738e9-fe2a-4a0a-b27e-7798ab029e73"
