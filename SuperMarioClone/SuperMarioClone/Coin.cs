@@ -23,7 +23,7 @@ namespace SuperMarioClone
         public float Gravity { get; private set; }
 
         private SoundEffect _coinPickUpSound;
-
+       
         private Animator _animator;
 
         public Coin(int x, int y, Level level, ContentManager contentManager) : base()

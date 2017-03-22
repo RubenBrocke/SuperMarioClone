@@ -25,15 +25,9 @@ namespace SuperMarioClone
             StreamReader lvlReader = new StreamReader(@"..\..\..\..\Level" + levelNumber + ".txt");
             string line;
             Level level = new Level();
-            int x;
-            int y;
-            int width;
-            int height;
 
             while ((line = lvlReader.ReadLine()) != null)
             { 
-                //Check for type
-                //Set width, height and position of items
                 if (!string.IsNullOrWhiteSpace(line) && line.Contains(":") && line.Contains(","))
                 {
                     line = line.Replace(" ", "");

@@ -13,6 +13,13 @@ namespace SuperMarioClone
 
         }
 
+        /// <summary>
+        /// Resolves the characters that are being read from the lvl.txt
+        /// Converts the characters to their respected function (text to strings, numbers to ints and so forth)
+        /// </summary>
+        /// <param name="args"></param>
+        /// <param name="gridNumberAmmount"></param>
+        /// <returns></returns>
         public List<object> Resolve(string[] args, int gridNumberAmmount = 0)
         {
             object[] returnArgs = new object[args.Length];
