@@ -21,6 +21,8 @@ namespace SuperMarioClone
             _objectDict.Add(typeof(Goomba), 2);
             _objectDict.Add(typeof(CoinBlock), 2);
             _objectDict.Add(typeof(MysteryBlock), 2);
+            _objectDict.Add(typeof(Koopa), 2);
+            _objectDict.Add(typeof(Shell), 2);
             _argumentResolver = new ArgumentResolver();
         }
 

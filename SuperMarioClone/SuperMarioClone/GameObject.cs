@@ -10,7 +10,7 @@ namespace SuperMarioClone
 {
     public abstract class GameObject
     {
-        protected Vector2 Position { get; set; }
+        public Vector2 Position { get; protected set; }
         protected Texture2D Sprite { get; set; }
         protected SpriteEffects Direction { get; set; }
         protected Level CurrentLevel { get; set; }

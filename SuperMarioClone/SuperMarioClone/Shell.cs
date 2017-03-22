@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
@@ -11,7 +10,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace SuperMarioClone
 {
-    class Mushroom : Tangible, IMovable
+    class Shell : Tangible, IMovable, ISolid
     {
         private bool HasBeenPickedUp { get; set; }
 
@@ -23,30 +22,19 @@ namespace SuperMarioClone
         private SoundEffect _coinPickUpSound;
 
         private string _walkDirection;
-        private float _speed = 1.5f;
+        private float _speed = 3f;
+        private Animator _animator;
 
-        public Mushroom(int x, int y, Level level, ContentManager contentManager) : base()
+        public Shell(float x, float y, Level level, ContentManager contentManager) : base()
         {
             Gravity = 0.3f;
-            Position = new Vector2(x, y);
             CurrentLevel = level;
-            VelocityY = 1f;
-            HasBeenPickedUp = false;
-            _walkDirection = "right";
-            Sprite = contentManager.Load<Texture2D>("Mushroom");
-            _coinPickUpSound = contentManager.Load<SoundEffect>("Pling");
+            VelocityX = _speed;
+            Position = new Vector2(x, y);
+            _animator = new Animator(contentManager.Load<Texture2D>("koopasheet"), 110);
+            _animator.GetTextures(64, 0, 16, 16, 4, 1);
+            Sprite = _animator.GetCurrentTexture();
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height); // fix the magic numbers
-        }
-
-        public void CollectMushroom(Mario mario)
-        {
-            if (!HasBeenPickedUp)
-            {
-                mario.BecomeBig();
-                HasBeenPickedUp = true;
-                CurrentLevel.ToRemoveGameObject(this);
-                _coinPickUpSound.Play();
-            }
         }
 
         public override void Update()
@@ -73,16 +61,38 @@ namespace SuperMarioClone
             }
             VelocityY = vY;
 
-            if (_walkDirection.Equals("left"))
-            {
-                VelocityX = -_speed;
-            }
-            if (_walkDirection.Equals("right"))
-            {
-                VelocityX = _speed;
-            }
-
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
-        }   
+            Sprite = _animator.GetCurrentTexture();
+        }
+
+        public void CheckHit(Mario m)
+        {
+            Console.WriteLine(m.VelocityY);
+            if (m.VelocityY > 0.5)
+            {
+                VelocityX = 0;
+            }
+            else
+            {
+                if (VelocityX == 0 && m.Position.Y > Position.Y - Hitbox.Height)
+                 {
+                    if (m.VelocityX > 0)
+                    {
+                        VelocityX = _speed;
+                    }
+                    else if (m.VelocityX < 0)
+                    {
+                        VelocityX = -_speed;
+                    }
+                }
+                else
+                {
+                    if (m.Position.Y > Position.Y - Hitbox.Height)
+                    {
+                        m.LoseLife();
+                    }
+                }
+            }
+        }
     }
 }
