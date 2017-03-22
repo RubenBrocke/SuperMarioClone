@@ -8,19 +8,19 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMarioClone
 {
-    public class Floor : Solid
+    public class Floor : Tangible, ISolid
     {
         protected int Width { get; set; }
         protected int Height { get; set; }
 
-        public Floor(float x, float y, int w, int h, Level lvl, ContentManager cm) : base()
+        public Floor(int x, int y, int w, int h, Level level, ContentManager contentManager) : base()
         {
             Position = new Vector2(x, y);
             Width = w;
             Height = h;
-            CurrentLevel = lvl;
+            CurrentLevel = level;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
-            Sprite = cm.Load<Texture2D>("GroundSheet");
+            Sprite = contentManager.Load<Texture2D>("GroundSheet");
         }
 
         public override void Draw(SpriteBatch spriteBatch)

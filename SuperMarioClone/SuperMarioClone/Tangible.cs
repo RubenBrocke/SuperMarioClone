@@ -32,7 +32,7 @@ namespace SuperMarioClone
 
                     if (testRect.Intersects(Hitbox) && tangibleObject != this)
                     {
-                        if (o is Solid)
+                        if (o is ISolid)
                         {
                             collidesWithSolid = true;
                             collObject = tangibleObject;

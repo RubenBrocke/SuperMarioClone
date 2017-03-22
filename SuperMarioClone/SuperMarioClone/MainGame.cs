@@ -18,7 +18,7 @@ namespace SuperMarioClone
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferHeight = 700;
             graphics.PreferredBackBufferWidth = 800;
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();

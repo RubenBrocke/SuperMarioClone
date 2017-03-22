@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="632bc26b-8b0a-4b9f-a81a-0e6e990a1f6a"
   name="UML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -163,12 +163,27 @@
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <suppliersInternal>
+          <interfaceRealization
+            Id="20c8f06d-be96-4ceb-a106-de480a8ff977">
+            <interfaceMoniker
+              Id="6a4d6081-7827-49a0-af2e-0427c12f0d2f"
+              LastKnownName="IMovable"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
           <dependency
             Id="0ce8b275-9053-47e8-819d-34a6fba9bdc7"
             name="&lt;&lt;parameter&gt;&gt;">
             <classMoniker
               Id="eda2eb09-a087-4fe1-bf14-ff1a5ca4f0ad"
               LastKnownName="Coin"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="2bbcd8db-2281-417a-a6b8-84ccc7292975"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="246cebd9-a73e-43c0-84a2-1d192789f408"
+              LastKnownName="Mushroom"
               LastKnownLocation="UML.uml" />
           </dependency>
         </suppliersInternal>
@@ -186,7 +201,6 @@
           <property
             Id="cdfd8229-76d4-4c43-aea0-3a5b4c5160a7"
             name="Coins"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -268,7 +282,6 @@
           <property
             Id="edc9f696-88d0-41cb-86e7-68c08e22d092"
             name="Lives"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -350,7 +363,6 @@
           <property
             Id="6e21d439-6a93-4f06-bdb1-8bd4f5133acb"
             name="State"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -369,7 +381,6 @@
           <property
             Id="7b5fb197-67b6-40cd-a983-e241621dfa96"
             name="Form"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -637,6 +648,15 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="97f657f2-661e-4038-ba81-e677b8fa22a3">
+            <interfaceMoniker
+              Id="4390203b-2e93-43dc-95d4-a735baa04150"
+              LastKnownName="ISolid"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="b4c6432e-e22e-430d-80e0-bdf0801960ed"
@@ -646,12 +666,19 @@
               LastKnownName="Solid"
               LastKnownLocation="UML.uml" />
           </generalization>
+          <generalization
+            Id="70b8821c-5f32-4fae-9551-b0d5e263ef05"
+            isSubstitutable="false">
+            <classMoniker
+              Id="16ea22da-b917-41a3-b12c-5b51e560f303"
+              LastKnownName="Tangible"
+              LastKnownLocation="UML.uml" />
+          </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="f561c9a7-13ed-432a-93be-35207bab7212"
             name="Width"
-            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -670,7 +697,6 @@
           <property
             Id="054886bc-d813-498b-aec4-c86cd4c017ab"
             name="Height"
-            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1062,6 +1088,15 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="5c34f394-1e71-4ac3-93cb-9a93a5a4569b">
+            <interfaceMoniker
+              Id="6a4d6081-7827-49a0-af2e-0427c12f0d2f"
+              LastKnownName="IMovable"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="20e9c5c3-56f0-4e67-b5fb-b54c0f62c442"
@@ -1076,7 +1111,6 @@
           <property
             Id="c29c2011-fa3e-430b-a6b4-fb7fb4b23394"
             name="Value"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1158,7 +1192,6 @@
           <property
             Id="c9e7e07a-27ee-43cb-8d63-41e4284e0c39"
             name="Moveable"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1234,7 +1267,6 @@
           <property
             Id="855dd272-1004-4d72-b9be-2397c068bf4f"
             name="HasBeenPickedUp"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -3016,7 +3048,7 @@
         <ownedOperationsInternal>
           <operation
             Id="96379e24-2347-4306-a80e-a91d1b3fe6d1"
-            name="SetTexture"
+            name="SetInputTexture"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -3056,6 +3088,30 @@
                     <undefinedTypeMoniker
                       Id="03844086-0921-48d7-a20e-c3e2956c53d0"
                       LastKnownName="Texture2D[]"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5b710b28-0d9b-418c-995d-f2abeda09a23"
+            name="GetCurrentTexture"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b200f660-edcc-42f5-ae8e-6b29e5cb7f62"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0af45d80-eb62-47e1-93fd-58158bfac693"
+                      LastKnownName="Texture2D"
                       LastKnownLocation="UML.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -3249,6 +3305,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="4f3b9c10-9e1f-4854-9c3a-8b7b5aef3909">
+            <interfaceMoniker
+              Id="6a4d6081-7827-49a0-af2e-0427c12f0d2f"
+              LastKnownName="IMovable"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="80c9f84a-15ae-4f25-a66f-b51719cf3834"
@@ -3440,6 +3505,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="405bb84b-918f-4a30-abab-a1ad1d2c6974">
+            <interfaceMoniker
+              Id="6a4d6081-7827-49a0-af2e-0427c12f0d2f"
+              LastKnownName="IMovable"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="ceac0dae-f98a-4212-8a22-0b543db64e10"
@@ -3454,7 +3528,6 @@
           <property
             Id="4d135aed-af5d-46ea-97e6-5ef2fcfb44dc"
             name="HasBeenPickedUp"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -3483,14 +3556,12 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="328fe839-c261-4148-8b24-8aa890dacbe4"
-                  name=")"
-                  direction="In"
-                  isUnique="false">
+                  Id="6d8b4f70-23d5-4558-9100-3d0a57a31c7b"
+                  direction="Return">
                   <type_NamedElement>
                     <undefinedTypeMoniker
-                      Id="ff0bac77-52a0-4f70-a060-16a68527952b"
-                      LastKnownName="void("
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
                       LastKnownLocation="UML.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -3536,6 +3607,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="4a484f30-1656-4247-8755-94aa90fe0976">
+            <interfaceMoniker
+              Id="4390203b-2e93-43dc-95d4-a735baa04150"
+              LastKnownName="ISolid"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="0033775a-f412-477e-a788-bc69840f962f"
@@ -3545,12 +3625,19 @@
               LastKnownName="Solid"
               LastKnownLocation="UML.uml" />
           </generalization>
+          <generalization
+            Id="b1c23af4-a686-4cc0-937d-586f3055d42f"
+            isSubstitutable="false">
+            <classMoniker
+              Id="16ea22da-b917-41a3-b12c-5b51e560f303"
+              LastKnownName="Tangible"
+              LastKnownLocation="UML.uml" />
+          </generalization>
         </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="15cc980e-865c-4eb7-b656-a7c4dfa0c1df"
             name="MysteryObject"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -3593,8 +3680,8 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="29013782-6ac6-457a-b083-070f5c895192"
-            name="Draw"
+            Id="7ca2ff00-5770-40cd-ab49-a284ade5bea7"
+            name="Update"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -3603,32 +3690,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="2c583ce8-737e-44bc-913f-743b6db955cd"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
-                      LastKnownName="void"
-                      LastKnownLocation="UML.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
-            Id="a85dce64-ed7b-4885-b17e-e6d22b18ad99"
-            name="ChangeSpriteIndex"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="5f755056-796b-402f-a5f7-ea31c7f2ddc4"
+                  Id="3701e855-51e9-4800-afd9-c9b6799ff3dc"
                   direction="Return"
                   isUnique="false">
                   <type_NamedElement>
@@ -3656,16 +3718,63 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="cf3c08f5-1fd8-4b74-83c9-4a31fbada889">
+            <interfaceMoniker
+              Id="4390203b-2e93-43dc-95d4-a735baa04150"
+              LastKnownName="ISolid"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
-            Id="378914b4-211c-45f6-bbd6-f42f90662596"
+            Id="a050a14e-a1e8-4ae6-944f-6c3d079a1eec"
             isSubstitutable="false">
             <classMoniker
-              Id="17dceef8-01ca-471a-855d-0c82e3cea98c"
-              LastKnownName="Floor"
+              Id="16ea22da-b917-41a3-b12c-5b51e560f303"
+              LastKnownName="Tangible"
               LastKnownLocation="UML.uml" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="b9dde30a-e415-4b47-a5d7-913dc431b651"
+            name="Height"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+                LastKnownName="int"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="332f8c31-0802-4506-a072-71af4a547ce0"
+            name="Width"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+                LastKnownName="int"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="e236eb88-0629-48b2-9ac1-350541850204"
@@ -3700,36 +3809,6 @@
         name="IMovable"
         isAbstract="false"
         isLeaf="false">
-        <suppliersInternal>
-          <dependency
-            Id="8216f659-6a0a-4798-9eec-cf1e1194d452">
-            <classMoniker
-              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
-              LastKnownName="Mario"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="cccacacf-6a59-40af-be96-77b06eaddc4e">
-            <classMoniker
-              Id="eda2eb09-a087-4fe1-bf14-ff1a5ca4f0ad"
-              LastKnownName="Coin"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="6e0e4305-200c-4d43-87cd-b83e4088631d">
-            <classMoniker
-              Id="246cebd9-a73e-43c0-84a2-1d192789f408"
-              LastKnownName="Mushroom"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="ba4cb7b5-15a7-4a9d-83fd-c7aeedf36209">
-            <classMoniker
-              Id="19e41ae4-3437-4c97-8792-c725dfebdaa9"
-              LastKnownName="Goomba"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-        </suppliersInternal>
         <ownedAttributes>
           <property
             Id="f98fc674-8a99-42e0-a7df-be44768b0666"
@@ -3813,6 +3892,116 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="af142774-6f3e-43e5-96a5-ec77472f8447"
+        name="&quot;int" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="4390203b-2e93-43dc-95d4-a735baa04150"
+        name="ISolid"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d0ba2653-751b-4621-b2f1-4871c54b2af4"
+        name="CoinBlock"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="7bea361e-d43d-4201-a895-82f0096e79d4">
+            <interfaceMoniker
+              Id="4390203b-2e93-43dc-95d4-a735baa04150"
+              LastKnownName="ISolid"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="0de738e9-fe2a-4a0a-b27e-7798ab029e73"
+            isSubstitutable="false">
+            <classMoniker
+              Id="16ea22da-b917-41a3-b12c-5b51e560f303"
+              LastKnownName="Tangible"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="73e12dcf-0a71-4416-9f28-4bd8b7ebe50d"
+            name="ContainAmount"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad2fe2b8-ab76-499a-b087-f5c841910742"
+                LastKnownName="int"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="d52e4853-1804-4e36-b9c4-8115e2b2bbac"
+            name="Eject"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cae71c7b-7fed-46e1-b7ed-2cd6c34b478c"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="df263cc2-faeb-4c48-8fca-4ba0756ea48a"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7a151a83-a76a-48c9-984e-6549659fc1d5"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

@@ -9,9 +9,8 @@ namespace SuperMarioClone
 {
     public class Level
     {
-        public List<GameObject> GameObjects { get; set; }
-
-        private Texture2D Background { get; set; }
+        public List<GameObject> GameObjects { get; private set; }
+        public Texture2D Background { get; private set; }
 
         private List<GameObject> _toRemove = new List<GameObject>();
         private List<GameObject> _toAdd = new List<GameObject>();

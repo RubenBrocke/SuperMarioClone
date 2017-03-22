@@ -17,8 +17,8 @@ namespace SuperMarioClone
     {
         public int Coins { get; private set; }
         public int Lives { get; private set; }
-        public state State { get; private set; }
-        public form Form { get; private set; }
+        public State CurrentState { get; private set; }
+        public Form CurrentForm { get; private set; }
 
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }
@@ -34,16 +34,12 @@ namespace SuperMarioClone
 
         private SpriteFont _font;
 
-        private int _animationState = 0;
-        private int _spriteImageIndex = 0;
-        private bool _isAnimated = false;
+        private Animator _animator;
 
         private int _hitboxWidth = 14;
         private int _hitboxHeight = 20;
 
-        private Timer _timer;
-
-        public enum state
+        public enum State
         {
             Idle,
             Walking,
@@ -53,7 +49,7 @@ namespace SuperMarioClone
             FallingStraight
         }
 
-        public enum form
+        public enum Form
         {
             Small,
             Big,
@@ -61,31 +57,29 @@ namespace SuperMarioClone
             Tanuki
         }
 
-        public Mario(int x, int y, Level lvl, ContentManager contentManager) : base()
+        public Mario(int x, int y, Level level, ContentManager contentManager, int lives = 3, int coins = 0) : base()
         {
             Position = new Vector2(x, y);
-            Sprite = contentManager.Load<Texture2D>("MarioSheetRight");
             _jumpSound = contentManager.Load<SoundEffect>("Oink1");
             _font = contentManager.Load<SpriteFont>("Font");
-            CurrentLevel = lvl;
+            _animator = new Animator(contentManager.Load<Texture2D>("MarioSheetRight"));
+            CurrentLevel = level;
             JumpVelocity = 6.25f;
-            State = state.Idle;
-            Form = form.Small;
-            _timer = new Timer(ChangeAnimationState);
-            _timer.Change(0, 100);
+            CurrentState = State.Idle;
+            CurrentForm = Form.Small;
             Gravity = 0.3f;
             _horizontalPadding = 1;
             _verticalPadding = 2;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitboxWidth, _hitboxHeight);
-            Lives = 3;
-            Coins = 0;
+            Lives = lives;
+            Coins = coins;
         }
 
         public void BecomeBig()
         {
-            if (Form == form.Small)
+            if (CurrentForm == Form.Small)
             {
-                Form = form.Big;
+                CurrentForm = Form.Big;
             }
             else
             {
@@ -147,13 +141,16 @@ namespace SuperMarioClone
             }
             else if (IsColliding(CurrentLevel, 0, 1, out collObject))
             {
-                if (VelocityX > 0)
+                if (!(collObject is TransFloor) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
                 {
-                    VelocityX = Math.Max(VelocityX - _deacc, 0);
-                }
-                else if (VelocityX < 0)
-                {
-                    VelocityX = Math.Min(VelocityX + _deacc, 0);
+                    if (VelocityX > 0)
+                    {
+                        VelocityX = Math.Max(VelocityX - _deacc, 0);
+                    }
+                    else if (VelocityX < 0)
+                    {
+                        VelocityX = Math.Min(VelocityX + _deacc, 0);
+                    } 
                 }
             }
             if (state.IsKeyDown(Keys.Space))
@@ -186,28 +183,29 @@ namespace SuperMarioClone
             //Set state
             if (VelocityX == 0)
             {
-                State = Mario.state.Idle;
+                CurrentState = Mario.State.Idle;
             }
             if (VelocityX != 0)
             {
-                State = Mario.state.Walking;
+                CurrentState = Mario.State.Walking;
             }
             if (VelocityX > 3.4f || VelocityX < -3.4f)
             {
-                State = Mario.state.Running;
+                CurrentState = Mario.State.Running;
             }
             if (VelocityY < 0)
             {
-                State = Mario.state.Jumping;
+                CurrentState = Mario.State.Jumping;
             }
             if (VelocityY > 0)
             {
-                State = Mario.state.Falling;
+                CurrentState = Mario.State.Falling;
             }
             if (VelocityY > 0 && VelocityX < 0.5f && VelocityX > -0.5f)
             {
-                State = Mario.state.FallingStraight;
+                CurrentState = Mario.State.FallingStraight;
             }
+            UpdateSprite();
         }
 
         public void Jump()
@@ -229,65 +227,45 @@ namespace SuperMarioClone
             Coins++;
         }
 
-        private void ChangeAnimationState(object state)
+        private void UpdateSprite()
         {
-            if (_animationState < 1)
+            switch (CurrentState)
             {
-                _animationState++;
+                case State.Idle:
+                    _animator.SetAnimationSpeed(0);
+                    _animator.GetTextures(0, 0, 16, 22, 1, 1);
+                    break;
+                case State.Walking:
+                    _animator.SetAnimationSpeed(190);
+                    _animator.GetTextures(0, 0, 16, 22, 2, 1);
+                    break;
+                case State.Running:
+                    _animator.SetAnimationSpeed(80);
+                    _animator.GetTextures(32, 0, 16, 22, 2, 1);
+                    break;
+                case State.Jumping:
+                    _animator.SetAnimationSpeed(0);
+                    _animator.GetTextures(80, 0, 16, 22, 1, 1);
+                    break;
+                case State.Falling:
+                    _animator.SetAnimationSpeed(0);
+                    _animator.GetTextures(64, 0, 16, 22, 1, 1);
+                    break;
+                case State.FallingStraight:
+                    _animator.SetAnimationSpeed(0);
+                    _animator.GetTextures(96, 0, 16, 22, 1, 1);
+                    break;
+                default:
+                    _animator.SetAnimationSpeed(0);
+                    _animator.GetTextures(0, 0, 16, 22, 1, 1);
+                    break;
             }
-            else
-            {
-                _animationState = 0;
-            }
-
-            if (State == Mario.state.Running)
-            {
-                _timer.Change(80, 80);
-            }
-            else
-            {
-                _timer.Change(190, 190);
-            }
+            Sprite = _animator.GetCurrentTexture();
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRect;
-
-            switch (State)
-            {
-                case state.Idle:
-                    _spriteImageIndex = 0;
-                    _isAnimated = false;
-                    break;
-                case state.Walking:
-                    _spriteImageIndex = 0;
-                    _isAnimated = true;
-                    break;
-                case state.Running:
-                    _spriteImageIndex = 2;
-                    _isAnimated = true;
-                    break;
-                case state.Jumping:
-                    _spriteImageIndex = 5;
-                    _isAnimated = false;
-                    break;
-                case state.Falling:
-                    _spriteImageIndex = 4;
-                    _isAnimated = false;
-                    break;
-                case state.FallingStraight:
-                    _spriteImageIndex = 6;
-                    _isAnimated = false;
-                    break;
-                default:
-                    _spriteImageIndex = 0;
-                    _isAnimated = false;
-                    break;
-            }
-            sourceRect = new Rectangle(16 * (_animationState * (_isAnimated ? 1 : 0) + _spriteImageIndex), 0, 16, Sprite.Height);
-
-            spriteBatch.Draw(texture: Sprite, position: Position, effects: Direction, sourceRectangle: sourceRect);
+            base.Draw(spriteBatch);
             spriteBatch.End();
             spriteBatch.Begin();
             spriteBatch.DrawString(_font, String.Format("{0,4}", Coins), new Vector2(768, 0), Color.Black);
