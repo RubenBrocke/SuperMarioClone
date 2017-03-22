@@ -42,6 +42,7 @@ namespace SuperMarioClone
         public enum State
         {
             Idle,
+            Crouching,
             Walking,
             Running,
             Jumping,
@@ -69,7 +70,7 @@ namespace SuperMarioClone
             CurrentForm = Form.Small;
             Gravity = 0.3f;
             _horizontalPadding = 1;
-            _verticalPadding = 2;
+            _verticalPadding = 4;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitboxWidth, _hitboxHeight);
             Lives = lives;
             Coins = coins;
@@ -91,8 +92,17 @@ namespace SuperMarioClone
         public override void Update()
         {
             //Update Hitbox
+            if (CurrentState == State.Crouching)
+            {
+                _verticalPadding = 10;
+                _hitboxHeight = 14;
+            }
+            else
+            {
+                _verticalPadding = 4;
+                _hitboxHeight = 20;
+            }
             Hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
-
             //Add gravity
             VelocityY += Gravity;
 
@@ -114,8 +124,24 @@ namespace SuperMarioClone
 
             //Add movement
             KeyboardState state = Keyboard.GetState();
-
-            if (state.IsKeyDown(Keys.D))
+            if (state.IsKeyDown(Keys.S))
+            {
+                if (IsColliding(CurrentLevel, 0, 1, out collObject))
+                {
+                    if (!(collObject is TransFloor) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
+                    {
+                        if (VelocityX > 0)
+                        {
+                            VelocityX = Math.Max(VelocityX - _deacc, 0);
+                        }
+                        else if (VelocityX < 0)
+                        {
+                            VelocityX = Math.Min(VelocityX + _deacc, 0);
+                        }
+                    } 
+                }
+            }
+            else if (state.IsKeyDown(Keys.D))
             {
                 if (VelocityX < 0)
                 {
@@ -136,9 +162,10 @@ namespace SuperMarioClone
                 else
                 {
                     VelocityX -= _acc;
-                }
+                } 
                 Direction = SpriteEffects.FlipHorizontally;
             }
+            
             else if (IsColliding(CurrentLevel, 0, 1, out collObject))
             {
                 if (!(collObject is TransFloor) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
@@ -205,6 +232,10 @@ namespace SuperMarioClone
             {
                 CurrentState = Mario.State.FallingStraight;
             }
+            if (state.IsKeyDown(Keys.S))
+            {
+                CurrentState = State.Crouching;
+            }
             UpdateSprite();
         }
 
@@ -233,31 +264,35 @@ namespace SuperMarioClone
             {
                 case State.Idle:
                     _animator.SetAnimationSpeed(0);
-                    _animator.GetTextures(0, 0, 16, 22, 1, 1);
+                    _animator.GetTextures(0, 0, 16, 24, 1, 1);
+                    break;
+                case State.Crouching:
+                    _animator.SetAnimationSpeed(0);
+                    _animator.GetTextures(112, 0, 16, 24, 1, 1);
                     break;
                 case State.Walking:
                     _animator.SetAnimationSpeed(190);
-                    _animator.GetTextures(0, 0, 16, 22, 2, 1);
+                    _animator.GetTextures(0, 0, 16, 24, 2, 1);
                     break;
                 case State.Running:
                     _animator.SetAnimationSpeed(80);
-                    _animator.GetTextures(32, 0, 16, 22, 2, 1);
+                    _animator.GetTextures(32, 0, 16, 24, 2, 1);
                     break;
                 case State.Jumping:
                     _animator.SetAnimationSpeed(0);
-                    _animator.GetTextures(80, 0, 16, 22, 1, 1);
+                    _animator.GetTextures(80, 0, 16, 24, 1, 1);
                     break;
                 case State.Falling:
                     _animator.SetAnimationSpeed(0);
-                    _animator.GetTextures(64, 0, 16, 22, 1, 1);
+                    _animator.GetTextures(64, 0, 16, 24, 1, 1);
                     break;
                 case State.FallingStraight:
                     _animator.SetAnimationSpeed(0);
-                    _animator.GetTextures(96, 0, 16, 22, 1, 1);
+                    _animator.GetTextures(96, 0, 16, 24, 1, 1);
                     break;
                 default:
                     _animator.SetAnimationSpeed(0);
-                    _animator.GetTextures(0, 0, 16, 22, 1, 1);
+                    _animator.GetTextures(0, 0, 16, 24, 1, 1);
                     break;
             }
             Sprite = _animator.GetCurrentTexture();

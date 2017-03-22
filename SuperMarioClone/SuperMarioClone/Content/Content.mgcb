@@ -104,18 +104,6 @@
 /processorParam:TextureFormat=Color
 /build:CoinSheet.png
 
-#begin MarioSheetRight.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:MarioSheetRight.png
-
 #begin MysteryBlockSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -199,4 +187,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:GoombaSheet.png
+
+#begin MarioSheetRight.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MarioSheetRight.png
 
