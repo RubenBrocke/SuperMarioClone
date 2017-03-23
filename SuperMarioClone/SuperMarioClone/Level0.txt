@@ -2,3 +2,73 @@ Floor: 0, 36, 200, 4
 Floor: 50, 0, 4, 50
 Floor: -1, -50, 1, 100
 MysteryBlock: 4, 31, LevelReader
+MysteryBlock: 32, 35, Coin
+MysteryBlock: 32, 34, Coin
+MysteryBlock: 32, 33, Coin
+MysteryBlock: 32, 32, Coin
+MysteryBlock: 32, 31, Coin
+MysteryBlock: 32, 30, Coin
+MysteryBlock: 32, 29, Coin
+MysteryBlock: 32, 28, Coin
+MysteryBlock: 32, 27, Coin
+MysteryBlock: 32, 26, Coin
+MysteryBlock: 32, 25, Coin
+Coin: 33, 25
+Coin: 33, 26
+Coin: 33, 27
+Coin: 33, 28
+Coin: 33, 29
+Coin: 33, 30
+Coin: 33, 31
+Coin: 33, 32
+Coin: 33, 33
+Coin: 33, 34
+Coin: 33, 35
+
+Coin: 34, 25
+Coin: 34, 26
+Coin: 34, 27
+Coin: 34, 28
+Coin: 34, 29
+Coin: 34, 30
+Coin: 34, 31
+Coin: 34, 32
+Coin: 34, 33
+Coin: 34, 34
+Coin: 34, 35
+
+Coin: 35, 25
+Coin: 35, 26
+Coin: 35, 27
+Coin: 35, 28
+Coin: 35, 29
+Coin: 35, 30
+Coin: 35, 31
+Coin: 35, 32
+Coin: 35, 33
+Coin: 35, 34
+Coin: 35, 35
+
+Coin: 36, 25
+Coin: 36, 26
+Coin: 36, 27
+Coin: 36, 28
+Coin: 36, 29
+Coin: 36, 30
+Coin: 36, 31
+Coin: 36, 32
+Coin: 36, 33
+Coin: 36, 34
+Coin: 36, 35
+
+Coin: 37, 25
+Coin: 37, 26
+Coin: 37, 27
+Coin: 37, 28
+Coin: 37, 29
+Coin: 37, 30
+Coin: 37, 31
+Coin: 37, 32
+Coin: 37, 33
+Coin: 37, 34
+Coin: 37, 35

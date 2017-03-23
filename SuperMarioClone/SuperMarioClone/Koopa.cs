@@ -18,13 +18,14 @@ namespace SuperMarioClone
         public float Gravity { get; private set; }
 
         private Animator _animator;
-        private float _speed = 0.5f;
+        private float _speed;
         private GameObjectFactory _factory;
         private ContentManager _contentManager;
         private bool _isHit;
 
         public Koopa(float x, float y, Level level, ContentManager contentManager)
         {
+            _speed = 1.5f;
             _isHit = false;
             _factory = new GameObjectFactory();
             _contentManager = contentManager;
@@ -34,7 +35,7 @@ namespace SuperMarioClone
             Gravity = 0.3f;
             Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             CurrentLevel = level;
-            VelocityX = 2f;
+            VelocityX = _speed;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
             _horizontalPadding = 1;
             _verticalPadding = 0;
@@ -47,6 +48,7 @@ namespace SuperMarioClone
             VelocityY += Gravity;
             float vX;
             float vY;
+            Console.WriteLine(VelocityX);
 
             if (CheckCollision(this, out vX, out vY))
             {

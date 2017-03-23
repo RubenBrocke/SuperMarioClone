@@ -16,9 +16,13 @@ namespace SuperMarioClone
         private ContentManager _contentManager;
         private Animator _animator;
         private bool _hasBeenUsed = false;
+        private int rectX;
+        private int rectY;
 
         public CoinBlock(int x, int y, int containAmount, Level level, ContentManager contentManager) : base()
         {
+            rectX = 16;
+            rectY = 16;
             ContainAmount = containAmount;
             Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             CurrentLevel = level;
@@ -26,7 +30,7 @@ namespace SuperMarioClone
             _animator = new Animator(_contentManager.Load<Texture2D>("CoinBlockSheet"), 0);
             _animator.GetTextures(0, 0, 16, 16, 1, 1);
             Sprite = _animator.GetCurrentTexture();
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, 16, 16); // TODO: numbers represent pixels, change magic number
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, rectY, rectX);
         }
 
         public void Eject(Mario mario, float vY, float Y)

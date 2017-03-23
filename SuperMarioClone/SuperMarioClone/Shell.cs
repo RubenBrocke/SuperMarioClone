@@ -64,7 +64,7 @@ namespace SuperMarioClone
 
         public void CheckHit(Mario m)
         {
-            Console.WriteLine(m.VelocityY);
+            Console.WriteLine(m.VelocityY); // FIX THE GODDAMN SHELL PLEASE, IF IT STANDS STILL AND YOU HIT IT YOU DIE SOMETIMES (from the right i think)
             if (m.VelocityY > 0.5)
             {
                 VelocityX = 0;
