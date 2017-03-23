@@ -22,7 +22,6 @@ namespace SuperMarioClone
 
         private SoundEffect _coinPickUpSound;
 
-        private string _walkDirection;
         private float _speed = 1.5f;
 
         public Mushroom(int x, int y, Level level, ContentManager contentManager) : base()
@@ -31,8 +30,8 @@ namespace SuperMarioClone
             Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             CurrentLevel = level;
             VelocityY = 1f;
+            VelocityX = _speed;
             HasBeenPickedUp = false;
-            _walkDirection = "right";
             Sprite = contentManager.Load<Texture2D>("Mushroom");
             _coinPickUpSound = contentManager.Load<SoundEffect>("Pling");
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height); // fix the magic numbers
@@ -73,14 +72,7 @@ namespace SuperMarioClone
             }
             VelocityY = vY;
 
-            if (_walkDirection.Equals("left"))
-            {
-                VelocityX = -_speed;
-            }
-            if (_walkDirection.Equals("right"))
-            {
-                VelocityX = _speed;
-            }
+
 
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
         }   

@@ -35,14 +35,14 @@ namespace SuperMarioClone
             {
                 if (MysteryObject == typeof(Coin))
                 {
-                    Coin c = (Coin)Activator.CreateInstance(MysteryObject, (int)Position.X, (int)Position.Y - Hitbox.Height, CurrentLevel, _contentManager);
+                    Coin c = (Coin)Activator.CreateInstance(MysteryObject, (int)Position.X / Global.Instance.GridSize, ((int)Position.Y - Hitbox.Height) / Global.Instance.GridSize, CurrentLevel, _contentManager);
                     c.IsMysteryCoin = true;                 
                     c.AddCoin(mario);
                     CurrentLevel.ToAddGameObject(c);
                 }
                 if (MysteryObject == typeof(Mushroom))
                 {
-                    Mushroom m = (Mushroom)Activator.CreateInstance(MysteryObject, (int)Position.X, (int)Position.Y - Hitbox.Height, CurrentLevel, _contentManager);
+                    Mushroom m = (Mushroom)Activator.CreateInstance(MysteryObject, (int)Position.X / Global.Instance.GridSize, ((int)Position.Y - Hitbox.Height) / Global.Instance.GridSize, CurrentLevel, _contentManager);
                     CurrentLevel.ToAddGameObject(m);
                 }
                 if (MysteryObject == typeof(LevelReader))

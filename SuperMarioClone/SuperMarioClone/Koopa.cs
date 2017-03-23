@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMarioClone
 {
-    class Koopa : Tangible, IMovable
+    class Koopa : Tangible, IMovable, ISolid
     {
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }
@@ -73,8 +73,9 @@ namespace SuperMarioClone
             {
                 if (vY > 0)
                 {
+                    mario.Jump();
                     CurrentLevel.ToRemoveGameObject(this);
-                    CurrentLevel.ToAddGameObject(new Shell(Position.X, Position.Y, CurrentLevel, _contentManager));
+                    CurrentLevel.ToAddGameObject(new Shell(Position.X, Position.Y + Hitbox.Height - Global.Instance.GridSize, CurrentLevel, _contentManager));
                     _isHit = true;
                 }
                 else

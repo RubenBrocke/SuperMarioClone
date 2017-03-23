@@ -185,7 +185,10 @@ namespace SuperMarioClone
             {
                 if (!_jumpWasPressed)
                 {
-                    Jump();
+                    if (IsColliding(CurrentLevel, 0, 1, out collObject))
+                    {
+                        Jump();
+                    }
                 }
                 _jumpWasPressed = true;
             }
@@ -242,11 +245,8 @@ namespace SuperMarioClone
 
         public void Jump()
         {
-            if (IsColliding(CurrentLevel, 0, 1, out collObject))
-            {
-                VelocityY = -JumpVelocity;
-                _jumpSound.Play();
-            }
+            VelocityY = -JumpVelocity;
+            _jumpSound.Play();
         }
 
         public void LoseLife()

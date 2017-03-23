@@ -19,9 +19,6 @@ namespace SuperMarioClone
         public float JumpVelocity { get; private set; }
         public float Gravity { get; private set; }
 
-        private SoundEffect _coinPickUpSound;
-
-        private string _walkDirection;
         private float _speed = 3f;
         private Animator _animator;
 
@@ -34,7 +31,7 @@ namespace SuperMarioClone
             _animator = new Animator(contentManager.Load<Texture2D>("koopasheet"), 110);
             _animator.GetTextures(64, 0, 16, 16, 4, 1);
             Sprite = _animator.GetCurrentTexture();
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height); // fix the magic numbers
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
         }
 
         public override void Update()
@@ -74,7 +71,7 @@ namespace SuperMarioClone
             }
             else
             {
-                if (VelocityX == 0 && m.Position.Y > Position.Y - Hitbox.Height)
+                if (VelocityX == 0 && m.Hitbox.Y > Hitbox.Y - Hitbox.Height)
                  {
                     if (m.VelocityX > 0)
                     {
@@ -87,7 +84,7 @@ namespace SuperMarioClone
                 }
                 else
                 {
-                    if (m.Position.Y > Position.Y - Hitbox.Height)
+                    if (m.Hitbox.Y > Hitbox.Y - Hitbox.Height)
                     {
                         m.LoseLife();
                     }

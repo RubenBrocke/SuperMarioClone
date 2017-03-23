@@ -66,6 +66,11 @@ namespace SuperMarioClone
                                 Shell s = (Shell)o;
                                 s.CheckHit(m);
                             }
+                            if (o is Koopa)
+                            {
+                                Koopa k = (Koopa)o;
+                                k.CheckDeath(m, m.VelocityY);
+                            }
                         }
                         if (this is Goomba)
                         {
