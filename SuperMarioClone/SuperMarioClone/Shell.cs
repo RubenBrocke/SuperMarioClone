@@ -84,7 +84,7 @@ namespace SuperMarioClone
                 }
                 else
                 {
-                    if (m.Hitbox.Y >= Hitbox.Y - m.Hitbox.Height)
+                    if (m.Hitbox.Y >= Hitbox.Y - Hitbox.Height)
                     {
                         m.LoseLife();
                     }
