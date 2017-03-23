@@ -13,6 +13,7 @@ namespace SuperMarioClone
         protected Tangible collObject;
         protected int _horizontalPadding = 0;
         protected int _verticalPadding = 0;
+        public Collider collider;
 
         public Tangible() : base()
         {

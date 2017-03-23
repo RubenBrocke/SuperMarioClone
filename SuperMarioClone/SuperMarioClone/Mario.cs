@@ -76,6 +76,7 @@ namespace SuperMarioClone
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitboxWidth, _hitboxHeight);
             Lives = lives;
             Coins = coins;
+            collider = new Collider((int)Position.X, (int)Position.Y, _hitboxWidth, _hitboxHeight, this, true, CheckHit);
         }
 
         public void BecomeBig()
@@ -243,6 +244,11 @@ namespace SuperMarioClone
                 CurrentState = State.Crouching;
             }
             UpdateSprite();
+        }
+
+        public void CheckHit(Tangible t)
+        {
+            Console.WriteLine("MARIO IS CHECKING HIT");
         }
 
         public void Jump()
