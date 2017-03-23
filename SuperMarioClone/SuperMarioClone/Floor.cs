@@ -15,9 +15,9 @@ namespace SuperMarioClone
 
         public Floor(int x, int y, int w, int h, Level level, ContentManager contentManager) : base()
         {
-            Position = new Vector2(x, y);
-            Width = w;
-            Height = h;
+            Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
+            Width = w * Global.Instance.GridSize;
+            Height = h * Global.Instance.GridSize;
             CurrentLevel = level;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
             Sprite = contentManager.Load<Texture2D>("GroundSheet");

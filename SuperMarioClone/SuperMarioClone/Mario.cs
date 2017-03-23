@@ -60,7 +60,7 @@ namespace SuperMarioClone
 
         public Mario(int x, int y, Level level, ContentManager contentManager, int lives = 3, int coins = 0) : base()
         {
-            Position = new Vector2(x, y);
+            Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             _jumpSound = contentManager.Load<SoundEffect>("Oink1");
             _font = contentManager.Load<SpriteFont>("Font");
             _animator = new Animator(contentManager.Load<Texture2D>("MarioSheetRight"));
@@ -103,6 +103,7 @@ namespace SuperMarioClone
                 _hitboxHeight = 20;
             }
             Hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
+
             //Add gravity
             VelocityY += Gravity;
 

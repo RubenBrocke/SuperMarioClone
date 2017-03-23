@@ -13,13 +13,19 @@ namespace UnitTest
 
         static void Init()
         {
-          
+            using (var testGame = new MainGame())
+            {
+                testGame.Run();
+            }
         }
         [TestMethod]
         public void AddCoinTest()
         {
-           ContentManager c = new ContentManager();
-            Mario m = new Mario(0, 0, new Level(), c);
+            Mario mario = new Mario(10, 10, new Level());
+            Coin coin = new Coin(10, 20, new Level());
+            coin.AddCoin(mario);
+            var _coin= typeof(Mario).GetField("_coins", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(mario);
+            Assert.AreEqual(1, _coin);
         }
     }
 }

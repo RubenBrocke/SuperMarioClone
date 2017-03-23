@@ -34,7 +34,7 @@ namespace SuperMarioClone
                     level.ToAddGameObject(_gameObjectFactory.Fabricate(line.Split(':'), level, _contentManager));
                 }
             }
-            level.ToAddGameObject(new Mario(10, 10, level, _contentManager));
+            level.ToAddGameObject(new Mario(1, 1, level, _contentManager));
             level.AddGameObjects();
             lvlReader.Close();
             return level;

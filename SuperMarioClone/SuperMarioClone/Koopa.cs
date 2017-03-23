@@ -32,7 +32,7 @@ namespace SuperMarioClone
             _animator.GetTextures(0, 0, 16, 27, 2, 1);
             Sprite = _animator.GetCurrentTexture();
             Gravity = 0.3f;
-            Position = new Vector2(x, y);
+            Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             CurrentLevel = level;
             VelocityX = 2f;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
