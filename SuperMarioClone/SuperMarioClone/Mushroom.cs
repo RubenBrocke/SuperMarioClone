@@ -28,7 +28,7 @@ namespace SuperMarioClone
         public Mushroom(int x, int y, Level level, ContentManager contentManager) : base()
         {
             Gravity = 0.3f;
-            Position = new Vector2(x, y);
+            Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             CurrentLevel = level;
             VelocityY = 1f;
             HasBeenPickedUp = false;

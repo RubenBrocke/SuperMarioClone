@@ -20,21 +20,14 @@ namespace SuperMarioClone
         /// <param name="args"></param>
         /// <param name="gridNumberAmmount"></param>
         /// <returns></returns>
-        public List<object> Resolve(string[] args, int gridNumberAmmount = 0)
+        public List<object> Resolve(string[] args)
         {
             object[] returnArgs = new object[args.Length];
             for (int i = 0; i < args.Length; i++)
             {
                 try
                 {
-                    if (i < gridNumberAmmount)
-                    {
-                        returnArgs[i] = int.Parse(args[i]) * 16;
-                    }
-                    else
-                    {
-                        returnArgs[i] = int.Parse(args[i]);
-                    }
+                    returnArgs[i] = int.Parse(args[i]);
                 }
                 catch
                 {

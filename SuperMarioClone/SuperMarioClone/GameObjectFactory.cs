@@ -27,7 +27,7 @@ namespace SuperMarioClone
         public GameObject Fabricate(string[] s, Level level, ContentManager contentManager)
         {
             Type thingy = Type.GetType(this.GetType().Namespace + "." + s[0]);
-            List<object> args = _argumentResolver.Resolve(s[1].Split(','), _objectDict[thingy]);
+            List<object> args = _argumentResolver.Resolve(s[1].Split(','));
             args.Add(level);
             args.Add(contentManager);
             return (GameObject)Activator.CreateInstance(Type.GetType(this.GetType().Namespace + "." + s[0]), args.ToArray());

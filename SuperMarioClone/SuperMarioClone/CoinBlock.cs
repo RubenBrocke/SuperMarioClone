@@ -20,7 +20,7 @@ namespace SuperMarioClone
         public CoinBlock(int x, int y, int containAmount, Level level, ContentManager contentManager) : base()
         {
             ContainAmount = containAmount;
-            Position = new Vector2(x, y);
+            Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             CurrentLevel = level;
             _contentManager = contentManager;
             _animator = new Animator(_contentManager.Load<Texture2D>("CoinBlockSheet"), 0);

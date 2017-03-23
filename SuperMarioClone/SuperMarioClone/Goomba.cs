@@ -22,11 +22,11 @@ namespace SuperMarioClone
 
         public Goomba(int x, int y, Level level, ContentManager contentManager)
         {
+            Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             _animator = new Animator(contentManager.Load<Texture2D>("GoombaSheet"), 110);
             _animator.GetTextures(0, 0, 16, 16, 2, 1);
             Sprite = _animator.GetCurrentTexture();
             Gravity = 0.3f;
-            Position = new Vector2(x, y);
             CurrentLevel = level;
             VelocityX = 2f;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);

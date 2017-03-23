@@ -57,6 +57,7 @@
     <Compile Include="Mario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="Tangible.cs" />
     <Compile Include="TransFloor.cs" />
   </ItemGroup>

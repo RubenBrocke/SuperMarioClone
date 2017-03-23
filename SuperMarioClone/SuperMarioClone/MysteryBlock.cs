@@ -20,7 +20,7 @@ namespace SuperMarioClone
         public MysteryBlock(int x, int y, Type MysteryObject, Level level, ContentManager contentManager) : base()
         {
             this.MysteryObject = MysteryObject;
-            Position = new Vector2(x, y);
+            Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             CurrentLevel = level;
             _contentManager = contentManager;
             _animator = new Animator(_contentManager.Load<Texture2D>("MysteryBlockSheet"), 120);

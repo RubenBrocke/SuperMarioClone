@@ -105,7 +105,7 @@ namespace SuperMarioClone
             {
                 if (!(collObject is TransFloor))
                 {
-                    if (velocityY > 0)
+                    if (velocityY >= 0 && Hitbox.Y <= collObject.Hitbox.Top - Hitbox.Height)
                     {
                         Position = new Vector2(Position.X, collObject.Hitbox.Top - Hitbox.Height - _verticalPadding);
                     }
@@ -117,7 +117,7 @@ namespace SuperMarioClone
                 }
                 else
                 {
-                    if (velocityY >= 0 && Hitbox.Y < collObject.Hitbox.Top - Hitbox.Height)
+                    if (velocityY >= 0 && Hitbox.Y <= collObject.Hitbox.Top - Hitbox.Height)
                     {
                         Position = new Vector2(Position.X, collObject.Hitbox.Top - Hitbox.Height - _verticalPadding);
                         velocityY = 0;
