@@ -13,7 +13,7 @@ using System.Threading;
 
 namespace SuperMarioClone
 {
-    public class Mario : Tangible, IMovable
+    public class Mario : Tangible, IMovable, ISolid
     {
         public int Coins { get; private set; }
         public int Lives { get; private set; }
@@ -31,6 +31,7 @@ namespace SuperMarioClone
         private float _ySpeedMax = 10;
         private float _acc = 0.1f;
         private float _deacc = 0.2f;
+        private ContentManager _contentManager;
 
         private SpriteFont _font;
 
@@ -60,6 +61,7 @@ namespace SuperMarioClone
 
         public Mario(int x, int y, Level level, ContentManager contentManager, int lives = 3, int coins = 0) : base()
         {
+            _contentManager = contentManager;
             Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             _jumpSound = contentManager.Load<SoundEffect>("Oink1");
             _font = contentManager.Load<SpriteFont>("Font");
@@ -252,6 +254,8 @@ namespace SuperMarioClone
         public void LoseLife()
         {
             Lives--;
+            LevelReader lr = new LevelReader(_contentManager);
+            MainGame.currentLevel = lr.ReadLevel(0);
         }
 
         public void AddCoin()

@@ -71,7 +71,7 @@ namespace SuperMarioClone
             }
             else
             {
-                if (VelocityX == 0 && m.Hitbox.Y > Hitbox.Y - Hitbox.Height)
+                if (VelocityX == 0 && m.Hitbox.Y > Hitbox.Y - m.Hitbox.Height)
                  {
                     if (m.VelocityX > 0)
                     {
@@ -84,7 +84,7 @@ namespace SuperMarioClone
                 }
                 else
                 {
-                    if (m.Hitbox.Y > Hitbox.Y - Hitbox.Height)
+                    if (m.Hitbox.Y >= Hitbox.Y - m.Hitbox.Height)
                     {
                         m.LoseLife();
                     }

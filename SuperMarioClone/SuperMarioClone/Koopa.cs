@@ -71,7 +71,7 @@ namespace SuperMarioClone
         {
             if (!_isHit)
             {
-                if (vY > 0)
+                if (vY > 0.5)
                 {
                     mario.Jump();
                     CurrentLevel.ToRemoveGameObject(this);

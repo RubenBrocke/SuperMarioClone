@@ -34,9 +34,9 @@ Coin: 39, 31
 
 //Stuff
 Goomba: 45, 34
-Koopa: 4, 30
+Koopa: 4, 34
 MysteryBlock: 18, 31, Coin
 
 //MysteryBlocks
 MysteryBlock: 30, 31, Mushroom
-CoinBlock: 17, 31, 3
+CoinBlock: 17, 31, 2
