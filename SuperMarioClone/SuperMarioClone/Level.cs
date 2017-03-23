@@ -82,9 +82,9 @@ namespace SuperMarioClone
 
         public void UpdateLevel()
         {
-            foreach (GameObject Object in GameObjects)
+            foreach (GameObject gameObject in GameObjects)
             {
-                Object.Update();
+                gameObject.Update();
             }
             AddGameObjects();
             RemoveGameObjects();

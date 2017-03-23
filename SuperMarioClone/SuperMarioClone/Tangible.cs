@@ -59,7 +59,12 @@ namespace SuperMarioClone
                             if (o is Mushroom)
                             {
                                 Mushroom mushroom = (Mushroom)o;
-                                mushroom.CollectMushroom((Mario)this);
+                                mushroom.CollectMushroom(m);
+                            }
+                            if (o is Shell)
+                            {
+                                Shell s = (Shell)o;
+                                s.CheckHit(m);
                             }
                         }
                         if (this is Goomba)
@@ -69,6 +74,15 @@ namespace SuperMarioClone
                                 Goomba g = (Goomba)this;
                                 Mario m = (Mario)o;
                                 g.CheckDeath(m, m.VelocityY);
+                            }
+                        }
+                        if (this is Koopa)
+                        {
+                            if (o is Mario)
+                            {
+                                Koopa k = (Koopa)this;
+                                Mario m = (Mario)o;
+                                k.CheckDeath(m, m.VelocityY);
                             }
                         }
                     } 

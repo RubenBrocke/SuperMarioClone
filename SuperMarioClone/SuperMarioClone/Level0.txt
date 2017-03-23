@@ -2,3 +2,4 @@ Floor: 0, 36, 200, 4
 Floor: 50, 0, 4, 50
 Floor: -1, -50, 1, 100
 MysteryBlock: 4, 31, LevelReader
+Koopa: 4, 30

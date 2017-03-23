@@ -9,18 +9,10 @@ namespace SuperMarioClone
 {
     class GameObjectFactory
     {
-        private Dictionary<Type, int> _objectDict;
         private ArgumentResolver _argumentResolver;
 
         public GameObjectFactory()
         {
-            _objectDict = new Dictionary<Type, int>();
-            _objectDict.Add(typeof(Coin), 2);
-            _objectDict.Add(typeof(Floor), 4);
-            _objectDict.Add(typeof(TransFloor), 4);
-            _objectDict.Add(typeof(Goomba), 2);
-            _objectDict.Add(typeof(CoinBlock), 2);
-            _objectDict.Add(typeof(MysteryBlock), 2);
             _argumentResolver = new ArgumentResolver();
         }
 
