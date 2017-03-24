@@ -12,26 +12,35 @@ namespace SuperMarioClone
 {
     class MysteryBlock : Tangible, ISolid
     {
-        private Type MysteryObject { get; set; }
+        public Type MysteryObject { get; private set; }
+        public bool HasBeenUsed { get; private set; }
+
         private ContentManager _contentManager;
         private Animator _animator;
-        private bool _hasBeenUsed = false;
+        private Texture2D _spriteSheet;
+        
 
-        public MysteryBlock(int x, int y, Type MysteryObject, Level level, ContentManager contentManager) : base()
+        public MysteryBlock(int x, int y, Type mysteryObject, Level level, ContentManager contentManager) : base()
         {
-            this.MysteryObject = MysteryObject;
+            //Properties and private fields are set
             Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             CurrentLevel = level;
+            
+            MysteryObject = mysteryObject;
+            HasBeenUsed = false;    
             _contentManager = contentManager;
-            _animator = new Animator(_contentManager.Load<Texture2D>("MysteryBlockSheet"), 120);
+
+            //Sprite, animation and hitbox are set
+            _spriteSheet = _contentManager.Load<Texture2D>("MysteryBlockSheet");
+            _animator = new Animator(_spriteSheet, 120);
             _animator.GetTextures(0, 0, 16, 16, 4, 1);
             Sprite = _animator.GetCurrentTexture();
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, 16, 16); // TODO: numbers represent pixels, change magic number
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Global.Instance.GridSize, Global.Instance.GridSize);
         }
 
         public void Eject(Mario mario, float vY, float Y)
         {
-            if (vY < 0 && !_hasBeenUsed && mario.Hitbox.Y > Hitbox.Bottom)
+            if (vY < 0 && !HasBeenUsed && mario.Hitbox.Y > Hitbox.Bottom)
             {
                 if (MysteryObject == typeof(Coin))
                 {
@@ -50,7 +59,7 @@ namespace SuperMarioClone
                     LevelReader _lr = (LevelReader)Activator.CreateInstance(MysteryObject, _contentManager);
                     MainGame.currentLevel = _lr.ReadLevel(1);
                 }
-                _hasBeenUsed = true;
+                HasBeenUsed = true;
                 _animator.GetTextures(64, 0, 16, 16, 1, 1);
                 _animator.SetAnimationSpeed(0);
             } 
@@ -58,6 +67,7 @@ namespace SuperMarioClone
 
         public override void Update()
         {
+            //Update sprite
             Sprite = _animator.GetCurrentTexture();
         }
     }

@@ -15,62 +15,75 @@ namespace SuperMarioClone
 
         public Floor(int x, int y, int w, int h, Level level, ContentManager contentManager) : base()
         {
+            //Properties are set
             Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
+            CurrentLevel = level;
+
             Width = w * Global.Instance.GridSize;
             Height = h * Global.Instance.GridSize;
-            CurrentLevel = level;
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
+
+            //Sprite and hitbox are set
             Sprite = contentManager.Load<Texture2D>("GroundSheet");
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRect = new Rectangle(16, 16, 16, 16); //properties aanpassen ipv new Rectangle
-            for (int x = (int)Position.X; x < Width + (int)Position.X; x += 16)
+            Rectangle sourceRect = new Rectangle(Global.Instance.GridSize, Global.Instance.GridSize, Global.Instance.GridSize, Global.Instance.GridSize);
+            for (int x = (int)Position.X; x < Width + (int)Position.X; x += Global.Instance.GridSize)
             {
-                for (int y = (int)Position.Y; y < Height + (int)Position.Y; y += 16)
+                for (int y = (int)Position.Y; y < Height + (int)Position.Y; y += Global.Instance.GridSize)
                 {
-                    if(y == (int)Position.Y)
+                    if (y == (int)Position.Y)
                     {
                         if (x == (int)Position.X)
                         {
-                            sourceRect = new Rectangle(0, 0, 16, 16);
+                            sourceRect.X = 0 * Global.Instance.GridSize;
+                            sourceRect.Y = 0 * Global.Instance.GridSize;
                         }
-                        else if (x == (int)Position.X + Width - 16)
+                        else if (x == (int)Position.X + Width - Global.Instance.GridSize)
                         {
-                            sourceRect = new Rectangle(32, 0, 16, 16);
+                            sourceRect.X = 2 * Global.Instance.GridSize;
+                            sourceRect.Y = 0 * Global.Instance.GridSize;
                         }
                         else
                         {
-                            sourceRect = new Rectangle(16, 0, 16, 16);
+                            sourceRect.X = 1 * Global.Instance.GridSize;
+                            sourceRect.Y = 0 * Global.Instance.GridSize;
                         }
                     }
-                    else if(y == (int)Position.Y + Height - 16)
+                    else if (y == (int)Position.Y + Height - Global.Instance.GridSize)
                     {
                         if (x == (int)Position.X)
                         {
-                            sourceRect = new Rectangle(0, 32, 16, 16);
+                            sourceRect.X = 0 * Global.Instance.GridSize;
+                            sourceRect.Y = 2 * Global.Instance.GridSize;
                         }
-                        else if (x == (int)Position.X + Width - 16)
+                        else if (x == (int)Position.X + Width - Global.Instance.GridSize)
                         {
-                            sourceRect = new Rectangle(32, 32, 16, 16);
+                            sourceRect.X = 2 * Global.Instance.GridSize;
+                            sourceRect.Y = 2 * Global.Instance.GridSize;
                         }
                         else
                         {
-                            sourceRect = new Rectangle(16, 32, 16, 16);
+                            sourceRect.X = 1 * Global.Instance.GridSize;
+                            sourceRect.Y = 2 * Global.Instance.GridSize;
                         }
                     }
                     else if (x == (int)Position.X)
                     {
-                        sourceRect = new Rectangle(0, 16, 16, 16);
+                        sourceRect.X = 0 * Global.Instance.GridSize;
+                        sourceRect.Y = 1 * Global.Instance.GridSize;
                     }
-                    else if (x == (int)Position.X + Width - 16)
+                    else if (x == (int)Position.X + Width - Global.Instance.GridSize)
                     {
-                        sourceRect = new Rectangle(32, 16, 16, 16);
+                        sourceRect.X = 2 * Global.Instance.GridSize;
+                        sourceRect.Y = 1 * Global.Instance.GridSize;
                     }
                     else
                     {
-                        sourceRect = new Rectangle(16, 16, 16, 16);
+                        sourceRect.X = 1 * Global.Instance.GridSize;
+                        sourceRect.Y = 1 * Global.Instance.GridSize;
                     }
                     spriteBatch.Draw(texture: Sprite, position: new Vector2(x, y), sourceRectangle: sourceRect);
                 }

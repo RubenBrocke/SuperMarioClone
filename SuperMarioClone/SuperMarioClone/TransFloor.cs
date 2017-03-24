@@ -26,7 +26,7 @@ namespace SuperMarioClone
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle sourceRect = new Rectangle(16, 16, 16, 16);
+            Rectangle sourceRect = new Rectangle(Global.Instance.GridSize, Global.Instance.GridSize, Global.Instance.GridSize, Global.Instance.GridSize);
             for (int x = (int)Position.X; x < Width + (int)Position.X; x += 16)
             {
                 for (int y = (int)Position.Y; y < Height + (int)Position.Y; y += 16)
@@ -35,43 +35,52 @@ namespace SuperMarioClone
                     {
                         if (x == (int)Position.X)
                         {
-                            sourceRect = new Rectangle(0, 48, 16, 16);
+                            sourceRect.X = 0 * Global.Instance.GridSize;
+                            sourceRect.Y = 3 * Global.Instance.GridSize;
                         }
                         else if (x == (int)Position.X + Width - 16)
                         {
-                            sourceRect = new Rectangle(32, 48, 16, 16);
+                            sourceRect.X = 2 * Global.Instance.GridSize;
+                            sourceRect.Y = 3 * Global.Instance.GridSize;
                         }
                         else
                         {
-                            sourceRect = new Rectangle(16, 48, 16, 16);
+                            sourceRect.X = 1 * Global.Instance.GridSize;
+                            sourceRect.Y = 3 * Global.Instance.GridSize;
                         }
                     }
                     else if (y == (int)Position.Y + Height - 16)
                     {
                         if (x == (int)Position.X)
                         {
-                            sourceRect = new Rectangle(0, 80, 16, 16);
+                            sourceRect.X = 0 * Global.Instance.GridSize;
+                            sourceRect.Y = 5 * Global.Instance.GridSize;
                         }
                         else if (x == (int)Position.X + Width - 16)
                         {
-                            sourceRect = new Rectangle(32, 80, 16, 16);
+                            sourceRect.X = 2 * Global.Instance.GridSize;
+                            sourceRect.Y = 5 * Global.Instance.GridSize;
                         }
                         else
                         {
-                            sourceRect = new Rectangle(16, 80, 16, 16);
+                            sourceRect.X = 1 * Global.Instance.GridSize;
+                            sourceRect.Y = 5 * Global.Instance.GridSize;
                         }
                     }
                     else if (x == (int)Position.X)
                     {
-                        sourceRect = new Rectangle(0, 64, 16, 16);
+                        sourceRect.X = 0 * Global.Instance.GridSize;
+                        sourceRect.Y = 4 * Global.Instance.GridSize;
                     }
                     else if (x == (int)Position.X + Width - 16)
                     {
-                        sourceRect = new Rectangle(32, 64, 16, 16);
+                        sourceRect.X = 2 * Global.Instance.GridSize;
+                        sourceRect.Y = 4 * Global.Instance.GridSize;
                     }
                     else
                     {
-                        sourceRect = new Rectangle(16, 64, 16, 16);
+                        sourceRect.X = 1 * Global.Instance.GridSize;
+                        sourceRect.Y = 4 * Global.Instance.GridSize;
                     }
                     spriteBatch.Draw(texture: Sprite, position: new Vector2(x, y), sourceRectangle: sourceRect);
                 }

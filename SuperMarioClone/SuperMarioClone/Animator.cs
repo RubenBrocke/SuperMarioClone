@@ -12,37 +12,34 @@ namespace SuperMarioClone
     class Animator
     {
 
-        private Texture2D _inputTexture { get; set; }
-
+        private Texture2D InputTexture { get; set; }
         private Texture2D[] TextureArray { get; set; }
-
         private int AnimationSpeed { get; set; }
 
         private int _imageCounter;
-
         private Timer _imageTimer;
 
         /// <summary>
-        /// Constructor
-        /// sets the input texture and the timer
+        /// Sets input texture and defaults the animationspeed to 0 
         /// </summary>
-        /// <param name="inputTexture">>The texture to get the animation from, usualy a spritesheet</param>
+        /// <param name="inputTexture">Spritesheet used to get the animation from</param>
         public Animator(Texture2D inputTexture)
         {
-            _inputTexture = inputTexture;
+            //Properties and private fields are set
+            InputTexture = inputTexture;
             _imageCounter = 0;
             _imageTimer = new Timer(IncreaseImageCounter, null, 0, AnimationSpeed);
         }
 
         /// <summary>
-        /// Another constructor
-        /// Sets the input texture, the timer and the speed of the animation
+        /// Sets the input texture and the speed of the animation
         /// </summary>
-        /// <param name="inputTexture">The texture to get the animation from, usualy a spritesheet</param>
-        /// <param name="speed"></param>
+        /// <param name="inputTexture">Spritesheet used to get the animation from</param>
+        /// <param name="speed">Amount of milliseconds each frame of the animation should be</param>
         public Animator(Texture2D inputTexture, int speed)
         {
-            _inputTexture = inputTexture;
+            //Properties and private fields are set
+            InputTexture = inputTexture;
             _imageCounter = 0;
             AnimationSpeed = speed;
             _imageTimer = new Timer(IncreaseImageCounter, null, 0, AnimationSpeed);
@@ -54,32 +51,31 @@ namespace SuperMarioClone
         /// <param name="inputTexture">>The texture to get the animation from, usualy a spritesheet</param>
         public void SetInputTexture(Texture2D inputTexture)
         {
-            _inputTexture = inputTexture;
+            InputTexture = inputTexture;
         }
 
         /// <summary>
-        /// GetTextures uses an offset width / height and collumns / rows to determine how to split the inputtexture
-        /// It then splits the image and stores it in a texture array
+        /// Gets the animation from the input texture and stores it in a texture array to be retreived by GetCurrentTexture()
         /// </summary>
-        /// <param name="x">The x coordinate</param>
-        /// <param name="y">The y coordinate</param>
-        /// <param name="width">The width of the sprite</param>
-        /// <param name="height">The height of the sprite</param>
-        /// <param name="collumnAmount">The amount of sprites an animation has lengthwise</param>
-        /// <param name="rowAmount">The amount of sprites an animation has heightwise</param>
+        /// <param name="x">X coordinate of where the animation should start</param>
+        /// <param name="y">Y coordinate of where the animation should start</param>
+        /// <param name="width">Width of the sprite</param>
+        /// <param name="height">Height of the sprite</param>
+        /// <param name="collumnAmount">Amount of collumns the animation has</param>
+        /// <param name="rowAmount">Amount of rows the animation has</param>
         public void GetTextures(int x, int y, int width, int height, int collumnAmount, int rowAmount)
         {
             Texture2D[] returnArray = new Texture2D[collumnAmount * rowAmount];
-            Texture2D part = new Texture2D(_inputTexture.GraphicsDevice, width, height);            
+            Texture2D part = new Texture2D(InputTexture.GraphicsDevice, width, height);            
             Rectangle sourceRect = Rectangle.Empty;
             Color[] data = new Color[width * height];
             for (int i = 0; i < rowAmount; i++)
             {
                 for (int j = 0; j < collumnAmount; j++)
                 {
-                    part = new Texture2D(_inputTexture.GraphicsDevice, width, height);
+                    part = new Texture2D(InputTexture.GraphicsDevice, width, height);
                     sourceRect = new Rectangle(j * width + x, i * height + y, width, height);
-                    _inputTexture.GetData(0, sourceRect, data, 0, data.Length);
+                    InputTexture.GetData(0, sourceRect, data, 0, data.Length);
                     part.SetData(data);
                     part.Tag = i + j;
                     returnArray[i + j] = part;
@@ -93,18 +89,14 @@ namespace SuperMarioClone
         }
 
         /// <summary>
-        /// GetCurrentTexture returs the texture that is currently used
+        /// Returns the current texture in the animation sequence
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Current texture in the animation sequence</returns>
         public Texture2D GetCurrentTexture()
         {
             return TextureArray[_imageCounter];
         }
 
-        /// <summary>
-        /// Increases the imagecounter, if the counter exceeds the number of images it resets, thus cycling through the images
-        /// </summary>
-        /// <param name="state"></param>
         private void IncreaseImageCounter(object state)
         {
             if (TextureArray != null)
@@ -122,7 +114,7 @@ namespace SuperMarioClone
         /// <summary>
         /// Sets the speed of the animation
         /// </summary>
-        /// <param name="speed"></param>
+        /// <param name="speed">Amount of milliseconds each frame of the animation should be</param>
         public void SetAnimationSpeed(int speed)
         {
             if (speed == 0)
