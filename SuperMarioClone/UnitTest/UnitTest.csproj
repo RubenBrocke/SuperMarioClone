@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="MonoGame.Framework, Version=3.6.0.1625, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -52,8 +53,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="MockClasses\TestContentManager.cs" />
+    <Compile Include="MockClasses\TestGraphicsDeviceService.cs" />
+    <Compile Include="MockClasses\TestItems.cs" />
     <Compile Include="MockClasses\TestServiceProvider.cs" />
     <Compile Include="CoinTest.cs" />
+    <Compile Include="MockClasses\TestTexture2D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
