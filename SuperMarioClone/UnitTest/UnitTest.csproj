@@ -53,7 +53,7 @@
   <ItemGroup>
     <Compile Include="MockClasses\TestContentManager.cs" />
     <Compile Include="MockClasses\TestServiceProvider.cs" />
-    <Compile Include="UnitTest.cs" />
+    <Compile Include="CoinTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
