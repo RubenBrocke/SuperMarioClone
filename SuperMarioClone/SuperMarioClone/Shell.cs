@@ -29,14 +29,15 @@ namespace SuperMarioClone
             Position = new Vector2(x, y);
             CurrentLevel = level;
 
-            _speed = 3f;
-            VelocityX = _speed;
             Gravity = 0.3f;
-            
+
+            _speed = 3f;
+
             //Sprite, animation and hitbox are set
             _spriteSheet = contentManager.Load<Texture2D>("GreenShellSheet");
             _animator = new Animator(_spriteSheet, 110);
             _animator.GetTextures(0, 0, 16, 16, 4, 1);
+            _animator.PauseAnimation();
             Sprite = _animator.GetCurrentTexture();
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
         }
@@ -76,10 +77,10 @@ namespace SuperMarioClone
 
         public void CheckHit(Mario mario)
         {
-            Console.WriteLine(mario.VelocityY); // FIX THE GODDAMN SHELL PLEASE, IF IT STANDS STILL AND YOU HIT IT YOU DIE SOMETIMES (from the right i think)
             if (mario.VelocityY > 0.5)
             {
                 VelocityX = 0;
+                _animator.PauseAnimation();
             }
             else
             {
@@ -88,10 +89,12 @@ namespace SuperMarioClone
                     if (mario.VelocityX > 0)
                     {
                         VelocityX = _speed;
+                        _animator.UnpauseAnimation();
                     }
                     else if (mario.VelocityX < 0)
                     {
                         VelocityX = -_speed;
+                        _animator.UnpauseAnimation();
                     }
                 }
                 else

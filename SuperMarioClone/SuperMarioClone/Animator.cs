@@ -15,6 +15,7 @@ namespace SuperMarioClone
         private Texture2D InputTexture { get; set; }
         private Texture2D[] TextureArray { get; set; }
         private int AnimationSpeed { get; set; }
+        private bool Paused { get; set; }
 
         private int _imageCounter;
         private Timer _imageTimer;
@@ -27,6 +28,7 @@ namespace SuperMarioClone
         {
             //Properties and private fields are set
             InputTexture = inputTexture;
+            Paused = true;
             _imageCounter = 0;
             _imageTimer = new Timer(IncreaseImageCounter, null, 0, AnimationSpeed);
         }
@@ -40,6 +42,7 @@ namespace SuperMarioClone
         {
             //Properties and private fields are set
             InputTexture = inputTexture;
+            Paused = false;
             _imageCounter = 0;
             AnimationSpeed = speed;
             _imageTimer = new Timer(IncreaseImageCounter, null, 0, AnimationSpeed);
@@ -99,16 +102,19 @@ namespace SuperMarioClone
 
         private void IncreaseImageCounter(object state)
         {
-            if (TextureArray != null)
+            if (!Paused)
             {
-                if (_imageCounter < TextureArray.Length - 1)
+                if (TextureArray != null)
                 {
-                    _imageCounter++;
-                }
-                else
-                {
-                    _imageCounter = 0;
-                }
+                    if (_imageCounter < TextureArray.Length - 1)
+                    {
+                        _imageCounter++;
+                    }
+                    else
+                    {
+                        _imageCounter = 0;
+                    }
+                } 
             }
         }
         /// <summary>
@@ -119,16 +125,33 @@ namespace SuperMarioClone
         {
             if (speed == 0)
             {
+                Paused = true;
                 AnimationSpeed = speed;
                 _imageTimer.Change(Timeout.Infinite, Timeout.Infinite);
                 _imageCounter = 0;
             }
             else if(AnimationSpeed != speed)
             {
+                Paused = false;
                 AnimationSpeed = speed;
                 _imageTimer.Change(AnimationSpeed, AnimationSpeed);
                 _imageCounter = 0;
             }
+        }
+
+        /// <summary>
+        /// Pauses animation to current frame
+        /// </summary>
+        public void PauseAnimation()
+        {
+            Paused = true;
+        }
+        /// <summary>
+        /// Unpauses the animation
+        /// </summary>
+        public void UnpauseAnimation()
+        {
+            Paused = false;
         }
     }
 }

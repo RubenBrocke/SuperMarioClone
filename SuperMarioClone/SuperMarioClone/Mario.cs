@@ -13,7 +13,7 @@ using System.Threading;
 
 namespace SuperMarioClone
 {
-    public class Mario : Tangible, IMovable, ISolid
+    public class Mario : Tangible, IMovable
     {
         //Implementation of IMovable
         public float VelocityX { get; protected set; }
