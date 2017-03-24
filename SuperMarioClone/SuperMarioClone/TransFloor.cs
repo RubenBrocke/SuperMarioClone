@@ -27,9 +27,9 @@ namespace SuperMarioClone
         public override void Draw(SpriteBatch spriteBatch)
         {
             Rectangle sourceRect = new Rectangle(Global.Instance.GridSize, Global.Instance.GridSize, Global.Instance.GridSize, Global.Instance.GridSize);
-            for (int x = (int)Position.X; x < Width + (int)Position.X; x += 16)
+            for (int x = (int)Position.X; x < Width + (int)Position.X; x += Global.Instance.GridSize)
             {
-                for (int y = (int)Position.Y; y < Height + (int)Position.Y; y += 16)
+                for (int y = (int)Position.Y; y < Height + (int)Position.Y; y += Global.Instance.GridSize)
                 {
                     if (y == (int)Position.Y)
                     {
@@ -38,7 +38,7 @@ namespace SuperMarioClone
                             sourceRect.X = 0 * Global.Instance.GridSize;
                             sourceRect.Y = 3 * Global.Instance.GridSize;
                         }
-                        else if (x == (int)Position.X + Width - 16)
+                        else if (x == (int)Position.X + Width - Global.Instance.GridSize)
                         {
                             sourceRect.X = 2 * Global.Instance.GridSize;
                             sourceRect.Y = 3 * Global.Instance.GridSize;
@@ -49,14 +49,14 @@ namespace SuperMarioClone
                             sourceRect.Y = 3 * Global.Instance.GridSize;
                         }
                     }
-                    else if (y == (int)Position.Y + Height - 16)
+                    else if (y == (int)Position.Y + Height - Global.Instance.GridSize)
                     {
                         if (x == (int)Position.X)
                         {
                             sourceRect.X = 0 * Global.Instance.GridSize;
                             sourceRect.Y = 5 * Global.Instance.GridSize;
                         }
-                        else if (x == (int)Position.X + Width - 16)
+                        else if (x == (int)Position.X + Width - Global.Instance.GridSize)
                         {
                             sourceRect.X = 2 * Global.Instance.GridSize;
                             sourceRect.Y = 5 * Global.Instance.GridSize;
@@ -72,7 +72,7 @@ namespace SuperMarioClone
                         sourceRect.X = 0 * Global.Instance.GridSize;
                         sourceRect.Y = 4 * Global.Instance.GridSize;
                     }
-                    else if (x == (int)Position.X + Width - 16)
+                    else if (x == (int)Position.X + Width - Global.Instance.GridSize)
                     {
                         sourceRect.X = 2 * Global.Instance.GridSize;
                         sourceRect.Y = 4 * Global.Instance.GridSize;
