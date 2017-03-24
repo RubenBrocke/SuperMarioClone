@@ -13,32 +13,33 @@ using System.Threading;
 
 namespace SuperMarioClone
 {
-    public class Mario : Tangible, IMovable, ISolid
+    public class Mario : Tangible, IMovable
     {
-        public int Coins { get; private set; }
-        public int Lives { get; private set; }
-        public State CurrentState { get; private set; }
-        public Form CurrentForm { get; private set; }
-
+        //Implementation of IMovable
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }
         public float JumpVelocity { get; private set; }
         public float Gravity { get; private set; }
 
-        private bool _jumpWasPressed = false;
-        private SoundEffect _jumpSound;
-        private float _xSpeedMax = 3.5f;
-        private float _ySpeedMax = 10;
-        private float _acc = 0.1f;
-        private float _deacc = 0.2f;
+        //Properties
+        public int Coins { get; private set; }
+        public int Lives { get; private set; }
+        public State CurrentState { get; private set; }
+        public Form CurrentForm { get; private set; }
+
+        //Private fields
         private ContentManager _contentManager;
-
+        private float _acc;
+        private float _deacc;
+        private float _xSpeedMax;
+        private float _ySpeedMax;
+        private bool _jumpWasPressed;
+        private Texture2D _spriteSheet;
+        private SoundEffect _jumpSound;
         private SpriteFont _font;
-
         private Animator _animator;
-
-        private int _hitboxWidth = 14;
-        private int _hitboxHeight = 20;
+        private int _hitboxWidth;
+        private int _hitboxHeight;
 
         public enum State
         {
@@ -61,16 +62,32 @@ namespace SuperMarioClone
 
         public Mario(int x, int y, Level level, ContentManager contentManager, int lives = 3, int coins = 0) : base()
         {
-            _contentManager = contentManager;
+            //Properties and private fields are set
             Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
-            _jumpSound = contentManager.Load<SoundEffect>("Oink1");
-            _font = contentManager.Load<SpriteFont>("Font");
-            _animator = new Animator(contentManager.Load<Texture2D>("MarioSheetRight"));
             CurrentLevel = level;
+
             JumpVelocity = 6.25f;
+            Gravity = 0.3f;
+
+            Lives = lives;
+            Coins = coins;
             CurrentState = State.Idle;
             CurrentForm = Form.Small;
-            Gravity = 0.3f;
+
+            _contentManager = contentManager;
+            _acc = 0.1f;
+            _deacc = 0.2f;
+            _xSpeedMax = 3.5f;
+            _ySpeedMax = 10f;
+            _jumpWasPressed = false;
+
+            //Sprite, animation, sound, font and hitbox are set
+            _spriteSheet = _contentManager.Load<Texture2D>("MarioSheetRight");
+            _animator = new Animator(_spriteSheet);
+            _jumpSound = _contentManager.Load<SoundEffect>("Oink1");
+            _font = contentManager.Load<SpriteFont>("Font");
+            _hitboxWidth = 14;
+            _hitboxHeight = 20;
             _horizontalPadding = 1;
             _verticalPadding = 4;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitboxWidth, _hitboxHeight);
@@ -94,7 +111,7 @@ namespace SuperMarioClone
 
         public override void Update()
         {
-            //Update Hitbox
+            //Update hitbox to match current position and State
             if (CurrentState == State.Crouching)
             {
                 _verticalPadding = 10;
@@ -107,7 +124,7 @@ namespace SuperMarioClone
             }
             Hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
 
-            //Add gravity
+            //Add gravity to vertical velocity
             VelocityY += Gravity;
 
             //Limit vertical speed
@@ -169,7 +186,6 @@ namespace SuperMarioClone
                 } 
                 Direction = SpriteEffects.FlipHorizontally;
             }
-            
             else if (IsColliding(CurrentLevel, 0, 1, out collObject))
             {
                 if (!(collObject is TransFloor) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
@@ -184,6 +200,16 @@ namespace SuperMarioClone
                     } 
                 }
             }
+
+            //Prevents pogosticking 
+            if (_jumpWasPressed)
+            {
+                if (!state.IsKeyDown(Keys.Space))
+                {
+                    _jumpWasPressed = false;
+                }
+            }
+
             if (state.IsKeyDown(Keys.Space))
             {
                 if (!_jumpWasPressed)
@@ -196,23 +222,18 @@ namespace SuperMarioClone
                 _jumpWasPressed = true;
             }
 
+            //Check collision and change velocity
             float vX;
             float vY;
             CheckCollision(this, out vX, out vY);
             VelocityX = vX;
             VelocityY = vY;
 
-            //Add speed to position
+            //Update position
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
 
             //Focus camera on Mario
             MainGame.camera.LookAt(Position);
-
-            //Prevents pogosticking
-            if (VelocityY == 0)
-            {
-                _jumpWasPressed = false;
-            }
 
             //Set state
             if (VelocityX == 0)
@@ -243,6 +264,8 @@ namespace SuperMarioClone
             {
                 CurrentState = State.Crouching;
             }
+
+            //Update sprite
             UpdateSprite();
         }
 
@@ -254,7 +277,10 @@ namespace SuperMarioClone
         public void Jump()
         {
             VelocityY = -JumpVelocity;
-            _jumpSound.Play();
+            if (_jumpSound != null)
+            {
+                _jumpSound.Play();
+            }   
         }
 
         public void LoseLife()
@@ -262,6 +288,7 @@ namespace SuperMarioClone
             Lives--;
             LevelReader lr = new LevelReader(_contentManager);
             MainGame.currentLevel = lr.ReadLevel(0);
+            //TODO: Add death animation and death screen showing lives before going back to the menu/level selection
         }
 
         public void AddCoin()
