@@ -23,7 +23,6 @@ namespace SuperMarioClone
         private bool HasBeenPickedUp { get; set; }
 
         //Private fields
-        private SoundEffect _coinPickUpSound;
         private float _speed;
 
         public Mushroom(int x, int y, Level level, ContentManager contentManager) : base()
@@ -41,7 +40,6 @@ namespace SuperMarioClone
 
             //Sprite, sound and hitbox are set
             Sprite = contentManager.Load<Texture2D>("Mushroom");
-            _coinPickUpSound = contentManager.Load<SoundEffect>("Pling");
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
         }
 
@@ -52,7 +50,6 @@ namespace SuperMarioClone
                 mario.BecomeBig();
                 HasBeenPickedUp = true;
                 CurrentLevel.ToRemoveGameObject(this);
-                _coinPickUpSound.Play();
             }
         }
 

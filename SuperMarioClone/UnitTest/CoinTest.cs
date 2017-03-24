@@ -15,7 +15,7 @@ namespace UnitTest
         private Mario _mario;
 
         [TestInitialize]
-        void Init()
+        public void Init()
         {
             _contentManager = new TestContentManager();
             _level = new Level();
@@ -29,17 +29,16 @@ namespace UnitTest
         [TestMethod]
         public void Coin_AddCoin()
         {
-            Init();
             _coin.AddCoin(_mario);
             Assert.AreEqual(_mario.Coins, 1);
         }
 
         [TestMethod]
-        public void Coin_AddCoin2()
+        public void Coin_DeleteCoin()
         {
-            Init();
-            _coin.AddCoin(_mario);
-            Assert.AreEqual(_mario.Coins, 1);
+            _coin.DeleteCoin(null);
+            _level.RemoveGameObjects();
+            Assert.IsFalse(_level.GameObjects.Contains(_coin));
         }
     }
 }

@@ -17,7 +17,7 @@ namespace UnitTest.MockClasses
                 Visible = false,
                 ShowInTaskbar = false
             };
-            var Iets = new PresentationParameters()
+            var Parameters = new PresentationParameters()
             {
                 BackBufferWidth = 1280,
                 BackBufferHeight = 720,
@@ -25,7 +25,7 @@ namespace UnitTest.MockClasses
                 PresentationInterval = PresentInterval.Immediate,
                 IsFullScreen = false
             };
-            _GraphicsDevice = new GraphicsDevice(GraphicsAdapter.DefaultAdapter, GraphicsProfile.Reach, Iets);
+            _GraphicsDevice = new GraphicsDevice(GraphicsAdapter.DefaultAdapter, GraphicsProfile.Reach, Parameters);
         }
 
         public GraphicsDevice GraphicsDevice

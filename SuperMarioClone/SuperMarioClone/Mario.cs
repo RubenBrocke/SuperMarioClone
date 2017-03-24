@@ -270,7 +270,10 @@ namespace SuperMarioClone
         public void Jump()
         {
             VelocityY = -JumpVelocity;
-            _jumpSound.Play();
+            if (_jumpSound != null)
+            {
+                _jumpSound.Play();
+            }   
         }
 
         public void LoseLife()

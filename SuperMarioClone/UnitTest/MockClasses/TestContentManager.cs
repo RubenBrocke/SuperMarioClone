@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,9 @@ namespace UnitTest.MockClasses
 
         public override T Load<T>(string assetName)
         {
-            object result = new TestTexture2D(TestItems.tgds.GraphicsDevice, 200, 200); //TODO: FIXME, Make it actually return a working mock sprite.
-            if (result is T)
+            if (typeof(Texture2D).IsAssignableFrom(typeof(T)))
             {
+                object result = new TestTexture2D(TestItems.gd, 200, 200); //TODO: FIXME, Make it actually return a working mock sprite.
                 return (T)result;
             }
             return default(T);

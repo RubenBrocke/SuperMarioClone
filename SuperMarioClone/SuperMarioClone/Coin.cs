@@ -65,7 +65,10 @@ namespace SuperMarioClone
 
         public void DeleteCoin(object state)
         {
-            _coinPickUpSound.Play();
+            if(_coinPickUpSound != null)
+            {
+                _coinPickUpSound.Play();
+            }
             CurrentLevel.ToRemoveGameObject(this);
         }
 
