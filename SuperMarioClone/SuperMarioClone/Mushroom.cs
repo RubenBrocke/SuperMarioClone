@@ -13,28 +13,34 @@ namespace SuperMarioClone
 {
     class Mushroom : Tangible, IMovable
     {
-        private bool HasBeenPickedUp { get; set; }
-
+        //Implementation of IMovable
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }
         public float JumpVelocity { get; private set; }
         public float Gravity { get; private set; }
 
-        private SoundEffect _coinPickUpSound;
+        //Properties
+        private bool HasBeenPickedUp { get; set; }
 
-        private float _speed = 1.5f;
+        //Private fields
+        private float _speed;
 
         public Mushroom(int x, int y, Level level, ContentManager contentManager) : base()
         {
-            Gravity = 0.3f;
+            //Properties and private fields are set
             Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             CurrentLevel = level;
-            VelocityY = 1f;
+
+            _speed = 1.5f;
             VelocityX = _speed;
+            VelocityY = 1f;
+            Gravity = 0.3f;
+            
             HasBeenPickedUp = false;
+
+            //Sprite, sound and hitbox are set
             Sprite = contentManager.Load<Texture2D>("Mushroom");
-            _coinPickUpSound = contentManager.Load<SoundEffect>("Pling");
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height); // fix the magic numbers
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
         }
 
         public void CollectMushroom(Mario mario)
@@ -44,16 +50,18 @@ namespace SuperMarioClone
                 mario.BecomeBig();
                 HasBeenPickedUp = true;
                 CurrentLevel.ToRemoveGameObject(this);
-                _coinPickUpSound.Play();
             }
         }
 
         public override void Update()
         {
+            //Update hitbox to match current position
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
 
+            //Add gravity to vertical velocity
             VelocityY += Gravity;
 
+            //Check collision and change direction if needed
             float vX;
             float vY;
 
@@ -72,8 +80,7 @@ namespace SuperMarioClone
             }
             VelocityY = vY;
 
-
-
+            //Update position
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
         }   
     }

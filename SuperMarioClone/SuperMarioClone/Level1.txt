@@ -32,11 +32,14 @@ Coin: 34, 26
 Coin: 38, 31
 Coin: 39, 31
 
-//Stuff
+//Enemy
 Goomba: 45, 34
 Koopa: 4, 34
-MysteryBlock: 18, 31, Coin
 
-//MysteryBlocks
-MysteryBlock: 30, 31, Mushroom
-CoinBlock: 17, 31, 2
+
+//Blocks
+CoinBlock: 15, 31, 0
+CoinBlock: 16, 31, 0
+CoinBlock: 17, 31, 0
+CoinBlock: 18, 31, 0
+MysteryBlock: 29, 31, Mushroom

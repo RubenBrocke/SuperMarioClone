@@ -12,37 +12,47 @@ namespace SuperMarioClone
 {
     class Shell : Tangible, IMovable, ISolid
     {
-        private bool HasBeenPickedUp { get; set; }
-
+        //Implementation of IMovable
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }
         public float JumpVelocity { get; private set; }
         public float Gravity { get; private set; }
 
-        private float _speed = 3f;
+        //Private fields
+        private float _speed;
         private Animator _animator;
+        private Texture2D _spriteSheet;
 
         public Shell(float x, float y, Level level, ContentManager contentManager) : base()
         {
-            Gravity = 0.3f;
-            CurrentLevel = level;
-            VelocityX = _speed;
+            //Properties and private fields are set
             Position = new Vector2(x, y);
-            _animator = new Animator(contentManager.Load<Texture2D>("koopasheet"), 110);
-            _animator.GetTextures(64, 0, 16, 16, 4, 1);
+            CurrentLevel = level;
+
+            Gravity = 0.3f;
+
+            _speed = 3f;
+
+            //Sprite, animation and hitbox are set
+            _spriteSheet = contentManager.Load<Texture2D>("GreenShellSheet");
+            _animator = new Animator(_spriteSheet, 110);
+            _animator.GetTextures(0, 0, 16, 16, 4, 1);
+            _animator.PauseAnimation();
             Sprite = _animator.GetCurrentTexture();
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
         }
 
         public override void Update()
         {
+            //Update hitbox to match current position
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
 
+            //Add gravity to vertical velocity
             VelocityY += Gravity;
 
+            //Check collision and change direction if needed
             float vX;
             float vY;
-
             if (CheckCollision(this, out vX, out vY))
             {
                 if (VelocityX > 0)
@@ -58,35 +68,40 @@ namespace SuperMarioClone
             }
             VelocityY = vY;
 
+            //Update position
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
+
+            //Update sprite
             Sprite = _animator.GetCurrentTexture();
         }
 
-        public void CheckHit(Mario m)
+        public void CheckHit(Mario mario)
         {
-            Console.WriteLine(m.VelocityY);
-            if (m.VelocityY > 0.5)
+            if (mario.VelocityY > 0.5)
             {
                 VelocityX = 0;
+                _animator.PauseAnimation();
             }
             else
             {
-                if (VelocityX == 0 && m.Hitbox.Y > Hitbox.Y - m.Hitbox.Height)
+                if (VelocityX == 0 && mario.Hitbox.Y > Hitbox.Y - mario.Hitbox.Height)
                  {
-                    if (m.VelocityX > 0)
+                    if (mario.VelocityX > 0)
                     {
                         VelocityX = _speed;
+                        _animator.UnpauseAnimation();
                     }
-                    else if (m.VelocityX < 0)
+                    else if (mario.VelocityX < 0)
                     {
                         VelocityX = -_speed;
+                        _animator.UnpauseAnimation();
                     }
                 }
                 else
                 {
-                    if (m.Hitbox.Y >= Hitbox.Y - Hitbox.Height)
+                    if (mario.Hitbox.Y >= Hitbox.Y - Hitbox.Height)
                     {
-                        m.LoseLife();
+                        mario.LoseLife();
                     }
                 }
             }

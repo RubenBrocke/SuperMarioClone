@@ -17,27 +17,33 @@ namespace SuperMarioClone
         public float JumpVelocity { get; private set; }
         public float Gravity { get; private set; }
 
-        private Animator _animator;
-        private float _speed = 0.5f;
-        private GameObjectFactory _factory;
-        private ContentManager _contentManager;
+        private float _speed;
         private bool _isHit;
+        private ContentManager _contentManager;
+        private Texture2D _spriteSheet;
+        private Animator _animator;
 
         public Koopa(float x, float y, Level level, ContentManager contentManager)
         {
-            _isHit = false;
-            _factory = new GameObjectFactory();
-            _contentManager = contentManager;
-            _animator = new Animator(contentManager.Load<Texture2D>("koopasheet"), 200);
-            _animator.GetTextures(0, 0, 16, 27, 2, 1);
-            Sprite = _animator.GetCurrentTexture();
-            Gravity = 0.3f;
+            //Properties and private fields are set
             Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             CurrentLevel = level;
-            VelocityX = 2f;
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
-            _horizontalPadding = 1;
+
+            _speed = 0.5f;
+            VelocityX = _speed;
+            Gravity = 0.3f;
+
+            _horizontalPadding = 1; //FIXME Waarom heeft Koopa een padding?
             _verticalPadding = 0;
+            _isHit = false;
+            _contentManager = contentManager;
+
+            //Sprite, animation and hitbox are set
+            _spriteSheet = contentManager.Load<Texture2D>("GreenKoopaSheet");
+            _animator = new Animator(_spriteSheet, 200);
+            _animator.GetTextures(0, 0, Global.Instance.GridSize, _spriteSheet.Height, 2, 1);
+            Sprite = _animator.GetCurrentTexture();
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
         }
 
         public override void Update()
@@ -47,6 +53,7 @@ namespace SuperMarioClone
             VelocityY += Gravity;
             float vX;
             float vY;
+            Console.WriteLine(VelocityX);
 
             if (CheckCollision(this, out vX, out vY))
             {
