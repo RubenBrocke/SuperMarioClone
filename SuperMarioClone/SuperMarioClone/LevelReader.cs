@@ -16,6 +16,7 @@ namespace SuperMarioClone
 
         public LevelReader(ContentManager contentManager)
         {
+            //Private fields are set
             _contentManager = contentManager;
             _gameObjectFactory = new GameObjectFactory();
         }

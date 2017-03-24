@@ -25,9 +25,13 @@ namespace SuperMarioClone
         private SoundEffect _coinPickUpSound;
        
         private Animator _animator;
+        private int _hitBoxWidth;
+        private int _hitBoxHeight;
 
         public Coin(int x, int y, Level level, ContentManager contentManager) : base()
         {
+            _hitBoxWidth = Global.Instance.GridSize / 4 * 3;
+            _hitBoxHeight = Global.Instance.GridSize;
             Gravity = 0.3f;
             Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             CurrentLevel = level;
@@ -38,10 +42,10 @@ namespace SuperMarioClone
             _animator.GetTextures(0, 0, 16, 16, 4, 1);
             Sprite = _animator.GetCurrentTexture();
             _coinPickUpSound = contentManager.Load<SoundEffect>("Pling");
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, 12, 16); // fix the magic numbers
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitBoxWidth, _hitBoxHeight); 
         }
 
-        public void AddCoin(Mario mario)
+        public void AddCoin(Mario mario) // FIX THE GODDAMN DEATHTIMER PLEASE, IT CREATES WAY TO MUCH ERRORS, THANK YOU
         {
             if (!HasBeenPickedUp)
             {
