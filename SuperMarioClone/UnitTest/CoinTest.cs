@@ -33,5 +33,13 @@ namespace UnitTest
             _coin.AddCoin(_mario);
             Assert.AreEqual(_mario.Coins, 1);
         }
+
+        [TestMethod]
+        public void Coin_AddCoin2()
+        {
+            Init();
+            _coin.AddCoin(_mario);
+            Assert.AreEqual(_mario.Coins, 1);
+        }
     }
 }
