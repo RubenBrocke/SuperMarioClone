@@ -27,7 +27,7 @@ namespace SuperMarioClone
             None            
         }
 
-        public Collider(int x, int y, int width, int height,Tangible collisionObject, bool isSolid, Action<Tangible> whenHit)
+        public Collider(int x, int y, int width, int height, Tangible collisionObject, bool isSolid, Action<Tangible> whenHit)
         {
             _hitbox = new Rectangle(x, y, width, height);
             _whenHit = whenHit;
@@ -41,7 +41,7 @@ namespace SuperMarioClone
             collDirection = CollisionDirection.None; 
             foreach (Tangible t in MainGame.currentLevel.GameObjects)
             {
-                Rectangle testRect = new Rectangle((int)t.collider._hitbox.X - x, (int)t.collider._hitbox.Y - y, t.collider._hitbox.Width, t.collider._hitbox.Height);
+                Rectangle testRect = new Rectangle(t.collider._hitbox.X - x, t.collider._hitbox.Y - y, t.collider._hitbox.Width, t.collider._hitbox.Height);
                 if (_hitbox.Intersects(testRect) && t != _collisionObject)
                 {
                     //Check if solid
