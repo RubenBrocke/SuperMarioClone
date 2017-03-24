@@ -39,8 +39,13 @@ namespace SuperMarioClone
         {
             bool returnBool = false;
             collDirection = CollisionDirection.None; 
-            foreach (Tangible t in MainGame.currentLevel.GameObjects)
+            foreach (GameObject o in MainGame.currentLevel.GameObjects)
             {
+                if (!(o is Tangible))
+                {
+                    continue;
+                }
+                Tangible t = (Tangible)o;
                 Rectangle testRect = new Rectangle(t.collider._hitbox.X - x, t.collider._hitbox.Y - y, t.collider._hitbox.Width, t.collider._hitbox.Height);
                 if (_hitbox.Intersects(testRect) && t != _collisionObject)
                 {
