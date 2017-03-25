@@ -28,8 +28,7 @@ namespace SuperMarioClone
         public virtual void Update()
         {
 
-        }
-        
+        }        
     } 
 }
 

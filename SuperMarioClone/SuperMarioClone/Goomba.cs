@@ -45,14 +45,36 @@ namespace SuperMarioClone
         public override void Update()
         {
             //Update hitbox to match current position
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
+            UpdateHitbox();
 
             //Add gravity to vertical velocity
-            VelocityY += Gravity;
+            AddGravity();
 
             //Check collision and change direction if needed
+            CollisionCheck();
+
+            //Update position
+            UpdatePosition();
+
+            //Update sprite
+            UpdateSprite();
+        }  
+        
+        private void UpdateHitbox()
+        {
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
+        }
+
+        private void AddGravity()
+        {
+            VelocityY += Gravity;
+        }
+
+        private void CollisionCheck()
+        {
             float vX;
             float vY;
+
             if (CheckCollision(this, out vX, out vY))
             {
                 if (VelocityX > 0)
@@ -67,20 +89,25 @@ namespace SuperMarioClone
                 }
             }
             VelocityY = vY;
+        }
 
-            //Update position
+        private void UpdatePosition()
+        {
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
+        }
 
-            //Update sprite
+        private void UpdateSprite()
+        {
             Sprite = _animator.GetCurrentTexture();
-        }  
-        
+        }
+
         public void CheckDeath(Mario mario, float vY)
         {
             if (vY > 0)
             {
                 CurrentLevel.ToRemoveGameObject(this);
-            }else
+            }
+            else
             {
                 mario.LoseLife();
             }
