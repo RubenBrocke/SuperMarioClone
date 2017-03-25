@@ -33,7 +33,7 @@ namespace SuperMarioClone
             VelocityX = _speed;
             Gravity = 0.3f;
 
-            _horizontalPadding = 1; //FIXME Waarom heeft Koopa een padding?
+            _horizontalPadding = 1; //FIXME: Waarom heeft Koopa een padding?
             _verticalPadding = 0;
             _isHit = false;
             _contentManager = contentManager;
@@ -48,12 +48,36 @@ namespace SuperMarioClone
 
         public override void Update()
         {
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
+            //Update hitbox to match current position
+            UpdateHitbox();
 
+            //Add gravity to vertical velocity
+            AddGravity();
+
+            //Check collision and change direction if needed
+            CollisionCheck();
+
+            //Update position
+            UpdatePosition();
+
+            //Update sprite
+            UpdateSprite();
+        }
+
+        private void UpdateHitbox()
+        {
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
+        }
+
+        private void AddGravity()
+        {
             VelocityY += Gravity;
+        }
+
+        private void CollisionCheck()
+        {
             float vX;
             float vY;
-            Console.WriteLine(VelocityX);
 
             if (CheckCollision(this, out vX, out vY))
             {
@@ -69,8 +93,15 @@ namespace SuperMarioClone
                 }
             }
             VelocityY = vY;
+        }
 
+        private void UpdatePosition()
+        {
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
+        }
+
+        private void UpdateSprite()
+        {
             Sprite = _animator.GetCurrentTexture();
         }
 
