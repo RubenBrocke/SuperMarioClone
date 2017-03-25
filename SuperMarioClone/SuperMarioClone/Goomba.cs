@@ -109,7 +109,7 @@ namespace SuperMarioClone
             }
             else
             {
-                mario.LoseLife();
+                mario.GetHit();
             }
         }
     }
