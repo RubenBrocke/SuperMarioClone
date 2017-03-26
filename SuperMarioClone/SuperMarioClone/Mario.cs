@@ -43,6 +43,7 @@ namespace SuperMarioClone
         private int _hitboxWidth;
         private int _hitboxHeight;
 
+        //Enumerators
         public enum State
         {
             Idle,
@@ -58,8 +59,7 @@ namespace SuperMarioClone
         {
             Small,
             Big,
-            Flower,
-            Tanuki
+            Flower
         }
 
         public Mario(int x, int y, Level level, ContentManager contentManager, int lives = 3, int coins = 0) : base()
@@ -107,7 +107,7 @@ namespace SuperMarioClone
             }
             else
             {
-                //Add score to mario in exchange for not being able to become big (he already is)
+                //TODO: Add score to mario in exchange for not being able to become big (he already is)
             }
 
         }
@@ -146,7 +146,7 @@ namespace SuperMarioClone
             Hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
         }
 
-        public override void Update()
+        public override void Update()   //TODO: split in seperate functions
         {
             //Update hitbox to match current position and State
             UpdateHitBox();
@@ -321,9 +321,6 @@ namespace SuperMarioClone
                         break;
                     case Form.Flower:
                         CurrentForm--;
-                        break;
-                    case Form.Tanuki:
-                        CurrentForm -= 2;
                         break;
                     default:
                         break;

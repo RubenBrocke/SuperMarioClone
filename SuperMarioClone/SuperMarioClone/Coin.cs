@@ -45,7 +45,7 @@ namespace SuperMarioClone
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitBoxWidth, _hitBoxHeight); 
         }
 
-        public void AddCoin(Mario mario) // FIX THE GODDAMN DEATHTIMER PLEASE, IT CREATES WAY TO MUCH ERRORS, THANK YOU
+        public void AddCoin(Mario mario) //TODO:  FIX THE GODDAMN DEATHTIMER PLEASE, IT CREATES WAY TO MUCH ERRORS, THANK YOU
         {
             if (!HasBeenPickedUp)
             {
