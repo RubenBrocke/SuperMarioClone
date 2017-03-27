@@ -18,6 +18,8 @@ namespace SuperMarioClone
         //Implementation of IMovable
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }
+        public float BigJumpVelocity { get; private set; }
+        public float SmallJumpVelocity { get; private set;  }
         public float JumpVelocity { get; private set; }
         public float Gravity { get; private set; }
 
@@ -65,7 +67,7 @@ namespace SuperMarioClone
         public Mario(int x, int y, Level level, ContentManager contentManager, int lives = 3, int coins = 0) : base()
         {
             /*
-             WATCH OUT ITS A BOA CONSTRUCTOR
+             WATCH OUT ITS A BOA CONSTRUCTOR!
                       __    __    __    __
                      /  \  /  \  /  \  /  \
 ____________________/  __\/  __\/  __\/  __\_____________________________
@@ -80,6 +82,8 @@ ___________________/  /__/  /__/  /__/  /________________________________
             CurrentLevel = level;
 
             JumpVelocity = 6.25f;
+            BigJumpVelocity = 6.85f;
+            SmallJumpVelocity = 6.25f;
             Gravity = 0.3f;
 
             Lives = lives;
@@ -114,13 +118,14 @@ ___________________/  /__/  /__/  /__/  /________________________________
             if (CurrentForm == Form.Small)
             {
                 CurrentForm = Form.Big;
+                JumpVelocity = BigJumpVelocity;
                 UpdateHitBox();
             }
             else
             {
                 //TODO: Add score to mario in exchange for not being able to become big (he already is)
             }
-
+            Console.WriteLine("big" + VelocityY);
         }
 
         private void UpdateHitBox()
@@ -313,7 +318,8 @@ ___________________/  /__/  /__/  /__/  /________________________________
             if (_jumpSound != null)
             {
                 _jumpSound.Play();
-            }   
+            }
+            Console.WriteLine(VelocityY);
         }
 
         public void GetHit()
@@ -328,6 +334,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
                     case Form.Big:
                         _isInvincible = true;
                         _invincibilityTimer.Change(300, Timeout.Infinite);
+                        JumpVelocity = SmallJumpVelocity;
                         CurrentForm--;
                         break;
                     case Form.Flower:
