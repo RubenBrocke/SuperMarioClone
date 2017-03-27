@@ -2,6 +2,8 @@
 TransFloor: 23, 29, 5, 27
 TransFloor: 21, 31, 4, 27
 TransFloor: 24, 34, 3, 27
+TransFloor: 48, 34, 6, 10
+
 
 //Floors
 //X, Y, WIDTH, HEIGHT
@@ -42,4 +44,8 @@ CoinBlock: 15, 31, 0
 CoinBlock: 16, 31, 0
 CoinBlock: 17, 31, 0
 CoinBlock: 18, 31, 0
-MysteryBlock: 29, 31, Mushroom
+CoinBlock: 50, 27, 0
+CoinBlock: 51, 27, 0
+CoinBlock: 52, 27, 0
+MysteryBlock: 29, 31, Coin
+MysteryBlock: 57, 28, Mushroom

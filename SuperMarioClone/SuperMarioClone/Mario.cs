@@ -18,6 +18,8 @@ namespace SuperMarioClone
         //Implementation of IMovable
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }
+        public float BigJumpVelocity { get; private set; }
+        public float SmallJumpVelocity { get; private set;  }
         public float JumpVelocity { get; private set; }
         public float Gravity { get; private set; }
 
@@ -64,11 +66,24 @@ namespace SuperMarioClone
 
         public Mario(int x, int y, Level level, ContentManager contentManager, int lives = 3, int coins = 0) : base()
         {
+            /*
+             WATCH OUT ITS A BOA CONSTRUCTOR!
+                      __    __    __    __
+                     /  \  /  \  /  \  /  \
+____________________/  __\/  __\/  __\/  __\_____________________________
+___________________/  /__/  /__/  /__/  /________________________________
+                   | / \   / \   / \   / \  \____
+                   |/   \_/   \_/   \_/   \    o \
+                                           \_____/--<
+            */
+
             //Properties and private fields are set
             Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             CurrentLevel = level;
 
             JumpVelocity = 6.25f;
+            BigJumpVelocity = 6.85f;
+            SmallJumpVelocity = 6.25f;
             Gravity = 0.3f;
 
             Lives = lives;
@@ -105,13 +120,14 @@ namespace SuperMarioClone
             if (CurrentForm == Form.Small)
             {
                 CurrentForm = Form.Big;
+                JumpVelocity = BigJumpVelocity;
                 UpdateHitBox();
             }
             else
             {
                 //TODO: Add score to mario in exchange for not being able to become big (he already is)
             }
-
+            Console.WriteLine("big" + VelocityY);
         }
 
         private void UpdateHitBox()
@@ -309,7 +325,8 @@ namespace SuperMarioClone
             if (_jumpSound != null)
             {
                 _jumpSound.Play();
-            }   
+            }
+            Console.WriteLine(VelocityY);
         }
 
         public void GetHit()
@@ -324,6 +341,7 @@ namespace SuperMarioClone
                     case Form.Big:
                         _isInvincible = true;
                         _invincibilityTimer.Change(300, Timeout.Infinite);
+                        JumpVelocity = SmallJumpVelocity;
                         CurrentForm--;
                         break;
                     case Form.Flower:

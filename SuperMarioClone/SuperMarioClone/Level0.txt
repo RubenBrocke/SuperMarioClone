@@ -4,10 +4,8 @@ Floor: -1, -50, 1, 100
 MysteryBlock: 4, 31, LevelReader
 CoinBlock: 5, 31, 1000
 
-
-
-MysteryBlock 32, 35, Coin
-MysteryBlock 32, 34, Coin
+MysteryBlock: 32, 35, Coin
+MysteryBlock: 32, 34, Coin
 MysteryBlock: 32, 33, Coin
 MysteryBlock: 32, 32, Coin
 MysteryBlock: 32, 31, Coin
