@@ -66,6 +66,7 @@ namespace SuperMarioClone
 
         public Mario(int x, int y, Level level, ContentManager contentManager, int lives = 3, int coins = 0) : base()
         {
+<<<<<<< HEAD
             /*
              WATCH OUT ITS A BOA CONSTRUCTOR!
                       __    __    __    __
@@ -77,6 +78,8 @@ ___________________/  /__/  /__/  /__/  /________________________________
                                            \_____/--<
             */
 
+=======
+>>>>>>> origin/master
             //Properties and private fields are set
             Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
             CurrentLevel = level;
