@@ -52,11 +52,11 @@ namespace SuperMarioClone
                 Timer deathTimer = new Timer(DeleteCoin);
                 if (IsMysteryCoin)
                 {
-                    deathTimer.Change(100, 0);
+                    deathTimer.Change(100, Timeout.Infinite);
                 }
                 else
                 {
-                    deathTimer.Change(0, 0);
+                    deathTimer.Change(0, Timeout.Infinite);
                 }
                 mario.AddCoin();
                 HasBeenPickedUp = true;                
