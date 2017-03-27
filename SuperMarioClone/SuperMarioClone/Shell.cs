@@ -127,7 +127,7 @@ namespace SuperMarioClone
                 {
                     if (mario.Hitbox.Y >= Hitbox.Y - Hitbox.Height)
                     {
-                        mario.LoseLife();
+                        mario.GetHit();
                     }
                 }
             }

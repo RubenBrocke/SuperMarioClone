@@ -34,6 +34,8 @@ namespace SuperMarioClone
         private float _xSpeedMax;
         private float _ySpeedMax;
         private bool _jumpWasPressed;
+        private bool _isInvincible;
+        private Timer _invincibilityTimer;
         private Texture2D _spriteSheet;
         private SoundEffect _jumpSound;
         private SpriteFont _font;
@@ -41,6 +43,7 @@ namespace SuperMarioClone
         private int _hitboxWidth;
         private int _hitboxHeight;
 
+        //Enumerators
         public enum State
         {
             Idle,
@@ -56,8 +59,7 @@ namespace SuperMarioClone
         {
             Small,
             Big,
-            Flower,
-            Tanuki
+            Flower
         }
 
         public Mario(int x, int y, Level level, ContentManager contentManager, int lives = 3, int coins = 0) : base()
@@ -80,9 +82,11 @@ namespace SuperMarioClone
             _xSpeedMax = 3.5f;
             _ySpeedMax = 10f;
             _jumpWasPressed = false;
+            _isInvincible = false;
+            _invincibilityTimer = new Timer(UnInvincify);
 
             //Sprite, animation, sound, font and hitbox are set
-            _spriteSheet = _contentManager.Load<Texture2D>("MarioSheetRight");
+            _spriteSheet = _contentManager.Load<Texture2D>("MarioSheet");
             _animator = new Animator(_spriteSheet);
             _jumpSound = _contentManager.Load<SoundEffect>("Oink1");
             _font = contentManager.Load<SpriteFont>("Font");
@@ -101,28 +105,53 @@ namespace SuperMarioClone
             if (CurrentForm == Form.Small)
             {
                 CurrentForm = Form.Big;
+                UpdateHitBox();
             }
             else
             {
-                //Add score to mario in exchange for not being able to become big (he already is)
+                //TODO: Add score to mario in exchange for not being able to become big (he already is)
             }
 
         }
 
-        public override void Update()
+        private void UpdateHitBox()
         {
-            //Update hitbox to match current position and State
-            if (CurrentState == State.Crouching)
+            if (CurrentState == State.Crouching && CurrentForm == Form.Small)
             {
-                _verticalPadding = 10;
+                _hitboxWidth = 14;
                 _hitboxHeight = 14;
+                _horizontalPadding = 1;
+                _verticalPadding = 18;
+            }
+            else if (CurrentState == State.Crouching && CurrentForm == Form.Big)
+            {
+                _hitboxWidth = 14;
+                _hitboxHeight = 15;
+                _horizontalPadding = 2;
+                _verticalPadding = 17;
+            }
+            else if (CurrentForm == Form.Big)
+            {
+
+                _hitboxWidth = 16;
+                _hitboxHeight = 28;
+                _horizontalPadding = 2;
+                _verticalPadding = 4;
             }
             else
             {
-                _verticalPadding = 4;
+                _hitboxWidth = 14;
                 _hitboxHeight = 20;
+                _horizontalPadding = 1;
+                _verticalPadding = 12;
             }
             Hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
+        }
+
+        public override void Update()   //TODO: split in seperate functions
+        {
+            //Update hitbox to match current position and State
+            UpdateHitBox();
 
             //Add gravity to vertical velocity
             VelocityY += Gravity;
@@ -214,7 +243,7 @@ namespace SuperMarioClone
             {
                 if (!_jumpWasPressed)
                 {
-                    if (IsColliding(CurrentLevel, 0, 1, out collObject))
+                    if (IsColliding(CurrentLevel, 0, 1, out collObject) && VelocityY <= Gravity && VelocityY >= -Gravity)
                     {
                         Jump();
                     }
@@ -283,7 +312,36 @@ namespace SuperMarioClone
             }   
         }
 
-        public void LoseLife()
+        public void GetHit()
+        {
+            if (!_isInvincible)
+            {
+                switch (CurrentForm)
+                {
+                    case Form.Small:
+                        Die();
+                        break;
+                    case Form.Big:
+                        _isInvincible = true;
+                        _invincibilityTimer.Change(300, Timeout.Infinite);
+                        CurrentForm--;
+                        break;
+                    case Form.Flower:
+                        CurrentForm--;
+                        break;
+                    default:
+                        break;
+                } 
+            }
+        }
+
+        private void UnInvincify(object state)
+        {
+            _isInvincible = false;
+            _invincibilityTimer.Change(Timeout.Infinite, Timeout.Infinite);
+        }
+
+        public void Die()
         {
             Lives--;
             LevelReader lr = new LevelReader(_contentManager);
@@ -298,39 +356,56 @@ namespace SuperMarioClone
 
         private void UpdateSprite()
         {
+            int spriteWidth = 16;
+            int spriteHeight = 32;
+            int offSetY = 0;
+            if (CurrentForm == Form.Big)
+            {
+                spriteWidth = 20;
+                spriteHeight = 32;
+                offSetY = 32;
+            }
             switch (CurrentState)
             {
                 case State.Idle:
                     _animator.SetAnimationSpeed(0);
-                    _animator.GetTextures(0, 0, 16, 24, 1, 1);
+                    _animator.GetTextures(6 * spriteWidth, offSetY, spriteWidth, spriteHeight, 1, 1);
                     break;
                 case State.Crouching:
                     _animator.SetAnimationSpeed(0);
-                    _animator.GetTextures(112, 0, 16, 24, 1, 1);
+                    _animator.GetTextures(5 * spriteWidth, offSetY, spriteWidth, spriteHeight, 1, 1);
                     break;
                 case State.Walking:
-                    _animator.SetAnimationSpeed(190);
-                    _animator.GetTextures(0, 0, 16, 24, 2, 1);
+                    if (CurrentForm == Form.Big)
+                    {
+                        _animator.SetAnimationSpeed(190);
+                        _animator.GetTextures(6 * spriteWidth, offSetY, spriteWidth, spriteHeight, 3, 1);
+                    }
+                    else
+                    {
+                        _animator.SetAnimationSpeed(190);
+                        _animator.GetTextures(6 * spriteWidth, offSetY, spriteWidth, spriteHeight, 2, 1);
+                    }
                     break;
                 case State.Running:
                     _animator.SetAnimationSpeed(80);
-                    _animator.GetTextures(32, 0, 16, 24, 2, 1);
+                    _animator.GetTextures(0 * spriteWidth, offSetY, spriteWidth, spriteHeight, 2, 1);
                     break;
                 case State.Jumping:
                     _animator.SetAnimationSpeed(0);
-                    _animator.GetTextures(80, 0, 16, 24, 1, 1);
+                    _animator.GetTextures(3 * spriteWidth, offSetY, spriteWidth, spriteHeight, 1, 1);
                     break;
                 case State.Falling:
                     _animator.SetAnimationSpeed(0);
-                    _animator.GetTextures(64, 0, 16, 24, 1, 1);
+                    _animator.GetTextures(2 * spriteWidth, offSetY, spriteWidth, spriteHeight, 1, 1);
                     break;
                 case State.FallingStraight:
                     _animator.SetAnimationSpeed(0);
-                    _animator.GetTextures(96, 0, 16, 24, 1, 1);
+                    _animator.GetTextures(4 * spriteWidth, offSetY, spriteWidth, spriteHeight, 1, 1);
                     break;
                 default:
                     _animator.SetAnimationSpeed(0);
-                    _animator.GetTextures(0, 0, 16, 24, 1, 1);
+                    _animator.GetTextures(6 * spriteWidth, offSetY, spriteWidth, spriteHeight, 1, 1);
                     break;
             }
             Sprite = _animator.GetCurrentTexture();

@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMarioClone
 {
+    //TODO: Make the camara work like in SMW
     public class Camera
     {
         private Viewport _viewport;

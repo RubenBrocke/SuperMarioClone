@@ -4,12 +4,15 @@ TransFloor: 21, 31, 4, 27
 TransFloor: 24, 34, 3, 27
 
 //Floors
-Floor: 32, 31, 3, 7
-Floor: 40, 32, 4, 7
-Floor: 48, 31, 2, 7
-Floor: 0, 36, 200, 4
+//X, Y, WIDTH, HEIGHT
 Floor: -1, -50, 1, 100
-Floor: 50, 0, 4, 50
+Floor: 32, 29, 2, 8
+Floor: 36, 29, 2, 8
+Floor: 38, 32, 2, 5
+Floor: 40, 34, 2, 3
+Floor: 0, 36, 34, 4
+Floor: 36, 36, 200, 4
+
 
 //Coins
 Coin: 6, 33
@@ -23,9 +26,6 @@ Coin: 10, 34
 Coin: 9, 31
 Coin: 9, 35
 Coin: 24, 27
-Coin: 32, 30
-Coin: 33, 30
-Coin: 34, 30
 Coin: 32, 26
 Coin: 33, 26
 Coin: 34, 26

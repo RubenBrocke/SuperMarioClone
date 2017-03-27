@@ -102,6 +102,7 @@ namespace SuperMarioClone
             bool result = false;
             velocityX = movableObject.VelocityX;
             velocityY = movableObject.VelocityY;
+
             //Horizontal collision
             if (IsColliding(CurrentLevel, (int)Math.Ceiling(velocityX), 0, out collObject) || IsColliding(CurrentLevel, (int)Math.Floor(velocityX), 0, out collObject))
             {
