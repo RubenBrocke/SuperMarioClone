@@ -4,14 +4,17 @@ TransFloor: 21, 31, 4, 27
 TransFloor: 24, 34, 3, 27
 TransFloor: 48, 34, 6, 10
 
+//REPLACE WITH STONES
+TransFloor: 40, 34, 2, 8
+TransFloor: 38, 32, 2, 8
+TransFloor: 36, 29, 2, 8
+
 
 //Floors
 //X, Y, WIDTH, HEIGHT
-Floor: -1, -50, 1, 100
 Floor: 32, 29, 2, 8
-Floor: 36, 29, 2, 8
-Floor: 38, 32, 2, 5
-Floor: 40, 34, 2, 3
+//Essential floors, bottom and left
+Floor: -1, -50, 1, 100
 Floor: 0, 36, 34, 4
 Floor: 36, 36, 200, 4
 
@@ -33,6 +36,7 @@ Coin: 33, 26
 Coin: 34, 26
 Coin: 38, 31
 Coin: 39, 31
+
 
 //Enemy
 Goomba: 45, 34
