@@ -71,6 +71,10 @@ namespace SuperMarioClone
                                 Koopa k = (Koopa)o;
                                 k.CheckDeath(m, m.VelocityY);
                             }
+                            if (o is Muncher)
+                            {
+                                m.GetHit();
+                            }
                         }
                         if (this is Goomba)
                         {

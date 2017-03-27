@@ -58,6 +58,7 @@
     <Compile Include="IMovable.cs" />
     <Compile Include="ISolid.cs" />
     <Compile Include="Koopa.cs" />
+    <Compile Include="Muncher.cs" />
     <Compile Include="Mushroom.cs" />
     <Compile Include="MysteryBlock.cs" />
     <Compile Include="Floor.cs" />
