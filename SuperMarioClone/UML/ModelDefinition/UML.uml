@@ -549,7 +549,22 @@
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="06cd9c40-0b39-4ce2-9348-20cef105cea5"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
             Id="887b1466-d832-4ec7-b2d3-8c8c84536927"
             name="Draw"
@@ -2629,6 +2644,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="0664078b-494a-4600-baf2-5595d9d4c6d9"
+            isDerived="false"
+            sourceEndRoleName="LevelReader"
+            targetEndRoleName="GameObjectFactory"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="8f5ae7e4-792c-437a-acc9-62d2f3f7ae4e"
+              LastKnownName="GameObjectFactory"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9dbb4e79-ecc4-436b-841e-7285103c3269"
+                  name="LevelReader"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d022a05c-7a89-4fce-960d-469dad609031"
+                  name="GameObjectFactory"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedOperationsInternal>
           <operation
@@ -3142,6 +3196,30 @@
                     <undefinedTypeMoniker
                       Id="0af45d80-eb62-47e1-93fd-58158bfac693"
                       LastKnownName="Texture2D"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="797ea651-b145-4e20-8721-ff060f659984"
+            name="SetAnimationSpeed"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5fe1843b-70d5-43cd-93c5-8fc000104c89"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
                       LastKnownLocation="UML.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -4330,6 +4408,169 @@
             name="Flower" />
         </ownedLiterals>
       </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8f5ae7e4-792c-437a-acc9-62d2f3f7ae4e"
+        name="GameObjectFactory"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="74b54685-88d9-42ec-9a79-47ab9c1d41f3"
+            isDerived="false"
+            sourceEndRoleName="GameObjectFactory"
+            targetEndRoleName="ArgumentResolver"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="e0efc6dd-b981-4889-a328-b9d17599c989"
+              LastKnownName="ArgumentResolver"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4826b74d-9731-480c-b4e9-6566198084f1"
+                  name="GameObjectFactory"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7aea7e4e-a3e5-43cd-b077-46b633f04295"
+                  name="ArgumentResolver"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="e3bafcd0-7ff2-4cdd-8dde-ae399ddd5aed"
+            name="_argumentResolver"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="e0efc6dd-b981-4889-a328-b9d17599c989"
+                LastKnownName="ArgumentResolver"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="fffbed1d-ed98-4250-af80-9c7eb1cdb485"
+            name="Fabricate"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5f105e3a-9825-4655-8ded-76144dc01b71"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="7385f8e2-9e2a-497f-81d2-6229e5e1c00d"
+                      LastKnownName="GameObject"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a6ccb03b-490a-46f3-b58d-35f84af44a62"
+            name="GameObjectFactory"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e0efc6dd-b981-4889-a328-b9d17599c989"
+        name="ArgumentResolver"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="f0963947-b40c-454f-a224-49c32a67e2b2"
+            name="Resolve"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3fb9288e-3587-4e12-9717-2df3648fe44b"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0cc948de-fd08-4a12-8e31-c79d823e600c"
+                      LastKnownName="List&lt;object&gt;"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fdb5ae1b-5755-42ca-aa65-4fb560037390"
+                  name="args"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="ff7c5f52-5ab1-48b2-a017-bf69225e6f89"
+                      LastKnownName="string[]"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="0cc948de-fd08-4a12-8e31-c79d823e600c"
+        name="List&lt;object&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="ff7c5f52-5ab1-48b2-a017-bf69225e6f89"
+        name="string[]" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
