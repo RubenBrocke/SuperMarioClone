@@ -275,6 +275,12 @@ ___________________/  /__/  /__/  /__/  /________________________________
             //Update position
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
 
+            //Kills Mario when he falls out of the map
+            if (Position.Y > 640)
+            {
+                Die();
+            }
+
             //Focus camera on Mario
             MainGame.camera.LookAt(Position);
 

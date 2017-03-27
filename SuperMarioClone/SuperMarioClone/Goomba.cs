@@ -28,10 +28,10 @@ namespace SuperMarioClone
             CurrentLevel = level;
 
             _speed = 2f;
-            VelocityX = _speed;
+            VelocityX = -_speed;
             Gravity = 0.3f;
 
-            _horizontalPadding = 1; //FIXME Waarom heeft Goomba een padding?
+            _horizontalPadding = 1; //FIXME: Waarom heeft Goomba een padding?
             _verticalPadding = 0;
 
             //Sprite, animation and hitbox are set
