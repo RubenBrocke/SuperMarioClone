@@ -3,16 +3,11 @@ TransFloor: 23, 29, 5, 27
 TransFloor: 21, 31, 4, 27
 TransFloor: 24, 34, 3, 27
 TransFloor: 48, 34, 6, 10
-
-//REPLACE WITH STONES
-TransFloor: 40, 34, 2, 8
-TransFloor: 38, 32, 2, 8
-TransFloor: 36, 29, 2, 8
+TransFloor: 32, 29, 2, 8
 
 
 //Floors
 //X, Y, WIDTH, HEIGHT
-Floor: 32, 29, 2, 8
 //Essential floors, bottom and left
 Floor: -1, -50, 1, 100
 Floor: 0, 36, 34, 4
@@ -34,16 +29,57 @@ Coin: 24, 27
 Coin: 32, 26
 Coin: 33, 26
 Coin: 34, 26
-Coin: 38, 31
 Coin: 39, 31
 
 
 //Enemy
-Goomba: 45, 34
 Koopa: 4, 34
+Koopa: 55, 34
+Koopa: 53, 34
+Muncher: 36, 28
+Muncher: 49, 33
 
 
 //Blocks
+StoneBlock: 10, 35
+StoneBlock: 3, 35
+StoneBlock: 36, 29
+StoneBlock: 36, 30
+StoneBlock: 36, 31
+StoneBlock: 36, 32
+StoneBlock: 36, 33
+StoneBlock: 36, 34
+StoneBlock: 36, 35
+StoneBlock: 37, 30
+StoneBlock: 37, 31
+StoneBlock: 37, 32
+StoneBlock: 37, 33
+StoneBlock: 37, 34
+StoneBlock: 37, 35
+StoneBlock: 38, 31
+StoneBlock: 38, 32
+StoneBlock: 38, 33
+StoneBlock: 38, 34
+StoneBlock: 38, 35
+StoneBlock: 39, 32
+StoneBlock: 39, 33
+StoneBlock: 39, 34
+StoneBlock: 39, 35
+StoneBlock: 40, 33
+StoneBlock: 40, 34
+StoneBlock: 40, 35
+StoneBlock: 41, 34
+StoneBlock: 41, 35
+StoneBlock: 42, 35
+StoneBlock: 60, 35
+StoneBlock: 60, 34
+StoneBlock: 60, 33
+StoneBlock: 63, 32
+StoneBlock: 64, 32
+StoneBlock: 64, 33
+StoneBlock: 64, 34
+StoneBlock: 64, 35
+
 CoinBlock: 15, 31, 0
 CoinBlock: 16, 31, 0
 CoinBlock: 17, 31, 0
@@ -51,5 +87,7 @@ CoinBlock: 18, 31, 0
 CoinBlock: 50, 27, 0
 CoinBlock: 51, 27, 0
 CoinBlock: 52, 27, 0
+
+MysteryBlock: 63, 33, Coin
 MysteryBlock: 29, 31, Coin
 MysteryBlock: 57, 28, Mushroom

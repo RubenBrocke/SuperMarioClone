@@ -82,7 +82,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             CurrentLevel = level;
 
             JumpVelocity = 6.25f;
-            BigJumpVelocity = 6.85f;
+            BigJumpVelocity = 6.70f;
             SmallJumpVelocity = 6.25f;
             Gravity = 0.3f;
 

@@ -41,7 +41,7 @@ namespace SuperMarioClone
                 c.IsMysteryCoin = true;
                 c.AddCoin(mario);
                 CurrentLevel.ToAddGameObject(c);
-                if (ContainAmount-- == 0)
+                if (ContainAmount-- <= 0)
                 {
                     _animator.GetTextures(16, 0, 16, 16, 1, 1);
                     Sprite = _animator.GetCurrentTexture();
