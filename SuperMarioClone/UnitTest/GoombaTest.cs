@@ -45,9 +45,10 @@ namespace UnitTest
         public void Goomba_CollisionCheck()
         {
             Floor f = new Floor((int)_goomba.Position.X, (int)_goomba.Position.Y + _goomba.Hitbox.Height, 200, 200, _level, _contentManager);
-            Floor f2 = new Floor((int)_goomba.Position.X - 16, (int)_goomba.Position.Y, _goomba.Hitbox.Width, _goomba.Hitbox.Height, _level, _contentManager);
+            Floor f2 = new Floor((int)_goomba.Position.X / 16 - 1, (int)_goomba.Position.Y / 16, _goomba.Hitbox.Width / 16, _goomba.Hitbox.Height / 16, _level, _contentManager);
             _level.ToAddGameObject(f);
             _level.ToAddGameObject(f2);
+            _level.UpdateLevel();
             _level.UpdateLevel();
             Assert.AreEqual(2, _goomba.VelocityX);
         }
@@ -55,9 +56,9 @@ namespace UnitTest
         [TestMethod]
         public void Goomba_UpdatePosition()
         {
-            Vector2 testPos = new Vector2(-2f, 0.3f);
+            Vector2 testPos = new Vector2(_goomba.Position.X + -2f, 0);
             _level.UpdateLevel();
-            bool isTrue = (testPos.X == _goomba.Position.X && testPos.Y == _goomba.Position.Y);
+            bool isTrue = (testPos.X == (int)_goomba.Position.X && testPos.Y == (int)_goomba.Position.Y);
             Assert.IsTrue(isTrue);
         }
     }
