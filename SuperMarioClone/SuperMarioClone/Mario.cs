@@ -125,7 +125,6 @@ ___________________/  /__/  /__/  /__/  /________________________________
             {
                 //TODO: Add score to mario in exchange for not being able to become big (he already is)
             }
-            Console.WriteLine("big" + VelocityY);
         }
 
         private void UpdateHitBox()
@@ -325,7 +324,6 @@ ___________________/  /__/  /__/  /__/  /________________________________
             {
                 _jumpSound.Play();
             }
-            Console.WriteLine(VelocityY);
         }
 
         public void GetHit()

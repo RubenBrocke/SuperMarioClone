@@ -11,10 +11,13 @@ TransFloor: 32, 29, 2, 8
 //Essential floors, bottom and left
 Floor: -1, -50, 1, 100
 Floor: 0, 36, 34, 4
-Floor: 36, 36, 200, 4
+Floor: 72, 37, 15, 6
+Floor: 36, 36, 38, 4
+Floor: 81, 36, 15, 4
 
 
 //Coins
+Coin: 77, 32
 Coin: 6, 33
 Coin: 7, 33
 Coin: 8, 33
@@ -30,14 +33,16 @@ Coin: 32, 26
 Coin: 33, 26
 Coin: 34, 26
 Coin: 39, 31
-
+Coin: 64, 29
 
 //Enemy
+Goomba: 62, 34
 Koopa: 4, 34
 Koopa: 55, 34
 Koopa: 53, 34
 Muncher: 36, 28
 Muncher: 49, 33
+Muncher: 64, 31
 
 
 //Blocks
@@ -91,3 +96,4 @@ CoinBlock: 52, 27, 0
 MysteryBlock: 63, 33, Coin
 MysteryBlock: 29, 31, Coin
 MysteryBlock: 57, 28, Mushroom
+MysteryBlock: 90, 31, LevelReader
