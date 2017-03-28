@@ -21,7 +21,7 @@ namespace UnitTest
             _level = new Level();
             _goomba = new Goomba(0, 0, _level, _contentManager);
             _level.ToAddGameObject(_goomba);
-            _level.AddGameObjects();
+            _level.UpdateLevel();
         }
 
         [TestMethod]
@@ -48,7 +48,6 @@ namespace UnitTest
             Floor f2 = new Floor((int)_goomba.Position.X - 16, (int)_goomba.Position.Y, _goomba.Hitbox.Width, _goomba.Hitbox.Height, _level, _contentManager);
             _level.ToAddGameObject(f);
             _level.ToAddGameObject(f2);
-            _level.UpdateLevel();
             _level.UpdateLevel();
             Assert.AreEqual(2, _goomba.VelocityX);
         }

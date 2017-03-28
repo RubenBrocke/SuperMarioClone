@@ -23,7 +23,7 @@ namespace UnitTest
             _coin = new Coin(1, 1, _level, _contentManager);
             _level.ToAddGameObject(_mario);
             _level.ToAddGameObject(_coin);
-            _level.AddGameObjects();
+            _level.UpdateLevel();
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace UnitTest
         public void Coin_DeleteCoin()
         {
             _coin.DeleteCoin(null);
-            _level.RemoveGameObjects();
+            _level.UpdateLevel();
             Assert.IsFalse(_level.GameObjects.Contains(_coin));
         }
     }

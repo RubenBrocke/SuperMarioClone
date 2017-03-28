@@ -36,7 +36,6 @@ namespace SuperMarioClone
                 }
             }
             level.ToAddGameObject(new Mario(1, 1, level, _contentManager));
-            level.AddGameObjects();
             lvlReader.Close();
             return level;
         }

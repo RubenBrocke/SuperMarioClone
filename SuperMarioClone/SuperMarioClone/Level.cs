@@ -20,7 +20,7 @@ namespace SuperMarioClone
             GameObjects = new List<GameObject>();
         }
 
-        public void AddGameObjects()
+        private void AddGameObjects()
         {
             lock (_toAdd)
             {
@@ -42,7 +42,7 @@ namespace SuperMarioClone
             _toRemove.Add(g);
         }
 
-        public void RemoveGameObjects()
+        private void RemoveGameObjects()
         {
             foreach (GameObject g in _toRemove)
             {
@@ -87,6 +87,7 @@ namespace SuperMarioClone
             {
                 gameObject.Update();
             }
+            AddGameObjects();
             RemoveGameObjects();
         }
     }
