@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMarioClone
 {
-    class Goomba : Tangible, IMovable
+    public class Goomba : Tangible, IMovable
     {
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }
@@ -101,9 +101,9 @@ namespace SuperMarioClone
             Sprite = _animator.GetCurrentTexture();
         }
 
-        public void CheckDeath(Mario mario, float vY)
+        public void CheckDeath(Mario mario)
         {
-            if (vY > 0)
+            if (mario.VelocityY > 0)
             {
                 CurrentLevel.ToRemoveGameObject(this);
             }

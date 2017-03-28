@@ -52,7 +52,7 @@ namespace SuperMarioClone
                 Timer deathTimer = new Timer(DeleteCoin);
                 if (IsMysteryCoin)
                 {
-                    deathTimer.Change(100, Timeout.Infinite);
+                    deathTimer.Change(200, Timeout.Infinite);
                 }
                 else
                 {

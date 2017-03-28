@@ -33,7 +33,6 @@ namespace SuperMarioClone
             VelocityX = _speed;
             Gravity = 0.3f;
 
-            _horizontalPadding = 1; //FIXME: Waarom heeft Koopa een padding?
             _verticalPadding = 0;
             _isHit = false;
             _contentManager = contentManager;

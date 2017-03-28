@@ -82,7 +82,7 @@ namespace SuperMarioClone
                             {
                                 Goomba g = (Goomba)this;
                                 Mario m = (Mario)o;
-                                g.CheckDeath(m, m.VelocityY);
+                                g.CheckDeath(m);
                             }
                         }
                         if (this is Koopa)

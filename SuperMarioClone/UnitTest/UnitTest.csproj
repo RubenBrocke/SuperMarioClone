@@ -64,6 +64,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="GoombaTest.cs" />
     <Compile Include="MockClasses\TestContentManager.cs" />
     <Compile Include="MockClasses\TestGraphicsDeviceService.cs" />
     <Compile Include="MockClasses\TestItems.cs" />

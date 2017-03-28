@@ -82,11 +82,11 @@ namespace SuperMarioClone
 
         public void UpdateLevel()
         {
+            AddGameObjects();
             foreach (GameObject gameObject in GameObjects)
             {
                 gameObject.Update();
             }
-            AddGameObjects();
             RemoveGameObjects();
         }
     }
