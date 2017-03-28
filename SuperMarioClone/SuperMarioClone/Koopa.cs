@@ -33,7 +33,6 @@ namespace SuperMarioClone
             VelocityX = _speed;
             Gravity = 0.3f;
 
-            _verticalPadding = 0;
             _isHit = false;
             _contentManager = contentManager;
 
