@@ -38,9 +38,9 @@ namespace SuperMarioClone
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Global.Instance.GridSize, Global.Instance.GridSize);
         }
 
-        public void Eject(Mario mario, float vY, float Y)
+        public void Eject(Mario mario)
         {
-            if (vY < 0 && !HasBeenUsed && mario.Hitbox.Y > Hitbox.Bottom)
+            if (mario.VelocityY < 0 && !HasBeenUsed && mario.Hitbox.Y > Hitbox.Bottom)
             {
                 if (MysteryObject == typeof(Coin))
                 {

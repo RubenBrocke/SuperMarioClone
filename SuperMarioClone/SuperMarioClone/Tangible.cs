@@ -40,7 +40,7 @@ namespace SuperMarioClone
 
                         if (this is Mario)
                         {
-                            Mario m = (Mario)this;
+                            Mario mario = (Mario)this;
                             if (o is Coin)
                             {
                                 Coin coin = (Coin)o;
@@ -49,49 +49,49 @@ namespace SuperMarioClone
                             if (o is MysteryBlock)
                             {
                                 MysteryBlock mysteryBlock = (MysteryBlock)o;
-                                mysteryBlock.Eject(m, m.VelocityY, m.Position.Y);
+                                mysteryBlock.Eject(mario);
                             }
                             if (o is CoinBlock)
                             {
                                 CoinBlock coinBlock = (CoinBlock)o;
-                                coinBlock.Eject(m, m.VelocityY, m.Position.Y);
+                                coinBlock.Eject(mario, mario.VelocityY, mario.Position.Y);
                             }
                             if (o is Mushroom)
                             {
                                 Mushroom mushroom = (Mushroom)o;
-                                mushroom.CollectMushroom(m);
+                                mushroom.CollectMushroom(mario);
                             }
                             if (o is Shell)
                             {
                                 Shell s = (Shell)o;
-                                s.CheckHit(m);
+                                s.CheckHit(mario);
                             }
                             if (o is Koopa)
                             {
                                 Koopa k = (Koopa)o;
-                                k.CheckDeath(m, m.VelocityY);
+                                k.CheckDeath(mario, mario.VelocityY);
                             }
                             if (o is Muncher)
                             {
-                                m.GetHit();
+                                mario.GetHit();
                             }
                         }
                         if (this is Goomba)
                         {
                             if (o is Mario)
                             {
-                                Goomba g = (Goomba)this;
-                                Mario m = (Mario)o;
-                                g.CheckDeath(m);
+                                Goomba goomba = (Goomba)this;
+                                Mario mario = (Mario)o;
+                                goomba.CheckDeath(mario);
                             }
                         }
                         if (this is Koopa)
                         {
                             if (o is Mario)
                             {
-                                Koopa k = (Koopa)this;
-                                Mario m = (Mario)o;
-                                k.CheckDeath(m, m.VelocityY);
+                                Koopa koopa = (Koopa)this;
+                                Mario mario = (Mario)o;
+                                koopa.CheckDeath(mario, mario.VelocityY);
                             }
                         }
                     } 
