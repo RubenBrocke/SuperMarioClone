@@ -23,7 +23,7 @@ namespace SuperMarioClone
 
         public Level ReadLevel(int levelNumber)
         {            
-            StreamReader lvlReader = new StreamReader(@"..\..\..\..\Level" + levelNumber + ".txt");
+            StreamReader lvlReader = new StreamReader(@"..\..\..\..\Level" + levelNumber + ".txt"); //TODO: use content dierectory
             string line;
             Level level = new Level();
 

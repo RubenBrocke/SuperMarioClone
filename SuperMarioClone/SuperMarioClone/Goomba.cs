@@ -88,6 +88,7 @@ namespace SuperMarioClone
                     VelocityX = _speed;
                 }
             }
+
             VelocityY = vY;
         }
 
