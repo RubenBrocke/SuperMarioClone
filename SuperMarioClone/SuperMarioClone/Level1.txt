@@ -38,7 +38,7 @@ Coin: 64, 29
 //Enemy
 Goomba: 62, 34
 Koopa: 4, 34
-Koopa: 55, 34
+Koopa: 57, 34
 Koopa: 53, 34
 Muncher: 36, 28
 Muncher: 49, 33
@@ -46,8 +46,6 @@ Muncher: 64, 31
 
 
 //Blocks
-StoneBlock: 10, 35
-StoneBlock: 3, 35
 StoneBlock: 36, 29
 StoneBlock: 36, 30
 StoneBlock: 36, 31
@@ -96,4 +94,4 @@ CoinBlock: 52, 27, 0
 MysteryBlock: 63, 33, Coin
 MysteryBlock: 29, 31, Coin
 MysteryBlock: 57, 28, Mushroom
-MysteryBlock: 90, 31, LevelReader
+MysteryBlock: 90, 31, LevelReader, 0

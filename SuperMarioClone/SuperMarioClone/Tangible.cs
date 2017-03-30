@@ -37,7 +37,6 @@ namespace SuperMarioClone
                             collidesWithSolid = true;
                             collObject = tangibleObject;
                         }
-
                         if (this is Mario)
                         {
                             Mario mario = (Mario)this;
@@ -63,13 +62,13 @@ namespace SuperMarioClone
                             }
                             else if (o is Shell)
                             {
-                                Shell s = (Shell)o;
-                                s.CheckHit(mario);
+                                Shell shell = (Shell)o;
+                                shell.CheckHit(mario);
                             }
                             else if (o is Koopa)
                             {
-                                Koopa k = (Koopa)o;
-                                k.CheckDeath(mario, mario.VelocityY);
+                                Koopa koopa = (Koopa)o;
+                                koopa.CheckDeath(mario, mario.VelocityY);
                             }
                             else if (o is Muncher)
                             {
@@ -83,15 +82,6 @@ namespace SuperMarioClone
                                 Goomba goomba = (Goomba)this;
                                 Mario mario = (Mario)o;
                                 goomba.CheckDeath(mario);
-                            }
-                        }
-                        else if (this is Koopa)
-                        {
-                            if (o is Mario)
-                            {
-                                Koopa koopa = (Koopa)this;
-                                Mario mario = (Mario)o;
-                                koopa.CheckDeath(mario, mario.VelocityY);
                             }
                         }
                     } 
@@ -136,7 +126,7 @@ namespace SuperMarioClone
                     else if (velocityY < 0)
                     {
                         Position = new Vector2(Position.X, collObject.Hitbox.Bottom - _verticalPadding);
-                    }
+                    } //TODO: FIX Koopa jump collision (probably has to do with velocityY reset)
                     velocityY = 0; 
                 }
                 else
