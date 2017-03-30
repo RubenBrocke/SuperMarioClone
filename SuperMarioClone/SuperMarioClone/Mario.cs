@@ -38,6 +38,7 @@ namespace SuperMarioClone
         private bool _jumpWasPressed;
         private bool _isInvincible;
         private Timer _invincibilityTimer;
+        private bool _isDead;
         private Texture2D _spriteSheet;
         private SoundEffect _jumpSound;
         private SpriteFont _font;
@@ -54,7 +55,8 @@ namespace SuperMarioClone
             Running,
             Jumping,
             Falling,
-            FallingStraight
+            FallingStraight,
+            Dead
         }
 
         public enum Form
@@ -99,6 +101,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             _jumpWasPressed = false;
             _isInvincible = false;
             _invincibilityTimer = new Timer(UnInvincify);
+            _isDead = false;
 
             //Sprite, animation, sound, font and hitbox are set
             _spriteSheet = _contentManager.Load<Texture2D>("MarioSheet");
@@ -161,7 +164,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             Hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
         }
 
-        public override void Update()   //TODO: split in seperate functions
+        public override void Update()
         {
             //Update hitbox to match current position and State
             UpdateHitBox();
@@ -169,27 +172,68 @@ ___________________/  /__/  /__/  /__/  /________________________________
             //Add gravity to vertical velocity
             VelocityY += Gravity;
 
-            //Limit vertical speed
-            if (VelocityY > _ySpeedMax)
-            {
-                VelocityY = _ySpeedMax;
-            }
-
-            //Limit horizontal speed
-            if (VelocityX > _xSpeedMax)
-            {
-                VelocityX = _xSpeedMax;
-            }
-            else if (VelocityX < -_xSpeedMax)
-            {
-                VelocityX = -_xSpeedMax;
-            }
-
-            //Add movement
             KeyboardState state = Keyboard.GetState();
-            if (state.IsKeyDown(Keys.S))
+            if (!_isDead)
             {
-                if (IsColliding(CurrentLevel, 0, 1, out collObject))
+                //Limit vertical speed
+                if (VelocityY > _ySpeedMax)
+                {
+                    VelocityY = _ySpeedMax;
+                }
+
+                //Limit horizontal speed
+                if (VelocityX > _xSpeedMax)
+                {
+                    VelocityX = _xSpeedMax;
+                }
+                else if (VelocityX < -_xSpeedMax)
+                {
+                    VelocityX = -_xSpeedMax;
+                }
+
+                //Add movement
+                if (state.IsKeyDown(Keys.S))
+                {
+                    if (IsColliding(CurrentLevel, 0, 1, out collObject))
+                    {
+                        if (!(collObject is TransFloor || collObject is CloudBlock) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
+                        {
+                            if (VelocityX > 0)
+                            {
+                                VelocityX = Math.Max(VelocityX - _deacc, 0);
+                            }
+                            else if (VelocityX < 0)
+                            {
+                                VelocityX = Math.Min(VelocityX + _deacc, 0);
+                            }
+                        }
+                    }
+                }
+                else if (state.IsKeyDown(Keys.D))
+                {
+                    if (VelocityX < 0)
+                    {
+                        VelocityX += _acc * 2;
+                    }
+                    else
+                    {
+                        VelocityX += _acc;
+                    }
+                    Direction = SpriteEffects.None;
+                }
+                else if (state.IsKeyDown(Keys.A))
+                {
+                    if (VelocityX > 0)
+                    {
+                        VelocityX -= _acc * 2;
+                    }
+                    else
+                    {
+                        VelocityX -= _acc;
+                    }
+                    Direction = SpriteEffects.FlipHorizontally;
+                }
+                else if (IsColliding(CurrentLevel, 0, 1, out collObject))
                 {
                     if (!(collObject is TransFloor || collObject is CloudBlock) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
                     {
@@ -201,75 +245,37 @@ ___________________/  /__/  /__/  /__/  /________________________________
                         {
                             VelocityX = Math.Min(VelocityX + _deacc, 0);
                         }
-                    } 
-                }
-            }
-            else if (state.IsKeyDown(Keys.D))
-            {
-                if (VelocityX < 0)
-                {
-                    VelocityX += _acc * 2;
-                }
-                else
-                {
-                    VelocityX += _acc;
-                }
-                Direction = SpriteEffects.None;
-            }
-            else if (state.IsKeyDown(Keys.A))
-            {
-                if (VelocityX > 0)
-                {
-                    VelocityX -= _acc * 2;
-                }
-                else
-                {
-                    VelocityX -= _acc;
-                } 
-                Direction = SpriteEffects.FlipHorizontally;
-            }
-            else if (IsColliding(CurrentLevel, 0, 1, out collObject))
-            {
-                if (!(collObject is TransFloor || collObject is CloudBlock) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
-                {
-                    if (VelocityX > 0)
-                    {
-                        VelocityX = Math.Max(VelocityX - _deacc, 0);
-                    }
-                    else if (VelocityX < 0)
-                    {
-                        VelocityX = Math.Min(VelocityX + _deacc, 0);
-                    } 
-                }
-            }
-
-            //Prevents pogosticking 
-            if (_jumpWasPressed)
-            {
-                if (!state.IsKeyDown(Keys.Space))
-                {
-                    _jumpWasPressed = false;
-                }
-            }
-
-            if (state.IsKeyDown(Keys.Space))
-            {
-                if (!_jumpWasPressed)
-                {
-                    if (IsColliding(CurrentLevel, 0, 1, out collObject) && VelocityY <= Gravity && VelocityY >= -Gravity)
-                    {
-                        Jump();
                     }
                 }
-                _jumpWasPressed = true;
-            }
 
-            //Check collision and change velocity
-            float vX;
-            float vY;
-            CheckCollision(this, out vX, out vY);
-            VelocityX = vX;
-            VelocityY = vY;
+                //Prevents pogosticking 
+                if (_jumpWasPressed)
+                {
+                    if (!state.IsKeyDown(Keys.Space))
+                    {
+                        _jumpWasPressed = false;
+                    }
+                }
+
+                if (state.IsKeyDown(Keys.Space))
+                {
+                    if (!_jumpWasPressed)
+                    {
+                        if (IsColliding(CurrentLevel, 0, 1, out collObject) && VelocityY <= Gravity && VelocityY >= -Gravity)
+                        {
+                            Jump();
+                        }
+                    }
+                    _jumpWasPressed = true;
+                }
+
+                //Check collision and change velocity
+                float vX;
+                float vY;
+                CheckCollision(this, out vX, out vY);
+                VelocityX = vX;
+                VelocityY = vY;
+            }
 
             //Update position
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
@@ -312,6 +318,10 @@ ___________________/  /__/  /__/  /__/  /________________________________
             {
                 CurrentState = State.Crouching;
             }
+            if (_isDead)
+            {
+                CurrentState = State.Dead;
+            }
 
             //Update sprite
             UpdateSprite();
@@ -320,7 +330,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
         public void Jump()
         {
             VelocityY = -JumpVelocity;
-            if (_jumpSound != null)
+            if (_jumpSound != null && !_isDead)
             {
                 _jumpSound.Play();
             }
@@ -358,9 +368,14 @@ ___________________/  /__/  /__/  /__/  /________________________________
 
         public void Die()
         {
+            _isDead = true;
+            CurrentForm = Form.Small;
+            Jump();
+            VelocityX = 0;
             Lives--;
-            LevelReader lr = new LevelReader(_contentManager);
-            MainGame.currentLevel = lr.ReadLevel(0);
+
+            //LevelReader lr = new LevelReader(_contentManager);
+            //MainGame.currentLevel = lr.ReadLevel(0);
             //TODO: Add death animation and death screen showing lives before going back to the menu/level selection
         }
 
@@ -417,6 +432,10 @@ ___________________/  /__/  /__/  /__/  /________________________________
                 case State.FallingStraight:
                     _animator.SetAnimationSpeed(0);
                     _animator.GetTextures(4 * spriteWidth, offSetY, spriteWidth, spriteHeight, 1, 1);
+                    break;
+                case State.Dead:
+                    _animator.SetAnimationSpeed(190);
+                    _animator.GetTextures(9 * spriteWidth, offSetY, spriteWidth, spriteHeight, 2, 1);
                     break;
                 default:
                     _animator.SetAnimationSpeed(0);
