@@ -18,6 +18,8 @@ namespace SuperMarioClone
         private ContentManager _contentManager;
         private Animator _animator;
         private Texture2D _spriteSheet;
+        private int _levelNumber = 0;
+
         
 
         public MysteryBlock(int x, int y, Type mysteryObject, Level level, ContentManager contentManager) : base()
@@ -29,6 +31,25 @@ namespace SuperMarioClone
             MysteryObject = mysteryObject;
             HasBeenUsed = false;    
             _contentManager = contentManager;
+
+            //Sprite, animation and hitbox are set
+            _spriteSheet = _contentManager.Load<Texture2D>("MysteryBlockSheet");
+            _animator = new Animator(_spriteSheet, 120);
+            _animator.GetTextures(0, 0, 16, 16, 4, 1);
+            Sprite = _animator.GetCurrentTexture();
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Global.Instance.GridSize, Global.Instance.GridSize);
+        }
+
+        public MysteryBlock(int x, int y, Type mysteryObject, int levelNumber, Level level, ContentManager contentManager) : base()
+        {
+            //Properties and private fields are set
+            Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
+            CurrentLevel = level;
+
+            MysteryObject = mysteryObject;
+            HasBeenUsed = false;
+            _contentManager = contentManager;
+            _levelNumber = levelNumber;
 
             //Sprite, animation and hitbox are set
             _spriteSheet = _contentManager.Load<Texture2D>("MysteryBlockSheet");
@@ -57,7 +78,7 @@ namespace SuperMarioClone
                 if (MysteryObject == typeof(LevelReader))
                 {
                     LevelReader _lr = (LevelReader)Activator.CreateInstance(MysteryObject, _contentManager);
-                    MainGame.currentLevel = _lr.ReadLevel(2);
+                    MainGame.currentLevel = _lr.ReadLevel(_levelNumber);
                 }
                 HasBeenUsed = true;
                 _animator.GetTextures(64, 0, 16, 16, 1, 1);

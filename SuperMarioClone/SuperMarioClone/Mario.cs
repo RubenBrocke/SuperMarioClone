@@ -191,7 +191,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             {
                 if (IsColliding(CurrentLevel, 0, 1, out collObject))
                 {
-                    if (!(collObject is TransFloor) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
+                    if (!(collObject is TransFloor || collObject is CloudBlock) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
                     {
                         if (VelocityX > 0)
                         {
@@ -230,7 +230,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             }
             else if (IsColliding(CurrentLevel, 0, 1, out collObject))
             {
-                if (!(collObject is TransFloor) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
+                if (!(collObject is TransFloor || collObject is CloudBlock) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
                 {
                     if (VelocityX > 0)
                     {
