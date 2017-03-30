@@ -52,7 +52,14 @@ namespace SuperMarioClone
             _levelNumber = levelNumber;
 
             //Sprite, animation and hitbox are set
-            _spriteSheet = _contentManager.Load<Texture2D>("MysteryBlockSheet");
+            if (_levelNumber == 3)
+            {
+                _spriteSheet = _contentManager.Load<Texture2D>("MysteryBlockSheet" + _levelNumber);
+            }
+            else
+            {
+                _spriteSheet = _contentManager.Load<Texture2D>("MysteryBlockSheet");
+            }
             _animator = new Animator(_spriteSheet, 120);
             _animator.GetTextures(0, 0, 16, 16, 4, 1);
             Sprite = _animator.GetCurrentTexture();

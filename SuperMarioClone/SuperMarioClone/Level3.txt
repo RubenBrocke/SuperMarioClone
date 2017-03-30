@@ -1,0 +1,15 @@
+TransFloor: 6, 33, 15, 8
+
+
+Floor: -1, 20, 1, 30
+Floor: 0, 36, 200, 10
+
+Koopa: 7, 31
+Koopa: 8, 31
+Koopa: 9, 31
+Koopa: 10, 31
+Koopa: 11, 31
+Koopa: 12, 31
+Koopa: 13, 31
+
+StoneBlock: 0, 32
