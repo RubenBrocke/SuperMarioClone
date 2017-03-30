@@ -12,11 +12,12 @@ namespace SuperMarioClone
 {
     public class Coin : Tangible, IMovable
     {
-        public int Value { get; set; }
-        public bool Moveable { get; set; }
         public bool HasBeenPickedUp { get; set; }
         public bool IsMysteryCoin { get; set; }
 
+        /// <summary>
+        /// Implementations from IMovable
+        /// </summary>
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }
         public float JumpVelocity { get; private set; }
