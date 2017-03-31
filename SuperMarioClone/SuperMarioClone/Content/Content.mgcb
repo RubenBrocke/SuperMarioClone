@@ -272,3 +272,10 @@
 /processorParam:TextureFormat=Color
 /build:MysteryBlockSheet1.png
 
+#begin MarioFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:MarioFont.spritefont
+

@@ -107,7 +107,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             _spriteSheet = _contentManager.Load<Texture2D>("MarioSheet");
             _animator = new Animator(_spriteSheet);
             _jumpSound = _contentManager.Load<SoundEffect>("Oink1");
-            _font = contentManager.Load<SpriteFont>("Font");
+            _font = contentManager.Load<SpriteFont>("MarioFont");
             _hitboxWidth = 14;
             _hitboxHeight = 20;
             _horizontalPadding = 1;
