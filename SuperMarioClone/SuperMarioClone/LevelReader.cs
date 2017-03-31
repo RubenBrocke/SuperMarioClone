@@ -29,13 +29,13 @@ namespace SuperMarioClone
 
             while ((line = lvlReader.ReadLine()) != null)
             { 
-                if (!string.IsNullOrWhiteSpace(line) && line.Contains(":") && line.Contains(","))
+                if (!string.IsNullOrWhiteSpace(line) && line.Contains(":") && line.Contains(",") && !line.Contains("//"))
                 {
                     line = line.Replace(" ", "");
                     level.ToAddGameObject(_gameObjectFactory.Fabricate(line.Split(':'), level, _contentManager));
                 }
             }
-            level.ToAddGameObject(new Mario(1, 1, level, _contentManager));
+
             lvlReader.Close();
             return level;
         }

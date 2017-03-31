@@ -85,7 +85,7 @@ namespace SuperMarioClone
                 if (MysteryObject == typeof(LevelReader))
                 {
                     LevelReader _lr = (LevelReader)Activator.CreateInstance(MysteryObject, _contentManager);
-                    MainGame.currentLevel = _lr.ReadLevel(_levelNumber);
+                    Global.Instance.MainGame.ChangeCurrentLevel(_lr.ReadLevel(_levelNumber));
                 }
                 HasBeenUsed = true;
                 _animator.GetTextures(64, 0, 16, 16, 1, 1);

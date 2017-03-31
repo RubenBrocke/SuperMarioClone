@@ -286,9 +286,6 @@ ___________________/  /__/  /__/  /__/  /________________________________
                 Die();
             }
 
-            //Focus camera on Mario
-            MainGame.camera.LookAt(Position);
-
             //Set state
             if (VelocityX == 0)
             {
@@ -384,6 +381,13 @@ ___________________/  /__/  /__/  /__/  /________________________________
             Coins++;
         }
 
+        public void ChangeCurrentLevel(Level level)
+        {
+            CurrentLevel = level;
+            CurrentLevel.ToAddGameObject(this);
+            Position = new Vector2(1, 1);
+        }
+
         private void UpdateSprite()
         {
             int spriteWidth = 16;
@@ -453,7 +457,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             spriteBatch.DrawString(_font, String.Format("{0,4}", Coins), new Vector2(768, 0), Color.Black);
             spriteBatch.DrawString(_font, String.Format("{0,4}", Lives), new Vector2(704, 0), Color.Black);
             spriteBatch.End();
-            spriteBatch.Begin(transformMatrix: MainGame.camera.GetMatrix(), samplerState: SamplerState.PointClamp);
+            spriteBatch.Begin(transformMatrix: Global.Instance.MainGame.camera.GetMatrix(), samplerState: SamplerState.PointClamp);
         }
     }
 }

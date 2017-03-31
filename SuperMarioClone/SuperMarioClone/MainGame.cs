@@ -12,8 +12,9 @@ namespace SuperMarioClone
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         LevelReader _lr;
-        public static Level currentLevel;
-        public static Camera camera;
+        Level currentLevel;
+        public Camera camera;
+        Mario mario;
 
         public MainGame()
         {
@@ -33,9 +34,12 @@ namespace SuperMarioClone
         /// </summary>
         protected override void Initialize()
         {
-            camera = new Camera(GraphicsDevice.Viewport);
+            Global.Instance.MainGame = this;
             _lr = new LevelReader(Content);
             currentLevel = _lr.ReadLevel(0);
+            mario = new Mario(1, 1, currentLevel, Content);
+            currentLevel.ToAddGameObject(mario);
+            camera = new Camera(GraphicsDevice.Viewport);
             base.Initialize();
         }
 
@@ -77,11 +81,18 @@ namespace SuperMarioClone
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            camera.LookAt(mario.Position);
             spriteBatch.Begin(transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
             GraphicsDevice.Clear(Color.Azure);
             currentLevel.DrawLevel(spriteBatch, GraphicsDevice.Viewport);
             spriteBatch.End();
             base.Draw(gameTime);
+        }
+
+        public void ChangeCurrentLevel(Level level)
+        {
+            currentLevel = level;
+            mario.ChangeCurrentLevel(currentLevel);
         }
     }
 }
