@@ -1,10 +1,36 @@
+//Transfloors
 TransFloor: 6, 33, 15, 8
 
 
+//Floors
+Floor: 33, 34, 2, 10
+Floor: 56, 31, 4, 2
+Floor: 64, 34, 4, 2
+//Essential Floors
 Floor: -1, 20, 1, 30
-Floor: 0, 36, 200, 10
+Floor: 0, 36, 35, 10
 
+
+//Coins
+Coin: 3, 30
+Coin: 48, 33
+Coin: 57, 30
+Coin: 58, 30
+Coin: 65, 33
+Coin: 66, 33
+
+
+//Enemy's
 Koopa: 7, 31
 Koopa: 10, 31
 Koopa: 13, 31
 
+
+//Blocks
+CloudBlock: 38, 32
+CloudBlock: 42, 35
+CloudBlock: 46, 30
+CloudBlock: 48, 34
+CloudBlock: 52, 28
+
+MysteryBlock: 28, 31, Mushroom
