@@ -84,6 +84,8 @@ namespace SuperMarioClone
                 }
                 if (MysteryObject == typeof(LevelReader))
                 {
+                    //TODO: FIX if Mario moves to a side when he hits the block and the level changes, that is also transferred to the next level and he starts to move that side as well in that level
+                    //Even if you release the key in time
                     LevelReader _lr = (LevelReader)Activator.CreateInstance(MysteryObject, _contentManager);
                     Global.Instance.MainGame.ChangeCurrentLevel(_lr.ReadLevel(_levelNumber));
                 }

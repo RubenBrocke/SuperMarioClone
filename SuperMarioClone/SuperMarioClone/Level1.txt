@@ -13,7 +13,9 @@ Floor: -1, -50, 1, 100
 Floor: 0, 36, 34, 4
 Floor: 72, 37, 15, 6
 Floor: 36, 36, 38, 4
+Floor: 94, 34, 2, 6
 Floor: 81, 36, 15, 4
+Floor: 125, 34, 15, 8
 
 
 //Coins
@@ -34,18 +36,40 @@ Coin: 33, 26
 Coin: 34, 26
 Coin: 39, 31
 Coin: 64, 29
+Coin: 100, 33
+Coin: 129, 33
+Coin: 130, 33
+Coin: 131, 33
 
 //Enemy
-Goomba: 62, 34
 Koopa: 4, 34
 Koopa: 57, 34
 Koopa: 53, 34
 Muncher: 36, 28
 Muncher: 49, 33
 Muncher: 64, 31
+Muncher: 139, 33
 
 
 //Blocks
+CloudBlock: 98, 34
+CloudBlock: 99, 34
+CloudBlock: 100, 34
+CloudBlock: 104, 31
+CloudBlock: 105, 31
+CloudBlock: 106, 31
+CloudBlock: 110, 36
+CloudBlock: 111, 36
+CloudBlock: 112, 36
+CloudBlock: 113, 36
+CloudBlock: 113, 29
+CloudBlock: 114, 29
+CloudBlock: 118, 33
+CloudBlock: 119, 33
+CloudBlock: 120, 27
+CloudBlock: 121, 27
+CloudBlock: 122, 27
+
 StoneBlock: 36, 29
 StoneBlock: 36, 30
 StoneBlock: 36, 31
@@ -90,8 +114,9 @@ CoinBlock: 18, 31, 0
 CoinBlock: 50, 27, 0
 CoinBlock: 51, 27, 0
 CoinBlock: 52, 27, 0
+CoinBlock: 112, 32, 1
 
 MysteryBlock: 63, 33, Coin
 MysteryBlock: 29, 31, Coin
-MysteryBlock: 57, 28, Mushroom
-MysteryBlock: 90, 31, LevelReader, 0
+MysteryBlock: 55, 29, Mushroom
+MysteryBlock: 136, 29, LevelReader, 0
