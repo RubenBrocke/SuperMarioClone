@@ -9,20 +9,20 @@ namespace SuperMarioClone
     /// </summary>
     public class MainGame : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        LevelReader _lr;
-        Level currentLevel;
+        private Mario _mario;
+        private GraphicsDeviceManager _graphics;
+        private SpriteBatch _spriteBatch;
+        private LevelReader _lr;
+        private Level _currentLevel;
         public Camera camera;
-        Mario mario;
-
+        
         public MainGame()
         {
-            graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferHeight = 700;
-            graphics.PreferredBackBufferWidth = 800;
-            graphics.IsFullScreen = false;
-            graphics.ApplyChanges();
+            _graphics = new GraphicsDeviceManager(this);
+            _graphics.PreferredBackBufferHeight = 700;
+            _graphics.PreferredBackBufferWidth = 800;
+            _graphics.IsFullScreen = false;
+            _graphics.ApplyChanges();
             Content.RootDirectory = "Content";
         }
 
@@ -36,9 +36,9 @@ namespace SuperMarioClone
         {
             Global.Instance.MainGame = this;
             _lr = new LevelReader(Content);
-            currentLevel = _lr.ReadLevel(0);
-            mario = new Mario(1, 1, currentLevel, Content);
-            currentLevel.ToAddGameObject(mario);
+            _currentLevel = _lr.ReadLevel(0);
+            _mario = new Mario(1, 1, _currentLevel, Content);
+            _currentLevel.ToAddGameObject(_mario);
             camera = new Camera(GraphicsDevice.Viewport);
             base.Initialize();
         }
@@ -50,7 +50,7 @@ namespace SuperMarioClone
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);            
+            _spriteBatch = new SpriteBatch(GraphicsDevice);            
         }
 
         /// <summary>
@@ -69,9 +69,9 @@ namespace SuperMarioClone
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            currentLevel.UpdateLevel();
+            _currentLevel.UpdateLevel();
             base.Update(gameTime);
         }
 
@@ -81,18 +81,18 @@ namespace SuperMarioClone
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            camera.LookAt(mario.Position);
-            spriteBatch.Begin(transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
+            camera.LookAt(_mario.Position);
+            _spriteBatch.Begin(transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
             GraphicsDevice.Clear(Color.Azure);
-            currentLevel.DrawLevel(spriteBatch, GraphicsDevice.Viewport);
-            spriteBatch.End();
+            _currentLevel.DrawLevel(_spriteBatch, GraphicsDevice.Viewport);
+            _spriteBatch.End();
             base.Draw(gameTime);
         }
 
         public void ChangeCurrentLevel(Level level)
         {
-            currentLevel = level;
-            mario.ChangeCurrentLevel(currentLevel);
+            _currentLevel = level;
+            _mario.ChangeCurrentLevel(_currentLevel);
         }
     }
 }
