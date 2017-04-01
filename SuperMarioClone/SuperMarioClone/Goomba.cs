@@ -18,6 +18,7 @@ namespace SuperMarioClone
         public float Gravity { get; private set; }
 
         private float _speed;
+        private bool _isHit;
         private Texture2D _spriteSheet;
         private Animator _animator;
 
@@ -31,8 +32,8 @@ namespace SuperMarioClone
             VelocityX = -_speed;
             Gravity = 0.3f;
 
+            _isHit = false;
             _horizontalPadding = 1; //FIXME: Waarom heeft Goomba een padding?
-            _verticalPadding = 0;
 
             //Sprite, animation and hitbox are set
             _spriteSheet = contentManager.Load<Texture2D>("GoombaSheet");
@@ -104,13 +105,18 @@ namespace SuperMarioClone
 
         public void CheckDeath(Mario mario)
         {
-            if (mario.VelocityY > 0)
+            if (!_isHit)
             {
-                CurrentLevel.ToRemoveGameObject(this);
-            }
-            else
-            {
-                mario.GetHit();
+                if (mario.VelocityY > 0.5)
+                {
+                    mario.Jump();
+                    CurrentLevel.ToRemoveGameObject(this);
+                    _isHit = true;
+                }
+                else
+                {
+                    mario.GetHit();
+                }
             }
         }
     }
