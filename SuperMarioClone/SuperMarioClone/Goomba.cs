@@ -110,13 +110,21 @@ namespace SuperMarioClone
                 if (mario.VelocityY > 0.5)
                 {
                     mario.Jump();
-                    CurrentLevel.ToRemoveGameObject(this);
-                    _isHit = true;
+                    Die();
                 }
                 else
                 {
                     mario.GetHit();
                 }
+            }
+        }
+
+        public void Die()
+        {
+            if (!_isHit)
+            {
+                CurrentLevel.ToRemoveGameObject(this);
+                _isHit = true;
             }
         }
     }

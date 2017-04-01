@@ -10,15 +10,16 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMarioClone
 {
-    public class Koopa : Tangible, IMovable, ISolid
+    public class Koopa : Tangible, IMovable
     {
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }
         public float JumpVelocity { get; private set; }
         public float Gravity { get; private set; }
 
+        public bool IsHit { get; private set; }
+
         private float _speed;
-        private bool _isHit;
         private ContentManager _contentManager;
         private Texture2D _spriteSheet;
         private Animator _animator;
@@ -33,7 +34,7 @@ namespace SuperMarioClone
             VelocityX = _speed;
             Gravity = 0.3f;
 
-            _isHit = false;
+            IsHit = false;
             _contentManager = contentManager;
 
             //Sprite, animation and hitbox are set
@@ -103,21 +104,29 @@ namespace SuperMarioClone
             Sprite = _animator.GetCurrentTexture();
         }
 
-        public void CheckDeath(Mario mario, float vY)
+        public void CheckDeath(Mario mario)
         {
-            if (!_isHit)
+            if (!IsHit)
             {
-                if (vY > 0.5)
+                if (mario.VelocityY > 0.5)
                 {
                     mario.Jump();
-                    CurrentLevel.ToRemoveGameObject(this);
-                    CurrentLevel.ToAddGameObject(new Shell(Position.X, Position.Y + Hitbox.Height - Global.Instance.GridSize, CurrentLevel, _contentManager));
-                    _isHit = true;
+                    Die();
                 }
                 else
                 {
                     mario.GetHit();
                 }
+            }
+        }
+
+        public void Die()
+        {
+            if (!IsHit)
+            {
+                CurrentLevel.ToRemoveGameObject(this);
+                CurrentLevel.ToAddGameObject(new Shell(Position.X, Position.Y + Hitbox.Height - Global.Instance.GridSize, CurrentLevel, _contentManager));
+                IsHit = true; 
             }
         }
     }

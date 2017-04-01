@@ -13,7 +13,7 @@ namespace SuperMarioClone
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private LevelReader _lr;
-        private Level _currentLevel;
+        public Level currentLevel;
         private GraphicalUserInterface _graphicalUserInterface;
         public Camera camera;
         
@@ -37,9 +37,9 @@ namespace SuperMarioClone
         {
             Global.Instance.MainGame = this;
             _lr = new LevelReader(Content);
-            _currentLevel = _lr.ReadLevel(0);
-            _mario = new Mario(1, 1, _currentLevel, Content);
-            _currentLevel.ToAddGameObject(_mario);
+            currentLevel = _lr.ReadLevel(0);
+            _mario = new Mario(1, 1, currentLevel, Content);
+            currentLevel.ToAddGameObject(_mario);
             camera = new Camera(GraphicsDevice.Viewport);
             _graphicalUserInterface = new GraphicalUserInterface(_mario, Content);
             base.Initialize();
@@ -73,7 +73,7 @@ namespace SuperMarioClone
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            _currentLevel.UpdateLevel();
+            currentLevel.UpdateLevel();
             base.Update(gameTime);
         }
 
@@ -85,8 +85,8 @@ namespace SuperMarioClone
         {
             camera.LookAt(_mario.Position);
             _spriteBatch.Begin(transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
-            GraphicsDevice.Clear(Color.Azure);
-            _currentLevel.DrawLevel(_spriteBatch, GraphicsDevice.Viewport);
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+            currentLevel.DrawLevel(_spriteBatch, GraphicsDevice.Viewport);
             _spriteBatch.End();
             _graphicalUserInterface.Draw(_spriteBatch);
             base.Draw(gameTime);
@@ -94,8 +94,8 @@ namespace SuperMarioClone
 
         public void ChangeCurrentLevel(Level level)
         {
-            _currentLevel = level;
-            _mario.ChangeCurrentLevel(_currentLevel);
+            currentLevel = level;
+            _mario.ChangeCurrentLevel(currentLevel);
         }
     }
 }

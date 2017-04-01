@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Threading;
 
 namespace SuperMarioClone
 {
@@ -11,13 +12,27 @@ namespace SuperMarioClone
     {
         public List<GameObject> GameObjects { get; private set; }
         public Texture2D Background { get; private set; }
+        public int Time { get; private set; }
 
         private List<GameObject> _toRemove = new List<GameObject>();
         private List<GameObject> _toAdd = new List<GameObject>();
+        private Timer _timerTimer;
 
         public Level()
         {
+            Time = 280;
             GameObjects = new List<GameObject>();
+            _timerTimer = new Timer(DecreaseTime);
+            _timerTimer.Change(0, 1000);
+        }
+
+        private void DecreaseTime(object state)
+        {
+            Time -= 1;
+            if (Time == 0)
+            {
+                //TODO: End game and remove life from Mario
+            }
         }
 
         private void AddGameObjects()

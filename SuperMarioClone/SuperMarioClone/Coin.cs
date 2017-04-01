@@ -23,14 +23,16 @@ namespace SuperMarioClone
         public float JumpVelocity { get; }
         public float Gravity { get; private set; }
 
+        private bool _shouldBeDeleted;
+
         private SoundEffect _coinPickUpSound;
-       
         private Animator _animator;
         private int _hitBoxWidth;
         private int _hitBoxHeight;
 
         public Coin(int x, int y, Level level, ContentManager contentManager) : base()
         {
+            _shouldBeDeleted = false;
             _hitBoxWidth = Global.Instance.GridSize / 4 * 3;
             _hitBoxHeight = Global.Instance.GridSize;
             Gravity = 0.3f;
@@ -46,7 +48,7 @@ namespace SuperMarioClone
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitBoxWidth, _hitBoxHeight); 
         }
 
-        public void AddCoin(Mario mario) //TODO:  FIX THE GODDAMN DEATHTIMER PLEASE, IT CREATES WAY TO MUCH ERRORS, THANK YOU
+        public void AddCoin(Mario mario)
         {
             if (!HasBeenPickedUp)
             {
@@ -59,6 +61,10 @@ namespace SuperMarioClone
                 {
                     deathTimer.Change(0, Timeout.Infinite);
                 }
+                if (_coinPickUpSound != null)
+                {
+                    _coinPickUpSound.Play();
+                }
                 mario.AddCoin();
                 HasBeenPickedUp = true;                
             }
@@ -66,11 +72,7 @@ namespace SuperMarioClone
 
         public void DeleteCoin(object state)
         {
-            if(_coinPickUpSound != null)
-            {
-                _coinPickUpSound.Play();
-            }
-            CurrentLevel.ToRemoveGameObject(this);
+            _shouldBeDeleted = true;
         }
 
         public override void Update()
@@ -79,6 +81,10 @@ namespace SuperMarioClone
             {
                 Position = new Vector2(Position.X, Position.Y + VelocityY);
                 VelocityY += Gravity;
+            }
+            if (_shouldBeDeleted)
+            {
+                CurrentLevel.ToRemoveGameObject(this);
             }
             Sprite = _animator.GetCurrentTexture();
         }

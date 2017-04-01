@@ -23,9 +23,13 @@ namespace SuperMarioClone
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.DrawString(_font, String.Format("{0,4}", _mario.Coins), new Vector2(768, 0), Color.Yellow);
-            spriteBatch.DrawString(_font, String.Format("{0,4}", _mario.Lives), new Vector2(704, 0), Color.Yellow);
+            spriteBatch.DrawString(_font, String.Format("Coins: {0,4}", _mario.Coins), new Vector2(704, 0), Color.Yellow);
+            spriteBatch.DrawString(_font, String.Format("Lives: {0,4}", _mario.Lives), new Vector2(558, 0), Color.Yellow);
+            spriteBatch.DrawString(_font, String.Format("Time \n {0,3}", Global.Instance.MainGame.currentLevel.Time), new Vector2(400, 0), Color.Yellow);
+            spriteBatch.DrawString(_font, String.Format("Lives: {0,4}", _mario.Lives), new Vector2(558, 0), Color.Yellow);
             spriteBatch.End();
         }
+
+
     }
 }

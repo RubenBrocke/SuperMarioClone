@@ -68,20 +68,29 @@ namespace SuperMarioClone
                             else if (o is Koopa)
                             {
                                 Koopa koopa = (Koopa)o;
-                                koopa.CheckDeath(mario, mario.VelocityY);
+                                koopa.CheckDeath(mario);
                             }
                             else if (o is Muncher)
                             {
                                 mario.GetHit();
                             }
-                        }
-                        else if (this is Goomba)
-                        {
-                            if (o is Mario)
+                            else if (o is Goomba)
                             {
-                                Goomba goomba = (Goomba)this;
-                                Mario mario = (Mario)o;
+                                Goomba goomba = (Goomba)o;
                                 goomba.CheckDeath(mario);
+                            }
+                        }
+                        else if (this is Shell)
+                        {
+                            if (o is Goomba)
+                            {
+                                Goomba goomba = (Goomba)o;
+                                goomba.Die();
+                            }
+                            if (o is Koopa)
+                            {
+                                Koopa koopa = (Koopa)o;
+                                koopa.Die();
                             }
                         }
                     } 

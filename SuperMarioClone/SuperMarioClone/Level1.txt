@@ -6,16 +6,15 @@ TransFloor: 48, 34, 6, 10
 
 //Floors
 //X, Y, WIDTH, HEIGHT
-//Essential floors, bottom and left
-Floor: -1, -50, 1, 100
-Floor: 0, 36, 34, 4
 Floor: 72, 37, 15, 6
 Floor: 36, 36, 38, 4
 Floor: 94, 34, 2, 6
 Floor: 81, 36, 15, 4
 Floor: 125, 34, 15, 8
 Floor: 32, 29, 2, 8
-
+//Essential floors, bottom and left
+Floor: -1, -50, 1, 100
+Floor: 0, 36, 34, 4
 
 //Coins
 Coin: 77, 32
