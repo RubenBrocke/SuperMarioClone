@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperMarioClone
 {
-    class Global
+    public class Global
     {
         public int GridSize { get; private set; }
         public MainGame MainGame { get; set; }

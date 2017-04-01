@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperMarioClone
 {
-    class ArgumentResolver
+    public class ArgumentResolver
     {
         public ArgumentResolver()
         {
@@ -37,14 +37,7 @@ namespace SuperMarioClone
                     }
                     catch
                     {
-                        try
-                        {
-                            returnArgs[i] = Type.GetType(this.GetType().Namespace + "." + args[i]);
-                        }
-                        catch
-                        {
-                            throw new FormatException(string.Format("Unable to resolve {0}", args[i]));
-                        }
+                        returnArgs[i] = Type.GetType(this.GetType().Namespace + "." + args[i]);
                     }
                 }
                 

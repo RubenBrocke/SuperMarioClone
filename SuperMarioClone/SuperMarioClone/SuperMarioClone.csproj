@@ -56,6 +56,7 @@
     <Compile Include="CoinBlock.cs" />
     <Compile Include="GameObjectFactory.cs" />
     <Compile Include="Goomba.cs" />
+    <Compile Include="GraphicalUserInterface.cs" />
     <Compile Include="IMovable.cs" />
     <Compile Include="ISolid.cs" />
     <Compile Include="Koopa.cs" />

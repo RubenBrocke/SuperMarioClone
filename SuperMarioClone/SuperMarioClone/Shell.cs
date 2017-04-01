@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace SuperMarioClone
 {
-    class Shell : Tangible, IMovable, ISolid
+    public class Shell : Tangible, IMovable, ISolid
     {
         //Implementation of IMovable
         public float VelocityX { get; protected set; }

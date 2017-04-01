@@ -14,6 +14,7 @@ namespace SuperMarioClone
         private SpriteBatch _spriteBatch;
         private LevelReader _lr;
         private Level _currentLevel;
+        private GraphicalUserInterface _graphicalUserInterface;
         public Camera camera;
         
         public MainGame()
@@ -40,6 +41,7 @@ namespace SuperMarioClone
             _mario = new Mario(1, 1, _currentLevel, Content);
             _currentLevel.ToAddGameObject(_mario);
             camera = new Camera(GraphicsDevice.Viewport);
+            _graphicalUserInterface = new GraphicalUserInterface(_mario, Content);
             base.Initialize();
         }
 
@@ -86,6 +88,7 @@ namespace SuperMarioClone
             GraphicsDevice.Clear(Color.Azure);
             _currentLevel.DrawLevel(_spriteBatch, GraphicsDevice.Viewport);
             _spriteBatch.End();
+            _graphicalUserInterface.Draw(_spriteBatch);
             base.Draw(gameTime);
         }
 

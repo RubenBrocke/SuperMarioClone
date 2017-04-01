@@ -34,6 +34,14 @@ namespace UnitTest
         }
 
         [TestMethod]
+        public void Coin_AddMysteryCoin()
+        {
+            _coin.IsMysteryCoin = true;
+            _coin.AddCoin(_mario);
+            Assert.AreEqual(_mario.Coins, 1);
+        }
+
+        [TestMethod]
         public void Coin_DeleteCoin()
         {
             _coin.DeleteCoin(null);

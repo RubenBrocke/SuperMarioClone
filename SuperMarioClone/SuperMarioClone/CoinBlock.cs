@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace SuperMarioClone
 {
-    class CoinBlock : Tangible, ISolid
+    public class CoinBlock : Tangible, ISolid
     {
         private int ContainAmount { get; set; }
         private ContentManager _contentManager;

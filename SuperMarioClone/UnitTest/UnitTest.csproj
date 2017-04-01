@@ -64,6 +64,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ArgumentResolverTest.cs" />
+    <Compile Include="FloorTest.cs" />
     <Compile Include="GoombaTest.cs" />
     <Compile Include="MockClasses\TestContentManager.cs" />
     <Compile Include="MockClasses\TestGraphicsDeviceService.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="CoinTest.cs" />
     <Compile Include="MockClasses\TestTexture2D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransFloorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SuperMarioClone\SuperMarioClone.csproj">

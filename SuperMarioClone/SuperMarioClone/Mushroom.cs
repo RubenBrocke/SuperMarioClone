@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace SuperMarioClone
 {
-    class Mushroom : Tangible, IMovable
+    public class Mushroom : Tangible, IMovable
     {
         //Implementation of IMovable
         public float VelocityX { get; private set; }

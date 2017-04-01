@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMarioClone
 {
-    class Koopa : Tangible, IMovable, ISolid
+    public class Koopa : Tangible, IMovable, ISolid
     {
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }

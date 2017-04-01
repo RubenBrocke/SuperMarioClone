@@ -9,9 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SuperMarioClone
 {
-    class Animator
+    public class Animator
     {
-
         private Texture2D InputTexture { get; set; }
         private Texture2D[] TextureArray { get; set; }
         private int AnimationSpeed { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SuperMarioClone
 {
-    class GameObjectFactory
+    public class GameObjectFactory
     {
         private ArgumentResolver _argumentResolver;
 

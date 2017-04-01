@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMarioClone
 {
-    class Muncher : Tangible, ISolid
+    public class Muncher : Tangible, ISolid
     {
         private Texture2D _spriteSheet;
         private Animator _animator;

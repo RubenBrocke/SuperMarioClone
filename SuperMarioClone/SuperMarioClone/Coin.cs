@@ -18,9 +18,9 @@ namespace SuperMarioClone
         /// <summary>
         /// Implementations from IMovable
         /// </summary>
-        public float VelocityX { get; protected set; }
+        public float VelocityX { get; }
         public float VelocityY { get; private set; }
-        public float JumpVelocity { get; private set; }
+        public float JumpVelocity { get; }
         public float Gravity { get; private set; }
 
         private SoundEffect _coinPickUpSound;

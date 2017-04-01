@@ -386,6 +386,8 @@ ___________________/  /__/  /__/  /__/  /________________________________
             CurrentLevel = level;
             CurrentLevel.ToAddGameObject(this);
             Position = new Vector2(1, 1);
+            VelocityX = 0;
+            VelocityY = 0;
         }
 
         private void UpdateSprite()
@@ -447,17 +449,6 @@ ___________________/  /__/  /__/  /__/  /________________________________
                     break;
             }
             Sprite = _animator.GetCurrentTexture();
-        }
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            base.Draw(spriteBatch);
-            spriteBatch.End();
-            spriteBatch.Begin();
-            spriteBatch.DrawString(_font, String.Format("{0,4}", Coins), new Vector2(768, 0), Color.Black);
-            spriteBatch.DrawString(_font, String.Format("{0,4}", Lives), new Vector2(704, 0), Color.Black);
-            spriteBatch.End();
-            spriteBatch.Begin(transformMatrix: Global.Instance.MainGame.camera.GetMatrix(), samplerState: SamplerState.PointClamp);
         }
     }
 }

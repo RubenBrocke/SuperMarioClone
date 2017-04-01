@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMarioClone
 {
-    class CloudBlock : Tangible, ISolid
+    public class CloudBlock : Tangible, ISolid
     {
         public CloudBlock(int x, int y, Level level, ContentManager contentManager) : base()
         {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SuperMarioClone
 {
-    class StoneBlock : Tangible, ISolid
+    public class StoneBlock : Tangible, ISolid
     {
         public StoneBlock(int x, int y, Level level, ContentManager contentManager) : base()
         {

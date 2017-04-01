@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMarioClone
 {
-    class TransFloor : Tangible, ISolid
+    public class TransFloor : Tangible, ISolid
     {
         protected int Width { get; set; }
         protected int Height { get; set; }
