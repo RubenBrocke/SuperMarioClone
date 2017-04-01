@@ -38,6 +38,7 @@ namespace SuperMarioClone
         private bool _jumpWasPressed;
         private bool _isInvincible;
         private Timer _invincibilityTimer;
+        private bool _isForcedToJump;
         private bool _isDead;
         private Texture2D _spriteSheet;
         private SoundEffect _jumpSound;
@@ -273,8 +274,16 @@ ___________________/  /__/  /__/  /__/  /________________________________
                 float vX;
                 float vY;
                 CheckCollision(this, out vX, out vY);
-                VelocityX = vX;
-                VelocityY = vY;
+                if (!_isDead)
+                {
+                    VelocityX = vX;
+                    if (!_isForcedToJump)
+                    {
+                        VelocityY = vY;
+                    }
+                    _isForcedToJump = false;
+                }
+                
             }
 
             //Update position
@@ -327,6 +336,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
         public void Jump()
         {
             VelocityY = -JumpVelocity;
+            _isForcedToJump = true;
             if (_jumpSound != null && !_isDead)
             {
                 _jumpSound.Play();

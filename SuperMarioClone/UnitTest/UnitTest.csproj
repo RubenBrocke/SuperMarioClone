@@ -74,6 +74,7 @@
     <Compile Include="CoinTest.cs" />
     <Compile Include="MockClasses\TestTexture2D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StoneBlockTest.cs" />
     <Compile Include="TransFloorTest.cs" />
   </ItemGroup>
   <ItemGroup>
