@@ -290,7 +290,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
 
             //Kills Mario when he falls out of the map
-            if (Position.Y > 640)
+            if (Position.Y > 666 && _isDead == false)
             {
                 Die();
             }

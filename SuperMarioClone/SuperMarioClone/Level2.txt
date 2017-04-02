@@ -1,4 +1,4 @@
-Size: 200, 37
+Size: 200, 40
 
 
 //Transfloors
@@ -16,7 +16,7 @@ Floor: 64, 34, 4, 2
 //Essential Floors
 Floor: -1, 20, 1, 30
 Floor: 0, 36, 35, 10
-Floor: 86, 36, 100, 10
+Floor: 86, 36, 50, 10
 
 //Coins
 Coin: 3, 30
@@ -37,6 +37,22 @@ Coin: 115, 27
 Koopa: 7, 31
 Koopa: 10, 31
 Koopa: 13, 31
+Koopa: 5, 34
+Koopa: 7, 34
+Koopa: 9, 34
+Koopa: 90, 34
+Koopa: 91, 34
+Koopa: 96, 34
+Koopa: 97, 34
+Koopa: 105, 34
+Koopa: 106, 34
+Koopa: 111, 34
+Koopa: 112, 34
+Koopa: 120, 34
+Koopa: 121, 34
+
+Muncher: 86, 35
+Muncher: 135, 35
 
 
 //Blocks
@@ -60,4 +76,4 @@ CoinBlock: 91, 31, 0
 CoinBlock: 92, 31, 0
 
 MysteryBlock: 28, 31, Mushroom
-MysteryBlock: 180, 32, LevelReader, 0
+MysteryBlock: 134, 32, LevelReader, 0
