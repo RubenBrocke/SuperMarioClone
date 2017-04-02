@@ -12,7 +12,7 @@ namespace SuperMarioClone
 {
     public class Goomba : Tangible, IMovable
     {
-        public float VelocityX { get; protected set; }
+        public float VelocityX { get; private set; }
         public float VelocityY { get; private set; }
         public float JumpVelocity { get; private set; }
         public float Gravity { get; private set; }

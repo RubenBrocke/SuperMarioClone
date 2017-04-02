@@ -12,19 +12,16 @@ namespace SuperMarioClone
 {
     public class Coin : Tangible, IMovable
     {
-        public bool HasBeenPickedUp { get; set; }
-        public bool IsMysteryCoin { get; set; }
+        public bool HasBeenPickedUp { get; private set; }
+        public bool IsMysteryCoin { get; private set; }
 
-        /// <summary>
-        /// Implementations from IMovable
-        /// </summary>
+        //Implementation of IMovable
         public float VelocityX { get; }
         public float VelocityY { get; private set; }
         public float JumpVelocity { get; }
         public float Gravity { get; private set; }
 
         private bool _shouldBeDeleted;
-
         private SoundEffect _coinPickUpSound;
         private Animator _animator;
         private int _hitBoxWidth;
@@ -46,6 +43,11 @@ namespace SuperMarioClone
             Sprite = _animator.GetCurrentTexture();
             _coinPickUpSound = contentManager.Load<SoundEffect>("Pling");
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitBoxWidth, _hitBoxHeight); 
+        }
+
+        public Coin(int x, int y, Level level, ContentManager contentManager, bool isMysteryCoin) : this(x, y, level, contentManager)
+        {
+            IsMysteryCoin = isMysteryCoin;
         }
 
         public void AddCoin(Mario mario)

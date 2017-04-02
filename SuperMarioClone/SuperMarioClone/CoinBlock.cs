@@ -12,7 +12,8 @@ namespace SuperMarioClone
 {
     public class CoinBlock : Tangible, ISolid
     {
-        private int ContainAmount { get; set; }
+        public  int ContainAmount { get; private set; }
+
         private ContentManager _contentManager;
         private Animator _animator;
         private bool _hasBeenUsed = false;
@@ -37,8 +38,7 @@ namespace SuperMarioClone
         {
             if (vY < 0 && !_hasBeenUsed && mario.Hitbox.Y > Hitbox.Bottom)
             {
-                Coin c = (Coin)Activator.CreateInstance(typeof(Coin), (int)Position.X / Global.Instance.GridSize, ((int)Position.Y - Hitbox.Height) / Global.Instance.GridSize, CurrentLevel, _contentManager);
-                c.IsMysteryCoin = true;
+                Coin c = (Coin)Activator.CreateInstance(typeof(Coin), (int)Position.X / Global.Instance.GridSize, ((int)Position.Y - Hitbox.Height) / Global.Instance.GridSize, CurrentLevel, _contentManager, true);
                 c.AddCoin(mario);
                 CurrentLevel.ToAddGameObject(c);
                 if (ContainAmount-- <= 0)

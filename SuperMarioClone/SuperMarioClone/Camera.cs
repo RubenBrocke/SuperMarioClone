@@ -23,7 +23,7 @@ namespace SuperMarioClone
         /// <param name="viewport">The viewport of the current screen</param>
         public Camera(Viewport viewport)
         {
-            this._viewport = viewport;
+            _viewport = viewport;
 
             Position = Vector2.Zero;
             Rotation = 0;
@@ -32,9 +32,9 @@ namespace SuperMarioClone
         }
 
         /// <summary>
-        /// Makes sure that the camera follows Mario
+        /// Centers camera on the given position
         /// </summary>
-        /// <param name="_pos">The position</param>
+        /// <param name="_pos">Position camera should focus on</param>
         public void LookAt(Vector2 _pos)
         {
             Position = new Vector2(Math.Max(-289, _pos.X - _viewport.Width / 2), -100); //Y = _pos.Y - 534 to follow player sort of
@@ -42,9 +42,9 @@ namespace SuperMarioClone
         }
 
         /// <summary>
-        /// Returns math stuffs, DENNI GET HERE AND WRITE THIS
+        /// Returns the Camera Matrix used to transform the SpriteBatch
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Camera Matrix</returns>
         public Matrix GetMatrix()
         {
             return
@@ -56,12 +56,12 @@ namespace SuperMarioClone
         }
 
         /// <summary>
-        /// Returns a new Rectangle with the same bounds as what the camera is currently at
+        /// Returns a Rectangle with the same bounds as the Camera
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Rectangle with the same bounds as the Camera</returns>
         public Rectangle GetBounds()
         {
-            return new Rectangle((int)Position.X + 289, (int)Position.Y + 484, (int)(_viewport.Width / Zoom), (int)(_viewport.Height / Zoom));
+            return new Rectangle((int)Position.X + 289, (int)Position.Y + 500, (int)(_viewport.Width / Zoom), (int)(_viewport.Height / Zoom));
         }
     }
 }

@@ -29,6 +29,8 @@ namespace UnitTest
         public void StoneBlock_StoneBlock()
         {
             Assert.AreEqual(_stoneBlock.Position, new Vector2(16, 16));
+            Assert.AreEqual(_stoneBlock.Hitbox, new Rectangle(16, 16, 16, 16));
+            Assert.AreEqual(_stoneBlock.CurrentLevel, _level);
         }
     }
 }

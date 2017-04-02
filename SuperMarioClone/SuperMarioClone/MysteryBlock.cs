@@ -72,8 +72,7 @@ namespace SuperMarioClone
             {
                 if (MysteryObject == typeof(Coin))
                 {
-                    Coin c = (Coin)Activator.CreateInstance(MysteryObject, (int)Position.X / Global.Instance.GridSize, ((int)Position.Y - Hitbox.Height) / Global.Instance.GridSize, CurrentLevel, _contentManager);
-                    c.IsMysteryCoin = true;                 
+                    Coin c = (Coin)Activator.CreateInstance(MysteryObject, (int)Position.X / Global.Instance.GridSize, ((int)Position.Y - Hitbox.Height) / Global.Instance.GridSize, CurrentLevel, _contentManager, true);            
                     c.AddCoin(mario);
                     CurrentLevel.ToAddGameObject(c);
                 }
