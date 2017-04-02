@@ -9,7 +9,6 @@ TransFloor: 48, 34, 6, 10
 
 //Floors
 //X, Y, WIDTH, HEIGHT
-Floor: 72, 37, 15, 6
 Floor: 36, 36, 38, 4
 Floor: 81, 36, 15, 4
 Floor: 125, 34, 15, 8
