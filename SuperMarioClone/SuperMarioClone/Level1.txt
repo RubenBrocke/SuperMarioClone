@@ -1,3 +1,6 @@
+Size: 200, 37
+
+
 //Transgender Floors, dont judge them or call them a helic0pter
 TransFloor: 23, 29, 5, 27
 TransFloor: 21, 31, 4, 27
@@ -8,7 +11,6 @@ TransFloor: 48, 34, 6, 10
 //X, Y, WIDTH, HEIGHT
 Floor: 72, 37, 15, 6
 Floor: 36, 36, 38, 4
-Floor: 94, 34, 2, 6
 Floor: 81, 36, 15, 4
 Floor: 125, 34, 15, 8
 Floor: 32, 29, 2, 8

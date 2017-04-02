@@ -1,5 +1,12 @@
+Size: 200, 37
+
+
 //Transfloors
 TransFloor: 6, 33, 15, 8
+TransFloor: 104, 28, 3, 10
+TransFloor: 102, 30, 6, 10
+TransFloor: 100, 32, 6, 10
+TransFloor: 103, 34, 4, 10
 
 
 //Floors
@@ -9,7 +16,7 @@ Floor: 64, 34, 4, 2
 //Essential Floors
 Floor: -1, 20, 1, 30
 Floor: 0, 36, 35, 10
-
+Floor: 86, 36, 100, 10
 
 //Coins
 Coin: 3, 30
@@ -18,6 +25,12 @@ Coin: 57, 30
 Coin: 58, 30
 Coin: 65, 33
 Coin: 66, 33
+Coin: 74, 32
+Coin: 111, 27
+Coin: 112, 27
+Coin: 113, 27
+Coin: 114, 27
+Coin: 115, 27
 
 
 //Enemy's
@@ -32,5 +45,19 @@ CloudBlock: 42, 35
 CloudBlock: 46, 30
 CloudBlock: 48, 34
 CloudBlock: 52, 28
+CloudBlock: 67, 30
+CloudBlock: 72, 30
+CloudBlock: 74, 33
+CloudBlock: 80, 31
+CloudBlock: 111, 28
+CloudBlock: 112, 28
+CloudBlock: 113, 28
+CloudBlock: 114, 28
+CloudBlock: 115, 28
+
+CoinBlock: 90, 31, 0
+CoinBlock: 91, 31, 0
+CoinBlock: 92, 31, 0
 
 MysteryBlock: 28, 31, Mushroom
+MysteryBlock: 180, 32, LevelReader, 0

@@ -13,6 +13,8 @@ namespace SuperMarioClone
         public List<GameObject> GameObjects { get; private set; }
         public Texture2D Background { get; private set; }
         public int Time { get; private set; }
+        public int Width { get; private set; }
+        public int Height { get; private set; }
 
         private List<GameObject> _toRemove = new List<GameObject>();
         private List<GameObject> _toAdd = new List<GameObject>();
@@ -24,6 +26,16 @@ namespace SuperMarioClone
             GameObjects = new List<GameObject>();
             _timerTimer = new Timer(DecreaseTime);
             _timerTimer.Change(0, 1000);
+        }
+
+        public Level(int width, int height)
+        {
+            Time = 280;
+            GameObjects = new List<GameObject>();
+            _timerTimer = new Timer(DecreaseTime);
+            _timerTimer.Change(0, 1000);
+            Width = width;
+            Height = height;
         }
 
         private void DecreaseTime(object state)
