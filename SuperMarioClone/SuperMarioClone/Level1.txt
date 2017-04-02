@@ -40,14 +40,11 @@ Coin: 100, 33
 Coin: 129, 33
 Coin: 130, 33
 Coin: 131, 33
-Coin: 80, 36
 
 //Enemy
 Koopa: 4, 34
 Koopa: 57, 34
 Koopa: 53, 34
-Koopa: 68, 35
-Koopa: 70, 35
 Muncher: 36, 28
 Muncher: 49, 33
 Muncher: 64, 31
