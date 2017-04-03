@@ -19,7 +19,7 @@ namespace UnitTest
         {
             _contentManager = new TestContentManager();
             _level = new Level();
-            _mario = new Mario(1, 1, _level, _contentManager);
+            _mario = new Mario(3, 3, _level, _contentManager);
             _coin = new Coin(1, 1, _level, _contentManager);
             _level.ToAddGameObject(_mario);
             _level.ToAddGameObject(_coin);
@@ -36,7 +36,7 @@ namespace UnitTest
         [TestMethod]
         public void Coin_AddMysteryCoin()
         {
-            _coin.IsMysteryCoin = true;
+            _coin = new Coin(1, 1, _level, _contentManager, true);
             _coin.AddCoin(_mario);
             Assert.AreEqual(_mario.Coins, 1);
         }
