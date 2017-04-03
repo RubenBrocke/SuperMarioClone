@@ -12,7 +12,7 @@ namespace SuperMarioClone
         private Mario _mario;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private LevelReader _lr;
+        private LevelReader _levelReader;
         public Level currentLevel;
         private GraphicalUserInterface _graphicalUserInterface;
         public Camera camera;
@@ -36,8 +36,8 @@ namespace SuperMarioClone
         protected override void Initialize()
         {
             Global.Instance.MainGame = this;
-            _lr = new LevelReader(Content);
-            currentLevel = _lr.ReadLevel(0);
+            _levelReader = new LevelReader(Content);
+            currentLevel = _levelReader.ReadLevel(0);
             _mario = new Mario(1, 1, currentLevel, Content);
             currentLevel.ToAddGameObject(_mario);
             camera = new Camera(GraphicsDevice.Viewport);

@@ -45,11 +45,11 @@ Koopa: 91, 34
 Koopa: 96, 34
 Koopa: 97, 34
 Koopa: 105, 34
-Koopa: 106, 34
-Koopa: 111, 34
-Koopa: 112, 34
+Koopa: 107, 34
+Koopa: 113, 34
+Koopa: 115, 34
 Koopa: 120, 34
-Koopa: 121, 34
+Koopa: 122, 34
 
 Muncher: 86, 35
 Muncher: 135, 35

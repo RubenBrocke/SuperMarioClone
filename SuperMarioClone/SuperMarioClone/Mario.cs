@@ -18,21 +18,21 @@ namespace SuperMarioClone
         //Implementation of IMovable
         public float VelocityX { get; private set; }
         public float VelocityY { get; private set; }
-        public float BigJumpVelocity { get; private set; }
-        public float SmallJumpVelocity { get; private set; }
         public float JumpVelocity { get; private set; }
         public float Gravity { get; private set; }
 
         //Properties
         public int Coins { get; private set; }
         public int Lives { get; private set; }
+        public float BigJumpVelocity { get; private set; }
+        public float SmallJumpVelocity { get; private set; }
         public State CurrentState { get; private set; }
         public Form CurrentForm { get; private set; }
 
         //Private fields
         private ContentManager _contentManager;
-        private float _acc;
-        private float _deacc;
+        private float _accelerate;
+        private float _deaccelerate;
         private float _xSpeedMax;
         private float _ySpeedMax;
         private bool _jumpWasPressed;
@@ -95,8 +95,8 @@ ___________________/  /__/  /__/  /__/  /________________________________
             CurrentForm = Form.Small;
 
             _contentManager = contentManager;
-            _acc = 0.1f;
-            _deacc = 0.2f;
+            _accelerate = 0.1f;
+            _deaccelerate = 0.2f;
             _xSpeedMax = 3.5f;
             _ySpeedMax = 10f;
             _jumpWasPressed = false;
@@ -165,7 +165,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             Hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
         }
 
-        public override void Update()
+        public override void Update() //TODO: break this apart in multiple funtions!! and add those to the UML
         {
             //Update hitbox to match current position and State
             UpdateHitBox();
@@ -201,11 +201,11 @@ ___________________/  /__/  /__/  /__/  /________________________________
                         {
                             if (VelocityX > 0)
                             {
-                                VelocityX = Math.Max(VelocityX - _deacc, 0);
+                                VelocityX = Math.Max(VelocityX - _deaccelerate, 0);
                             }
                             else if (VelocityX < 0)
                             {
-                                VelocityX = Math.Min(VelocityX + _deacc, 0);
+                                VelocityX = Math.Min(VelocityX + _deaccelerate, 0);
                             }
                         }
                     }
@@ -214,11 +214,11 @@ ___________________/  /__/  /__/  /__/  /________________________________
                 {
                     if (VelocityX < 0)
                     {
-                        VelocityX += _acc * 2;
+                        VelocityX += _accelerate * 2;
                     }
                     else
                     {
-                        VelocityX += _acc;
+                        VelocityX += _accelerate;
                     }
                     Direction = SpriteEffects.None;
                 }
@@ -226,11 +226,11 @@ ___________________/  /__/  /__/  /__/  /________________________________
                 {
                     if (VelocityX > 0)
                     {
-                        VelocityX -= _acc * 2;
+                        VelocityX -= _accelerate * 2;
                     }
                     else
                     {
-                        VelocityX -= _acc;
+                        VelocityX -= _accelerate;
                     }
                     Direction = SpriteEffects.FlipHorizontally;
                 }
@@ -240,11 +240,11 @@ ___________________/  /__/  /__/  /__/  /________________________________
                     {
                         if (VelocityX > 0)
                         {
-                            VelocityX = Math.Max(VelocityX - _deacc, 0);
+                            VelocityX = Math.Max(VelocityX - _deaccelerate, 0);
                         }
                         else if (VelocityX < 0)
                         {
-                            VelocityX = Math.Min(VelocityX + _deacc, 0);
+                            VelocityX = Math.Min(VelocityX + _deaccelerate, 0);
                         }
                     }
                 }
