@@ -1041,6 +1041,175 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="34e95802-7960-4298-826d-52ab67419faf"
+            name="AddGravity"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a5489376-e0d4-41c0-b819-5a719a0e7e19"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="94e6a08d-3255-4ff4-b14e-af3eb24d4a63"
+            name="CollisionCheck"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c9f239cf-62ed-46c2-8c17-5f12421f0434"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b1ae2ef9-ad11-4d8c-a06f-f49362fd29d5"
+            name="KillOutOfMap"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="05ff59c9-4125-4eac-8b12-04cb929713e0"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4e1a953f-32c0-4330-9c5a-ca1d20a401ee"
+            name="LimitSpeed"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="193ff2fb-eaa2-4ebb-96aa-b0f9e07eac0d"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2d03d7bd-1a40-47c7-9695-125f5a26aeed"
+            name="AntiPogo"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8825ec7a-98f2-4230-b81e-d333014a48de"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="2bdb21aa-6b78-41b9-98c4-3316324add4e"
+            name="Move"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c5a268fd-f2db-4157-bc16-b2ea1d7ae94f"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="322da86c-db19-458d-893b-38ef158791dc"
+            name="SetState"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="61c48de0-45b5-4f9c-bfef-88f89accd9f9"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -7101,6 +7270,25 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="9a704590-96d7-426d-b254-597c4b4a3628">
+            <interfaceMoniker
+              Id="4390203b-2e93-43dc-95d4-a735baa04150"
+              LastKnownName="ISolid"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="6b809745-0689-460e-88af-b7064a5872f2"
+            isSubstitutable="false">
+            <classMoniker
+              Id="16ea22da-b917-41a3-b12c-5b51e560f303"
+              LastKnownName="Tangible"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedOperationsInternal>
           <operation
             Id="9dd2461f-fe69-4fc3-b3c2-6201b18a3ef5"
