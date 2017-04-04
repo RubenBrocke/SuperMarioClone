@@ -6655,6 +6655,47 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="91fc4fe7-98cb-46b7-9eb9-9feb4521fdc5"
+            isDerived="false"
+            sourceEndRoleName="Global"
+            targetEndRoleName="MainGame"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="3349a72a-bb03-449c-b2b0-41d0a77cfdb9"
+              LastKnownName="MainGame"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b57d5ae0-74be-4320-a487-9c8801b7004a"
+                  name="Global"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2135337b-9e1a-4118-8195-6631993d27a3"
+                  name="MainGame"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="c6d8c9b1-70f3-474c-80a1-8971f3201b22"
@@ -6759,6 +6800,47 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="7a5c853d-02a2-406d-a8d6-5623bebadf49"
+            isDerived="false"
+            sourceEndRoleName="GraphicalUserInterface"
+            targetEndRoleName="Mario"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7edce9c3-8c99-40e7-9239-afb2959229d9"
+                  name="GraphicalUserInterface"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e1e3f361-e8a5-47ff-bd9e-06eecd816789"
+                  name="Mario"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="4871aea5-c04e-4970-a055-e8dbfef9068a"

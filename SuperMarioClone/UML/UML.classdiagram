@@ -3390,6 +3390,24 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="0604f6e0-1f77-401c-a035-aefe19982d43" name="Global" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6bafc71e-5bcb-47dc-9372-66070b2b72b4" />
+        <targetEnds>
+          <association Id="cc3a928f-52a0-4b11-b162-9f7817efb130" isDerived="false" sourceEndRoleName="Global" targetEndRoleName="MainGame" isLeaf="false" isAbstract="false">
+            <classMoniker Id="46f08f54-d901-45a6-b65f-7d2836f717b0" LastKnownName="MainGame" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6b4d8561-c745-4a2f-9118-c42a81d2492b" name="Global" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b57d5ae0-74be-4320-a487-9c8801b7004a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6bb36cc9-048b-459c-a76d-a9332dfe5b56" name="MainGame" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2135337b-9e1a-4118-8195-6631993d27a3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="91fc4fe7-98cb-46b7-9eb9-9feb4521fdc5" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="7f59e511-fde1-4c45-9d24-b992eb6b1c82" name="GridSize" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="c6d8c9b1-70f3-474c-80a1-8971f3201b22" />
@@ -3468,6 +3486,24 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="58f786be-9080-42a7-bf24-5b95a5922936" name="GraphicalUserInterface" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="84b9eb8f-23b6-4b93-9efb-b1e80277f828" />
+        <targetEnds>
+          <association Id="45e0d25e-36f6-4741-91f8-db91c4a8c314" isDerived="false" sourceEndRoleName="GraphicalUserInterface" targetEndRoleName="Mario" isLeaf="false" isAbstract="false">
+            <classMoniker Id="599c0a37-89c6-415d-b899-79cde890c93a" LastKnownName="Mario" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="aebd0690-3c6f-4ad2-9429-710a3d5e09b5" name="GraphicalUserInterface" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="7edce9c3-8c99-40e7-9239-afb2959229d9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c8e53725-28e5-48fc-b3e0-6d156a2c6b72" name="Mario" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e1e3f361-e8a5-47ff-bd9e-06eecd816789" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7a5c853d-02a2-406d-a8d6-5623bebadf49" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="68d762f3-3832-43fc-935e-f81aaada5156" name="_mario" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="4871aea5-c04e-4970-a055-e8dbfef9068a" />
