@@ -68,7 +68,7 @@ namespace SuperMarioClone
 
         public void Eject(Mario mario)
         {
-            if (mario.VelocityY < 0 && !HasBeenUsed && mario.Hitbox.Y > Hitbox.Bottom)
+            if (mario.VelocityY < 0 && !HasBeenUsed && mario.Hitbox.Y >= Hitbox.Bottom)
             {
                 if (MysteryObject == typeof(Coin))
                 {
