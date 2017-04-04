@@ -1,7 +1,6 @@
 # SuperMarioClone
 
 TODO:
-- Mario kan niet van level veranderen als hij groot is
 -	Je begint met drie levens, als die op zijn is het “game over”
 - Comments schrijven
 - UML bijwerken
@@ -9,6 +8,7 @@ TODO:
 
 
 FINISHED
+- Mario kan niet van level veranderen als hij groot is FINISHED
 -	Uiteraard moet het ontwerp aan alle kwalitetiseisen voldoen die je in het blok hebt geleerd (denk bijvoorbeeld aan: Responsibility driven design) FINISHED
 -	Collision detection mag op bounding rectangles gebeuren (hoeft dus niet pixel perfect te zijn) FINISHED
 -	Het level wordt uit een levelfile gelezen (aanpassingen in die file zijn zichtbaar in het level ZONDER een recompile van de code) FINISHED
