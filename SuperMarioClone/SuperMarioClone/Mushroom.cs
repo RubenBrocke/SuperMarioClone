@@ -56,12 +56,32 @@ namespace SuperMarioClone
         public override void Update()
         {
             //Update hitbox to match current position
-            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
+            UpdateHitbox();
 
             //Add gravity to vertical velocity
-            VelocityY += Gravity;
+            AddGravity();
 
             //Check collision and change direction if needed
+            CollisionCheck();
+
+            //Update position
+            UpdatePosition();
+        }
+
+        private void UpdateHitbox()
+        {
+            Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
+        }
+
+        //Add gravity to vertical velocity
+        private void AddGravity()
+        {
+            VelocityY += Gravity;
+        }
+
+        //Check collision and change direction if needed
+        private void CollisionCheck()
+        {
             float vX;
             float vY;
 
@@ -79,9 +99,12 @@ namespace SuperMarioClone
                 }
             }
             VelocityY = vY;
+        }
 
-            //Update position
+        //Update position
+        private void UpdatePosition()
+        {
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
-        }   
+        }
     }
 }
