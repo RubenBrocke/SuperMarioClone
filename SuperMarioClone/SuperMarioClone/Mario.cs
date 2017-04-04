@@ -47,6 +47,8 @@ namespace SuperMarioClone
         private int _hitboxWidth;
         private int _hitboxHeight;
 
+
+
         //Enumerators
         public enum State
         {
@@ -114,7 +116,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             _horizontalPadding = 1;
             _verticalPadding = 4;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, _hitboxWidth, _hitboxHeight);
-            
+
         }
 
         public void BecomeBig()
@@ -165,33 +167,83 @@ ___________________/  /__/  /__/  /__/  /________________________________
             Hitbox = new Rectangle((int)Position.X + _horizontalPadding, (int)Position.Y + _verticalPadding, _hitboxWidth, _hitboxHeight);
         }
 
-        public override void Update() //TODO: break this apart in multiple funtions!! and add those to the UML
+        public override void Update()
         {
             //Update hitbox to match current position and State
             UpdateHitBox();
 
-            //Add gravity to vertical velocity
-            VelocityY += Gravity;
+            //Update position
+            UpdatePosition();
 
+            //Add gravity to vertical velocity
+            AddGravity();
+
+            //Check collision and change velocity
+            CollisionCheck();
+
+            //Kills Mario when he falls out of the map
+            KillOutOfMap();
+
+            //Limit vertical speed
+            LimitSpeed();
+
+            //Prevent pogosticking
+            AntiPogo();
+
+            //Adds Movement to Mario
+            Move();
+
+            //Sets the state of Mario
+            SetState();
+
+            //Update sprite
+            UpdateSprite();
+        }
+
+        //Set state of Mario
+        private void SetState()
+        {
+            KeyboardState state = Keyboard.GetState();
+
+            if (VelocityX == 0)
+            {
+                CurrentState = Mario.State.Idle;
+            }
+            if (VelocityX != 0)
+            {
+                CurrentState = Mario.State.Walking;
+            }
+            if (VelocityX > 3.4f || VelocityX < -3.4f)
+            {
+                CurrentState = Mario.State.Running;
+            }
+            if (VelocityY < 0)
+            {
+                CurrentState = Mario.State.Jumping;
+            }
+            if (VelocityY > 0)
+            {
+                CurrentState = Mario.State.Falling;
+            }
+            if (VelocityY > 0 && VelocityX < 0.5f && VelocityX > -0.5f)
+            {
+                CurrentState = Mario.State.FallingStraight;
+            }
+            if (state.IsKeyDown(Keys.S))
+            {
+                CurrentState = State.Crouching;
+            }
+            if (_isDead)
+            {
+                CurrentState = State.Dead;
+            }
+        }
+
+        private void Move()
+        {
             KeyboardState state = Keyboard.GetState();
             if (!_isDead)
             {
-                //Limit vertical speed
-                if (VelocityY > _ySpeedMax)
-                {
-                    VelocityY = _ySpeedMax;
-                }
-
-                //Limit horizontal speed
-                if (VelocityX > _xSpeedMax)
-                {
-                    VelocityX = _xSpeedMax;
-                }
-                else if (VelocityX < -_xSpeedMax)
-                {
-                    VelocityX = -_xSpeedMax;
-                }
-
                 //Add movement
                 if (state.IsKeyDown(Keys.S))
                 {
@@ -248,91 +300,97 @@ ___________________/  /__/  /__/  /__/  /________________________________
                         }
                     }
                 }
+            }
+        }
 
-                //Prevents pogosticking 
-                if (_jumpWasPressed)
+        //Prevents pogosticking
+        private void AntiPogo()
+        {
+            KeyboardState state = Keyboard.GetState();
+            if (_jumpWasPressed)
+            {
+                if (!state.IsKeyDown(Keys.Space))
                 {
-                    if (!state.IsKeyDown(Keys.Space))
-                    {
-                        _jumpWasPressed = false;
-                    }
+                    _jumpWasPressed = false;
                 }
-
-                if (state.IsKeyDown(Keys.Space))
-                {
-                    if (!_jumpWasPressed)
-                    {
-                        if (IsColliding(CurrentLevel, 0, 1, out collObject) && VelocityY <= Gravity && VelocityY >= -Gravity)
-                        {
-                            Jump();
-                        }
-                    }
-                    _jumpWasPressed = true;
-                }
-
-                //Check collision and change velocity
-                float vX;
-                float vY;
-                CheckCollision(this, out vX, out vY);
-                if (!_isDead)
-                {
-                    VelocityX = vX;
-                    if (!_isForcedToJump)
-                    {
-                        VelocityY = vY;
-                    }
-                    _isForcedToJump = false;
-                }
-                
             }
 
-            //Update position
-            Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
+            if (state.IsKeyDown(Keys.Space))
+            {
+                if (!_jumpWasPressed)
+                {
+                    if (IsColliding(CurrentLevel, 0, 1, out collObject) && VelocityY <= Gravity && VelocityY >= -Gravity)
+                    {
+                        Jump();
+                    }
+                }
+                _jumpWasPressed = true;
+            }
+        }
 
-            //Kills Mario when he falls out of the map
-            if (Position.Y > 666 && _isDead == false)
+        //Limit vertical speed
+        private void LimitSpeed()
+        {
+            if (!_isDead)
+            {
+                if (VelocityY > _ySpeedMax)
+                {
+                    VelocityY = _ySpeedMax;
+                }
+
+                //Limit horizontal speed
+                if (VelocityX > _xSpeedMax)
+                {
+                    VelocityX = _xSpeedMax;
+                }
+                else if (VelocityX < -_xSpeedMax)
+                {
+                    VelocityX = -_xSpeedMax;
+                } 
+            }
+        }
+
+        //Kills Mario when he falls out of the map
+        private void KillOutOfMap()
+        {
+            if (Position.Y > 666 && !_isDead)
             {
                 Die();
             }
-
-            //Set state
-            if (VelocityX == 0)
-            {
-                CurrentState = Mario.State.Idle;
-            }
-            if (VelocityX != 0)
-            {
-                CurrentState = Mario.State.Walking;
-            }
-            if (VelocityX > 3.4f || VelocityX < -3.4f)
-            {
-                CurrentState = Mario.State.Running;
-            }
-            if (VelocityY < 0)
-            {
-                CurrentState = Mario.State.Jumping;
-            }
-            if (VelocityY > 0)
-            {
-                CurrentState = Mario.State.Falling;
-            }
-            if (VelocityY > 0 && VelocityX < 0.5f && VelocityX > -0.5f)
-            {
-                CurrentState = Mario.State.FallingStraight;
-            }
-            if (state.IsKeyDown(Keys.S))
-            {
-                CurrentState = State.Crouching;
-            }
-            if (_isDead)
+        }
+        
+        //Check collision and change velocity
+        private void CollisionCheck()
+        {
+            float vX;
+            float vY;
+            CheckCollision(this, out vX, out vY);
+            if (!_isDead)
             {
                 CurrentState = State.Dead;
+                VelocityX = vX;
+                if (!_isForcedToJump)
+                {
+                    VelocityY = vY;
+                }
+                _isForcedToJump = false;
             }
-
-            //Update sprite
-            UpdateSprite();
         }
 
+        //Update position
+        private void UpdatePosition()
+        {
+            Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
+        }
+
+
+        //Add gravity to vertical velocity
+        private void AddGravity()
+        {
+            VelocityY += Gravity;
+        }
+
+        //Makes Mario jump
         public void Jump()
         {
             VelocityY = -JumpVelocity;
@@ -343,6 +401,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             }
         }
 
+        //Defines what happens if Mario gets hit in Multiple Situations
         public void GetHit()
         {
             if (!_isInvincible)
@@ -363,7 +422,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
                         break;
                     default:
                         break;
-                } 
+                }
             }
         }
 
@@ -383,6 +442,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
 
             //LevelReader lr = new LevelReader(_contentManager);
             //MainGame.currentLevel = lr.ReadLevel(0);
+            //TODO: Fix that Mario cant collide with anything while dead
             //TODO: Add death animation and death screen showing lives before going back to the menu/level selection
         }
 
