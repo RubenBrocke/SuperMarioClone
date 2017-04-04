@@ -36,7 +36,7 @@ namespace SuperMarioClone
 
         public void Eject(Mario mario, float vY, float Y)
         {
-            if (vY < 0 && !_hasBeenUsed && mario.Hitbox.Y > Hitbox.Bottom)
+            if (vY < 0 && !_hasBeenUsed && mario.Hitbox.Y >= Hitbox.Bottom)
             {
                 Coin c = (Coin)Activator.CreateInstance(typeof(Coin), (int)Position.X / Global.Instance.GridSize, ((int)Position.Y - Hitbox.Height) / Global.Instance.GridSize, CurrentLevel, _contentManager, true);
                 c.AddCoin(mario);
