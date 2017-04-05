@@ -90,7 +90,8 @@ namespace SuperMarioClone
                             if (o is Koopa)
                             {
                                 Koopa koopa = (Koopa)o;
-                                koopa.Die();
+                                koopa.DieWithoutShell();
+                                collidesWithSolid = false;
                             }
                         }
                     } 

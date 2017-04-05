@@ -16,7 +16,6 @@ namespace SuperMarioClone
         public float VelocityY { get; private set; }
         public float JumpVelocity { get; private set; }
         public float Gravity { get; private set; }
-
         public bool IsHit { get; private set; }
 
         private float _speed;
@@ -127,6 +126,15 @@ namespace SuperMarioClone
                 CurrentLevel.ToRemoveGameObject(this);
                 CurrentLevel.ToAddGameObject(new Shell(Position.X, Position.Y + Hitbox.Height - Global.Instance.GridSize, CurrentLevel, _contentManager));
                 IsHit = true; 
+            }
+        }
+
+        public void DieWithoutShell()
+        {
+            if (!IsHit)
+            {
+                CurrentLevel.ToRemoveGameObject(this);
+                IsHit = true;
             }
         }
     }
