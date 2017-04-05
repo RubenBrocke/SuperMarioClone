@@ -71,6 +71,7 @@ namespace SuperMarioClone
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            camera.LookAt(_mario.Position);
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             currentLevel.UpdateLevel();
@@ -83,7 +84,6 @@ namespace SuperMarioClone
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            camera.LookAt(_mario.Position);
             _spriteBatch.Begin(transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
             GraphicsDevice.Clear(Color.CornflowerBlue);
             currentLevel.DrawLevel(_spriteBatch, GraphicsDevice.Viewport);

@@ -17,6 +17,8 @@ namespace SuperMarioClone
         private float Zoom { get; set; }
         private Vector2 Origin { get; set; }
         private CameraState _state;
+        private float _cameraSpeed;
+        private Vector2 _prevPos;
 
         /// <summary>
         /// Constructor sets the values of different properties and variables
@@ -30,9 +32,9 @@ namespace SuperMarioClone
             Zoom = 3.6f;
             Origin = new Vector2(this._viewport.Width / 2f, this._viewport.Height / 2f);
             _state = CameraState.Follow;
+            _cameraSpeed = 10;
+            _prevPos = new Vector2(0, 0);
         }
-
-        int test = 1;
 
         /// <summary>
         /// Centers camera on the given position
@@ -40,8 +42,8 @@ namespace SuperMarioClone
         /// <param name="_pos">Position camera should focus on</param>
         public void LookAt(Vector2 _pos)
         {
-            test = (int)Lerp(test, 100, 1);
-            Console.WriteLine(test);
+            _cameraSpeed = (float)Math.Sqrt(_pos.X - Position.X - (_viewport.Width / 2));
+
             //Switch states
             switch (_state)
             {
@@ -84,10 +86,26 @@ namespace SuperMarioClone
                     Origin = new Vector2(_viewport.Width / 2, _viewport.Height);
                     break;
                 case CameraState.Follow:
-                    Position = new Vector2(_pos.X - _viewport.Width / 2, -100); //Y = _pos.Y - 534 to follow player sort of
+                    if (Position.X < _pos.X - _viewport.Width / 2 - _cameraSpeed)
+                    {
+                        Position = new Vector2(Position.X + _cameraSpeed, -100);
+                        Console.WriteLine("LEFT OF MARIO" + _cameraSpeed);
+                    }
+                    else if (Position.X > _pos.X - _viewport.Width / 2 + _cameraSpeed)
+                    {
+                        Position = new Vector2(Position.X - _cameraSpeed, -100);
+                        Console.WriteLine("RIGHT OF MARIO" + _cameraSpeed);
+                    }
+                    else
+                    {
+                        Position = new Vector2(_pos.X - _viewport.Width / 2, -100); //Y = _pos.Y - 534 to follow player sort of
+                        Console.WriteLine("ON MARIO");
+                    }
                     Origin = new Vector2(_viewport.Width / 2, _viewport.Height);
                     break;               
             }
+
+            _prevPos = _pos;
         }
 
         /// <summary>
@@ -111,11 +129,6 @@ namespace SuperMarioClone
         public Rectangle GetBounds()
         {
             return new Rectangle((int)Position.X + 289, (int)Position.Y + 500, (int)(_viewport.Width / Zoom), (int)(_viewport.Height / Zoom));
-        }
-
-        float Lerp(float firstFloat, float secondFloat, float by)
-        {
-            return firstFloat * by + secondFloat * (1 - by);
         }
     }
 
