@@ -279,3 +279,15 @@
 /processorParam:TextureFormat=Compressed
 /build:MarioFont.spritefont
 
+#begin SMWSong.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:SMWSong.mp3
+
+#begin Death.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Death.wav
+

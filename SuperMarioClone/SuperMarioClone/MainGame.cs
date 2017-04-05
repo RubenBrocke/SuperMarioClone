@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace SuperMarioClone
 {
@@ -16,6 +17,8 @@ namespace SuperMarioClone
         public Level currentLevel;
         private GraphicalUserInterface _graphicalUserInterface;
         public Camera camera;
+        private BackgroundSong _song;
+        public bool gameOver;
         
         public MainGame()
         {
@@ -35,10 +38,12 @@ namespace SuperMarioClone
         /// </summary>
         protected override void Initialize()
         {
+            gameOver = false;
+            _song = new BackgroundSong(Content);
             Global.Instance.MainGame = this;
             _levelReader = new LevelReader(Content);
             currentLevel = _levelReader.ReadLevel(0);
-            _mario = new Mario(1, 1, currentLevel, Content);
+            _mario = new Mario(0, 32, currentLevel, Content);
             currentLevel.ToAddGameObject(_mario);
             camera = new Camera(GraphicsDevice.Viewport);
             _graphicalUserInterface = new GraphicalUserInterface(_mario, Content);
@@ -71,11 +76,15 @@ namespace SuperMarioClone
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            camera.LookAt(_mario.Position);
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-            currentLevel.UpdateLevel();
-            base.Update(gameTime);
+            if (!gameOver)
+            {
+                _song.CheckInput();
+                camera.LookAt(_mario.Position);
+                if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+                    Exit();
+                currentLevel.UpdateLevel();
+                base.Update(gameTime); 
+            }
         }
 
         /// <summary>
@@ -84,12 +93,22 @@ namespace SuperMarioClone
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            _spriteBatch.Begin(transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-            currentLevel.DrawLevel(_spriteBatch, GraphicsDevice.Viewport);
-            _spriteBatch.End();
-            _graphicalUserInterface.Draw(_spriteBatch);
-            base.Draw(gameTime);
+            if (!gameOver)
+            {
+                _spriteBatch.Begin(transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
+                GraphicsDevice.Clear(Color.CornflowerBlue);
+                currentLevel.DrawLevel(_spriteBatch, GraphicsDevice.Viewport);
+                _spriteBatch.End();
+                _graphicalUserInterface.Draw(_spriteBatch);
+                base.Draw(gameTime); 
+            }
+            else
+            {
+                _spriteBatch.Begin();
+                GraphicsDevice.Clear(Color.Black);
+                _graphicalUserInterface.DrawBorderedText(_spriteBatch, "Game Over", Color.Black, Color.Red, new Vector2(GraphicsDevice.Viewport.Width / 2f, GraphicsDevice.Viewport.Height / 2f), true);
+                _spriteBatch.End();
+            }
         }
 
         public void ChangeCurrentLevel(Level level)
