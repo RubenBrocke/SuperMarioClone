@@ -39,35 +39,35 @@ namespace SuperMarioClone
         /// <summary>
         /// Centers camera on the given position
         /// </summary>
-        /// <param name="_pos">Position camera should focus on</param>
-        public void LookAt(Vector2 _pos)
+        /// <param name="focusPos">Position camera should focus on</param>
+        public void LookAt(Vector2 focusPos)
         {
-            _cameraSpeed = (float)Math.Sqrt(_pos.X - Position.X - (_viewport.Width / 2));
+            _cameraSpeed = (float)Math.Sqrt(Math.Abs(focusPos.X - Position.X - (_viewport.Width / 2)));
 
             //Switch states
             switch (_state)
             {
                 case CameraState.RightAlign:
-                    if (_pos.X - _viewport.Width / 2 + 50 > Global.Instance.MainGame.currentLevel.Width - 289)
+                    if (focusPos.X - _viewport.Width / 2 + 50 > Global.Instance.MainGame.currentLevel.Width - 289)
                     {
                         _state = CameraState.Follow;
                         Console.WriteLine("SWITCHED TO FOLLOW");
                     }
                     break;
                 case CameraState.LeftAlign:
-                    if (_pos.X - _viewport.Width / 2  - 50 > -289)
+                    if (focusPos.X - _viewport.Width / 2  - 50 > -289)
                     {
                         _state = CameraState.Follow;
                         Console.WriteLine("SWITCHED TO FOLLOW");
                     }
                     break;
                 case CameraState.Follow:
-                    if (_pos.X - _viewport.Width / 2 < -289)
+                    if (focusPos.X - _viewport.Width / 2 < -289)
                     {
                         _state = CameraState.LeftAlign;
                         Console.WriteLine("SWITCHED TO LEFT ALIGN");
                     }
-                    else if (_pos.X - _viewport.Width / 2 > Global.Instance.MainGame.currentLevel.Width - 289)
+                    else if (focusPos.X - _viewport.Width / 2 > Global.Instance.MainGame.currentLevel.Width - 289)
                     {
                         _state = CameraState.RightAlign;
                         Console.WriteLine("SWITCHED TO RIGHT ALIGN");
@@ -86,26 +86,26 @@ namespace SuperMarioClone
                     Origin = new Vector2(_viewport.Width / 2, _viewport.Height);
                     break;
                 case CameraState.Follow:
-                    if (Position.X < _pos.X - _viewport.Width / 2 - _cameraSpeed)
+                    if (Position.X < focusPos.X - _viewport.Width / 2 - _cameraSpeed)
                     {
                         Position = new Vector2(Position.X + _cameraSpeed, -100);
                         Console.WriteLine("LEFT OF MARIO" + _cameraSpeed);
                     }
-                    else if (Position.X > _pos.X - _viewport.Width / 2 + _cameraSpeed)
+                    else if (Position.X > focusPos.X - _viewport.Width / 2 + _cameraSpeed)
                     {
                         Position = new Vector2(Position.X - _cameraSpeed, -100);
                         Console.WriteLine("RIGHT OF MARIO" + _cameraSpeed);
                     }
                     else
                     {
-                        Position = new Vector2(_pos.X - _viewport.Width / 2, -100); //Y = _pos.Y - 534 to follow player sort of
+                        Position = new Vector2(focusPos.X - _viewport.Width / 2, -100); //Y = _pos.Y - 534 to follow player sort of
                         Console.WriteLine("ON MARIO");
                     }
                     Origin = new Vector2(_viewport.Width / 2, _viewport.Height);
                     break;               
             }
 
-            _prevPos = _pos;
+            _prevPos = focusPos;
         }
 
         /// <summary>
