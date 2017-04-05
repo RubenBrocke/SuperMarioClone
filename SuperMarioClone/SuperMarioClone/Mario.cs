@@ -195,6 +195,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
                 //Adds Movement to Mario
                 Move();
             }
+
             //Sets the state of Mario
             SetState();
 
@@ -397,7 +398,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             }
         }
 
-        //Defines what happens if Mario gets hit in Multiple Situations
+        //Defines what happens if Mario gets hit in different Situations
         public void GetHit()
         {
             if (!_isInvincible)
@@ -438,7 +439,6 @@ ___________________/  /__/  /__/  /__/  /________________________________
 
             //LevelReader lr = new LevelReader(_contentManager);
             //MainGame.currentLevel = lr.ReadLevel(0);
-            //TODO: Fix that Mario cant collide with anything while dead
             //TODO: Add death animation and death screen showing lives before going back to the menu/level selection
         }
 

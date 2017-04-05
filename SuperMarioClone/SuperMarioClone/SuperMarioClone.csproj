@@ -87,7 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
-    <Content Include="Level3.txt" />
     <Content Include="Level2.txt" />
     <Content Include="Level0.txt" />
     <Content Include="Level1.txt" />
