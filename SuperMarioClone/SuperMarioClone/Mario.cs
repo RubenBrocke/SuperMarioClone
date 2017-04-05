@@ -178,21 +178,23 @@ ___________________/  /__/  /__/  /__/  /________________________________
             //Add gravity to vertical velocity
             AddGravity();
 
-            //Check collision and change velocity
-            CollisionCheck();
+            if (!_isDead)
+            {
+                //Check collision and change velocity
+                CollisionCheck();
 
-            //Kills Mario when he falls out of the map
-            KillOutOfMap();
+                //Kills Mario when he falls out of the map
+                KillOutOfMap();
 
-            //Limit vertical speed
-            LimitSpeed();
+                //Limit vertical speed
+                LimitSpeed();
 
-            //Prevent pogosticking
-            AntiPogo();
+                //Prevent pogosticking
+                AntiPogo();
 
-            //Adds Movement to Mario
-            Move();
-
+                //Adds Movement to Mario
+                Move();
+            }
             //Sets the state of Mario
             SetState();
 
@@ -242,51 +244,14 @@ ___________________/  /__/  /__/  /__/  /________________________________
         private void Move()
         {
             KeyboardState state = Keyboard.GetState();
-            if (!_isDead)
+            //Add movement
+            if (state.IsKeyDown(Keys.G) && state.IsKeyDown(Keys.I) && state.IsKeyDown(Keys.B))
             {
-                //Add movement
-                if (state.IsKeyDown(Keys.S))
-                {
-                    if (IsColliding(CurrentLevel, 0, 1, out collObject))
-                    {
-                        if (!(collObject is TransFloor || collObject is CloudBlock) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
-                        {
-                            if (VelocityX > 0)
-                            {
-                                VelocityX = Math.Max(VelocityX - _deaccelerate, 0);
-                            }
-                            else if (VelocityX < 0)
-                            {
-                                VelocityX = Math.Min(VelocityX + _deaccelerate, 0);
-                            }
-                        }
-                    }
-                }
-                else if (state.IsKeyDown(Keys.D))
-                {
-                    if (VelocityX < 0)
-                    {
-                        VelocityX += _accelerate * 2;
-                    }
-                    else
-                    {
-                        VelocityX += _accelerate;
-                    }
-                    Direction = SpriteEffects.None;
-                }
-                else if (state.IsKeyDown(Keys.A))
-                {
-                    if (VelocityX > 0)
-                    {
-                        VelocityX -= _accelerate * 2;
-                    }
-                    else
-                    {
-                        VelocityX -= _accelerate;
-                    }
-                    Direction = SpriteEffects.FlipHorizontally;
-                }
-                else if (IsColliding(CurrentLevel, 0, 1, out collObject))
+                Coins += 10;
+            }
+            if (state.IsKeyDown(Keys.S))
+            {
+                if (IsColliding(CurrentLevel, 0, 1, out collObject))
                 {
                     if (!(collObject is TransFloor || collObject is CloudBlock) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
                     {
@@ -298,6 +263,44 @@ ___________________/  /__/  /__/  /__/  /________________________________
                         {
                             VelocityX = Math.Min(VelocityX + _deaccelerate, 0);
                         }
+                    }
+                }
+            }
+            else if (state.IsKeyDown(Keys.D))
+            {
+                if (VelocityX < 0)
+                {
+                    VelocityX += _accelerate * 2;
+                }
+                else
+                {
+                    VelocityX += _accelerate;
+                }
+                Direction = SpriteEffects.None;
+            }
+            else if (state.IsKeyDown(Keys.A))
+            {
+                if (VelocityX > 0)
+                {
+                    VelocityX -= _accelerate * 2;
+                }
+                else
+                {
+                    VelocityX -= _accelerate;
+                }
+                Direction = SpriteEffects.FlipHorizontally;
+            }
+            else if (IsColliding(CurrentLevel, 0, 1, out collObject))
+            {
+                if (!(collObject is TransFloor || collObject is CloudBlock) || Hitbox.Y + Hitbox.Height == collObject.Hitbox.Top)
+                {
+                    if (VelocityX > 0)
+                    {
+                        VelocityX = Math.Max(VelocityX - _deaccelerate, 0);
+                    }
+                    else if (VelocityX < 0)
+                    {
+                        VelocityX = Math.Min(VelocityX + _deaccelerate, 0);
                     }
                 }
             }
@@ -331,23 +334,20 @@ ___________________/  /__/  /__/  /__/  /________________________________
         //Limit vertical speed
         private void LimitSpeed()
         {
-            if (!_isDead)
+            if (VelocityY > _ySpeedMax)
             {
-                if (VelocityY > _ySpeedMax)
-                {
-                    VelocityY = _ySpeedMax;
-                }
-
-                //Limit horizontal speed
-                if (VelocityX > _xSpeedMax)
-                {
-                    VelocityX = _xSpeedMax;
-                }
-                else if (VelocityX < -_xSpeedMax)
-                {
-                    VelocityX = -_xSpeedMax;
-                } 
+                VelocityY = _ySpeedMax;
             }
+
+            //Limit horizontal speed
+            if (VelocityX > _xSpeedMax)
+            {
+                VelocityX = _xSpeedMax;
+            }
+            else if (VelocityX < -_xSpeedMax)
+            {
+                VelocityX = -_xSpeedMax;
+            } 
         }
 
         //Kills Mario when he falls out of the map
@@ -365,16 +365,12 @@ ___________________/  /__/  /__/  /__/  /________________________________
             float vX;
             float vY;
             CheckCollision(this, out vX, out vY);
-            if (!_isDead)
+            VelocityX = vX;
+            if (!_isForcedToJump)
             {
-                CurrentState = State.Dead;
-                VelocityX = vX;
-                if (!_isForcedToJump)
-                {
-                    VelocityY = vY;
-                }
-                _isForcedToJump = false;
+                VelocityY = vY;
             }
+            _isForcedToJump = false;
         }
 
         //Update position
@@ -449,6 +445,11 @@ ___________________/  /__/  /__/  /__/  /________________________________
         public void AddCoin()
         {
             Coins++;
+            if (Coins >= 100)
+            {
+                Lives++;
+                //Coins -= 100;
+            }
         }
 
         public void ChangeCurrentLevel(Level level)
