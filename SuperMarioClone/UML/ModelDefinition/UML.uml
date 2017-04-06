@@ -171,99 +171,19 @@
               LastKnownLocation="UML.uml" />
           </interfaceRealization>
           <dependency
-            Id="0ce8b275-9053-47e8-819d-34a6fba9bdc7"
-            name="&lt;&lt;parameter&gt;&gt;">
-            <classMoniker
-              Id="eda2eb09-a087-4fe1-bf14-ff1a5ca4f0ad"
-              LastKnownName="Coin"
+            Id="16cc7402-cf66-4aac-b1a0-75b2901f91fc"
+            name="&lt;&lt;use&gt;&gt;">
+            <enumerationMoniker
+              Id="d0e0afed-8389-4252-b78d-8aa11a65e4a4"
+              LastKnownName="State"
               LastKnownLocation="UML.uml" />
           </dependency>
           <dependency
-            Id="2bbcd8db-2281-417a-a6b8-84ccc7292975"
-            name="&lt;&lt;parameter&gt;&gt;">
-            <classMoniker
-              Id="246cebd9-a73e-43c0-84a2-1d192789f408"
-              LastKnownName="Mushroom"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="d4ded441-93f0-4556-8f6c-6eb611819a4d"
-            name="&lt;&lt;parameter&gt;&gt;">
-            <classMoniker
-              Id="5f4d662f-104d-479c-b46d-5b6a2a62657c"
-              LastKnownName="Koopa"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="7a4c7401-c7ab-4bf9-90a3-4c2797e60443"
-            name="&lt;&lt;parameter&gt;&gt;">
-            <classMoniker
-              Id="e4aea4e1-997d-4ce4-9f5d-190c33999395"
-              LastKnownName="Shell"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="6b4522a0-8e1f-4a5c-bd0f-cfba3debf402"
-            name="&lt;&lt;parameter&gt;&gt;">
-            <classMoniker
-              Id="19e41ae4-3437-4c97-8792-c725dfebdaa9"
-              LastKnownName="Goomba"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="dff9c041-56eb-4046-b27b-ce8295f65897"
-            name="&lt;&lt;parameter&gt;&gt;">
-            <classMoniker
-              Id="84acfca4-bbf9-4cba-b7ad-637e1a91144e"
-              LastKnownName="Muncher"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="58b6aa1c-5cc3-42e1-b222-94eba0bb8dc5"
-            name="&lt;&lt;parameter&gt;&gt;">
-            <classMoniker
-              Id="fd688ef9-718f-4497-92ae-c90b77adf19e"
-              LastKnownName="CloudBlock"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="e5053729-65d9-4702-a285-43681c5bae4d"
-            name="&lt;&lt;parameter&gt;&gt;">
-            <classMoniker
-              Id="d0ba2653-751b-4621-b2f1-4871c54b2af4"
-              LastKnownName="CoinBlock"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="42999464-2c94-405b-926e-15821dc83350"
-            name="&lt;&lt;parameter&gt;&gt;">
-            <classMoniker
-              Id="6b991256-72e4-4b47-b0f2-a22897e96c3f"
-              LastKnownName="TransFloor"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="5a2c428b-4538-49bb-88d6-86c736b86ea9"
-            name="&lt;&lt;parameter&gt;&gt;">
-            <classMoniker
-              Id="7ec7851e-b6f5-4913-a53a-a8576a5100e2"
-              LastKnownName="MysteryBlock"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="6304e57f-08e2-4c22-9451-5cc8fcfa8aa8"
-            name="&lt;&lt;parameter&gt;&gt;">
-            <classMoniker
-              Id="17dceef8-01ca-471a-855d-0c82e3cea98c"
-              LastKnownName="Floor"
-              LastKnownLocation="UML.uml" />
-          </dependency>
-          <dependency
-            Id="9bcb3bba-34dc-41ad-b24d-0342b4b7ec17"
-            name="&lt;&lt;parameter&gt;&gt;">
-            <classMoniker
-              Id="fd56cc34-d26f-4fb0-bece-32b57c4f1d96"
-              LastKnownName="StoneBlock"
+            Id="0e4efb5c-b780-45ba-93dc-ea71f77e1706"
+            name="&lt;&lt;use&gt;&gt;">
+            <enumerationMoniker
+              Id="47699aa4-8799-41d1-9d46-64365afad18a"
+              LastKnownName="Form"
               LastKnownLocation="UML.uml" />
           </dependency>
         </suppliersInternal>
@@ -281,8 +201,8 @@
           <association
             Id="a5e3ae41-cc05-4e88-92a8-cb963d19c576"
             isDerived="false"
-            sourceEndRoleName="Mario"
-            targetEndRoleName="Animator"
+            sourceEndRoleName="↑ Uses"
+            targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -293,7 +213,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="cdc431d1-61a9-4cc7-bc46-f5c70c630afd"
-                  name="Mario"
+                  name="↑ Uses"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -306,7 +226,6 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="4f536f8a-63e0-4495-877a-6f2751e13f44"
-                  name="Animator"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -1397,6 +1316,14 @@
               LastKnownName="ISolid"
               LastKnownLocation="UML.uml" />
           </interfaceRealization>
+          <dependency
+            Id="74727730-3213-4d94-b7c0-0bb5c2bfe692"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -1910,6 +1837,14 @@
               LastKnownName="IMovable"
               LastKnownLocation="UML.uml" />
           </interfaceRealization>
+          <dependency
+            Id="6c17a78c-87ac-4529-94fc-bb7c4d4f508f"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -2799,8 +2734,8 @@
           <association
             Id="a52ebd25-6f2b-49f7-b085-f3d3178e746e"
             isDerived="false"
-            sourceEndRoleName="Level"
-            targetEndRoleName="GameObject"
+            sourceEndRoleName=""
+            targetEndRoleName="Remembers →"
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -2811,7 +2746,57 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="a9b13b52-a11e-463d-99e5-15357bfd1e6b"
-                  name="Level"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="91cd858f-e423-4033-9f0a-4a949c2fbfb9"
+                  name="Remembers →"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="a70a09eb-cf5f-4411-87f8-82a6412bb9b3"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="da093573-56a2-400b-b4a2-11d7452fe20a"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7f54edd0-6721-4418-8e1b-fb3d042b6078"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=" ← Contains"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7385f8e2-9e2a-497f-81d2-6229e5e1c00d"
+              LastKnownName="GameObject"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0a6e87ea-86c4-423d-8963-c9bd506d4837"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -2823,8 +2808,8 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="91cd858f-e423-4033-9f0a-4a949c2fbfb9"
-                  name="GameObject"
+                  Id="2f3a465d-58c5-4cfd-adc7-10e30c309938"
+                  name=" ← Contains"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -2834,13 +2819,13 @@
                   isComposite="false">
                   <lowerValueInternal>
                     <literalString
-                      Id="a70a09eb-cf5f-4411-87f8-82a6412bb9b3"
+                      Id="86614baa-410b-4f3d-b91c-a5ac09e494de"
                       name="Lower"
                       value="*" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
-                      Id="da093573-56a2-400b-b4a2-11d7452fe20a"
+                      Id="ba9a6c1c-281d-463d-8aa4-04a1f05a5ad1"
                       name="Upper"
                       value="*" />
                   </upperValueInternal>
@@ -3480,8 +3465,8 @@
           <association
             Id="05ae8a96-f97d-45d5-be4a-dfc39139cf8c"
             isDerived="false"
-            sourceEndRoleName="LevelReader"
-            targetEndRoleName="Level"
+            sourceEndRoleName="← Reads"
+            targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -3492,7 +3477,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="31fc79bc-c511-4e1d-9699-113767527685"
-                  name="LevelReader"
+                  name="← Reads"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -3505,7 +3490,6 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="df1c2fd4-f1e1-4af1-bd93-7da924f92dc9"
-                  name="Level"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -3519,8 +3503,8 @@
           <association
             Id="0664078b-494a-4600-baf2-5595d9d4c6d9"
             isDerived="false"
-            sourceEndRoleName="LevelReader"
-            targetEndRoleName="GameObjectFactory"
+            sourceEndRoleName="Uses ↓"
+            targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -3531,7 +3515,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="9dbb4e79-ecc4-436b-841e-7285103c3269"
-                  name="LevelReader"
+                  name="Uses ↓"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -3544,7 +3528,6 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="d022a05c-7a89-4fce-960d-469dad609031"
-                  name="GameObjectFactory"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -4053,47 +4036,6 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
-        <targetEnds>
-          <association
-            Id="5827816d-8034-49d6-a944-6f29836be9a9"
-            isDerived="false"
-            sourceEndRoleName="Animator"
-            targetEndRoleName="GraphicalUserInterface"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="84b9eb8f-23b6-4b93-9efb-b1e80277f828"
-              LastKnownName="GraphicalUserInterface"
-              LastKnownLocation="UML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="70b71d86-4adc-4e3f-9f6c-1731203e8d73"
-                  name="Animator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="1a785010-92fd-4c03-b9eb-588817205942"
-                  name="GraphicalUserInterface"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="df0b9d9b-eb46-432b-a8e6-74fb8960d27a"
@@ -4408,23 +4350,32 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="2e110853-2bc5-42b0-9a9b-b7f4217a63f5"
+            name="&lt;&lt;use&gt;&gt;">
+            <enumerationMoniker
+              Id="e6b6e8fb-5121-4835-9ded-b3d20bd43e95"
+              LastKnownName="CameraState"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+        </suppliersInternal>
         <targetEnds>
           <association
-            Id="22d3c32d-7394-4c7f-94ae-376577fb2587"
+            Id="156e69b7-14e9-439a-af6c-25a404462960"
             isDerived="false"
-            sourceEndRoleName="Camera"
-            targetEndRoleName="MainGame"
+            sourceEndRoleName=""
+            targetEndRoleName="Follows ↓ "
             isLeaf="false"
             isAbstract="false">
             <classMoniker
-              Id="3349a72a-bb03-449c-b2b0-41d0a77cfdb9"
-              LastKnownName="MainGame"
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
               LastKnownLocation="UML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="2e19eeaf-6ba1-4013-a22d-8d2bcbb7f5a7"
-                  name="Camera"
+                  Id="4532e4ff-6b29-4b4d-82cd-25e3e518ce79"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -4436,8 +4387,8 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="d87fb2ae-9b94-4b1a-9848-76aa31715b9d"
-                  name="MainGame"
+                  Id="36e603f5-83af-4c89-899b-44d1fd55ad33"
+                  name="Follows ↓ "
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -4730,6 +4681,14 @@
               LastKnownName="IMovable"
               LastKnownLocation="UML.uml" />
           </interfaceRealization>
+          <dependency
+            Id="e20c634d-1c14-4091-aa77-7fe11d0dfc14"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -5161,6 +5120,14 @@
               LastKnownName="IMovable"
               LastKnownLocation="UML.uml" />
           </interfaceRealization>
+          <dependency
+            Id="d23d9848-560d-4d3c-8a3e-fe1842c3f719"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -5404,6 +5371,14 @@
               LastKnownName="Mushroom"
               LastKnownLocation="UML.uml" />
           </dependency>
+          <dependency
+            Id="a71881b3-90a3-4665-815f-83ede4fbee1c"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -5623,6 +5598,14 @@
               LastKnownName="ISolid"
               LastKnownLocation="UML.uml" />
           </interfaceRealization>
+          <dependency
+            Id="cdc53dd2-9aa0-46b9-8ee1-55a9ad273fd9"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -5827,6 +5810,14 @@
               LastKnownName="ISolid"
               LastKnownLocation="UML.uml" />
           </interfaceRealization>
+          <dependency
+            Id="f61234a9-819d-4b4a-8149-eb8439f888a5"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -6009,6 +6000,14 @@
               LastKnownName="IMovable"
               LastKnownLocation="UML.uml" />
           </interfaceRealization>
+          <dependency
+            Id="494b3d58-1288-4083-b714-25d4bb01558b"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -6281,6 +6280,14 @@
               LastKnownName="IMovable"
               LastKnownLocation="UML.uml" />
           </interfaceRealization>
+          <dependency
+            Id="ed1ffab6-576d-45d3-a42a-f61d3a05be08"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -6598,47 +6605,6 @@
         name="State"
         isAbstract="false"
         isLeaf="false">
-        <targetEnds>
-          <association
-            Id="d7abaad2-7fd2-4c99-b648-98529a7a7476"
-            isDerived="false"
-            sourceEndRoleName="State"
-            targetEndRoleName="Mario"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
-              LastKnownName="Mario"
-              LastKnownLocation="UML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="364e90cf-9a26-465d-9db5-0a2fcc76e1f0"
-                  name="State"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="c7b098d8-4f0b-4bf1-9249-4fcab511dd52"
-                  name="Mario"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
         <ownedLiterals>
           <enumerationLiteral
             Id="32b2edf1-d63e-4054-a7f2-53da95f5206f"
@@ -6670,47 +6636,6 @@
         name="Form"
         isAbstract="false"
         isLeaf="false">
-        <targetEnds>
-          <association
-            Id="c8d83f4b-8d8c-4019-a3fd-31ce0e21f54c"
-            isDerived="false"
-            sourceEndRoleName="Form"
-            targetEndRoleName="Mario"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
-              LastKnownName="Mario"
-              LastKnownLocation="UML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="87c6c632-51c1-4096-973e-0f3f130b0511"
-                  name="Form"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="4314e46c-0d39-4cc4-b5ed-28daea4c498e"
-                  name="Mario"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
         <ownedLiterals>
           <enumerationLiteral
             Id="f7701232-9ddb-48af-8e1d-8b83acbac8d1"
@@ -6745,8 +6670,8 @@
           <association
             Id="74b54685-88d9-42ec-9a79-47ab9c1d41f3"
             isDerived="false"
-            sourceEndRoleName="GameObjectFactory"
-            targetEndRoleName="ArgumentResolver"
+            sourceEndRoleName="Uses →"
+            targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -6757,7 +6682,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="4826b74d-9731-480c-b4e9-6566198084f1"
-                  name="GameObjectFactory"
+                  name="Uses →"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -6770,7 +6695,6 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="7aea7e4e-a3e5-43cd-b077-46b633f04295"
-                  name="ArgumentResolver"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -6925,6 +6849,14 @@
               LastKnownName="ISolid"
               LastKnownLocation="UML.uml" />
           </interfaceRealization>
+          <dependency
+            Id="e56085cc-a18d-49e5-9f07-448be5f5f117"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -6959,47 +6891,6 @@
         name="CameraState"
         isAbstract="false"
         isLeaf="false">
-        <targetEnds>
-          <association
-            Id="d26407f6-e4cb-4c41-94b6-31ef55311542"
-            isDerived="false"
-            sourceEndRoleName="CameraState"
-            targetEndRoleName="Camera"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="1424cbba-cc8f-4e96-a90c-0df525556df6"
-              LastKnownName="Camera"
-              LastKnownLocation="UML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="d65b1add-f1a0-431a-90bb-5d047d1b06e3"
-                  name="CameraState"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="91db5e67-e21c-43ad-b6a4-453559248d5b"
-                  name="Camera"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
         <ownedLiterals>
           <enumerationLiteral
             Id="123f2cb8-5e24-4e03-9abd-033e7cc24344"
@@ -7024,8 +6915,8 @@
           <association
             Id="91fc4fe7-98cb-46b7-9eb9-9feb4521fdc5"
             isDerived="false"
-            sourceEndRoleName="Global"
-            targetEndRoleName="MainGame"
+            sourceEndRoleName=""
+            targetEndRoleName="Contains →"
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -7036,7 +6927,6 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="b57d5ae0-74be-4320-a487-9c8801b7004a"
-                  name="Global"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -7049,7 +6939,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="2135337b-9e1a-4118-8195-6631993d27a3"
-                  name="MainGame"
+                  name="Contains →"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -7170,7 +7060,7 @@
             Id="7a5c853d-02a2-406d-a8d6-5623bebadf49"
             isDerived="false"
             sourceEndRoleName="GraphicalUserInterface"
-            targetEndRoleName="Mario"
+            targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -7194,7 +7084,44 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="e1e3f361-e8a5-47ff-bd9e-06eecd816789"
-                  name="Mario"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="423138d0-3898-4b1f-bfdb-3b0543636a64"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName="← Uses"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1ba2aaff-0637-41d8-a610-1b5f0a0303c3"
+              LastKnownName="Animator"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="03f43ba1-a1d5-4def-9c92-d7eaf937ae62"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="94b66f99-4456-4c40-8208-a91a72959e91"
+                  name="← Uses"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -7354,8 +7281,8 @@
           <association
             Id="30d757dd-b871-49ef-844a-9b1b3100f9cc"
             isDerived="false"
-            sourceEndRoleName="MainGame"
-            targetEndRoleName="GraphicalUserInterface"
+            sourceEndRoleName="← Contains"
+            targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -7366,7 +7293,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="355356ae-6e3b-43a6-8c2f-580be0465428"
-                  name="MainGame"
+                  name="← Contains"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -7379,7 +7306,82 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="02a87408-b275-4bc4-b47a-1244097a56a4"
-                  name="GraphicalUserInterface"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="4d0fad26-19a8-4e14-aee3-0a44a7deba28"
+            isDerived="false"
+            sourceEndRoleName="← Contains"
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1424cbba-cc8f-4e96-a90c-0df525556df6"
+              LastKnownName="Camera"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e2f98676-b090-4d67-9534-3aceacd4aacc"
+                  name="← Contains"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="03a38299-e4b6-4ef4-aa79-4743e80bc4e0"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b4b58bb4-2866-4a92-9697-2c5854475f53"
+            isDerived="false"
+            sourceEndRoleName="Contains →"
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="6165d044-e25f-44b0-827e-86d9cd93960a"
+              LastKnownName="Level"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b11abc25-c897-4132-aee2-393a4854b5a3"
+                  name="Contains →"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="025b9c17-0e19-4e4d-8b52-04339167aed4"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -7702,6 +7704,14 @@
               LastKnownName="ISolid"
               LastKnownLocation="UML.uml" />
           </interfaceRealization>
+          <dependency
+            Id="7f7951c5-e13f-4af1-9650-3b8184419c38"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -7827,6 +7837,14 @@
               LastKnownName="ISolid"
               LastKnownLocation="UML.uml" />
           </interfaceRealization>
+          <dependency
+            Id="65e4b64d-bc6b-41c0-ab12-39a41a8442b9"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -7847,6 +7865,238 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a2978a4e-b862-4e54-bf0b-141a314ad450"
+        name="OneUpMushroom"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="7d98f106-52d4-4df7-8774-d633c2034d07">
+            <interfaceMoniker
+              Id="6a4d6081-7827-49a0-af2e-0427c12f0d2f"
+              LastKnownName="IMovable"
+              LastKnownLocation="UML.uml" />
+          </interfaceRealization>
+          <dependency
+            Id="35c88c05-0f3e-4cdf-8055-3470f86ed117"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="083b409a-39a2-4ef6-96db-2f7a7436b6b1"
+              LastKnownName="Mario"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="add5e0a8-d4ab-4333-bd52-1fcfebea853a"
+            isSubstitutable="false">
+            <classMoniker
+              Id="16ea22da-b917-41a3-b12c-5b51e560f303"
+              LastKnownName="Tangible"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="8cf05133-c6df-4da5-9968-3dbd5c57fccb"
+            name="_speed"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="51ed33ed-4a6a-4e6d-a4a5-97c72e676abd"
+                LastKnownName="float"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="f0fb38f4-6c07-429d-b3f7-ba02666a9e28"
+            name="HasBeenPickedUp"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="3ddee354-e584-42a5-965a-649413ff2399"
+            name="OneUpMushroom"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="a8f4917f-6c59-4545-ac21-604493b0a94f"
+            name="CollectMushroom"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5d4d6000-2a4b-4f7d-841a-3efde19590ae"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="9915e24a-9c7c-4f37-aca5-6a0e5505cb5d"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="220750a5-f804-463a-99c3-c4dc61c4803b"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a9075cd0-cb02-4072-acd1-ea73764b2c70"
+            name="AddGravity"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="996723e4-e370-4019-a167-38ae42db40c3"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a3167b57-27d6-459d-abbb-956335cd3a7d"
+            name="UpdateHitbox"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a91f2e46-6efa-445f-b0df-a256ff80ce1a"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ba0a0387-89df-4178-8314-7d09d938ce8f"
+            name="UpdatePosition"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="db562e2a-7ff1-4c66-bbd8-955e2c79306d"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6274b08f-0fa7-4e26-b1f4-49149f3c4fef"
+            name="CollisionCheck"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="97fe4ecb-58dc-4a78-8957-ebffd9a54597"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
