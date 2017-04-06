@@ -99,7 +99,8 @@ namespace SuperMarioClone
             {
                 GraphicsDevice.Clear(Color.CornflowerBlue);
                 _spriteBatch.Begin();
-                _spriteBatch.Draw(_background, new Rectangle(0, 0, 2000, 800), Color.White);
+                _spriteBatch.Draw(_background, new Rectangle(-(int)camera.Position.X - GraphicsDevice.Viewport.Width / 2, 0, 2000, 800), Color.White);
+                _spriteBatch.Draw(_background, new Rectangle(-(int)camera.Position.X - GraphicsDevice.Viewport.Width / 2 + 2000, 0, 2000, 800), Color.White);
                 _spriteBatch.End();
                 _spriteBatch.Begin(transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
                 currentLevel.DrawLevel(_spriteBatch, GraphicsDevice.Viewport);
