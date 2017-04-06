@@ -197,6 +197,10 @@ ___________________/  /__/  /__/  /__/  /________________________________
                 //Adds Movement to Mario
                 Move();
             }
+            else
+            {
+                VelocityX = 0;
+            }
 
             //Sets the state of Mario
             SetState();
