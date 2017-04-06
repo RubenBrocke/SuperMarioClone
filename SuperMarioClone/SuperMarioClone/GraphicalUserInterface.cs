@@ -30,7 +30,7 @@ namespace SuperMarioClone
             spriteBatch.Begin();
             spriteBatch.Draw(texture: _coinAnimator.GetCurrentTexture(), position: new Vector2(720, 8));
             DrawBorderedText(spriteBatch, String.Format("x {0, 4}", _mario.Coins), Color.Black, Color.White, new Vector2(736, 8));
-            DrawBorderedText(spriteBatch, String.Format("Time \n {0,3}", /*Global.Instance.MainGame.currentLevel.Time*/32131), Color.Black, Color.Yellow, new Vector2(400, 26), true);
+            DrawBorderedText(spriteBatch, String.Format("Time \n {0,3}", Global.Instance.MainGame.currentLevel.Time), Color.Black, Color.Yellow, new Vector2(400, 26), true);
             DrawBorderedText(spriteBatch, String.Format("Lives \n x {0,4}", _mario.Lives), Color.Black, Color.White, new Vector2(16, 8));
             spriteBatch.End();
         }
