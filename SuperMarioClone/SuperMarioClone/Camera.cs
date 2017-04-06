@@ -12,7 +12,7 @@ namespace SuperMarioClone
     public class Camera
     {
         private Viewport _viewport;
-        private Vector2 Position { get; set; }
+        public Vector2 Position { get; private set; }
         private float Rotation { get; set; }
         private float Zoom { get; set; }
         private Vector2 Origin { get; set; }

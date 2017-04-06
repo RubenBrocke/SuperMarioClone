@@ -16,6 +16,7 @@ namespace SuperMarioClone
         public Level currentLevel;
         private GraphicalUserInterface _graphicalUserInterface;
         public Camera camera;
+        private Texture2D _background;
         
         public MainGame()
         {
@@ -52,7 +53,8 @@ namespace SuperMarioClone
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            _spriteBatch = new SpriteBatch(GraphicsDevice);            
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _background = Content.Load<Texture2D>("BackGround");       
         }
 
         /// <summary>
@@ -84,8 +86,11 @@ namespace SuperMarioClone
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            _spriteBatch.Begin(transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
             GraphicsDevice.Clear(Color.CornflowerBlue);
+            _spriteBatch.Begin();
+            _spriteBatch.Draw(_background, new Rectangle(0, 0, 2000, 800), Color.White);
+            _spriteBatch.End();
+            _spriteBatch.Begin(transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
             currentLevel.DrawLevel(_spriteBatch, GraphicsDevice.Viewport);
             _spriteBatch.End();
             _graphicalUserInterface.Draw(_spriteBatch);
