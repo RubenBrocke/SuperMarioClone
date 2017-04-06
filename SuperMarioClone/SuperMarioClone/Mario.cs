@@ -129,10 +129,6 @@ ___________________/  /__/  /__/  /__/  /________________________________
                 JumpVelocity = BigJumpVelocity;
                 UpdateHitBox();
             }
-            else
-            {
-                //TODO: Add score to mario in exchange for not being able to become big (he already is)
-            }
         }
 
         private void UpdateHitBox()
