@@ -60,6 +60,11 @@ namespace SuperMarioClone
                                 Mushroom mushroom = (Mushroom)o;
                                 mushroom.CollectMushroom(mario);
                             }
+                            else if (o is OneUpMushroom)
+                            {
+                                OneUpMushroom oneUpMushroom = (OneUpMushroom)o;
+                                oneUpMushroom.CollectMushroom(mario);
+                            }
                             else if (o is Shell)
                             {
                                 Shell shell = (Shell)o;

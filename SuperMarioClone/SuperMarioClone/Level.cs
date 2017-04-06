@@ -22,28 +22,45 @@ namespace SuperMarioClone
 
         public Level()
         {
-            Time = 280;
+            Time = 300;
             GameObjects = new List<GameObject>();
             _timerTimer = new Timer(DecreaseTime);
             _timerTimer.Change(0, 1000);
         }
 
-        public Level(int width, int height)
+        public Level(int width, int height, int timerLength)
         {
-            Time = 280;
+            Time = timerLength;
             GameObjects = new List<GameObject>();
             _timerTimer = new Timer(DecreaseTime);
-            _timerTimer.Change(0, 1000);
+            if (timerLength == 1)
+            {
+                _timerTimer.Change(Timeout.Infinite, Timeout.Infinite);
+            }
+            else
+            {
+                _timerTimer.Change(0, 1000);
+            }
+            
             Width = width;
             Height = height;
         }
 
+        public void DisableTimer()
+        {
+            _timerTimer.Change(Timeout.Infinite, Timeout.Infinite);
+        }
+
         private void DecreaseTime(object state)
         {
-            Time -= 1;
-            if (Time == 0)
+            if (Time > 0)
             {
-                //TODO: End game and remove life from Mario
+                Time -= 1;
+            }
+            else
+            {
+                Global.Instance.MainGame.mario.Die();
+                DisableTimer();
             }
         }
 

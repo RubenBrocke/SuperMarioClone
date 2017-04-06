@@ -70,6 +70,7 @@
     <Compile Include="LevelReader.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Mario.cs" />
+    <Compile Include="OneUpMushroom.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Global.cs" />

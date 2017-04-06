@@ -28,14 +28,15 @@ namespace SuperMarioClone
             Level level = null;
 
             line = lvlReader.ReadLine();
-            if (line.Contains("Size:"))
+            if (line.Contains("Args:") && !line.Contains("//"))
             {
                 string[] args;
                 line = line.Replace(" ", "");
                 args = line.Split(':')[1].Split(',');
                 int width = int.Parse(args[0]) * Global.Instance.GridSize; 
                 int height = int.Parse(args[1]) * Global.Instance.GridSize;
-                level = new Level(width, height);
+                int timerLength = int.Parse(args[2]);
+                level = new Level(width, height, timerLength);
             }
             while ((line = lvlReader.ReadLine()) != null)
             {

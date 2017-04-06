@@ -10,7 +10,7 @@ namespace SuperMarioClone
     /// </summary>
     public class MainGame : Game
     {
-        private Mario _mario;
+        public Mario mario;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private LevelReader _levelReader;
@@ -44,10 +44,10 @@ namespace SuperMarioClone
             Global.Instance.MainGame = this;
             _levelReader = new LevelReader(Content);
             currentLevel = _levelReader.ReadLevel(0);
-            _mario = new Mario(0, 32, currentLevel, Content);
-            currentLevel.ToAddGameObject(_mario);
+            mario = new Mario(0, 32, currentLevel, Content);
+            currentLevel.ToAddGameObject(mario);
             camera = new Camera(GraphicsDevice.Viewport);
-            _graphicalUserInterface = new GraphicalUserInterface(_mario, Content);
+            _graphicalUserInterface = new GraphicalUserInterface(mario, Content);
             base.Initialize();
         }
 
@@ -81,7 +81,7 @@ namespace SuperMarioClone
             if (!gameOver)
             {
                 _song.CheckInput();
-                camera.LookAt(_mario.Position);
+                camera.LookAt(mario.Position);
                 if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                     Exit();
                 currentLevel.UpdateLevel();
@@ -118,8 +118,9 @@ namespace SuperMarioClone
 
         public void ChangeCurrentLevel(Level level)
         {
+            currentLevel.DisableTimer();
             currentLevel = level;
-            _mario.ChangeCurrentLevel(currentLevel);
+            mario.ChangeCurrentLevel(currentLevel);
         }
     }
 }

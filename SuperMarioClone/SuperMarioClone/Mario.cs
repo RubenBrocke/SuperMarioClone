@@ -470,9 +470,14 @@ ___________________/  /__/  /__/  /__/  /________________________________
             Coins++;
             if (Coins >= 100)
             {
-                Lives++;
+                CurrentLevel.ToAddGameObject(new OneUpMushroom((int)Position.X / 16, (int)Position.Y / 16 - 6, CurrentLevel, _contentManager));
                 Coins -= 100;
             }
+        }
+
+        public void AddLife()
+        {
+            Lives++;
         }
 
         private void LoadMenu(object state)
