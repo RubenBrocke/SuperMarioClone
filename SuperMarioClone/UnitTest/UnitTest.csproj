@@ -65,6 +65,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ArgumentResolverTest.cs" />
+    <Compile Include="MysteryBlockTest.cs" />
     <Compile Include="FloorTest.cs" />
     <Compile Include="GameObjectFactoryTest.cs" />
     <Compile Include="MuncherTest.cs" />

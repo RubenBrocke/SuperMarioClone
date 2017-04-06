@@ -15,7 +15,7 @@ namespace SuperMarioClone
         {
             MediaPlayer.Play(contentManager.Load<Song>("SMWSong"));
             MediaPlayer.IsRepeating = true;
-            MediaPlayer.Volume = 0.25f;
+            MediaPlayer.Volume = 0.1f;
         }
 
         public void CheckInput()
