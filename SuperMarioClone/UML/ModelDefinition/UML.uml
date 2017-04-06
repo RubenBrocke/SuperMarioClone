@@ -186,6 +186,86 @@
               LastKnownName="Mushroom"
               LastKnownLocation="UML.uml" />
           </dependency>
+          <dependency
+            Id="d4ded441-93f0-4556-8f6c-6eb611819a4d"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="5f4d662f-104d-479c-b46d-5b6a2a62657c"
+              LastKnownName="Koopa"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="7a4c7401-c7ab-4bf9-90a3-4c2797e60443"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="e4aea4e1-997d-4ce4-9f5d-190c33999395"
+              LastKnownName="Shell"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="6b4522a0-8e1f-4a5c-bd0f-cfba3debf402"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="19e41ae4-3437-4c97-8792-c725dfebdaa9"
+              LastKnownName="Goomba"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="dff9c041-56eb-4046-b27b-ce8295f65897"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="84acfca4-bbf9-4cba-b7ad-637e1a91144e"
+              LastKnownName="Muncher"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="58b6aa1c-5cc3-42e1-b222-94eba0bb8dc5"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="fd688ef9-718f-4497-92ae-c90b77adf19e"
+              LastKnownName="CloudBlock"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="e5053729-65d9-4702-a285-43681c5bae4d"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="d0ba2653-751b-4621-b2f1-4871c54b2af4"
+              LastKnownName="CoinBlock"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="42999464-2c94-405b-926e-15821dc83350"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="6b991256-72e4-4b47-b0f2-a22897e96c3f"
+              LastKnownName="TransFloor"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="5a2c428b-4538-49bb-88d6-86c736b86ea9"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="7ec7851e-b6f5-4913-a53a-a8576a5100e2"
+              LastKnownName="MysteryBlock"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="6304e57f-08e2-4c22-9451-5cc8fcfa8aa8"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="17dceef8-01ca-471a-855d-0c82e3cea98c"
+              LastKnownName="Floor"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="9bcb3bba-34dc-41ad-b24d-0342b4b7ec17"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="fd56cc34-d26f-4fb0-bece-32b57c4f1d96"
+              LastKnownName="StoneBlock"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -197,6 +277,47 @@
               LastKnownLocation="UML.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="a5e3ae41-cc05-4e88-92a8-cb963d19c576"
+            isDerived="false"
+            sourceEndRoleName="Mario"
+            targetEndRoleName="Animator"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1ba2aaff-0637-41d8-a610-1b5f0a0303c3"
+              LastKnownName="Animator"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cdc431d1-61a9-4cc7-bc46-f5c70c630afd"
+                  name="Mario"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4f536f8a-63e0-4495-877a-6f2751e13f44"
+                  name="Animator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="cdfd8229-76d4-4c43-aea0-3a5b4c5160a7"
@@ -3932,6 +4053,47 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="5827816d-8034-49d6-a944-6f29836be9a9"
+            isDerived="false"
+            sourceEndRoleName="Animator"
+            targetEndRoleName="GraphicalUserInterface"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="84b9eb8f-23b6-4b93-9efb-b1e80277f828"
+              LastKnownName="GraphicalUserInterface"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="70b71d86-4adc-4e3f-9f6c-1731203e8d73"
+                  name="Animator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1a785010-92fd-4c03-b9eb-588817205942"
+                  name="GraphicalUserInterface"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="df0b9d9b-eb46-432b-a8e6-74fb8960d27a"
@@ -4246,6 +4408,47 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="22d3c32d-7394-4c7f-94ae-376577fb2587"
+            isDerived="false"
+            sourceEndRoleName="Camera"
+            targetEndRoleName="MainGame"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="3349a72a-bb03-449c-b2b0-41d0a77cfdb9"
+              LastKnownName="MainGame"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2e19eeaf-6ba1-4013-a22d-8d2bcbb7f5a7"
+                  name="Camera"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d87fb2ae-9b94-4b1a-9848-76aa31715b9d"
+                  name="MainGame"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="99fe6124-3a6c-4421-b9b3-1f1ad231d6d8"
@@ -4351,6 +4554,44 @@
               <undefinedTypeMoniker
                 Id="adee7d91-7603-4f78-82ac-d68baa98bdeb"
                 LastKnownName="CameraState"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1620d03f-7bd7-4a95-ba03-9d7a2bff0f32"
+            name="_cameraSpeed"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="51ed33ed-4a6a-4e6d-a4a5-97c72e676abd"
+                LastKnownName="float"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2d26b678-cfa4-46e8-a1e5-32192378a388"
+            name="_prevPos"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="bca2b7fc-1f16-4555-ab46-40b27022ff99"
+                LastKnownName="Vector2"
                 LastKnownLocation="UML.uml" />
             </type_NamedElement>
           </property>
@@ -5026,6 +5267,104 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="478173ea-a31c-419a-8a49-c26e52d9ce63"
+            name="UpdatePosition"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4e161df3-bc44-49ed-bd4c-59d96d5304f9"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="882cc52e-7761-4f93-bd9a-cb0d2cb789ed"
+            name="UpdateHitbox"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c96563c2-cbda-48ca-9f53-30e56198c227"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4801cd9f-64e9-4a2f-9b27-76baf4b12367"
+            name="CollisionCheck"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ad3ff851-4a99-4153-98b4-073ed5b36172"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5a00ddaf-c3a8-4047-b8c7-94fc8edc5218"
+            name="AddGravity"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="788ab5a7-daa7-4e02-b90a-a3971fd334ad"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -5049,6 +5388,22 @@
               LastKnownName="ISolid"
               LastKnownLocation="UML.uml" />
           </interfaceRealization>
+          <dependency
+            Id="7e91872b-541f-469b-b596-993a864195f6"
+            name="&lt;&lt;create&gt;&gt;">
+            <classMoniker
+              Id="eda2eb09-a087-4fe1-bf14-ff1a5ca4f0ad"
+              LastKnownName="Coin"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+          <dependency
+            Id="5cbb8fd5-e4b8-4b1b-939f-ba015cd1e30f"
+            name="&lt;&lt;create&gt;&gt;">
+            <classMoniker
+              Id="246cebd9-a73e-43c0-84a2-1d192789f408"
+              LastKnownName="Mushroom"
+              LastKnownLocation="UML.uml" />
+          </dependency>
         </suppliersInternal>
         <generalsInternal>
           <generalization
@@ -5262,7 +5617,7 @@
         isActiveClass="false">
         <suppliersInternal>
           <interfaceRealization
-            Id="cf3c08f5-1fd8-4b74-83c9-4a31fbada889">
+            Id="e04e3441-b534-4029-a156-e9f7251f43bf">
             <interfaceMoniker
               Id="4390203b-2e93-43dc-95d4-a735baa04150"
               LastKnownName="ISolid"
@@ -6376,6 +6731,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="92557582-e197-406f-937b-0fb3212f4f2a"
+            name="&lt;&lt;parameter&gt;&gt;">
+            <classMoniker
+              Id="7385f8e2-9e2a-497f-81d2-6229e5e1c00d"
+              LastKnownName="GameObject"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+        </suppliersInternal>
         <targetEnds>
           <association
             Id="74b54685-88d9-42ec-9a79-47ab9c1d41f3"
@@ -6880,6 +7245,43 @@
                 LastKnownLocation="UML.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="710da52f-65fd-4df1-b16f-bef2cfe7370b"
+            name="_coinAnimator"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="1ba2aaff-0637-41d8-a610-1b5f0a0303c3"
+                LastKnownName="Animator"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="42766607-4806-43ea-b335-c7d41018abf3"
+            name="_coinSheet"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="0af45d80-eb62-47e1-93fd-58158bfac693"
+                LastKnownName="Texture2D"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -6914,6 +7316,30 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
+          <operation
+            Id="9e9e2834-78d2-4f0b-ae2c-8af43fab5a56"
+            name="DrawBorderText"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d572c843-8f45-4c3d-a526-a6b4595dc5ce"
+                  direction="Return">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="33ed3490-11f8-4468-9958-7e001ea32b7c"
+                      LastKnownName="void"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -6924,6 +7350,47 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="30d757dd-b871-49ef-844a-9b1b3100f9cc"
+            isDerived="false"
+            sourceEndRoleName="MainGame"
+            targetEndRoleName="GraphicalUserInterface"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="84b9eb8f-23b6-4b93-9efb-b1e80277f828"
+              LastKnownName="GraphicalUserInterface"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="355356ae-6e3b-43a6-8c2f-580be0465428"
+                  name="MainGame"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="02a87408-b275-4bc4-b47a-1244097a56a4"
+                  name="GraphicalUserInterface"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="9da0b7a2-d78c-4537-90bc-a061ae9294ec"

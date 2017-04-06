@@ -19,6 +19,7 @@ namespace SuperMarioClone
         private CameraState _state;
         private float _cameraSpeed;
         private Vector2 _prevPos;
+        private int _cameraMargin;
 
         /// <summary>
         /// Constructor sets the values of different properties and variables
@@ -34,6 +35,7 @@ namespace SuperMarioClone
             _state = CameraState.Follow;
             _cameraSpeed = 10;
             _prevPos = new Vector2(0, 0);
+            _cameraMargin = 25;
         }
 
         /// <summary>
@@ -48,14 +50,14 @@ namespace SuperMarioClone
             switch (_state)
             {
                 case CameraState.RightAlign:
-                    if (focusPos.X - _viewport.Width / 2 + 50 > Global.Instance.MainGame.currentLevel.Width - 289)
+                    if (focusPos.X - _viewport.Width / 2 + _cameraMargin > Global.Instance.MainGame.currentLevel.Width - 289)
                     {
                         _state = CameraState.Follow;
                         Console.WriteLine("SWITCHED TO FOLLOW");
                     }
                     break;
                 case CameraState.LeftAlign:
-                    if (focusPos.X - _viewport.Width / 2  - 50 > -289)
+                    if (focusPos.X - _viewport.Width / 2  - _cameraMargin > -289)
                     {
                         _state = CameraState.Follow;
                         Console.WriteLine("SWITCHED TO FOLLOW");

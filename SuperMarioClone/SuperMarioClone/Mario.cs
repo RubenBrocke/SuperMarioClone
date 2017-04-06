@@ -197,6 +197,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
                 //Adds Movement to Mario
                 Move();
             }
+
             //Sets the state of Mario
             SetState();
 
@@ -399,7 +400,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             }
         }
 
-        //Defines what happens if Mario gets hit in Multiple Situations
+        //Defines what happens if Mario gets hit in different Situations
         public void GetHit()
         {
             if (!_isInvincible)
