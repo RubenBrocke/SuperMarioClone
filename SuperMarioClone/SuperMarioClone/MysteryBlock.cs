@@ -52,7 +52,7 @@ namespace SuperMarioClone
             _levelNumber = levelNumber;
 
             //Sprite, animation and hitbox are set
-            if (_levelNumber <= 3 && _levelNumber > 0)
+            if (_levelNumber <= 2 && _levelNumber > 0)
             {
                 _spriteSheet = _contentManager.Load<Texture2D>("MysteryBlockSheet" + _levelNumber);
             }
@@ -66,6 +66,7 @@ namespace SuperMarioClone
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Global.Instance.GridSize, Global.Instance.GridSize);
         }
 
+        //Ejects the content of the MysteryBlock
         public void Eject(Mario mario)
         {
             if (mario.VelocityY < 0 && !HasBeenUsed && mario.Hitbox.Y >= Hitbox.Bottom)

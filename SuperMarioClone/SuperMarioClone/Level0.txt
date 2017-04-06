@@ -6,7 +6,7 @@ Floor: 50, 0, 4, 50
 Floor: -1, -50, 1, 100
 MysteryBlock: 4, 31, LevelReader, 1
 MysteryBlock: 8, 31, LevelReader, 2
-MysteryBlock: 12, 31, LevelReader, 3
+
 
 MysteryBlock: 32, 35, Coin
 MysteryBlock: 32, 34, Coin

@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Animator.cs" />
     <Compile Include="ArgumentResolver.cs" />
+    <Compile Include="BackgroundSong.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="CloudBlock.cs" />
     <Compile Include="Coin.cs" />
@@ -87,7 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
-    <Content Include="Level3.txt" />
     <Content Include="Level2.txt" />
     <Content Include="Level0.txt" />
     <Content Include="Level1.txt" />

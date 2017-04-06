@@ -41,6 +41,7 @@ namespace SuperMarioClone
         private bool _isForcedToJump;
         private bool _isDead;
         private Texture2D _spriteSheet;
+        private SoundEffect _deathSound;
         private SoundEffect _jumpSound;
         private SpriteFont _font;
         private Animator _animator;
@@ -109,6 +110,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             //Sprite, animation, sound, font and hitbox are set
             _spriteSheet = _contentManager.Load<Texture2D>("MarioSheet");
             _animator = new Animator(_spriteSheet);
+            _deathSound = _contentManager.Load<SoundEffect>("Death");
             _jumpSound = _contentManager.Load<SoundEffect>("Oink1");
             _font = contentManager.Load<SpriteFont>("MarioFont");
             _hitboxWidth = 14;
@@ -195,6 +197,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
                 //Adds Movement to Mario
                 Move();
             }
+
             //Sets the state of Mario
             SetState();
 
@@ -397,7 +400,7 @@ ___________________/  /__/  /__/  /__/  /________________________________
             }
         }
 
-        //Defines what happens if Mario gets hit in Multiple Situations
+        //Defines what happens if Mario gets hit in different Situations
         public void GetHit()
         {
             if (!_isInvincible)
@@ -428,18 +431,38 @@ ___________________/  /__/  /__/  /__/  /________________________________
             _invincibilityTimer.Change(Timeout.Infinite, Timeout.Infinite);
         }
 
+        private void GameOver(object state)
+        {
+            Global.Instance.MainGame.gameOver = true;
+            Global.Instance.MainGame.currentLevel = null;
+        }
+
         public void Die()
         {
-            _isDead = true;
-            CurrentForm = Form.Small;
-            Jump();
+            if (!_isDead)
+            {
+                _isDead = true;
+                Lives--;
+                Jump();
+                CurrentForm = Form.Small;
+                MediaPlayer.Pause();
+                if (_deathSound != null)
+                {
+                    _deathSound.Play();
+                }
+                VelocityX = 0;
+                if (Lives < 1)
+                {
+                    Timer gameOverTimer = new Timer(GameOver);
+                    gameOverTimer.Change(4000, Timeout.Infinite);
+                }
+                else
+                {
+                    Timer menuLoadTimer = new Timer(LoadMenu);
+                    menuLoadTimer.Change(4000, Timeout.Infinite);
+                }
+            }
             VelocityX = 0;
-            Lives--;
-
-            //LevelReader lr = new LevelReader(_contentManager);
-            //MainGame.currentLevel = lr.ReadLevel(0);
-            //TODO: Fix that Mario cant collide with anything while dead
-            //TODO: Add death animation and death screen showing lives before going back to the menu/level selection
         }
 
         public void AddCoin()
@@ -448,15 +471,23 @@ ___________________/  /__/  /__/  /__/  /________________________________
             if (Coins >= 100)
             {
                 Lives++;
-                //Coins -= 100;
+                Coins -= 100;
             }
+        }
+
+        private void LoadMenu(object state)
+        {
+            MediaPlayer.Resume();
+            LevelReader lr = new LevelReader(_contentManager);
+            Global.Instance.MainGame.ChangeCurrentLevel(lr.ReadLevel(0));
         }
 
         public void ChangeCurrentLevel(Level level)
         {
+            _isDead = false;
             CurrentLevel = level;
             CurrentLevel.ToAddGameObject(this);
-            Position = new Vector2(1, 1);
+            Position = new Vector2(0, 544);
             VelocityX = 0;
             VelocityY = 0;
         }

@@ -19,7 +19,7 @@ namespace SuperMarioClone
             
         }
 
-        public bool IsColliding(Level lvl, int offsetX, int offsetY, out Tangible collObject)
+        public bool IsColliding(Level lvl, int offsetX, int offsetY, out Tangible collObject) //TODO: Improve collision (collider class?)
         {
             bool collidesWithSolid = false;
             collObject = null;
