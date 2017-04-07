@@ -131,7 +131,6 @@ namespace SuperMarioClone
 
             Position = new Vector2(newX, newY);
             _prevPos = focusPos;
-            Console.WriteLine(_state.ToString("F"));
         }
 
         /// <summary>

@@ -62,7 +62,6 @@ namespace SuperMarioClone
                         throw new FileLoadException("No size detected");
                     }
                 }
-                
             }
             lvlReader.Close();
             return level;
