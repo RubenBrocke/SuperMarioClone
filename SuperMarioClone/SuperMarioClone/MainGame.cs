@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Windows.Forms;
 
 namespace SuperMarioClone
 {
@@ -48,6 +49,8 @@ namespace SuperMarioClone
             currentLevel.ToAddGameObject(mario);
             camera = new Camera(GraphicsDevice.Viewport);
             _graphicalUserInterface = new GraphicalUserInterface(mario, Content);
+            System.Windows.Forms.Form form = (System.Windows.Forms.Form)System.Windows.Forms.Control.FromHandle(this.Window.Handle);
+            form.Location = new System.Drawing.Point(Screen.PrimaryScreen.Bounds.Width / 2 - GraphicsDevice.Viewport.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - GraphicsDevice.Viewport.Height / 2);
             base.Initialize();
         }
 
@@ -82,7 +85,7 @@ namespace SuperMarioClone
             {
                 sound.CheckInput();
                 camera.LookAt(mario.Position);
-                if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+                if (Keyboard.GetState().IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Escape))
                     Exit();
                 currentLevel.UpdateLevel();
                 base.Update(gameTime); 
