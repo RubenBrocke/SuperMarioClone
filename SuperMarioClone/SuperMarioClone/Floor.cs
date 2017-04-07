@@ -8,11 +8,21 @@ using Microsoft.Xna.Framework.Content;
 
 namespace SuperMarioClone
 {
-    public class Floor : Tangible, ISolid
+    public class Floor : Tangible
     {
+        //Properties
         protected int Width { get; set; }
         protected int Height { get; set; }
 
+        /// <summary>
+        /// Constructor for Floor, sets the position of the Floor using the GridSize and sets its SpriteSheet
+        /// </summary>
+        /// <param name="x">X position of the Floor</param>
+        /// <param name="y">Y position of the Floor</param>
+        /// <param name="w">Width of the Floor</param>
+        /// <param name="h">Height of the Floor</param>
+        /// <param name="level">Level the Floor should be in</param>
+        /// <param name="contentManager">ContentManager used to load SpriteSheet</param>
         public Floor(int x, int y, int w, int h, Level level, ContentManager contentManager) : base()
         {
             //Properties are set
@@ -25,8 +35,13 @@ namespace SuperMarioClone
             //Sprite and hitbox are set
             Sprite = contentManager.Load<Texture2D>("GroundSheet");
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
+            IsSolid = true;
         }
 
+        /// <summary>
+        /// Draws the Floor
+        /// </summary>
+        /// <param name="spriteBatch">Used to Draw the Floor</param>
         public override void Draw(SpriteBatch spriteBatch)
         {
             Rectangle sourceRect = new Rectangle(Global.Instance.GridSize, Global.Instance.GridSize, Global.Instance.GridSize, Global.Instance.GridSize);

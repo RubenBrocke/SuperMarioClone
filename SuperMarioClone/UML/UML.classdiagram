@@ -380,6 +380,30 @@
               <referencedTypeMoniker Id="58ac2cce-89d1-4fb7-876e-1e972c2070cd" LastKnownName="int" />
             </type_NamedElement>
           </property>
+          <property Id="2dfc525c-aacb-4c33-8ae4-83d8d915462a" name="_weirdJumpSound" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="644f5c0e-b38b-4510-aa95-4485ad089940" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1a8d07b5-12a7-4a84-8750-b368378181d1" LastKnownName="SoundEffect" />
+            </type_NamedElement>
+          </property>
+          <property Id="7cba82c8-d269-4061-8f28-8e295993e01f" name="_oneUpSound" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="cd6d889a-9481-495c-9365-e58e3192ece8" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="cb8f7690-6064-4c2a-b9f3-7d58d2e69738" LastKnownName="SoundEffect" />
+            </type_NamedElement>
+          </property>
+          <property Id="5c669580-3773-41a1-a2a1-318000418af7" name="_gameOverSound" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7b80c19c-6520-4c9e-87fe-e3631c4f1720" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ced59486-650a-4b65-b505-1a616961adbc" LastKnownName="SoundEffect" />
+            </type_NamedElement>
+          </property>
+          <property Id="9765e7a7-9490-4135-981b-110fbf7e5035" name="_powerUpSound" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="162cfce5-4a4b-4ba3-9d13-bce78fc5f7cf" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d9eec85d-bc90-4234-9488-31fe0ae53964" LastKnownName="SoundEffect" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="3c24daca-8f1d-4e4a-9bde-4adf3b131141" name="LoseLife" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -719,10 +743,6 @@
         </appliedStereotypesInternal>
         <elementDefinition Id="17dceef8-01ca-471a-855d-0c82e3cea98c" />
         <suppliersInternal>
-          <interfaceRealization Id="8fb18399-3445-4246-ba02-56cb2600f9af">
-            <interfaceMoniker Id="28cc64c3-6890-4bc5-b586-e13ecc8eb582" LastKnownName="ISolid" />
-            <elementDefinition Id="97f657f2-661e-4038-ba81-e677b8fa22a3" />
-          </interfaceRealization>
           <dependency Id="b309e774-0c48-432b-800a-242324abf39e" name="&lt;&lt;parameter&gt;&gt;">
             <classMoniker Id="599c0a37-89c6-415d-b899-79cde890c93a" LastKnownName="Mario" />
             <elementDefinition Id="74727730-3213-4d94-b7c0-0bb5c2bfe692" />
@@ -886,6 +906,12 @@
             <elementDefinition Id="7ee83c7d-2ede-4bf3-999b-c991fe54ef4a" />
             <type_NamedElement>
               <referencedTypeMoniker Id="391899ca-0e56-4312-b797-23870d5a2fff" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="b483e5e2-52a3-4217-9f2d-ecf7b90f95a5" name="IsSolid" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e4403475-ebca-44d9-85f1-44709478428c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="54b164fa-f43a-4fa4-807e-d4fa5d27b521" LastKnownName="bool" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -1052,6 +1078,12 @@
             <elementDefinition Id="6dba5c27-db9e-4d83-8855-77e87983a2f0" />
             <type_NamedElement>
               <referencedTypeMoniker Id="9baf7398-3a1e-468e-bb7c-b0a93660e0ed" LastKnownName="Boolean" />
+            </type_NamedElement>
+          </property>
+          <property Id="5ab83a13-0351-41a7-867a-7d970a0e31f5" name="_weirdCoinPickUpSound" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ce9c30cc-153b-443f-bb7b-553551d7150d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="10f2f45f-3b78-485a-be8e-d15ebf7f5cf7" LastKnownName="SoundEffect" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -2338,6 +2370,12 @@
               <referencedTypeMoniker Id="c3e7bba0-a9b2-44e4-b3f0-7be9edb1ffd6" LastKnownName="Animator" />
             </type_NamedElement>
           </property>
+          <property Id="f0013e67-abef-4fe7-8dcb-dd107627a33b" name="_stompSound" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b09d450f-ba9e-4e19-8b50-dd2b402299b5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d9eec85d-bc90-4234-9488-31fe0ae53964" LastKnownName="SoundEffect" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="c6ae12c7-70fe-4387-8535-3d20e65bb621" name="CheckDeath" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -2592,10 +2630,6 @@
       <class Id="61a02c7f-3380-4bf9-b430-edaa2f16d9f6" name="MysteryBlock" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="7ec7851e-b6f5-4913-a53a-a8576a5100e2" />
         <suppliersInternal>
-          <interfaceRealization Id="f26f9001-c378-453f-8726-e3913dca04bc">
-            <interfaceMoniker Id="28cc64c3-6890-4bc5-b586-e13ecc8eb582" LastKnownName="ISolid" />
-            <elementDefinition Id="4a484f30-1656-4247-8755-94aa90fe0976" />
-          </interfaceRealization>
           <dependency Id="2293c859-4234-41e2-a0d8-dd8ca2c8a03a" name="&lt;&lt;create&gt;&gt;">
             <classMoniker Id="c27cb31e-565b-4eee-b4d4-38fc2c252ce7" LastKnownName="Coin" />
             <elementDefinition Id="7e91872b-541f-469b-b596-993a864195f6" />
@@ -2652,6 +2686,12 @@
               <referencedTypeMoniker Id="057dc629-56ab-4c4b-9dc4-9235c9264015" LastKnownName="int" />
             </type_NamedElement>
           </property>
+          <property Id="b9ccb0ac-396b-458f-b58a-34b68b0eaa06" name="_courseClearSound" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8cd7794a-6022-4432-b2fa-f6e320d0ecd0" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d9eec85d-bc90-4234-9488-31fe0ae53964" LastKnownName="SoundEffect" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="f613d3cf-145a-47d8-b6c1-4ce971c30ad8" name="Eject" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -2698,10 +2738,6 @@
       <class Id="60e7148e-20bf-4eb2-a00b-f8037f6e02b6" name="TransFloor" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6b991256-72e4-4b47-b0f2-a22897e96c3f" />
         <suppliersInternal>
-          <interfaceRealization Id="cbb68e49-9702-47da-9004-f60d7f70ceb9">
-            <interfaceMoniker Id="28cc64c3-6890-4bc5-b586-e13ecc8eb582" LastKnownName="ISolid" />
-            <elementDefinition Id="e04e3441-b534-4029-a156-e9f7251f43bf" />
-          </interfaceRealization>
           <dependency Id="4efe3268-a5ba-49a3-aa90-e1addeacbc2e" name="&lt;&lt;parameter&gt;&gt;">
             <classMoniker Id="599c0a37-89c6-415d-b899-79cde890c93a" LastKnownName="Mario" />
             <elementDefinition Id="cdc53dd2-9aa0-46b9-8ee1-55a9ad273fd9" />
@@ -2799,18 +2835,9 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <Interface Id="28cc64c3-6890-4bc5-b586-e13ecc8eb582" name="ISolid" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="4390203b-2e93-43dc-95d4-a735baa04150" />
-      </Interface>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
       <class Id="69ebc3b2-4b47-4bf1-a008-df7e1aadf0e6" name="CoinBlock" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="d0ba2653-751b-4621-b2f1-4871c54b2af4" />
         <suppliersInternal>
-          <interfaceRealization Id="7803b0c6-d179-4f71-b815-98d0bac85778">
-            <interfaceMoniker Id="28cc64c3-6890-4bc5-b586-e13ecc8eb582" LastKnownName="ISolid" />
-            <elementDefinition Id="7bea361e-d43d-4201-a895-82f0096e79d4" />
-          </interfaceRealization>
           <dependency Id="40c50ea7-2dbf-4f3a-a678-e449d729510d" name="&lt;&lt;parameter&gt;&gt;">
             <classMoniker Id="599c0a37-89c6-415d-b899-79cde890c93a" LastKnownName="Mario" />
             <elementDefinition Id="f61234a9-819d-4b4a-8149-eb8439f888a5" />
@@ -2884,10 +2911,6 @@
       <class Id="1228ad7c-9e21-4339-bfd4-323aa08d211f" name="Shell" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="e4aea4e1-997d-4ce4-9f5d-190c33999395" />
         <suppliersInternal>
-          <interfaceRealization Id="9170b62a-496c-47ca-bae1-707a7377fe16">
-            <interfaceMoniker Id="28cc64c3-6890-4bc5-b586-e13ecc8eb582" LastKnownName="ISolid" />
-            <elementDefinition Id="9975c9d7-1dcd-469c-b319-116abdb9ff77" />
-          </interfaceRealization>
           <interfaceRealization Id="d4a4dc93-5384-4633-b56c-eaa44aabad18">
             <interfaceMoniker Id="48c8672f-e406-4388-babb-dc7a394dda02" LastKnownName="IMovable" />
             <elementDefinition Id="aa4a53f9-cf44-40ab-bf6f-a833f316fda2" />
@@ -2920,6 +2943,12 @@
             <elementDefinition Id="7ec96c3d-0385-49ff-be3e-8d253a19c02d" />
             <type_NamedElement>
               <referencedTypeMoniker Id="e5f50e4c-177d-4580-829e-edb36a10382a" LastKnownName="Texture2D" />
+            </type_NamedElement>
+          </property>
+          <property Id="ebffaed7-e89f-4609-a084-b2c9501acb4b" name="_ricochetSound" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="93a7d3ef-88c4-4c20-a653-ba957dd83ed6" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d9eec85d-bc90-4234-9488-31fe0ae53964" LastKnownName="SoundEffect" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -3025,10 +3054,6 @@
       <class Id="19abfd6d-7658-4d31-a815-08ae9a8f0a82" name="Koopa" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="5f4d662f-104d-479c-b46d-5b6a2a62657c" />
         <suppliersInternal>
-          <interfaceRealization Id="c619c705-9e5d-4100-aafa-7ced351b1088">
-            <interfaceMoniker Id="28cc64c3-6890-4bc5-b586-e13ecc8eb582" LastKnownName="ISolid" />
-            <elementDefinition Id="5cd4464d-d946-49ad-9928-2850c87030c4" />
-          </interfaceRealization>
           <interfaceRealization Id="75d5e74c-3bb1-48ed-b896-1d0b0cbf5d42">
             <interfaceMoniker Id="48c8672f-e406-4388-babb-dc7a394dda02" LastKnownName="IMovable" />
             <elementDefinition Id="8297bfa4-cac2-468e-9e4e-b21911906097" />
@@ -3073,6 +3098,18 @@
             <elementDefinition Id="8b1b5931-c582-4ca9-93f5-9f883a12531d" />
             <type_NamedElement>
               <referencedTypeMoniker Id="e0ab6693-5d4b-4272-b70b-44ece739803b" LastKnownName="Animator" />
+            </type_NamedElement>
+          </property>
+          <property Id="fc716cc2-35e5-41ff-85d3-5e0a2ae8f890" name="_stompSound" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e37e623e-4447-4bb3-b691-7590b3572205" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d9eec85d-bc90-4234-9488-31fe0ae53964" LastKnownName="SoundEffect" />
+            </type_NamedElement>
+          </property>
+          <property Id="3cda241f-3a91-451b-8f4b-308f1113044a" name="_kickSound" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="07af500d-bed5-4417-9e57-1d66f2c43229" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d9eec85d-bc90-4234-9488-31fe0ae53964" LastKnownName="SoundEffect" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -3416,10 +3453,6 @@
       <class Id="406f9008-0ba5-4569-abd9-428372703cb1" name="CloudBlock" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="fd688ef9-718f-4497-92ae-c90b77adf19e" />
         <suppliersInternal>
-          <interfaceRealization Id="59b45cfc-79e9-45ed-9ad5-cd089a81a99b">
-            <interfaceMoniker Id="28cc64c3-6890-4bc5-b586-e13ecc8eb582" LastKnownName="ISolid" />
-            <elementDefinition Id="f9b65332-bc92-4076-804a-eeb67895ec43" />
-          </interfaceRealization>
           <dependency Id="a8836a76-ee7b-4e89-800a-66ab2e322e68" name="&lt;&lt;parameter&gt;&gt;">
             <classMoniker Id="599c0a37-89c6-415d-b899-79cde890c93a" LastKnownName="Mario" />
             <elementDefinition Id="e56085cc-a18d-49e5-9f07-448be5f5f117" />
@@ -3557,6 +3590,12 @@
             <elementDefinition Id="38a152c7-113b-4859-ac78-3e4f007faa18" />
             <type_NamedElement>
               <referencedTypeMoniker Id="01f7e93b-9ba3-45f9-98b7-05a94212110c" LastKnownName="Global" />
+            </type_NamedElement>
+          </property>
+          <property Id="d92bb4f7-756b-439c-a84c-f5d8dfc8a854" name="WeirdSounds" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9526753a-3a43-4d5f-850a-ebf83c0bda3f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="54b164fa-f43a-4fa4-807e-d4fa5d27b521" LastKnownName="bool" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -4147,10 +4186,6 @@
       <class Id="7725da7f-cf63-40d6-b958-f2ca2d47471f" name="Muncher" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="84acfca4-bbf9-4cba-b7ad-637e1a91144e" />
         <suppliersInternal>
-          <interfaceRealization Id="2ac5cf7c-752b-4743-a18f-b6c89fbc22d0">
-            <interfaceMoniker Id="28cc64c3-6890-4bc5-b586-e13ecc8eb582" LastKnownName="ISolid" />
-            <elementDefinition Id="bed42d2f-4af3-49b3-bb94-6a1e99e68102" />
-          </interfaceRealization>
           <dependency Id="72455567-22ec-4a81-abf4-4b287be01c3e" name="&lt;&lt;parameter&gt;&gt;">
             <classMoniker Id="599c0a37-89c6-415d-b899-79cde890c93a" LastKnownName="Mario" />
             <elementDefinition Id="7f7951c5-e13f-4af1-9650-3b8184419c38" />
@@ -4313,10 +4348,6 @@
       <class Id="922b2711-2d05-4cea-9f49-603cfcbb5a19" name="StoneBlock" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="fd56cc34-d26f-4fb0-bece-32b57c4f1d96" />
         <suppliersInternal>
-          <interfaceRealization Id="971a144e-431d-4e6d-a3d8-f0bd1a8959a9">
-            <interfaceMoniker Id="28cc64c3-6890-4bc5-b586-e13ecc8eb582" LastKnownName="ISolid" />
-            <elementDefinition Id="9a704590-96d7-426d-b254-597c4b4a3628" />
-          </interfaceRealization>
           <dependency Id="f4539efc-13b9-4c6f-a7ca-fbb4bc9c1eb6" name="&lt;&lt;parameter&gt;&gt;">
             <classMoniker Id="599c0a37-89c6-415d-b899-79cde890c93a" LastKnownName="Mario" />
             <elementDefinition Id="65e4b64d-bc6b-41c0-ab12-39a41a8442b9" />
@@ -4462,6 +4493,12 @@
               <referencedTypeMoniker Id="851e72c1-441e-4fa2-9d63-d696f83b9998" LastKnownName="Boolean" />
             </type_NamedElement>
           </property>
+          <property Id="eaa0e7a1-cbcd-4c3b-8601-f39400226783" name="_appearSound" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b4fd4788-6f09-4cf0-9b79-b44e40e11895" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d9eec85d-bc90-4234-9488-31fe0ae53964" LastKnownName="SoundEffect" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="0ffb1e6e-ebb2-4202-8cd1-62e387846ff3" name="OneUpMushroom" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -4586,6 +4623,116 @@
     <packageHasNamedElement>
       <referencedType Id="3694247e-0040-4f47-8dc5-df09c394452b" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
         <elementDefinition Id="33ed3490-11f8-4468-9958-7e001ea32b7c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1a8d07b5-12a7-4a84-8750-b368378181d1" name="SoundEffect" isAbstract="false" isLeaf="false" cachedFullName="SoundEffect">
+        <elementDefinition Id="d06e30d3-bbff-4b0a-98fc-6772796bcd39" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="10f2f45f-3b78-485a-be8e-d15ebf7f5cf7" name="SoundEffect" isAbstract="false" isLeaf="false" cachedFullName="SoundEffect">
+        <elementDefinition Id="d06e30d3-bbff-4b0a-98fc-6772796bcd39" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="cb8f7690-6064-4c2a-b9f3-7d58d2e69738" name="SoundEffect" isAbstract="false" isLeaf="false" cachedFullName="SoundEffect">
+        <elementDefinition Id="d06e30d3-bbff-4b0a-98fc-6772796bcd39" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ced59486-650a-4b65-b505-1a616961adbc" name="SoundEffect" isAbstract="false" isLeaf="false" cachedFullName="SoundEffect">
+        <elementDefinition Id="d06e30d3-bbff-4b0a-98fc-6772796bcd39" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="54b164fa-f43a-4fa4-807e-d4fa5d27b521" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="da19a574-7200-4633-a86b-ca222801f18b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="906249a6-d330-4e0f-83f4-ed58ffd24575" name="Sound" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e78508ef-3812-47d2-85cd-f1cc0bc616ce" />
+        <targetEnds>
+          <association Id="bf35d1c9-497c-4b58-b050-750cbdeeff43" isDerived="false" sourceEndRoleName="Sound" targetEndRoleName="MainGame" isLeaf="false" isAbstract="false">
+            <classMoniker Id="46f08f54-d901-45a6-b65f-7d2836f717b0" LastKnownName="MainGame" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2dbbc843-435d-4e79-bc63-e2ba9e8ea0fc" name="Sound" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c93c7b9f-47e2-447b-949d-0cdb1ce71809" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d797a1cf-d935-4a07-9a20-91f872898310" name="MainGame" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ea619dd4-b1da-4e8c-88d6-4a67c5089bc4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0f889bcb-aa67-41a8-a4f8-cb79f38fda6d" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="48ff1120-7c7b-4c10-a96b-79564057f95a" name="_lastKeyboardState" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="edd15fc9-290a-4e75-b79c-87fe72e7304c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="4fe94302-aa7b-408c-bebd-b730174e1b3c" LastKnownName="KeyboardState" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="131650b3-4b0b-444f-b1da-81b93c356d36" name="CheckInput" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9532faa6-caba-4a16-8cf3-d4aaed97f61b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f6978813-ab2c-4dcc-9981-70e2f2c4762b" direction="Return">
+                  <elementDefinition Id="11bd1c22-b99f-4e5b-8096-4b6ff569aa38" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1e73fffb-d27a-4bdc-81bc-c604b89335ea" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="dd3c02a2-ab92-40cb-98d6-e181c84f2661" name="ResumeMusic" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f0a69f8b-5fce-4a43-b8c9-495efef5a6b8" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="03196023-b709-462a-a31b-ab06588b4548" direction="Return" isUnique="false">
+                  <elementDefinition Id="65765f3f-77b2-425c-8dd2-5390a35b19a3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="06655193-1162-4d2c-810d-9697b2e08ebd" LastKnownName="void" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f18b7e4c-bac0-4028-8eb0-70b309ad728f" name="state" direction="In">
+                  <elementDefinition Id="e7938b04-0c1b-47f8-91fe-85b7caf4915b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bda62dc8-7a76-482b-8ba6-cc07eb7a83d5" LastKnownName="object" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="95935c5d-e6b6-4f83-8481-2caea69242e8" name="Sound" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="944f9ab6-7f0c-4719-a036-af9616188996" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="4fe94302-aa7b-408c-bebd-b730174e1b3c" name="KeyboardState" isAbstract="false" isLeaf="false" cachedFullName="KeyboardState">
+        <elementDefinition Id="773a9901-7494-43cc-b5df-b4177078abd8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1e73fffb-d27a-4bdc-81bc-c604b89335ea" name="void" isAbstract="false" isLeaf="false" cachedFullName="void">
+        <elementDefinition Id="33ed3490-11f8-4468-9958-7e001ea32b7c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="bda62dc8-7a76-482b-8ba6-cc07eb7a83d5" name="object" isAbstract="false" isLeaf="false" cachedFullName="object">
+        <elementDefinition Id="efbdc98f-11c7-4166-96b5-b6eb5d401da5" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

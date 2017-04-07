@@ -20,11 +20,18 @@ namespace SuperMarioClone
             Direction = SpriteEffects.None;
         }
 
+        /// <summary>
+        /// Draws the GameObject using its Sprite
+        /// </summary>
+        /// <param name="spriteBatch">Used to Draw the GameObject</param>
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(texture: Sprite, position: Position, effects: Direction);
         }
 
+        /// <summary>
+        /// Updates the GameObject
+        /// </summary>
         public virtual void Update()
         {
 

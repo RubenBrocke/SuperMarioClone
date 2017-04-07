@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="Animator.cs" />
     <Compile Include="ArgumentResolver.cs" />
-    <Compile Include="BackgroundSong.cs" />
+    <Compile Include="Sound.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="CloudBlock.cs" />
     <Compile Include="Coin.cs" />
@@ -59,7 +59,6 @@
     <Compile Include="Goomba.cs" />
     <Compile Include="GraphicalUserInterface.cs" />
     <Compile Include="IMovable.cs" />
-    <Compile Include="ISolid.cs" />
     <Compile Include="Koopa.cs" />
     <Compile Include="Muncher.cs" />
     <Compile Include="Mushroom.cs" />

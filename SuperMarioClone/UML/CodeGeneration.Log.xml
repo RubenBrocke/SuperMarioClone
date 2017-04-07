@@ -6,49 +6,25 @@
   <MessageClass Name="Error" Label="Error" Option="Show errors" />
   <MessageClass Name="Property" Label="Property" Option="Show metadata" />
   <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
-  <Message Timestamp="2017-03-07T00:41:01" Importance="High" Text="Code generation or text transformation started." />
-  <Message Timestamp="2017-03-07T00:41:01" Importance="Diagnostic" Text="Name = ClassTemplate" />
-  <Message Timestamp="2017-03-07T00:41:01" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2017-03-07T00:41:01" Importance="Diagnostic" Text="ProjectPath = ..\UMLLib\UMLLib.csproj" />
-  <Message Timestamp="2017-03-07T00:41:01" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
-  <Message Timestamp="2017-03-07T00:41:01" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2017-03-07T00:41:01" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
-  <Message Timestamp="2017-03-07T00:41:01" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
-  <Message Timestamp="2017-03-07T00:41:01" Importance="Medium" Text="UML's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'UML::Moveable' -  (Class), 'UML::GameObject' -  (Class), 'UML::Tangible' -  (Class), 'UML::Solid' -  (Class), 'UML::Level' -  (Class), 'UML::Mario' -  (Class), 'UML::Floor' -  (Class), 'UML::LevelReader' -  (Class), 'UML::Coin' -  (Class) " />
-  <Message Timestamp="2017-03-07T00:41:01" Importance="Medium" Text="'UML::Moveable' -  (Class) : success (file replaced) - E:\Stack\School\Jaar 1 Periode 3\Project\SuperMarioClone\SuperMarioClone\UMLLib\GeneratedCode\Moveable.cs" />
-  <Message Timestamp="2017-03-07T00:41:01" Importance="Medium" Text="'UML::GameObject' -  (Class) : success (file replaced) - E:\Stack\School\Jaar 1 Periode 3\Project\SuperMarioClone\SuperMarioClone\UMLLib\GeneratedCode\GameObject.cs" />
-  <Message Timestamp="2017-03-07T00:41:01" Importance="Medium" Text="'UML::Tangible' -  (Class) : success (file replaced) - E:\Stack\School\Jaar 1 Periode 3\Project\SuperMarioClone\SuperMarioClone\UMLLib\GeneratedCode\Tangible.cs" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Medium" Text="'UML::Solid' -  (Class) : success (file replaced) - E:\Stack\School\Jaar 1 Periode 3\Project\SuperMarioClone\SuperMarioClone\UMLLib\GeneratedCode\Solid.cs" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Medium" Text="'UML::Level' -  (Class) : success (file replaced) - E:\Stack\School\Jaar 1 Periode 3\Project\SuperMarioClone\SuperMarioClone\UMLLib\GeneratedCode\Level.cs" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Medium" Text="'UML::Mario' -  (Class) : success (file replaced) - E:\Stack\School\Jaar 1 Periode 3\Project\SuperMarioClone\SuperMarioClone\UMLLib\GeneratedCode\Mario.cs" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Medium" Text="'UML::Floor' -  (Class) : success (file replaced) - E:\Stack\School\Jaar 1 Periode 3\Project\SuperMarioClone\SuperMarioClone\UMLLib\GeneratedCode\Floor.cs" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Medium" Text="'UML::LevelReader' -  (Class) : success (file replaced) - E:\Stack\School\Jaar 1 Periode 3\Project\SuperMarioClone\SuperMarioClone\UMLLib\GeneratedCode\LevelReader.cs" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Medium" Text="'UML::Coin' -  (Class) : success (file replaced) - E:\Stack\School\Jaar 1 Periode 3\Project\SuperMarioClone\SuperMarioClone\UMLLib\GeneratedCode\Coin.cs" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Diagnostic" Text="Name = StructTemplate" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Diagnostic" Text="Overwrite = True" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Diagnostic" Text="ProjectPath = ..\UMLLib\UMLLib.csproj" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Diagnostic" Text="TargetName = {Name}" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Medium" Text="UML's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'UML::Moveable' -  (Class), 'UML::GameObject' -  (Class), 'UML::Tangible' -  (Class), 'UML::Solid' -  (Class), 'UML::Level' -  (Class), 'UML::Mario' -  (Class), 'UML::Floor' -  (Class), 'UML::LevelReader' -  (Class), 'UML::Coin' -  (Class) " />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Diagnostic" Text="'UML::Moveable' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Diagnostic" Text="'UML::GameObject' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Diagnostic" Text="'UML::Tangible' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2017-03-07T00:41:02" Importance="Diagnostic" Text="'UML::Solid' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="'UML::Level' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="'UML::Mario' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="'UML::Floor' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="'UML::LevelReader' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="'UML::Coin' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="The selection included 8 elements which were not bound to a template." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="'a19b65b4-6cad-4e48-9de4-8a87390b3787' -  (Generalization): no bound template." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="'bff35704-35e4-47b6-b4cb-203ebc1d5d29' -  (Generalization): no bound template." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="'5ce4db38-a0de-445c-96b2-2aff3102ecbf' -  (Generalization): no bound template." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="'UML::' -  (Association): no bound template." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="'5eac23c3-4325-49a3-b744-c40289eeb66f' -  (Generalization): no bound template." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="'20e9c5c3-56f0-4e67-b5fb-b54c0f62c442' -  (Generalization): no bound template." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="'b4c6432e-e22e-430d-80e0-bdf0801960ed' -  (Generalization): no bound template." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="Diagnostic" Text="'UML::&lt;&lt;parameter&gt;&gt;' -  (Dependency): no bound template." />
-  <Message Timestamp="2017-03-07T00:41:03" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+  <Message Timestamp="2017-04-07T04:51:52" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2017-04-07T04:51:52" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2017-04-07T04:51:52" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2017-04-07T04:51:52" Importance="Diagnostic" Text="ProjectPath = ..\UMLLib\UMLLib.csproj" />
+  <Message Timestamp="2017-04-07T04:51:52" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2017-04-07T04:51:52" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2017-04-07T04:51:52" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2017-04-07T04:51:52" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2017-04-07T04:51:52" Importance="Medium" Text="UML's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'UML::Sound' -  (Class) " />
+  <Message Timestamp="2017-04-07T04:52:13" Importance="Medium" Text="Project Added: E:\Stack\School\Jaar 1 Periode 3\Project\SuperMarioClone\SuperMarioClone\UMLLib\UMLLib.csproj" />
+  <Message Timestamp="2017-04-07T04:52:13" Importance="Medium" Text="'UML::Sound' -  (Class) : success (file created) - E:\Stack\School\Jaar 1 Periode 3\Project\SuperMarioClone\SuperMarioClone\UMLLib\GeneratedCode\Sound.cs" />
+  <Message Timestamp="2017-04-07T04:52:13" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2017-04-07T04:52:13" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2017-04-07T04:52:13" Importance="Diagnostic" Text="ProjectPath = ..\UMLLib\UMLLib.csproj" />
+  <Message Timestamp="2017-04-07T04:52:13" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2017-04-07T04:52:13" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2017-04-07T04:52:13" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2017-04-07T04:52:13" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2017-04-07T04:52:13" Importance="Medium" Text="UML's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'UML::Sound' -  (Class) " />
+  <Message Timestamp="2017-04-07T04:52:13" Importance="Diagnostic" Text="'UML::Sound' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2017-04-07T04:52:13" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
 </Log>

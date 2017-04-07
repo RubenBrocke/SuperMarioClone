@@ -24,7 +24,15 @@ namespace SuperMarioClone
 
         //Private fields
         private float _speed;
+        private SoundEffect _appearSound;
 
+        /// <summary>
+        /// Constructor for OneUpMushroom, sets the position of the OneUpMushroom using the GridSize and sets its Sprite
+        /// </summary>
+        /// <param name="x">X position of the OneUpMushroom</param>
+        /// <param name="y">Y position of the OneUpMushroom</param>
+        /// <param name="level">Level the OneUpMushroom should be in</param>
+        /// <param name="contentManager">ContentManager used to load Sprite</param>
         public OneUpMushroom(int x, int y, Level level, ContentManager contentManager) : base()
         {
             //Properties and private fields are set
@@ -39,10 +47,16 @@ namespace SuperMarioClone
             HasBeenPickedUp = false;
 
             //Sprite, sound and hitbox are set
+            _appearSound = contentManager.Load<SoundEffect>("PowerUpAppears");
+            _appearSound.Play();
             Sprite = contentManager.Load<Texture2D>("OneUpMushroom");
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
         }
 
+        /// <summary>
+        /// Adds a life to Mario and removes the OneUpMushroom from the Level
+        /// </summary>
+        /// <param name="mario">Mario to add the life to</param>
         public void CollectMushroom(Mario mario)
         {
             if (!HasBeenPickedUp)
@@ -53,6 +67,9 @@ namespace SuperMarioClone
             }
         }
 
+        /// <summary>
+        /// Updates the OneUpMushroom
+        /// </summary>
         public override void Update()
         {
             //Update hitbox to match current position
@@ -68,18 +85,25 @@ namespace SuperMarioClone
             UpdatePosition();
         }
 
+        /// <summary>
+        /// Updates OneUpMushroom's Hitbox to match the current Position
+        /// </summary>
         private void UpdateHitbox()
         {
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
         }
 
-        //Add gravity to vertical velocity
+        /// <summary>
+        /// Adds Gravity to the vertical velocity
+        /// </summary>
         private void AddGravity()
         {
             VelocityY += Gravity;
         }
 
-        //Check collision and change direction if needed
+        /// <summary>
+        /// Checks collision and changes direction if needed
+        /// </summary>
         private void CollisionCheck()
         {
             float vX;
@@ -101,7 +125,9 @@ namespace SuperMarioClone
             VelocityY = vY;
         }
 
-        //Update position
+        /// <summary>
+        /// Updates the position using the velocity
+        /// </summary>
         private void UpdatePosition()
         {
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);

@@ -9,30 +9,34 @@ namespace SuperMarioClone
 {
     public abstract class Tangible : GameObject
     {
+        //Properties
         public Rectangle Hitbox { get; set; }
+        public bool IsSolid { get; set; }
+
+        //Protected fields
         protected Tangible collObject;
         protected int _horizontalPadding = 0;
         protected int _verticalPadding = 0;
 
         public Tangible() : base()
         {
-            
+            IsSolid = false;
         }
 
         public bool IsColliding(Level lvl, int offsetX, int offsetY, out Tangible collObject) //TODO: Improve collision (collider class?)
         {
             bool collidesWithSolid = false;
             collObject = null;
-            foreach (GameObject o in lvl.GameObjects)
+            foreach (GameObject gameObject in lvl.GameObjects)
             {
-                if(o is Tangible)
+                if(gameObject is Tangible)
                 {
-                    Tangible tangibleObject = (Tangible)o;
+                    Tangible tangibleObject = (Tangible)gameObject;
                     Rectangle testRect = new Rectangle((int)tangibleObject.Position.X - offsetX, (int)tangibleObject.Position.Y - offsetY, tangibleObject.Hitbox.Width, tangibleObject.Hitbox.Height);
 
                     if (testRect.Intersects(Hitbox) && tangibleObject != this)
                     {
-                        if (o is ISolid)
+                        if (tangibleObject.IsSolid)
                         {
                             collidesWithSolid = true;
                             collObject = tangibleObject;
@@ -40,61 +44,61 @@ namespace SuperMarioClone
                         if (this is Mario)
                         {
                             Mario mario = (Mario)this;
-                            if (o is Coin)
+                            if (tangibleObject is Coin)
                             {
-                                Coin coin = (Coin)o;
+                                Coin coin = (Coin)tangibleObject;
                                 coin.AddCoin((Mario)this);
                             }
-                            else if (o is MysteryBlock)
+                            else if (tangibleObject is MysteryBlock)
                             {
-                                MysteryBlock mysteryBlock = (MysteryBlock)o;
+                                MysteryBlock mysteryBlock = (MysteryBlock)tangibleObject;
                                 mysteryBlock.Eject(mario);
                             }
-                            else if (o is CoinBlock)
+                            else if (tangibleObject is CoinBlock)
                             {
-                                CoinBlock coinBlock = (CoinBlock)o;
-                                coinBlock.Eject(mario, mario.VelocityY, mario.Position.Y);
+                                CoinBlock coinBlock = (CoinBlock)tangibleObject;
+                                coinBlock.Eject(mario);
                             }
-                            else if (o is Mushroom)
+                            else if (tangibleObject is Mushroom)
                             {
-                                Mushroom mushroom = (Mushroom)o;
+                                Mushroom mushroom = (Mushroom)tangibleObject;
                                 mushroom.CollectMushroom(mario);
                             }
-                            else if (o is OneUpMushroom)
+                            else if (tangibleObject is OneUpMushroom)
                             {
-                                OneUpMushroom oneUpMushroom = (OneUpMushroom)o;
+                                OneUpMushroom oneUpMushroom = (OneUpMushroom)tangibleObject;
                                 oneUpMushroom.CollectMushroom(mario);
                             }
-                            else if (o is Shell)
+                            else if (tangibleObject is Shell)
                             {
-                                Shell shell = (Shell)o;
+                                Shell shell = (Shell)tangibleObject;
                                 shell.CheckHit(mario);
                             }
-                            else if (o is Koopa)
+                            else if (tangibleObject is Koopa)
                             {
-                                Koopa koopa = (Koopa)o;
+                                Koopa koopa = (Koopa)tangibleObject;
                                 koopa.CheckDeath(mario);
                             }
-                            else if (o is Muncher)
+                            else if (tangibleObject is Muncher)
                             {
                                 mario.GetHit();
                             }
-                            else if (o is Goomba)
+                            else if (tangibleObject is Goomba)
                             {
-                                Goomba goomba = (Goomba)o;
+                                Goomba goomba = (Goomba)tangibleObject;
                                 goomba.CheckDeath(mario);
                             }
                         }
                         else if (this is Shell)
                         {
-                            if (o is Goomba)
+                            if (tangibleObject is Goomba)
                             {
-                                Goomba goomba = (Goomba)o;
+                                Goomba goomba = (Goomba)tangibleObject;
                                 goomba.Die();
                             }
-                            if (o is Koopa)
+                            if (tangibleObject is Koopa)
                             {
-                                Koopa koopa = (Koopa)o;
+                                Koopa koopa = (Koopa)tangibleObject;
                                 koopa.DieWithoutShell();
                                 collidesWithSolid = false;
                             }

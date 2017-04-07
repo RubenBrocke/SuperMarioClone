@@ -9,11 +9,21 @@ using Microsoft.Xna.Framework;
 
 namespace SuperMarioClone
 {
-    public class TransFloor : Tangible, ISolid
+    public class TransFloor : Tangible
     {
+        //Properties
         protected int Width { get; set; }
         protected int Height { get; set; }
 
+        /// <summary>
+        /// Constructor for TransFloor, sets the position of the TransFloor using the GridSize and sets its SpriteSheet
+        /// </summary>
+        /// <param name="x">X position of the TransFloor</param>
+        /// <param name="y">Y position of the TransFloor</param>
+        /// <param name="w">Width of the TransFloor</param>
+        /// <param name="h">Height of the TransFloor</param>
+        /// <param name="level">Level the TransFloor should be in</param>
+        /// <param name="contentManager">ContentManager used to load SpriteSheet</param>
         public TransFloor(int x, int y, int w, int h, Level level, ContentManager contentManager) : base()
         {
             Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
@@ -21,9 +31,14 @@ namespace SuperMarioClone
             Height = h * Global.Instance.GridSize;
             CurrentLevel = level;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Width, Height);
+            IsSolid = true;
             Sprite = contentManager.Load<Texture2D>("GroundSheet");
         }
 
+        /// <summary>
+        /// Draws the TransFloor
+        /// </summary>
+        /// <param name="spriteBatch"></param>
         public override void Draw(SpriteBatch spriteBatch)
         {
             Rectangle sourceRect = new Rectangle(Global.Instance.GridSize, Global.Instance.GridSize, Global.Instance.GridSize, Global.Instance.GridSize);

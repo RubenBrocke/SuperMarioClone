@@ -11,9 +11,14 @@ namespace SuperMarioClone
 {
     public class LevelReader
     {
+        //Private fields
         private ContentManager _contentManager;
         private GameObjectFactory _gameObjectFactory;
 
+        /// <summary>
+        /// Constructor of LevelReader, creates a new GameObjectFactory
+        /// </summary>
+        /// <param name="contentManager">Used to create objects</param>
         public LevelReader(ContentManager contentManager)
         {
             //Private fields are set
@@ -21,6 +26,11 @@ namespace SuperMarioClone
             _gameObjectFactory = new GameObjectFactory();
         }
 
+        /// <summary>
+        /// Reads the Level specified by the levelNumber
+        /// </summary>
+        /// <param name="levelNumber">Specifies which Level to read</param>
+        /// <returns></returns>
         public Level ReadLevel(int levelNumber)
         {            
             StreamReader lvlReader = new StreamReader(@"Level" + levelNumber + ".txt");
@@ -55,7 +65,6 @@ namespace SuperMarioClone
                 }
                 
             }
-
             lvlReader.Close();
             return level;
         }

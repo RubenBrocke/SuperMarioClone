@@ -11,15 +11,26 @@ namespace SuperMarioClone
     //TODO: Make the camara work like in SMW
     public class Camera
     {
-        private Viewport _viewport;
+        //Properties
         public Vector2 Position { get; private set; }
         private float Rotation { get; set; }
         private float Zoom { get; set; }
         private Vector2 Origin { get; set; }
+
+        //Private fields
+        private Viewport _viewport;
         private CameraState _state;
         private float _cameraSpeed;
         private Vector2 _prevPos;
         private int _cameraMargin;
+
+        //Enumeration
+        public enum CameraState
+        {
+            RightAlign,
+            LeftAlign,
+            Follow,
+        }
 
         /// <summary>
         /// Constructor sets the values of different properties and variables
@@ -53,26 +64,22 @@ namespace SuperMarioClone
                     if (focusPos.X - _viewport.Width / 2 + _cameraMargin > Global.Instance.MainGame.currentLevel.Width - 289)
                     {
                         _state = CameraState.Follow;
-                        Console.WriteLine("SWITCHED TO FOLLOW");
                     }
                     break;
                 case CameraState.LeftAlign:
                     if (focusPos.X - _viewport.Width / 2  - _cameraMargin > -289)
                     {
                         _state = CameraState.Follow;
-                        Console.WriteLine("SWITCHED TO FOLLOW");
                     }
                     break;
                 case CameraState.Follow:
                     if (focusPos.X - _viewport.Width / 2 < -289)
                     {
                         _state = CameraState.LeftAlign;
-                        Console.WriteLine("SWITCHED TO LEFT ALIGN");
                     }
                     else if (focusPos.X - _viewport.Width / 2 > Global.Instance.MainGame.currentLevel.Width - 289)
                     {
                         _state = CameraState.RightAlign;
-                        Console.WriteLine("SWITCHED TO RIGHT ALIGN");
                     }
                     break;
             }
@@ -91,22 +98,18 @@ namespace SuperMarioClone
                     if (Position.X < focusPos.X - _viewport.Width / 2 - _cameraSpeed)
                     {
                         Position = new Vector2(Position.X + _cameraSpeed, -100);
-                        Console.WriteLine("LEFT OF MARIO" + _cameraSpeed);
                     }
                     else if (Position.X > focusPos.X - _viewport.Width / 2 + _cameraSpeed)
                     {
                         Position = new Vector2(Position.X - _cameraSpeed, -100);
-                        Console.WriteLine("RIGHT OF MARIO" + _cameraSpeed);
                     }
                     else
                     {
                         Position = new Vector2(focusPos.X - _viewport.Width / 2, -100); //Y = _pos.Y - 534 to follow player sort of
-                        Console.WriteLine("ON MARIO");
                     }
                     Origin = new Vector2(_viewport.Width / 2, _viewport.Height);
                     break;               
             }
-
             _prevPos = focusPos;
         }
 
@@ -132,12 +135,5 @@ namespace SuperMarioClone
         {
             return new Rectangle((int)Position.X + 289, (int)Position.Y + 500, (int)(_viewport.Width / Zoom), (int)(_viewport.Height / Zoom));
         }
-    }
-
-    public enum CameraState
-    {
-        RightAlign,
-        LeftAlign,
-        Follow,
     }
 }

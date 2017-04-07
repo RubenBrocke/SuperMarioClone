@@ -11,11 +11,17 @@ namespace SuperMarioClone
 {
     public class GraphicalUserInterface
     {
+        //Private fields
         private Mario _mario;
         private SpriteFont _font;
         private Animator _coinAnimator;
         private Texture2D _coinSheet;
 
+        /// <summary>
+        /// Constructor for GraphicalUserInterface, sets some default values like the font and which Mario to take the Live and Coin info from
+        /// </summary>
+        /// <param name="mario"></param>
+        /// <param name="contentManager"></param>
         public GraphicalUserInterface(Mario mario, ContentManager contentManager)
         {
             _mario = mario;
@@ -25,6 +31,10 @@ namespace SuperMarioClone
             _coinAnimator.GetTextures(0, 0, 16, 16, 4, 1);
         }
 
+        /// <summary>
+        /// Draws the GUI
+        /// </summary>
+        /// <param name="spriteBatch">Used to Draw the GUI</param>
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();

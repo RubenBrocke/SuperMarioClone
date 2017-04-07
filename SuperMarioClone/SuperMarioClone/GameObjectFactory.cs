@@ -11,11 +11,21 @@ namespace SuperMarioClone
     {
         private ArgumentResolver _argumentResolver;
 
+        /// <summary>
+        /// Constructor for GameObjectFactory, creates a new ArgumentResolver
+        /// </summary>
         public GameObjectFactory()
         {
             _argumentResolver = new ArgumentResolver();
         }
 
+        /// <summary>
+        /// Creates a GameObject from the given string[]
+        /// </summary>
+        /// <param name="s">The String array containing the name of the Object and the arguments used to make it</param>
+        /// <param name="level">Level the GameObject should be in</param>
+        /// <param name="contentManager">ContentManager used to create the GameObject</param>
+        /// <returns></returns>
         public GameObject Fabricate(string[] s, Level level, ContentManager contentManager)
         {
             Type thingy = Type.GetType(this.GetType().Namespace + "." + s[0]);

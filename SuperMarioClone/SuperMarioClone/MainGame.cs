@@ -18,7 +18,7 @@ namespace SuperMarioClone
         private GraphicalUserInterface _graphicalUserInterface;
         public Camera camera;
         private Texture2D _background;
-        private BackgroundSong _song;
+        public Sound sound;
         public bool gameOver;
         
         public MainGame()
@@ -40,7 +40,7 @@ namespace SuperMarioClone
         protected override void Initialize()
         {
             gameOver = false;
-            _song = new BackgroundSong(Content);
+            sound = new Sound(Content);
             Global.Instance.MainGame = this;
             _levelReader = new LevelReader(Content);
             currentLevel = _levelReader.ReadLevel(0);
@@ -80,7 +80,7 @@ namespace SuperMarioClone
         {
             if (!gameOver)
             {
-                _song.CheckInput();
+                sound.CheckInput();
                 camera.LookAt(mario.Position);
                 if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                     Exit();
@@ -103,7 +103,7 @@ namespace SuperMarioClone
                 _spriteBatch.Draw(_background, new Rectangle(-(int)camera.Position.X - GraphicsDevice.Viewport.Width / 2 + 2000, 0, 2000, 800), Color.White);
                 _spriteBatch.End();
                 _spriteBatch.Begin(transformMatrix: camera.GetMatrix(), samplerState: SamplerState.PointClamp);
-                currentLevel.DrawLevel(_spriteBatch, GraphicsDevice.Viewport);
+                currentLevel.DrawLevel(_spriteBatch);
                 _spriteBatch.End();
                 _graphicalUserInterface.Draw(_spriteBatch);
                 base.Draw(gameTime);

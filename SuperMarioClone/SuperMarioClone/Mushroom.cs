@@ -25,6 +25,13 @@ namespace SuperMarioClone
         //Private fields
         private float _speed;
 
+        /// <summary>
+        /// Constructor for Mushroom, sets the position of the Mushroom using the GridSize and sets its Sprite
+        /// </summary>
+        /// <param name="x">X position of the Mushroom</param>
+        /// <param name="y">Y position of the Mushroom</param>
+        /// <param name="level">Level the Mushroom should be in</param>
+        /// <param name="contentManager">ContentManager used to load Sprite</param>
         public Mushroom(int x, int y, Level level, ContentManager contentManager) : base()
         {
             //Properties and private fields are set
@@ -43,6 +50,10 @@ namespace SuperMarioClone
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Sprite.Width, Sprite.Height);
         }
 
+        /// <summary>
+        /// Makes Mario big and removes the Mushroom from the Level
+        /// </summary>
+        /// <param name="mario">Mario to make big</param>
         public void CollectMushroom(Mario mario)
         {
             if (!HasBeenPickedUp)
@@ -53,6 +64,9 @@ namespace SuperMarioClone
             }
         }
 
+        /// <summary>
+        /// Updates the Mushroom
+        /// </summary>
         public override void Update()
         {
             //Update hitbox to match current position
@@ -68,18 +82,25 @@ namespace SuperMarioClone
             UpdatePosition();
         }
 
+        /// <summary>
+        /// Updates Mushroom's Hitbox to match the current Position
+        /// </summary>
         private void UpdateHitbox()
         {
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Hitbox.Width, Hitbox.Height);
         }
 
-        //Add gravity to vertical velocity
+        /// <summary>
+        /// Adds Gravity to the vertical velocity
+        /// </summary>
         private void AddGravity()
         {
             VelocityY += Gravity;
         }
 
-        //Check collision and change direction if needed
+        /// <summary>
+        /// Checks collision and changes direction if needed
+        /// </summary>
         private void CollisionCheck()
         {
             float vX;
@@ -101,7 +122,9 @@ namespace SuperMarioClone
             VelocityY = vY;
         }
 
-        //Update position
+        /// <summary>
+        /// Updates the position using the velocity
+        /// </summary>
         private void UpdatePosition()
         {
             Position = new Vector2(Position.X + VelocityX, Position.Y + VelocityY);
