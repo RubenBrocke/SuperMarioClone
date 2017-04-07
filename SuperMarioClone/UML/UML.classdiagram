@@ -3302,7 +3302,7 @@
       <class Id="a2afea88-e99a-4093-bd23-503188bf8074" name="GameObjectFactory" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="8f5ae7e4-792c-437a-acc9-62d2f3f7ae4e" />
         <suppliersInternal>
-          <dependency Id="2c0b84dc-d061-4260-9516-e4d070562dc6" name="&lt;&lt;parameter&gt;&gt;">
+          <dependency Id="2c0b84dc-d061-4260-9516-e4d070562dc6" name="&lt;&lt;create&gt;&gt;">
             <classMoniker Id="5ca04b61-0077-4aba-85ae-98d3db8754e3" LastKnownName="GameObject" />
             <elementDefinition Id="92557582-e197-406f-937b-0fb3212f4f2a" />
           </dependency>
@@ -3829,11 +3829,11 @@
       <class Id="46f08f54-d901-45a6-b65f-7d2836f717b0" name="MainGame" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="3349a72a-bb03-449c-b2b0-41d0a77cfdb9" />
         <targetEnds>
-          <association Id="b206f93f-a038-48ff-80fa-e50eaf3fada4" isDerived="false" sourceEndRoleName="← Contains" targetEndRoleName="" isLeaf="false" isAbstract="false">
+          <association Id="b206f93f-a038-48ff-80fa-e50eaf3fada4" isDerived="false" sourceEndRoleName="← Creates" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="58f786be-9080-42a7-bf24-5b95a5922936" LastKnownName="GraphicalUserInterface" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="d3420898-8d37-4c81-b5f2-649843e61e7f" name="← Contains" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                <memberEnd Id="d3420898-8d37-4c81-b5f2-649843e61e7f" name="← Creates" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
                   <elementDefinition Id="355356ae-6e3b-43a6-8c2f-580be0465428" />
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -3845,11 +3845,11 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="30d757dd-b871-49ef-844a-9b1b3100f9cc" />
           </association>
-          <association Id="babc022a-f411-4daf-bc64-858d741e5761" isDerived="false" sourceEndRoleName="← Contains" targetEndRoleName="" isLeaf="false" isAbstract="false">
+          <association Id="babc022a-f411-4daf-bc64-858d741e5761" isDerived="false" sourceEndRoleName="← Creates" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="98c36196-eba7-4b92-8038-ad9b6fa4ee5b" LastKnownName="Camera" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="1deb22fc-b6b6-4737-857a-ad950f3f5e1c" name="← Contains" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                <memberEnd Id="1deb22fc-b6b6-4737-857a-ad950f3f5e1c" name="← Creates" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
                   <elementDefinition Id="e2f98676-b090-4d67-9534-3aceacd4aacc" />
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -3861,11 +3861,11 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="4d0fad26-19a8-4e14-aee3-0a44a7deba28" />
           </association>
-          <association Id="c0ede405-cd95-4aff-b6ba-88177cbef07b" isDerived="false" sourceEndRoleName="Contains →" targetEndRoleName="" isLeaf="false" isAbstract="false">
+          <association Id="c0ede405-cd95-4aff-b6ba-88177cbef07b" isDerived="false" sourceEndRoleName="Creates→" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="d2942536-27c9-4f0c-9241-90d37ad35aba" LastKnownName="Level" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="ae0a3baa-45f5-49de-9590-88457d3dcfe1" name="Contains →" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                <memberEnd Id="ae0a3baa-45f5-49de-9590-88457d3dcfe1" name="Creates→" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
                   <elementDefinition Id="b11abc25-c897-4132-aee2-393a4854b5a3" />
                 </memberEnd>
               </associationHasOwnedEnds>

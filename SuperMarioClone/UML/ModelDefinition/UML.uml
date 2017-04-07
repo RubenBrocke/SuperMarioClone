@@ -6863,7 +6863,7 @@
         <suppliersInternal>
           <dependency
             Id="92557582-e197-406f-937b-0fb3212f4f2a"
-            name="&lt;&lt;parameter&gt;&gt;">
+            name="&lt;&lt;create&gt;&gt;">
             <classMoniker
               Id="7385f8e2-9e2a-497f-81d2-6229e5e1c00d"
               LastKnownName="GameObject"
@@ -7503,7 +7503,7 @@
           <association
             Id="30d757dd-b871-49ef-844a-9b1b3100f9cc"
             isDerived="false"
-            sourceEndRoleName="← Contains"
+            sourceEndRoleName="← Creates"
             targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
@@ -7515,7 +7515,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="355356ae-6e3b-43a6-8c2f-580be0465428"
-                  name="← Contains"
+                  name="← Creates"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -7541,7 +7541,7 @@
           <association
             Id="4d0fad26-19a8-4e14-aee3-0a44a7deba28"
             isDerived="false"
-            sourceEndRoleName="← Contains"
+            sourceEndRoleName="← Creates"
             targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
@@ -7553,7 +7553,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="e2f98676-b090-4d67-9534-3aceacd4aacc"
-                  name="← Contains"
+                  name="← Creates"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -7579,7 +7579,7 @@
           <association
             Id="b4b58bb4-2866-4a92-9697-2c5854475f53"
             isDerived="false"
-            sourceEndRoleName="Contains →"
+            sourceEndRoleName="Creates→"
             targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
@@ -7591,7 +7591,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="b11abc25-c897-4132-aee2-393a4854b5a3"
-                  name="Contains →"
+                  name="Creates→"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
