@@ -85,6 +85,7 @@ namespace SuperMarioClone
             _animator = new Animator(_spriteSheet, 120);
             _animator.GetTextures(0, 0, 16, 16, 4, 1);
             _courseClearSound = _contentManager.Load<SoundEffect>("CourseClear");
+            IsSolid = true;
             Sprite = _animator.GetCurrentTexture();
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Global.Instance.GridSize, Global.Instance.GridSize);
         }
