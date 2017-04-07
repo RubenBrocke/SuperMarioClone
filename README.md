@@ -16,3 +16,5 @@ Controls:
 
 Note:
 -When you go Game Over you have to restart the game to be able to play again
+bin
+To play the game, launch the SuperMarioClone.exe located in ../SuperMarioClone/SuperMarioClone/bin/Windows/x86/Release/SuperMarioClone.exe

@@ -59,7 +59,6 @@ namespace SuperMarioClone
                     }
                     catch (Exception)
                     {
-
                         throw new FileLoadException("No size detected");
                     }
                 }
