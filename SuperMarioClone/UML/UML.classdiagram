@@ -1037,6 +1037,24 @@
             <elementDefinition Id="20e9c5c3-56f0-4e67-b5fb-b54c0f62c442" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association Id="2b3d4552-c86b-4d62-a567-0c79e0011b96" isDerived="false" sourceEndRoleName="" targetEndRoleName="← Uses" isLeaf="false" isAbstract="false">
+            <classMoniker Id="75bcb8c9-f512-47d1-8bdd-723a756a2e2c" LastKnownName="Animator" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ea9b05cd-b1ee-49fe-99ea-f1d312cbb67b" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f19b92e0-cd46-4816-9f83-827984585e2f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="28334639-c934-45a1-8b2e-090a5b6c7aa1" name="← Uses" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="836bc5aa-2e57-4495-9758-cd92c1c43f11" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d6eaaa19-583a-40aa-940d-cce20869c747" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="106edff0-f0fe-449c-86cd-64988bcda8cc" name="HasBeenPickedUp" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="855dd272-1004-4d72-b9be-2397c068bf4f" />
@@ -2345,6 +2363,24 @@
             <elementDefinition Id="80c9f84a-15ae-4f25-a66f-b51719cf3834" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association Id="39a360cc-5a46-4593-b697-a068766d2792" isDerived="false" sourceEndRoleName="← Uses" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="75bcb8c9-f512-47d1-8bdd-723a756a2e2c" LastKnownName="Animator" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0ea9af91-e3cc-4986-a3e2-442d57e42ed3" name="← Uses" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1c3f5b1d-3eb5-4846-990b-137f4181db99" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="74d4b64d-e3c0-482b-8a36-cfab0f5802b9" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5a3d0904-2f95-45d1-ab62-342d5ab9371f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="01c8a546-5033-4b49-a050-50b31420720e" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="25d78c3a-3746-4158-add1-143a73245edb" name="_speed" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="a8342134-e0a9-4eed-9e59-8a672288227d" />
@@ -2649,6 +2685,24 @@
             <elementDefinition Id="b1c23af4-a686-4cc0-937d-586f3055d42f" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association Id="6fcacdf4-bf34-43c2-b183-bf197670ed48" isDerived="false" sourceEndRoleName="" targetEndRoleName="← Uses" isLeaf="false" isAbstract="false">
+            <classMoniker Id="75bcb8c9-f512-47d1-8bdd-723a756a2e2c" LastKnownName="Animator" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="751e74dd-f9c5-4972-be59-4933991d2f41" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1a7ef8ad-d63b-42be-92a9-a42925ddca8f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fa1bcffd-d33a-4fdd-b82c-b22b46d5494e" name="← Uses" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4256f5ef-1232-4faf-91e1-29ca3fbe4504" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e103a8dd-7fb8-4dcb-a75f-39c890ee08c5" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="377183cf-ba8d-4a9c-889e-93338593aa72" name="MysteryObject" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="15cc980e-865c-4eb7-b656-a7c4dfa0c1df" />
@@ -2926,6 +2980,24 @@
             <elementDefinition Id="2186c715-2d80-4bd1-9438-6f99c6f35ec8" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association Id="6d8094fa-77ce-4c35-9cec-adfa8dd44762" isDerived="false" sourceEndRoleName="← Uses" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="75bcb8c9-f512-47d1-8bdd-723a756a2e2c" LastKnownName="Animator" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="35b95033-abe4-4756-a45d-66e1a06cfee2" name="← Uses" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2f2d18d0-9496-4be9-851b-c0f0d44cf0ea" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fce3f67d-0355-4e29-8e51-4d227aadb158" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5722ec65-393e-49db-a1b5-f5ee5b8111a5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="23b9777a-c350-4a36-b558-9f63b08690ab" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="bb1fa31f-d835-48ee-8865-5af4377093a1" name="_speed" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="0306258d-2014-4cbd-9345-da6399f36a29" />
@@ -3069,6 +3141,24 @@
             <elementDefinition Id="0ddf1d60-f43e-4251-8dd1-8302f08cfef6" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association Id="e029dff6-108e-4331-a6e8-442316c13434" isDerived="false" sourceEndRoleName="← Uses" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="75bcb8c9-f512-47d1-8bdd-723a756a2e2c" LastKnownName="Animator" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="be5f9b63-328e-46e3-95a5-06d130d81de3" name="← Uses" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="418f8bdf-4a31-4b53-8572-3c5afdb25105" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7f08b1fb-87a4-4218-82d3-163f9e9e052f" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0cf413f8-a9b4-4333-8b48-e1192e3a2bfe" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4ac006ba-acf0-470b-8dd8-996f4d502fb6" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="b1fa8c55-ad89-43a3-b64a-d053d387244f" name="IsHit" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="423a3b51-d89b-44df-bf20-42159f193dde" />
@@ -4213,6 +4303,24 @@
             <elementDefinition Id="0fdb6e28-d799-42f6-863f-3ad913d089eb" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association Id="bf1262f4-6bf4-4d53-b76e-6d0fa8618964" isDerived="false" sourceEndRoleName="← Uses" targetEndRoleName="Animator" isLeaf="false" isAbstract="false">
+            <classMoniker Id="75bcb8c9-f512-47d1-8bdd-723a756a2e2c" LastKnownName="Animator" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="199d2144-adb1-4965-8af6-db23f327109e" name="← Uses" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a932f78e-626d-4d7d-a033-0e8ff3c9f1a2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f8265a33-73e1-447d-b615-aa1b8b1e8312" name="Animator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5c587389-b0dd-456f-bc5f-44ceae10277d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2b265321-d8ca-4d05-ade1-ec7e8a44d477" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="d752ea4c-ebfd-4886-9440-fe25dd9354d9" name="_spriteSheet" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="3317d09a-1a94-432b-a3c2-0340e13c05f9" />

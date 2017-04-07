@@ -1947,6 +1947,46 @@
               LastKnownLocation="UML.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="d6eaaa19-583a-40aa-940d-cce20869c747"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName="← Uses"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1ba2aaff-0637-41d8-a610-1b5f0a0303c3"
+              LastKnownName="Animator"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f19b92e0-cd46-4816-9f83-827984585e2f"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="836bc5aa-2e57-4495-9758-cd92c1c43f11"
+                  name="← Uses"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="855dd272-1004-4d72-b9be-2397c068bf4f"
@@ -4809,6 +4849,46 @@
               LastKnownLocation="UML.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="01c8a546-5033-4b49-a050-50b31420720e"
+            isDerived="false"
+            sourceEndRoleName="← Uses"
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1ba2aaff-0637-41d8-a610-1b5f0a0303c3"
+              LastKnownName="Animator"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1c3f5b1d-3eb5-4846-990b-137f4181db99"
+                  name="← Uses"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5a3d0904-2f95-45d1-ab62-342d5ab9371f"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="a8342134-e0a9-4eed-9e59-8a672288227d"
@@ -5526,6 +5606,46 @@
               LastKnownLocation="UML.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="e103a8dd-7fb8-4dcb-a75f-39c890ee08c5"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName="← Uses"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1ba2aaff-0637-41d8-a610-1b5f0a0303c3"
+              LastKnownName="Animator"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1a7ef8ad-d63b-42be-92a9-a42925ddca8f"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4256f5ef-1232-4faf-91e1-29ca3fbe4504"
+                  name="← Uses"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="15cc980e-865c-4eb7-b656-a7c4dfa0c1df"
@@ -6166,6 +6286,46 @@
               LastKnownLocation="UML.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="23b9777a-c350-4a36-b558-9f63b08690ab"
+            isDerived="false"
+            sourceEndRoleName="← Uses"
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1ba2aaff-0637-41d8-a610-1b5f0a0303c3"
+              LastKnownName="Animator"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2f2d18d0-9496-4be9-851b-c0f0d44cf0ea"
+                  name="← Uses"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5722ec65-393e-49db-a1b5-f5ee5b8111a5"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="0306258d-2014-4cbd-9345-da6399f36a29"
@@ -6465,6 +6625,46 @@
               LastKnownLocation="UML.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="4ac006ba-acf0-470b-8dd8-996f4d502fb6"
+            isDerived="false"
+            sourceEndRoleName="← Uses"
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1ba2aaff-0637-41d8-a610-1b5f0a0303c3"
+              LastKnownName="Animator"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="418f8bdf-4a31-4b53-8572-3c5afdb25105"
+                  name="← Uses"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0cf413f8-a9b4-4333-8b48-e1192e3a2bfe"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="423a3b51-d89b-44df-bf20-42159f193dde"
@@ -7983,6 +8183,47 @@
               LastKnownLocation="UML.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="2b265321-d8ca-4d05-ade1-ec7e8a44d477"
+            isDerived="false"
+            sourceEndRoleName="← Uses"
+            targetEndRoleName="Animator"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1ba2aaff-0637-41d8-a610-1b5f0a0303c3"
+              LastKnownName="Animator"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a932f78e-626d-4d7d-a033-0e8ff3c9f1a2"
+                  name="← Uses"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5c587389-b0dd-456f-bc5f-44ceae10277d"
+                  name="Animator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="3317d09a-1a94-432b-a3c2-0340e13c05f9"
