@@ -63,7 +63,7 @@ namespace SuperMarioClone
             switch (_state)
             {
                 case CameraState.RightAlign:
-                    if (focusPos.X - _viewport.Width / 2 + _cameraMargin > Global.Instance.MainGame.currentLevel.Width - 289)
+                    if (focusPos.X - _viewport.Width / 2 + _cameraMargin < Global.Instance.MainGame.currentLevel.Width - 289)
                     {
                         _state = CameraState.Follow;
                     }
@@ -96,7 +96,7 @@ namespace SuperMarioClone
             switch (_state)
             {
                 case CameraState.RightAlign:
-                    newX = Global.Instance.MainGame.currentLevel.Width - 289;
+                    newX = Global.Instance.MainGame.currentLevel.Width - 295;
                     break;
                 case CameraState.LeftAlign:
                     newX = -289;
@@ -131,7 +131,7 @@ namespace SuperMarioClone
 
             Position = new Vector2(newX, newY);
             _prevPos = focusPos;
-            Console.WriteLine(focusPos.Y);
+            Console.WriteLine(_state.ToString("F"));
         }
 
         /// <summary>

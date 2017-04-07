@@ -1,4 +1,4 @@
-Args: 200, 40, 300
+Args: 139, 40, 300
 
 
 //Transgender Floors, dont judge them or call them a helic0pter
@@ -16,6 +16,7 @@ Floor: 32, 29, 2, 8
 //Essential floors, bottom and left
 Floor: -1, -50, 1, 100
 Floor: 0, 36, 34, 4
+Floor: 140, 20, 1, 30
 
 //Coins
 Coin: 77, 32

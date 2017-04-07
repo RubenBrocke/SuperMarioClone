@@ -1,4 +1,4 @@
-Args: 200, 40, 300
+Args: 135, 40, 300
 
 
 //Transfloors
@@ -17,6 +17,7 @@ Floor: 64, 34, 4, 2
 Floor: -1, 20, 1, 30
 Floor: 0, 36, 35, 10
 Floor: 86, 36, 50, 10
+Floor: 136, 20, 1, 30
 
 //Coins
 Coin: 3, 30

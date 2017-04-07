@@ -47,7 +47,7 @@ namespace SuperMarioClone
             //Properties and private fields are set
             GameObjects = new List<GameObject>();
             Time = timerLength;
-            Width = width;
+            Width = width - 200;
             Height = height;
 
             _timerTimer = new Timer(DecreaseTime);
