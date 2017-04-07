@@ -1770,9 +1770,9 @@
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="da19a574-7200-4633-a86b-ca222801f18b"
-                LastKnownName="bool"
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
                 LastKnownLocation="UML.uml" />
             </type_NamedElement>
           </property>
@@ -7222,9 +7222,9 @@
             aggregation="None"
             isComposite="false">
             <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="da19a574-7200-4633-a86b-ca222801f18b"
-                LastKnownName="bool"
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
                 LastKnownLocation="UML.uml" />
             </type_NamedElement>
           </property>
@@ -7281,7 +7281,7 @@
           <association
             Id="7a5c853d-02a2-406d-a8d6-5623bebadf49"
             isDerived="false"
-            sourceEndRoleName="GraphicalUserInterface"
+            sourceEndRoleName="Uses ↓    "
             targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
@@ -7293,7 +7293,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="7edce9c3-8c99-40e7-9239-afb2959229d9"
-                  name="GraphicalUserInterface"
+                  name="Uses ↓    "
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -7604,6 +7604,44 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="025b9c17-0e19-4e4d-8b52-04339167aed4"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f23bd36d-96cb-4474-8de1-9bb0e85c1c78"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName="←  Has"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="e78508ef-3812-47d2-85cd-f1cc0bc616ce"
+              LastKnownName="Sound"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e7dfb2c5-008c-4db3-8ba8-dc947989849d"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b48c28eb-2aa2-4aec-bf1f-661911a5d576"
+                  name="←  Has"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -8735,47 +8773,6 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
-        <targetEnds>
-          <association
-            Id="0f889bcb-aa67-41a8-a4f8-cb79f38fda6d"
-            isDerived="false"
-            sourceEndRoleName="Sound"
-            targetEndRoleName="MainGame"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="3349a72a-bb03-449c-b2b0-41d0a77cfdb9"
-              LastKnownName="MainGame"
-              LastKnownLocation="UML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="c93c7b9f-47e2-447b-949d-0cdb1ce71809"
-                  name="Sound"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="ea619dd4-b1da-4e8c-88d6-4a67c5089bc4"
-                  name="MainGame"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="edd15fc9-290a-4e75-b79c-87fe72e7304c"

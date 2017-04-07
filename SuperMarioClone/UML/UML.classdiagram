@@ -911,7 +911,7 @@
           <property Id="b483e5e2-52a3-4217-9f2d-ecf7b90f95a5" name="IsSolid" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="e4403475-ebca-44d9-85f1-44709478428c" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="54b164fa-f43a-4fa4-807e-d4fa5d27b521" LastKnownName="bool" />
+              <referencedTypeMoniker Id="fde1c8ea-f388-4054-b49d-d3c612b99e8e" LastKnownName="Boolean" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -3595,7 +3595,7 @@
           <property Id="d92bb4f7-756b-439c-a84c-f5d8dfc8a854" name="WeirdSounds" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="9526753a-3a43-4d5f-850a-ebf83c0bda3f" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="54b164fa-f43a-4fa4-807e-d4fa5d27b521" LastKnownName="bool" />
+              <referencedTypeMoniker Id="b2676afd-f25f-4fa8-8aea-700b0ca52296" LastKnownName="Boolean" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -3658,11 +3658,11 @@
       <class Id="58f786be-9080-42a7-bf24-5b95a5922936" name="GraphicalUserInterface" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="84b9eb8f-23b6-4b93-9efb-b1e80277f828" />
         <targetEnds>
-          <association Id="45e0d25e-36f6-4741-91f8-db91c4a8c314" isDerived="false" sourceEndRoleName="GraphicalUserInterface" targetEndRoleName="" isLeaf="false" isAbstract="false">
+          <association Id="45e0d25e-36f6-4741-91f8-db91c4a8c314" isDerived="false" sourceEndRoleName="Uses ↓    " targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="599c0a37-89c6-415d-b899-79cde890c93a" LastKnownName="Mario" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="aebd0690-3c6f-4ad2-9429-710a3d5e09b5" name="GraphicalUserInterface" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                <memberEnd Id="aebd0690-3c6f-4ad2-9429-710a3d5e09b5" name="Uses ↓    " isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
                   <elementDefinition Id="7edce9c3-8c99-40e7-9239-afb2959229d9" />
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -3876,6 +3876,22 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="b4b58bb4-2866-4a92-9697-2c5854475f53" />
+          </association>
+          <association Id="d7fcd28e-0eaa-461c-bfe0-39969ee34d65" isDerived="false" sourceEndRoleName="" targetEndRoleName="←  Has" isLeaf="false" isAbstract="false">
+            <classMoniker Id="906249a6-d330-4e0f-83f4-ed58ffd24575" LastKnownName="Sound" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="72bf4c81-7f7b-4402-b4b6-d8601f51f555" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e7dfb2c5-008c-4db3-8ba8-dc947989849d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d89f95ca-a826-4f3f-b81b-819a0a48a16a" name="←  Has" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b48c28eb-2aa2-4aec-bf1f-661911a5d576" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f23bd36d-96cb-4474-8de1-9bb0e85c1c78" />
           </association>
         </targetEnds>
         <ownedAttributesInternal>
@@ -4645,32 +4661,9 @@
         <elementDefinition Id="d06e30d3-bbff-4b0a-98fc-6772796bcd39" />
       </referencedType>
     </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="54b164fa-f43a-4fa4-807e-d4fa5d27b521" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
-        <elementDefinition Id="da19a574-7200-4633-a86b-ca222801f18b" />
-      </referencedType>
-    </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
       <class Id="906249a6-d330-4e0f-83f4-ed58ffd24575" name="Sound" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="e78508ef-3812-47d2-85cd-f1cc0bc616ce" />
-        <targetEnds>
-          <association Id="bf35d1c9-497c-4b58-b050-750cbdeeff43" isDerived="false" sourceEndRoleName="Sound" targetEndRoleName="MainGame" isLeaf="false" isAbstract="false">
-            <classMoniker Id="46f08f54-d901-45a6-b65f-7d2836f717b0" LastKnownName="MainGame" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="2dbbc843-435d-4e79-bc63-e2ba9e8ea0fc" name="Sound" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="c93c7b9f-47e2-447b-949d-0cdb1ce71809" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="d797a1cf-d935-4a07-9a20-91f872898310" name="MainGame" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="ea619dd4-b1da-4e8c-88d6-4a67c5089bc4" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="0f889bcb-aa67-41a8-a4f8-cb79f38fda6d" />
-          </association>
-        </targetEnds>
         <ownedAttributesInternal>
           <property Id="48ff1120-7c7b-4c10-a96b-79564057f95a" name="_lastKeyboardState" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="edd15fc9-290a-4e75-b79c-87fe72e7304c" />
@@ -4733,6 +4726,16 @@
     <packageHasNamedElement>
       <referencedType Id="bda62dc8-7a76-482b-8ba6-cc07eb7a83d5" name="object" isAbstract="false" isLeaf="false" cachedFullName="object">
         <elementDefinition Id="efbdc98f-11c7-4166-96b5-b6eb5d401da5" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="fde1c8ea-f388-4054-b49d-d3c612b99e8e" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b2676afd-f25f-4fa8-8aea-700b0ca52296" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
