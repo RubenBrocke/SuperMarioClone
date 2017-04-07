@@ -84,11 +84,15 @@ namespace SuperMarioClone
                         _state = CameraState.RightAlign;
                     }
                     break;
+                default:
+                    break;
             }
+
+            Origin = new Vector2(_viewport.Width / 2, _viewport.Height);
 
             float newX = Position.X;
             float newY = Position.Y;
-
+            //Sets camera position according to state
             switch (_state)
             {
                 case CameraState.RightAlign:
@@ -110,8 +114,9 @@ namespace SuperMarioClone
                     {
                         newX = focusPos.X - _viewport.Width / 2;
                     }
-                    Origin = new Vector2(_viewport.Width / 2, _viewport.Height);
-                    break;               
+                    break;
+                default:
+                    break;
             }
 
             //Check y to see if the camera has to be moved upwards
