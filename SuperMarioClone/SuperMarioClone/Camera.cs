@@ -23,6 +23,7 @@ namespace SuperMarioClone
         private float _cameraSpeed;
         private Vector2 _prevPos;
         private int _cameraMargin;
+        private int _veritcalCameraMargin;
 
         //Enumeration
         public enum CameraState
@@ -47,6 +48,7 @@ namespace SuperMarioClone
             _cameraSpeed = 10;
             _prevPos = new Vector2(0, 0);
             _cameraMargin = 25;
+            _veritcalCameraMargin = 464;
         }
 
         /// <summary>
@@ -84,33 +86,47 @@ namespace SuperMarioClone
                     break;
             }
 
+            float newX = Position.X;
+            float newY = Position.Y;
+
             switch (_state)
             {
                 case CameraState.RightAlign:
-                    Position = new Vector2(Global.Instance.MainGame.currentLevel.Width - 289, -100);
-                    Origin = new Vector2(_viewport.Width / 2, _viewport.Height);
+                    newX = Global.Instance.MainGame.currentLevel.Width - 289;
                     break;
                 case CameraState.LeftAlign:
-                    Position = new Vector2(-289, -100);
-                    Origin = new Vector2(_viewport.Width / 2, _viewport.Height);
+                    newX = -289;
                     break;
                 case CameraState.Follow:
                     if (Position.X < focusPos.X - _viewport.Width / 2 - _cameraSpeed)
                     {
-                        Position = new Vector2(Position.X + _cameraSpeed, -100);
+                        newX = Position.X + _cameraSpeed;
                     }
                     else if (Position.X > focusPos.X - _viewport.Width / 2 + _cameraSpeed)
                     {
-                        Position = new Vector2(Position.X - _cameraSpeed, -100);
+                        newX = Position.X - _cameraSpeed;
                     }
                     else
                     {
-                        Position = new Vector2(focusPos.X - _viewport.Width / 2, -100); //Y = _pos.Y - 534 to follow player sort of
+                        newX = focusPos.X - _viewport.Width / 2;
                     }
                     Origin = new Vector2(_viewport.Width / 2, _viewport.Height);
                     break;               
             }
+
+            //Check y to see if the camera has to be moved upwards
+            if (focusPos.Y < _veritcalCameraMargin)
+            {
+                newY = focusPos.Y - 566;
+            }
+            else
+            {
+                newY = -100;
+            }
+
+            Position = new Vector2(newX, newY);
             _prevPos = focusPos;
+            Console.WriteLine(focusPos.Y);
         }
 
         /// <summary>
