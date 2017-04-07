@@ -1,21 +1,18 @@
 # SuperMarioClone
 
-TODO:
--	Je begint met drie levens, als die op zijn is het “game over”
-- Comments schrijven
-- UML bijwerken
-- Camera fixen
+Controls:
+-A to move left
+-D to move right
+-Space to jump
+-S to crouch
 
+-Up arrow to raise the background music volume
+-Down arrow to lower the background music volume
+-Home button to switch between normal sound effects and weird sound effects
 
-FINISHED
-- Mario kan niet van level veranderen als hij groot is FINISHED
--	Uiteraard moet het ontwerp aan alle kwalitetiseisen voldoen die je in het blok hebt geleerd (denk bijvoorbeeld aan: Responsibility driven design) FINISHED
--	Collision detection mag op bounding rectangles gebeuren (hoeft dus niet pixel perfect te zijn) FINISHED
--	Het level wordt uit een levelfile gelezen (aanpassingen in die file zijn zichtbaar in het level ZONDER een recompile van de code) FINISHED
--	Het spel moet states bijhouden/gebruiken waarin het zich kan bevinden FINISHED
--	Je moet muntjes kunnen oppakken (score bijhouden) FINISHED
--	Mario en de vijanden moeten animeren (spritesheets) FINISHED
--	Je moet een mushroom kunnen pakken om groter te worden FINISHED
--	Het spel mag in een window draaien (niet fullscreen) FINISHED 
--	Maak ook een UnitTest project waarin je een zo’n hoog mogelijke code coverage hebt WORKING ON IT/PARTLY FINISHED
--	Je begint met een simpel menu van waaruit je een spel kan starten FINISHED
+-Esc to exit the game
+
+-Press G, I and B simultaneously to give Mario 10 coins for each update cycle, this is a good way to give yourself lots of lives so you won't go Game Over as soon
+
+Note:
+-When you go Game Over you have to restart the game to be able to play again
