@@ -9,18 +9,28 @@ using System.Threading.Tasks;
 
 namespace SuperMarioClone
 {
-    class FallingSpike : GameObject, IMovable
+    public class FallingSpike : GameObject, IMovable
     {
+        //Implemention of IMovable
         public float VelocityX { get; protected set; }
         public float VelocityY { get; private set; }
         public float JumpVelocity { get; private set; }
         public float Gravity { get; private set; }
+        
+        //Other properties and variables
         public Rectangle Hitbox { get; set; }
         public Rectangle FallHitbox { get; set; }
+
         public Vector2 StartPosition;
-        private bool _goFall;
+        public bool _goFall;
 
-
+        /// <summary>
+        /// Constructor for FallingSpike, sets the position of the FallingSpike using the GridSize and sets its Sprite
+        /// </summary>
+        /// <param name="x">X position of the FallingSpike</param>
+        /// <param name="y">Y position of the FallingSpike</param>
+        /// <param name="level">Level the FallingSpike should be in</param>
+        /// <param name="contentManager">ContentManager used to load Sprite</param>
         public FallingSpike(int x, int y, Level level, ContentManager contentManager) : base()
         {
             StartPosition = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
@@ -37,7 +47,7 @@ namespace SuperMarioClone
         public override void Update()
         {
             Mario m = Global.Instance.MainGame.mario;
-            //Checks if mario is beneath the spike
+            //Checks if Mario is beneath the spike
             CheckFall(m);
 
             if (_goFall)
@@ -51,13 +61,13 @@ namespace SuperMarioClone
                 //Update position
                 UpdatePosition();
 
-                //Check if mario gets hit
+                //Check if Mario gets hit
                 CheckHit(m);
             }
         }
 
         /// <summary>
-        /// Updates Shell's Hitbox to match the current Position
+        /// Updates FallingSpike's Hitbox to match the current Position
         /// </summary>
         private void UpdateHitbox()
         {
@@ -65,7 +75,7 @@ namespace SuperMarioClone
         }
 
         /// <summary>
-        /// Adds Gravity to Shell's vertical velocity
+        /// Adds Gravity to FallingSpike's vertical velocity
         /// </summary>
         private void AddGravity()
         {
@@ -74,7 +84,7 @@ namespace SuperMarioClone
 
 
         /// <summary>
-        /// Updates Shell's current Position using its velocity
+        /// Updates FallingSpike's current Position using its velocity
         /// </summary>
         private void UpdatePosition()
         {
@@ -82,10 +92,10 @@ namespace SuperMarioClone
         }
 
         /// <summary>
-        /// Checks if Shell should move or hit Mario instead
+        /// Checks if FallingSpike hits Mario
         /// </summary>
-        /// <param name="mario">Used to check if Mario jumped on top of the Shell or hit the side</param>
-        public void CheckHit(Mario mario)
+        /// <param name="mario">Used to check if Mario hits the FallingSpike</param>
+        private void CheckHit(Mario mario)
         {
             if (mario.Hitbox.Intersects(Hitbox))
             {
@@ -93,7 +103,11 @@ namespace SuperMarioClone
             }
         }
 
-        public void CheckFall(Mario mario)
+        /// <summary>
+        /// Check if the FallingSpike should fall
+        /// </summary>
+        /// <param name="mario">Used to check if Mario stands under the FallingSpike</param>
+        private void CheckFall(Mario mario)
         {
             if (mario.Hitbox.Intersects(FallHitbox))
             {
@@ -101,6 +115,9 @@ namespace SuperMarioClone
             }
         }
 
+        /// <summary>
+        /// Resets the position of the FallingSpike
+        /// </summary>
         public void ResetSpike()
         {
             Position = StartPosition;

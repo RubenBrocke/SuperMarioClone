@@ -155,7 +155,7 @@ namespace SuperMarioClone
                 else
                 {
                     gameObject.Draw(spriteBatch);
-
+                    //Resets the FallingSpike if it is out of view
                     FallingSpike fallingSpike = (FallingSpike)gameObject;
                     if (gameObject is FallingSpike)
                     {

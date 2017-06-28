@@ -125,4 +125,4 @@ CoinBlock: 112, 32, 1
 MysteryBlock: 63, 33, Coin
 MysteryBlock: 29, 31, Coin
 MysteryBlock: 55, 29, Mushroom
-MysteryBlock: 136, 29, LevelReader, 0
+MysteryBlock: 136, 29, LevelReader, 2
