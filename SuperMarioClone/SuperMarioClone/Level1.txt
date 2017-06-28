@@ -70,6 +70,9 @@ CloudBlock: 120, 27
 CloudBlock: 121, 27
 CloudBlock: 122, 27
 
+StoneBlock: 12, 29
+StoneBlock: 13, 29
+StoneBlock: 14, 29
 StoneBlock: 36, 29
 StoneBlock: 36, 30
 StoneBlock: 36, 31
@@ -107,6 +110,9 @@ StoneBlock: 64, 33
 StoneBlock: 64, 34
 StoneBlock: 64, 35
 
+FallingSpike: 12, 30
+FallingSpike: 13, 30
+FallingSpike: 14, 30
 CoinBlock: 15, 31, 0
 CoinBlock: 16, 31, 0
 CoinBlock: 17, 31, 0

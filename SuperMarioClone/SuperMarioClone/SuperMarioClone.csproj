@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Animator.cs" />
     <Compile Include="ArgumentResolver.cs" />
+    <Compile Include="FallingSpike.cs" />
     <Compile Include="Sound.cs" />
     <Compile Include="Camera.cs" />
     <Compile Include="CloudBlock.cs" />
