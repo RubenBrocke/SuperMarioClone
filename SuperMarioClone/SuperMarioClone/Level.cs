@@ -60,7 +60,7 @@ namespace SuperMarioClone
                 _timerTimer.Change(0, 1000);
             }
 
-            
+
         }
 
         /// <summary>
@@ -155,8 +155,18 @@ namespace SuperMarioClone
                 else
                 {
                     gameObject.Draw(spriteBatch);
+
+                    FallingSpike fallingSpike = (FallingSpike)gameObject;
+                    if (gameObject is FallingSpike)
+                    {
+                        Rectangle rect = new Rectangle((int)fallingSpike.StartPosition.X, (int)fallingSpike.StartPosition.Y, 32, 32);
+                        if (!rect.Intersects(Global.Instance.MainGame.camera.GetBounds()))
+                        {
+                            fallingSpike.ResetSpike();
+                        }
+                    }
                 }
-               
+
             }
         }
 

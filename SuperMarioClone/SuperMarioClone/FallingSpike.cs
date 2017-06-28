@@ -17,12 +17,14 @@ namespace SuperMarioClone
         public float Gravity { get; private set; }
         public Rectangle Hitbox { get; set; }
         public Rectangle FallHitbox { get; set; }
+        public Vector2 StartPosition;
         private bool _goFall;
 
 
         public FallingSpike(int x, int y, Level level, ContentManager contentManager) : base()
         {
-            Position = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
+            StartPosition = new Vector2(x * Global.Instance.GridSize, y * Global.Instance.GridSize);
+            Position = StartPosition;
             CurrentLevel = level;
             Hitbox = new Rectangle((int)Position.X, (int)Position.Y, Global.Instance.GridSize, Global.Instance.GridSize);
             FallHitbox = new Rectangle((int)Position.X, (int)Position.Y, Global.Instance.GridSize, level.Height);
@@ -97,6 +99,13 @@ namespace SuperMarioClone
             {
                 _goFall = true;
             }
+        }
+
+        public void ResetSpike()
+        {
+            Position = StartPosition;
+            _goFall = false;
+            VelocityY = 0;
         }
     }
 }
