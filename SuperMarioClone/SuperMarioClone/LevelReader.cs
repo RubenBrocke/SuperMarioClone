@@ -35,7 +35,7 @@ namespace SuperMarioClone
         {            
             StreamReader lvlReader = new StreamReader(@"Level" + levelNumber + ".txt");
             string line;
-            Level level = null;
+            Level level = new Level();
 
             line = lvlReader.ReadLine();
             if (line.Contains("Args:") && !line.Contains("//"))
